@@ -1,0 +1,39 @@
+name: Build And Deploy
+
+on:
+    push:
+        branches: main
+        paths-ignore:
+            - "*.md"
+    workflow_dispatch:
+
+jobs:
+    setup:
+        name: project_setup
+        runs-on: ubuntu-latest
+        steps:
+            - uses: actions/checkout@v4
+            - uses: actions/setup-node@v3
+              with:
+                  node-version: 18
+                  cache: "npm"
+            - run: npm ci
+    build:
+        needs: setup
+        name: project_build
+        runs-on: ubuntu-latest
+        steps:
+            - run: npm run build
+
+    deploy:
+        needs: build
+        name: deploy_project
+        runs-on: ubuntu-latest
+        permissions:
+            contents: write
+            pages: write
+        steps:
+            - uses: peaceiris/actions-gh-pages@v3
+              with:
+                  github_token: ${{ secrets.GITHUB_TOKEN }}
+                  publish_dir: "dist"

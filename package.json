@@ -1,0 +1,99 @@
+{
+	"name": "frac-gen",
+	"version": "0.0.0",
+	"private": true,
+	"description": "react app to generate fractals",
+	"keywords": [
+		"react",
+		"vite",
+		"typescript",
+		"tailwindcss",
+		"frcatals",
+		"geometry",
+		"svg",
+		"node.js"
+	],
+	"homepage": "https://xenitane.github.io/frcatals",
+	"bugs": {
+		"url": "https://www.github.com/xenitane/fractals/issues"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://www.github.com/xenitane/fractals.git"
+	},
+	"license": "GPL-3.0-or-later",
+	"author": {
+		"name": "xenitane"
+	},
+	"contributors": [
+		{
+			"name": "dependabot[bot]"
+		},
+		{
+			"name": "imgbot[bot]"
+		},
+		{
+			"name": "github-actions[bot]"
+		}
+	],
+	"type": "module",
+	"scripts": {
+		"build": "tsc && vite build",
+		"dev": "vite",
+		"format": "prettier --write \"**/*.{js,jsx,ts,tsx,json,css,sass,scss,less,html,md,yml,yaml}\"",
+		"lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
+		"preview": "vite preview",
+		"type-check": "tsc --noEmit"
+	},
+	"dependencies": {
+		"@preact/signals-react": "^1.3.8",
+		"million": "^2.6.4",
+		"react": "^18.2.0",
+		"react-dom": "^18.2.0",
+		"react-icons": "^4.12.0",
+		"react-router-dom": "^6.21.1",
+		"web-vitals": "^3.5.0"
+	},
+	"devDependencies": {
+		"@types/eslint": "^8.56.0",
+		"@types/node": "^20.10.5",
+		"@types/react": "^18.2.43",
+		"@types/react-dom": "^18.2.17",
+		"@types/react-router-dom": "^5.3.3",
+		"@typescript-eslint/eslint-plugin": "^6.14.0",
+		"@typescript-eslint/parser": "^6.14.0",
+		"@vitejs/plugin-react-swc": "^3.5.0",
+		"autoprefixer": "^10.4.16",
+		"clsx": "^2.0.0",
+		"eslint": "^8.55.0",
+		"eslint-config-prettier": "^9.1.0",
+		"eslint-plugin-jsx-a11y": "^6.8.0",
+		"eslint-plugin-prettier": "^5.1.2",
+		"eslint-plugin-react-hooks": "^4.6.0",
+		"eslint-plugin-react-refresh": "^0.4.5",
+		"postcss": "^8.4.32",
+		"prettier": "^3.1.1",
+		"prettier-plugin-eslint": "^1.0.2",
+		"prettier-plugin-tailwindcss": "^0.5.9",
+		"tailwind-merge": "^2.2.0",
+		"tailwindcss": "^3.4.0",
+		"ts-node": "^10.9.2",
+		"typescript": "^5.2.2",
+		"vite": "^5.0.8"
+	},
+	"engines": {
+		"node": ">=16"
+	},
+	"browserList": {
+		"production": [
+			">0.2%",
+			"not dead",
+			"not op_mini all"
+		],
+		"development": [
+			"last 1 chrome version",
+			"last 1 firefox version",
+			"last 1 safari version"
+		]
+	}
+}
