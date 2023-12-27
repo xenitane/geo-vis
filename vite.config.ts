@@ -13,6 +13,7 @@ const logger: Logger = createLogger("info", {
 
 // https://vitejs.dev/config/
 export default defineConfig({
+	base: "/fractals/",
 	esbuild: {
 		include: "src/**/*.{ts,tsx,js,jsx}",
 		loader: "tsx",
