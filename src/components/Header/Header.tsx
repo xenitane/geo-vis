@@ -14,7 +14,7 @@ const Header = () => {
 
 	return (
 		<header className="flex h-28 items-center justify-between px-8 pb-4 pt-8">
-			<NavLink to="/">
+			<NavLink to="/fractals">
 				<div className="flex items-center gap-6">
 					<img src={logo} alt="logo" className="inline-block h-16" />
 					<span className="text-[60px]">Fractals</span>
