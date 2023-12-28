@@ -9,7 +9,6 @@ on:
 
 jobs:
     setup:
-        name: project_setup
         runs-on: ubuntu-latest
         permissions:
             contents: write
