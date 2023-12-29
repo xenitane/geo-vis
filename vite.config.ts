@@ -65,7 +65,6 @@ export default defineConfig({
 	publicDir: resolve(process.cwd(), "public"),
 	build: {
 		outDir: resolve(process.cwd(), "dist"),
-		sourcemap: true,
 		minify: "esbuild",
 		target: "modules",
 		assetsInlineLimit: 4096,
