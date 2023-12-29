@@ -5,3 +5,9 @@
 :root {
 	font-family: "jetbrains mono", Courier, monospace;
 }
+
+#root {
+	position: relative;
+	min-height: 100vh;
+	overflow: hidden;
+}

@@ -4,6 +4,7 @@ import { Logger, createLogger, defineConfig } from "vite";
 import react from "@vitejs/plugin-react-swc";
 import { resolve } from "path";
 import million from "million/compiler";
+import { version, repository, author } from "./package.json";
 
 const root = resolve(process.cwd(), "src");
 const logger: Logger = createLogger("info", {
@@ -13,7 +14,7 @@ const logger: Logger = createLogger("info", {
 
 // https://vitejs.dev/config/
 export default defineConfig({
-	base: "/fractals/",
+	base: "/geo-vis",
 	esbuild: {
 		include: "src/**/*.{ts,tsx,js,jsx}",
 		loader: "tsx",
@@ -32,8 +33,12 @@ export default defineConfig({
 		transformer: "postcss",
 	},
 	define: {
-		"process.env.__APP_VERSION__": JSON.stringify((await import("./package.json")).version),
-		"process.env.themeKey": JSON.stringify("fractals-theme"),
+		"process.env": JSON.stringify({
+			__THEME_KEY__: "gv-theme",
+			__APP_VERSION__: version,
+			__GIT_REPO__: repository.url,
+			__USER_PROFILE__: author.url,
+		}),
 	},
 	plugins: [
 		react(),

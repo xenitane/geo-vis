@@ -1,11 +1,12 @@
+import { block } from "million/react";
 import { MdArrowBack } from "react-icons/md";
 import { NavLink } from "react-router-dom";
 
-const Error = () => {
+const Error = block(() => {
 	return (
 		<>
 			<div className="flex">
-				<NavLink to="/fractals" className="flex cursor-pointer items-center gap-4 px-2 text-[24px]">
+				<NavLink to="/geo-vis" className="flex cursor-pointer items-center gap-4 px-2 text-[24px]">
 					<MdArrowBack className="!text-[40px]" />
 				</NavLink>
 			</div>
@@ -19,5 +20,5 @@ const Error = () => {
 			</section>
 		</>
 	);
-};
+});
 export default Error;

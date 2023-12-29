@@ -21,7 +21,7 @@
 		"noFallthroughCasesInSwitch": true,
 
 		"esModuleInterop": false,
-		"types": ["vite/client", "node"],
+		"types": ["vite/client", "node", "react"],
 		"allowJs": false,
 		"allowSyntheticDefaultImports": true,
 		"forceConsistentCasingInFileNames": true,
@@ -38,6 +38,6 @@
 			"moduleResolution": "Bundler"
 		}
 	},
-	"include": ["src"],
+	"include": ["src", "@types"],
 	"references": [{ "path": "./tsconfig.node.json" }]
 }

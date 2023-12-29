@@ -2,7 +2,7 @@
 	"name": "frac-gen",
 	"version": "0.0.0",
 	"private": true,
-	"description": "react app to generate fractals",
+	"description": "react app to generate geometric visuals",
 	"keywords": [
 		"react",
 		"vite",
@@ -13,17 +13,18 @@
 		"svg",
 		"node.js"
 	],
-	"homepage": "https://xenitane.github.io/frcatals",
+	"homepage": "https://xenitane.github.io/geo-vis",
 	"bugs": {
-		"url": "https://www.github.com/xenitane/fractals/issues"
+		"url": "https://www.github.com/xenitane/geo-vis/issues"
 	},
 	"repository": {
 		"type": "git",
-		"url": "git+https://www.github.com/xenitane/fractals.git"
+		"url": "https://www.github.com/xenitane/geo-vis"
 	},
 	"license": "GPL-3.0-or-later",
 	"author": {
-		"name": "xenitane"
+		"name": "xenitane",
+		"url": "https://www.github.com/xenitane"
 	},
 	"contributors": [
 		{
@@ -69,6 +70,7 @@
 		"eslint-config-prettier": "^9.1.0",
 		"eslint-plugin-jsx-a11y": "^6.8.0",
 		"eslint-plugin-prettier": "^5.1.2",
+		"eslint-plugin-react": "^7.33.2",
 		"eslint-plugin-react-hooks": "^4.6.0",
 		"eslint-plugin-react-refresh": "^0.4.5",
 		"postcss": "^8.4.32",
