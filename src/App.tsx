@@ -1,28 +1,35 @@
-import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Home from "@/pages/Home";
-import Error from "@/pages/Error";
+import { Suspense, lazy } from "react";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+
+const Home = lazy(() => import("@/pages/Home"));
+const Error = lazy(() => import("@/pages/Error"));
+const Linear = lazy(() => import("@/pages/Linear"));
+
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import PageSkeleton from "@/components/PageSekleton";
 
 function App() {
 	return (
-		<BrowserRouter>
+		<Router>
 			<Header />
-			<main className="relative m-8">
-				<Routes>
-					<Route path="/geo-vis">
-						<Route index Component={Home} />
-						<Route path="linear-fractal/:fractalId" element={<div>Linear</div>} />
-						<Route path="*" Component={Error} />
-					</Route>
-				</Routes>
+			<main className="relative p-4">
+				<Suspense fallback={<PageSkeleton />}>
+					<Routes>
+						<Route path="/geo-vis">
+							<Route index Component={Home} />
+							<Route path="linear/:fracID" Component={Linear} />
+							<Route path="*" Component={Error} />
+						</Route>
+					</Routes>
+				</Suspense>
 			</main>
 			<Footer
 				appVresion={process.env.__APP_VERSION__ ?? "0.0.0"}
 				repo={process.env.__GIT_REPO__ ?? "https://www.github.com/xenitane/geo-vis"}
 				user={process.env.__USER_PROFILE__ ?? "https://www.github.com/xenitane"}
 			/>
-		</BrowserRouter>
+		</Router>
 	);
 }
 

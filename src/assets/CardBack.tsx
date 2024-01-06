@@ -1,4 +1,4 @@
-interface CardBGProps extends React.SVGProps<SVGAElement> {
+interface CardBGProps extends React.SVGProps<SVGElement> {
 	color1: string;
 	color2: string;
 }
@@ -9,8 +9,6 @@ const CardBack = ({ color1, color2, className }: CardBGProps) => {
 		<svg
 			id="visual"
 			viewBox="0 0 1000 1000"
-			width="1000"
-			height="1000"
 			xmlns="http://www.w3.org/2000/svg"
 			xmlnsXlink="http://www.w3.org/1999/xlink"
 			version="1.1"

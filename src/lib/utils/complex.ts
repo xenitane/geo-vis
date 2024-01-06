@@ -1,0 +1,50 @@
+export type Point = [number, number];
+
+export function multiply(a: Point, b: Point): Point {
+	return [a[0] * b[0] - a[1] * b[1], a[0] * b[1] + a[1] * b[0]];
+}
+
+export function add(a: Point, b: Point): Point {
+	return [a[0] + b[0], a[1] + b[1]];
+}
+export function subtract(a: Point, b: Point): Point {
+	return [a[0] - b[0], a[1] - b[1]];
+}
+
+export function real(a: Point): number {
+	return a[0];
+}
+export function imag(a: Point): number {
+	return a[1];
+}
+
+export function mod(a: Point): number {
+	return Math.sqrt(a[0] * a[0] + a[1] * a[1]);
+}
+
+export function arg(a: Point): number {
+	if (a[0] === 0) return (Math.PI * Math.sign(a[1])) / 2;
+	let angle = Math.atan(a[1] / a[0]);
+	if (a[0] > 0) return angle;
+	angle -= Math.PI;
+	return Math.sign(-a[1]) * angle;
+}
+
+export function compliment(a: Point): Point {
+	return [a[0], -a[1]];
+}
+
+export function divide(a: Point, b: Point | number): Point {
+	if (typeof b === "number") {
+		if (b === 0) throw new Error("division by zero not possible.");
+		return [a[0] / b, a[1] / b];
+	} else {
+		const modb = Math.pow(mod(b), 2);
+		if (modb === 0) throw new Error("division by zero not possible.");
+		else return divide(multiply(a, compliment(b)), modb);
+	}
+}
+
+export function rotate(v: Point, angle: number): Point {
+	return multiply(v, [Math.cos(angle), -Math.sin(angle)]);
+}

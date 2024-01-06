@@ -6,7 +6,7 @@ enum Theme {
 }
 
 const theme = signal<Theme>(
-	Theme[(localStorage.getItem(process.env.themeKey ?? "gv-theme") ?? Theme[Theme.system]) as keyof typeof Theme],
+	Theme[(localStorage.getItem(process.env.__THEME_KEY__ ?? "gv-theme") ?? Theme[Theme.system]) as keyof typeof Theme],
 );
 
 effect(() => {
@@ -15,6 +15,6 @@ effect(() => {
 	if (theme.value == Theme.system)
 		root.classList.add(window.matchMedia("(prefers-color-scheme: dark)").matches ? Theme[Theme.dark] : Theme[Theme.light]);
 	else root.classList.add(Theme[theme.value]);
-	localStorage.setItem(process.env.themeKey!, Theme[theme.value]);
+	localStorage.setItem(process.env.__THEME_KEY__ ?? "gv-theme", Theme[theme.value]);
 });
 export { theme, Theme };

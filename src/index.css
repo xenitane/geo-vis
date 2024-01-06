@@ -6,8 +6,21 @@
 	font-family: "jetbrains mono", Courier, monospace;
 }
 
+*::-webkit-scrollbar {
+	display: none;
+}
+* {
+	-ms-overflow-style: none;
+	scrollbar-width: none;
+}
 #root {
 	position: relative;
 	min-height: 100vh;
 	overflow: hidden;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+	-webkit-appearance: none;
+	margin: 0;
 }

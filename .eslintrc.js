@@ -1,6 +1,6 @@
 /** @type {import('eslint').Linter.Config} */
 
-module.exports = {
+export default {
 	root: true,
 	env: { browser: true, es2020: true, node: true, commonjs: true },
 	extends: [
@@ -49,7 +49,7 @@ module.exports = {
 	overrides: [
 		{
 			env: { node: true },
-			files: [".eslintrc.{js,cjs"],
+			files: [".eslintrc.js"],
 			parserOptions: { sourceType: "script" },
 		},
 	],

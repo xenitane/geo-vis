@@ -6,13 +6,14 @@ import { resolve } from "path";
 import million from "million/compiler";
 import { version, repository, author } from "./package.json";
 
-const root = resolve(process.cwd(), "src");
+const rootDir = resolve(process.cwd(), "src");
+const publicDir = resolve(process.cwd(), "public");
+const outDir = resolve(process.cwd(), "dist");
 const logger: Logger = createLogger("info", {
 	prefix: "[vite:logs]",
 	allowClearScreen: true,
 });
 
-// https://vitejs.dev/config/
 export default defineConfig({
 	base: "/geo-vis",
 	esbuild: {
@@ -30,7 +31,6 @@ export default defineConfig({
 	},
 	css: {
 		devSourcemap: true,
-		transformer: "postcss",
 	},
 	define: {
 		"process.env": JSON.stringify({
@@ -58,21 +58,14 @@ export default defineConfig({
 		host: "0.0.0.0",
 		hmr: true,
 	},
-	root: root,
+	root: rootDir,
 	resolve: {
-		alias: { "@/": `${root}/` },
+		alias: { "@/": `${rootDir}/` },
 	},
-	publicDir: resolve(process.cwd(), "public"),
+	publicDir,
 	build: {
-		outDir: resolve(process.cwd(), "dist"),
-		minify: "esbuild",
-		target: "modules",
-		assetsInlineLimit: 4096,
-		cssCodeSplit: true,
-		cssMinify: "esbuild",
+		outDir,
+		sourcemap: true,
 		manifest: true,
-		emptyOutDir: true,
-		copyPublicDir: true,
-		reportCompressedSize: true,
 	},
 });

@@ -1,12 +1,5 @@
-import { twMerge } from "tailwind-merge";
-import { clsx, ClassValue } from "clsx";
-
-export function cn(...cls: ClassValue[]): string {
-	return twMerge(clsx(cls));
-}
-
-export function toTitleCase(str: string): string {
-	return str.replace(/\w\S*/g, function (txt) {
-		return txt.charAt(0).toUpperCase() + txt.slice(1).toLowerCase();
-	});
-}
+import { toTitleCase } from "@/lib/utils/toTitleCase";
+import { cn } from "@/lib/utils/cn";
+import { rotate, add, subtract, mod, multiply, divide, compliment, real, imag, arg } from "@/lib/utils/complex";
+import { LinearRenderer } from "@/lib/utils/LinearRenderer";
+export { toTitleCase, cn, rotate, add, LinearRenderer, subtract, mod, multiply, divide, compliment, real, imag, arg };
