@@ -1,4 +1,4 @@
-import { Logo, SepLine } from "@/assets";
+import { Logo } from "@/assets";
 import { cn } from "@/lib/utils";
 import { IconType } from "react-icons";
 import { BsGithub } from "react-icons/bs";
