@@ -6,7 +6,7 @@ enum Theme {
 }
 
 const theme = signal<Theme>(
-	Theme[(localStorage.getItem(process.env.__THEME_KEY__ ?? "gv-theme") ?? Theme[Theme.system]) as keyof typeof Theme],
+	Theme[(localStorage.getItem(process.env.__THEME_KEY__ ?? "gv-theme") ?? Theme[Theme.light]) as keyof typeof Theme],
 );
 
 effect(() => {

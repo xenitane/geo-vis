@@ -9,12 +9,15 @@ const Card = lazy(() => import("@/components/Card"));
 export interface GeoSectionProps extends React.HTMLProps<HTMLElement> {
 	type: string;
 	gvList: string[];
+	id: string;
 }
 
-const GeoSection = ({ type, gvList }: GeoSectionProps) => {
+const GeoSection = ({ type, gvList, id }: GeoSectionProps) => {
 	return (
 		<section>
-			<h3 className="text-3xl">{toTitleCase(type)}</h3>
+			<h3 className="text-3xl" id={id}>
+				{toTitleCase(type)}
+			</h3>
 			<div className="py-8">
 				<Separator className="h-0.5" />
 			</div>

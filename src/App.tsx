@@ -18,7 +18,8 @@ function App() {
 					<Routes>
 						<Route path="/geo-vis">
 							<Route index Component={Home} />
-							<Route path="linear/:fracID" Component={Linear} />
+							<Route path="linear/:fracID" element={<Linear type="linear" />} />
+							<Route path="fill/:fracID" element={<Linear type="fill" />} />
 							<Route path="*" Component={Error} />
 						</Route>
 					</Routes>

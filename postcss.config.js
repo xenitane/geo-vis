@@ -2,7 +2,7 @@
 import tailwindConfig from "./tailwind.config.js";
 export default {
 	plugins: {
-		tailwindcss: {},
-		autoprefixer: tailwindConfig,
+		tailwindcss: tailwindConfig,
+		autoprefixer: {}
 	},
 };

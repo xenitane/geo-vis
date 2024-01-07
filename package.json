@@ -43,6 +43,7 @@
 		"dev": "vite",
 		"format": "prettier --write \"**/*.{js,jsx,ts,tsx,json,css,sass,scss,less,html,md,yml,yaml}\"",
 		"lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
+		"lint-fix": "eslint . --fix",
 		"preview": "vite preview",
 		"type-check": "tsc --noEmit"
 	},

@@ -11,7 +11,7 @@ export interface CardProps extends React.HTMLProps<HTMLDivElement> {
 
 const Card = ({ Image, text, uri }: CardProps) => {
 	return (
-		<div className="group relative aspect-square rounded-3xl bg-black transition-all duration-500 ease-in-out">
+		<div className="group relative aspect-square rounded-3xl bg-black transition-all duration-500 ease-in-out hover:drop-shadow-[0_8px_4px_rgba(0,0,0,0.15)]">
 			<CardBack
 				color1="#60f"
 				color2="#0c9"

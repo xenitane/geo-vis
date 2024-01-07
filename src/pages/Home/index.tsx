@@ -23,7 +23,7 @@ const Home = () => {
 		<article className="flex flex-col gap-8 py-2">
 			{fractaldata.map(({ type, list }) => (
 				<Suspense fallback={<GeoSecSkeleton />} key={type}>
-					<GeoSection type={type} gvList={list} />
+					<GeoSection id={type} type={type} gvList={list} />
 				</Suspense>
 			))}
 		</article>
