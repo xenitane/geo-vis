@@ -1,7 +1,8 @@
-import { SVGProps } from "@/types";
 import { cn } from "@/lib/utils";
+import { SVGProps } from "@/types";
+import { FC } from "react";
 
-const Logo = ({ fill, className }: SVGProps) => {
+const Logo: FC<SVGProps> = ({ fill, className }) => {
 	return (
 		<svg
 			xmlns="http://www.w3.org/2000/svg"

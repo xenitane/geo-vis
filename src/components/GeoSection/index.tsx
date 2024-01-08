@@ -1,5 +1,5 @@
 import { toTitleCase } from "@/lib/utils";
-import { Suspense, lazy } from "react";
+import { FC, Suspense, lazy } from "react";
 import { Logo } from "@/assets";
 import { Separator } from "@/components/ui/separator";
 import CardSkeleton from "../CardSkeleton";
@@ -13,7 +13,7 @@ interface GeoSectionProps extends HTMLProps {
 	objectList: Record<string, GeoObjInfo>;
 }
 
-const GeoSection = ({ sectionType, objectList, sectionId }: GeoSectionProps) => {
+const GeoSection: FC<GeoSectionProps> = ({ sectionType, objectList, sectionId }) => {
 	return (
 		<section>
 			<h3 className="text-3xl" id={sectionId}>

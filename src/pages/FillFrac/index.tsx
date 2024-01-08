@@ -1,12 +1,14 @@
-import FractalForm, { formSchema } from "@/components/FractalForm";
-import { FillRenderer } from "@/lib/utils";
 import { useRef } from "react";
-import { useParams } from "react-router-dom";
+import { FillRenderer } from "@/lib/utils";
+import { Navigate, useParams } from "react-router-dom";
+import FractalForm, { formSchema } from "@/components/FractalForm";
+import FillFractalRuleSet from "@/lib/rules/Fill";
 
 const FillFrac = () => {
-	const params = useParams();
-
+	const { fracID } = useParams();
 	const SVGRef = useRef<SVGSVGElement>(null);
+
+	if (!(fracID! in FillFractalRuleSet)) return <Navigate to="/geo-vis/404" />;
 
 	function SVGReset() {
 		SVGRef.current!.innerHTML = "";
@@ -14,7 +16,7 @@ const FillFrac = () => {
 
 	function handleSubmit(data: formSchema) {
 		SVGReset();
-		FillRenderer(SVGRef.current, { ...data, id: params.fraID });
+		FillRenderer(SVGRef.current!, { ...data, rules: FillFractalRuleSet[fracID!].rules });
 	}
 
 	function handleSave() {
@@ -24,7 +26,12 @@ const FillFrac = () => {
 	return (
 		<article className="flex gap-3 py-2">
 			<div className="flex w-1/3 justify-center">
-				<FractalForm handleSubmit={handleSubmit} SVGReset={SVGReset} maxDepth={10} handleSave={handleSave} />
+				<FractalForm
+					handleSubmit={handleSubmit}
+					SVGReset={SVGReset}
+					maxDepth={FillFractalRuleSet[fracID!].maxDepth}
+					handleSave={handleSave}
+				/>
 			</div>
 			<div className=" aspect-square w-2/3 bg-gray-300">
 				<svg

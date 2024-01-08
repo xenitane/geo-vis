@@ -19,17 +19,18 @@ function App() {
 					<Routes>
 						<Route path="/geo-vis">
 							<Route index Component={Home} />
-							<Route path="linear/:fracID" element={<LinearFrac />} />
-							<Route path="fill/:fracID" element={<FillFrac />} />
+							<Route path="linear/:fracID" Component={LinearFrac} />
+							<Route path="fill/:fracID" Component={FillFrac} />
 							<Route path="*" Component={Error} />
 						</Route>
+						<Route path="*" Component={Error} />
 					</Routes>
 				</Suspense>
 			</main>
 			<Footer
-				appVresion={process.env.__APP_VERSION__ ?? "0.0.0"}
-				repo={process.env.__GIT_REPO__ ?? "https://www.github.com/xenitane/geo-vis"}
-				user={process.env.__USER_PROFILE__ ?? "https://www.github.com/xenitane"}
+				appVersion={process.env.__APP_VERSION__!}
+				repo={process.env.__GIT_REPO__!}
+				user={process.env.__USER_PROFILE__!}
 			/>
 		</Router>
 	);

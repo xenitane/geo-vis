@@ -18,7 +18,7 @@ export function LinearRenderer(SVGRef: SVGSVGElement, { animate, colored, depth,
 			bounds[1][0] = Math.max(bounds[1][0], cursor[0]);
 			bounds[1][1] = Math.max(bounds[1][1], cursor[1]);
 		} else [...rules[symbol][2]!].forEach((s) => build(n - 1, s));
-	})(depth, "I");
+	})(depth + 1, "I");
 	const origin: Point = [(bounds[0][0] + bounds[1][0]) / 2, (bounds[0][1] + bounds[1][1]) / 2];
 	points.forEach((p) => {
 		p[0] -= origin[0];

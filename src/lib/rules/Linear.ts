@@ -14,7 +14,7 @@ const right90: LinearOperator = (p, f) => [p, rotate(f, -Math.PI / 2)];
 const LevyCCurveRules: LinearFractalInfo = {
 	name: "Levy C Curve",
 	rules: {
-		I: [false, moveForward, "FPPG"],
+		I: [false, doNothing, "FPPG"],
 		F: [false, moveForward, "FPPHN"],
 		G: [false, moveForward, "NHPPG"],
 		H: [false, moveForward, "NHPPHN"],
@@ -28,7 +28,7 @@ const LevyCCurveRules: LinearFractalInfo = {
 const DragonCurveRules: LinearFractalInfo = {
 	name: "Dragon Curve",
 	rules: {
-		I: [false, moveForward, "FPH"],
+		I: [false, doNothing, "FPH"],
 		F: [false, moveForward, "FPH"],
 		H: [false, moveForward, "FNH"],
 		P: [true, right90],
@@ -40,7 +40,7 @@ const DragonCurveRules: LinearFractalInfo = {
 const GosperCurveRules: LinearFractalInfo = {
 	name: "Gosper Curve",
 	rules: {
-		I: [false, moveForward, "FNHNNHPFPPFFPHN"],
+		I: [false, doNothing, "FNHNNHPFPPFFPHN"],
 		F: [false, moveForward, "FNHNNHPFPPFFPHN"],
 		H: [false, moveForward, "PFNHHNNHNFPPFPH"],
 		P: [true, right60],

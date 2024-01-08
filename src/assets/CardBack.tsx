@@ -1,4 +1,5 @@
 import { SVGProps } from "@/types";
+import { FC } from "react";
 
 interface CardBGProps extends SVGProps {
 	color1: string;
@@ -6,7 +7,7 @@ interface CardBGProps extends SVGProps {
 }
 
 // c1 = #60f c2= #0c9
-const CardBack = ({ color1, color2, className }: CardBGProps) => {
+const CardBack: FC<CardBGProps> = ({ color1, color2, className }) => {
 	return (
 		<svg
 			id="visual"

@@ -1,7 +1,8 @@
 import { SVGProps } from "@/types";
 import { cn } from "@/lib/utils";
+import { FC } from "react";
 
-const Levy = ({ className }: SVGProps) => {
+const Levy: FC<SVGProps> = ({ className }) => {
 	return (
 		<svg
 			width="100%"

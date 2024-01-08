@@ -1,3 +1,4 @@
+import { FC } from "react";
 import { IconType } from "react-icons";
 
 export enum Theme {
@@ -11,7 +12,7 @@ export type DIVProps = React.HTMLProps<HTMLDivElement>;
 export type HTMLProps = React.HTMLProps<HTMLElement>;
 
 export interface ProjectFooterLiType {
-	icon: IconType;
+	Icon: IconType;
 	text: string;
 	link: (repo: string) => string;
 }
@@ -21,23 +22,31 @@ export type LinearOperator = (p: Point, f: Point) => [Point, Point];
 
 export interface GeoObjInfo {
 	name: string;
-	Image?: (props: SVGProps) => JSX.Element;
+	Image?: FC<SVGProps>;
+	maxDepth: number;
 }
+type LinearFractalRule = [true, LinearOperator] | [false, LinearOperator, string];
 
 export interface LinearFractalOptions {
 	depth: number;
 	colored: boolean;
 	animate: boolean;
-	// id: string;
-	rules: Record<string, [boolean, LinearOperator, string?]>;
-}
-
-type LinearFractalRule = [true, LinearOperator] | [false, LinearOperator, string];
-
-export interface LinearFractalInfo extends GeoObjInfo {
-	maxDepth: number;
 	rules: Record<string, LinearFractalRule>;
 }
+
+export interface LinearFractalInfo extends GeoObjInfo {
+	rules: Record<string, LinearFractalRule>;
+}
+
+type FillFractalRule = [true, () => void] | [false, () => void, string];
+
+export interface FillFractalOptions {
+	depth: number;
+	colored: boolean;
+	animate: boolean;
+	rules: Record<string, FillFractalRule>;
+}
+
 export interface FillFractalInfo extends GeoObjInfo {
-	maxDepth: number;
+	rules: Record<string, FillFractalRule>;
 }

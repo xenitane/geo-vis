@@ -1,14 +1,15 @@
 import { SVGProps } from "@/types";
 import { CardBack, SepLine } from "@/assets";
 import { NavLink } from "react-router-dom";
+import { FC } from "react";
 
 interface CardProps extends SVGProps {
 	text: string;
 	uri: string;
-	Image: (props: SVGProps) => JSX.Element;
+	Image: FC<SVGProps>;
 }
 
-const Card = ({ Image, text, uri }: CardProps) => {
+const Card: FC<CardProps> = ({ Image, text, uri }) => {
 	return (
 		<div className="group relative aspect-square rounded-3xl bg-black transition-all duration-500 ease-in-out hover:drop-shadow-[0_8px_4px_rgba(0,0,0,0.15)]">
 			<CardBack

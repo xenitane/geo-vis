@@ -6,11 +6,12 @@ import { NavLink } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "@/components/ui/dropdown-menu";
 import { HTMLProps, Theme } from "@/types";
+import { FC } from "react";
 
 const handleSelect = (selectedTheme: keyof typeof Theme) => {
 	theme.value = Theme[selectedTheme];
 };
-const Header = ({ className }: HTMLProps) => {
+const Header: FC<HTMLProps> = ({ className }) => {
 	return (
 		<header className={cn("flex h-20 items-center justify-between p-4", className)}>
 			<NavLink className="flex cursor-pointer items-center gap-4" to="geo-vis">

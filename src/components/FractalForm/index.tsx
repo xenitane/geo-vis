@@ -6,6 +6,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Form, FormControl, FormDescription, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
 import { Switch } from "@/components/ui/switch";
+import { FC } from "react";
 
 function schemaMaker(maxDepth: number) {
 	return z.object({
@@ -27,7 +28,7 @@ interface FormProps {
 	handleSave: () => void;
 }
 
-const FractalForm = ({ handleSubmit, SVGReset, handleSave, maxDepth }: FormProps) => {
+const FractalForm: FC<FormProps> = ({ handleSubmit, SVGReset, handleSave, maxDepth }) => {
 	const schema = schemaMaker(maxDepth);
 	const form = useForm<formSchema>({
 		resolver: zodResolver(schema),

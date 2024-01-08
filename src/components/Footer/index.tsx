@@ -3,6 +3,7 @@ import { cn } from "@/lib/utils";
 import { Separator } from "@/components/ui/separator";
 import footerLinks from "@/lib/data/footerLinks";
 import { HTMLProps } from "@/types";
+import { FC } from "react";
 
 interface FooterProps extends HTMLProps {
 	repo: string;
@@ -10,7 +11,7 @@ interface FooterProps extends HTMLProps {
 	appVersion: string;
 }
 
-const Footer = ({ className, repo, user, appVersion }: FooterProps) => {
+const Footer: FC<FooterProps> = ({ className, repo, user, appVersion }) => {
 	return (
 		<footer className={cn("sticky top-[100vh] w-full", className)}>
 			<div className="bg-slate-400 px-[16%] py-4">
@@ -46,7 +47,7 @@ const Footer = ({ className, repo, user, appVersion }: FooterProps) => {
 						<div>
 							<span className="inline-block pb-2 text-xl font-medium">Project</span>
 							<ul>
-								{footerLinks.map(({ icon: Icon, text, link }) => (
+								{footerLinks.map(({ Icon, text, link }) => (
 									<li key={text}>
 										<a href={link(repo)} target="blank">
 											<Icon className="inline" />

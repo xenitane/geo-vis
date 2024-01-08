@@ -4,9 +4,13 @@ import { useParams } from "react-router-dom";
 import FractalForm, { formSchema } from "@/components/FractalForm";
 import LinearFractalRulesSet from "@/lib/rules/Linear";
 
+import { Navigate } from "react-router-dom";
+
 const LinearFrac = () => {
-	const params = useParams();
+	const { fracID } = useParams();
 	const SVGRef = useRef<SVGSVGElement>(null);
+
+	if (!(fracID! in LinearFractalRulesSet)) return <Navigate to="/geo-vis/404" />;
 
 	function SVGReset() {
 		SVGRef.current!.innerHTML = "";
@@ -14,7 +18,7 @@ const LinearFrac = () => {
 
 	function handleSubmit(data: formSchema) {
 		SVGReset();
-		LinearRenderer(SVGRef.current!, { ...data, rules: LinearFractalRulesSet[params.fracID!].rules });
+		LinearRenderer(SVGRef.current!, { ...data, rules: LinearFractalRulesSet[fracID!].rules });
 	}
 
 	function handleSave() {
@@ -27,7 +31,7 @@ const LinearFrac = () => {
 				<FractalForm
 					handleSubmit={handleSubmit}
 					SVGReset={SVGReset}
-					maxDepth={LinearFractalRulesSet[params.fracID!].maxDepth}
+					maxDepth={LinearFractalRulesSet[fracID!].maxDepth}
 					handleSave={handleSave}
 				/>
 			</div>
