@@ -1,4 +1,4 @@
-import { Theme } from "@/@types";
+import { Theme } from "@/types";
 import { signal, effect } from "@preact/signals-react";
 
 const theme = signal<Theme>(

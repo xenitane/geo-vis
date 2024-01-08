@@ -5,7 +5,7 @@ import { cn, toTitleCase } from "@/lib/utils";
 import { NavLink } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "@/components/ui/dropdown-menu";
-import { HTMLProps, Theme } from "@/@types";
+import { HTMLProps, Theme } from "@/types";
 
 const handleSelect = (selectedTheme: keyof typeof Theme) => {
 	theme.value = Theme[selectedTheme];

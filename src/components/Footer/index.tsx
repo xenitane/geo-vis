@@ -2,7 +2,7 @@ import { Logo } from "@/assets";
 import { cn } from "@/lib/utils";
 import { Separator } from "@/components/ui/separator";
 import footerLinks from "@/lib/data/footerLinks";
-import { HTMLProps } from "@/@types";
+import { HTMLProps } from "@/types";
 
 interface FooterProps extends HTMLProps {
 	repo: string;

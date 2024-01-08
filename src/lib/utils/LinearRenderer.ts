@@ -1,4 +1,4 @@
-import { LinearFractalOptions, Point } from "@/@types";
+import { LinearFractalOptions, Point } from "@/types";
 
 export function LinearRenderer(SVGRef: SVGSVGElement, { animate, colored, depth, rules }: LinearFractalOptions) {
 	let cursor: Point = [0, 0];

@@ -1,4 +1,4 @@
-import { SVGProps } from "@/@types";
+import { SVGProps } from "@/types";
 import { CardBack, SepLine } from "@/assets";
 import { NavLink } from "react-router-dom";
 

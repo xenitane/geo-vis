@@ -1,4 +1,4 @@
-import { LinearFractalInfo, LinearOperator } from "@/@types";
+import { LinearFractalInfo, LinearOperator } from "@/types";
 import Levy from "@/assets/Levy";
 import { add, rotate } from "@/lib/utils/complex";
 

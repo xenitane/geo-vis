@@ -1,4 +1,4 @@
-import { SVGProps } from "@/@types";
+import { SVGProps } from "@/types";
 
 interface CardBGProps extends SVGProps {
 	color1: string;

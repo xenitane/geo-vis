@@ -1,4 +1,4 @@
-import { SVGProps } from "@/@types";
+import { SVGProps } from "@/types";
 import { cn } from "@/lib/utils";
 
 const Logo = ({ fill, className }: SVGProps) => {

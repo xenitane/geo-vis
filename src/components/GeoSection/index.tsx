@@ -3,7 +3,7 @@ import { Suspense, lazy } from "react";
 import { Logo } from "@/assets";
 import { Separator } from "@/components/ui/separator";
 import CardSkeleton from "../CardSkeleton";
-import { HTMLProps, GeoObjInfo } from "@/@types";
+import { HTMLProps, GeoObjInfo } from "@/types";
 
 const Card = lazy(() => import("@/components/Card"));
 
