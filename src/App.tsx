@@ -3,7 +3,8 @@ import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 
 const Home = lazy(() => import("@/pages/Home"));
 const Error = lazy(() => import("@/pages/Error"));
-const Linear = lazy(() => import("@/pages/Linear"));
+const LinearFrac = lazy(() => import("@/pages/LinearFrac"));
+const FillFrac = lazy(() => import("@/pages/FillFrac"));
 
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
@@ -18,8 +19,8 @@ function App() {
 					<Routes>
 						<Route path="/geo-vis">
 							<Route index Component={Home} />
-							<Route path="linear/:fracID" element={<Linear type="linear" />} />
-							<Route path="fill/:fracID" element={<Linear type="fill" />} />
+							<Route path="linear/:fracID" element={<LinearFrac />} />
+							<Route path="fill/:fracID" element={<FillFrac />} />
 							<Route path="*" Component={Error} />
 						</Route>
 					</Routes>

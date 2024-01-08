@@ -26,6 +26,7 @@ module.exports = {
 		"@typescript-eslint/no-namespace": "off",
 		"linebreak-style": ["error", "unix"],
 		"react/react-in-jsx-scope": "off",
+		// "": "",
 	},
 	parserOptions: {
 		ecmaVersion: "latest",

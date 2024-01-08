@@ -1,9 +1,5 @@
+import { Theme } from "@/@types";
 import { signal, effect } from "@preact/signals-react";
-enum Theme {
-	system = -1,
-	light,
-	dark,
-}
 
 const theme = signal<Theme>(
 	Theme[(localStorage.getItem(process.env.__THEME_KEY__ ?? "gv-theme") ?? Theme[Theme.light]) as keyof typeof Theme],
@@ -17,4 +13,4 @@ effect(() => {
 	else root.classList.add(Theme[theme.value]);
 	localStorage.setItem(process.env.__THEME_KEY__ ?? "gv-theme", Theme[theme.value]);
 });
-export { theme, Theme };
+export { theme };

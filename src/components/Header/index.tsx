@@ -1,15 +1,16 @@
 import { Logo } from "@/assets";
 import { CgSun, CgMoon } from "react-icons/cg";
-import { theme, Theme } from "@/Signals";
+import { theme } from "@/Signals";
 import { cn, toTitleCase } from "@/lib/utils";
 import { NavLink } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "@/components/ui/dropdown-menu";
+import { HTMLProps, Theme } from "@/@types";
 
 const handleSelect = (selectedTheme: keyof typeof Theme) => {
 	theme.value = Theme[selectedTheme];
 };
-const Header = ({ className }: React.HTMLProps<HTMLElement>) => {
+const Header = ({ className }: HTMLProps) => {
 	return (
 		<header className={cn("flex h-20 items-center justify-between p-4", className)}>
 			<NavLink className="flex cursor-pointer items-center gap-4" to="geo-vis">

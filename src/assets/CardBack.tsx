@@ -1,4 +1,6 @@
-interface CardBGProps extends React.SVGProps<SVGElement> {
+import { SVGProps } from "@/@types";
+
+interface CardBGProps extends SVGProps {
 	color1: string;
 	color2: string;
 }

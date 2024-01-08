@@ -54,10 +54,10 @@ const FractalForm = ({ handleSubmit, SVGReset, handleSave, maxDepth }: FormProps
 						name="depth"
 						render={({ field }) => (
 							<FormItem>
-								<div className="flex items-center">
+								<div className="flex items-center justify-between">
 									<FormLabel className="w-1/3 text-lg">Depth</FormLabel>
-									<FormControl className="w-2/3">
-										<Input type="number" placeholder="Depth" className="h-6" {...field} />
+									<FormControl className="w-11">
+										<Input type="number" className="h-6" {...field} />
 									</FormControl>
 								</div>
 								<FormDescription>The iterative depth for the fractal</FormDescription>

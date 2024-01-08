@@ -1,6 +1,7 @@
+import { SVGProps } from "@/@types";
 import { cn } from "@/lib/utils";
 
-const SepLine = ({ stroke, className }: React.SVGProps<SVGElement>) => {
+const SepLine = ({ stroke, className }: SVGProps) => {
 	return (
 		<svg
 			id="visual"

@@ -37,8 +37,9 @@
 		"compilerOptions": {
 			"module": "ESNext",
 			"moduleResolution": "Bundler"
-		}
+		},
+		"files": true
 	},
-	"include": ["src", "@types"],
+	"include": ["src"],
 	"references": [{ "path": "./tsconfig.node.json" }]
 }

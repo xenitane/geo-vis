@@ -1,11 +1,11 @@
 import { useRef } from "react";
-import { LinearRenderer as FractalRenderer } from "@/lib/utils";
+import { LinearRenderer } from "@/lib/utils";
 import { useParams } from "react-router-dom";
 import FractalForm, { formSchema } from "@/components/FractalForm";
+import LinearFractalRulesSet from "@/lib/rules/Linear";
 
-const Linear = ({ type }: { type: string }) => {
+const LinearFrac = () => {
 	const params = useParams();
-
 	const SVGRef = useRef<SVGSVGElement>(null);
 
 	function SVGReset() {
@@ -14,15 +14,22 @@ const Linear = ({ type }: { type: string }) => {
 
 	function handleSubmit(data: formSchema) {
 		SVGReset();
-		FractalRenderer(SVGRef.current, { ...data, id: params.fracID, type: type });
+		LinearRenderer(SVGRef.current!, { ...data, rules: LinearFractalRulesSet[params.fracID!].rules });
 	}
 
-	function handleSave() {}
+	function handleSave() {
+		console.log(SVGRef.current);
+	}
 
 	return (
 		<article className="flex gap-3 py-2">
 			<div className="flex w-1/3 justify-center">
-				<FractalForm handleSubmit={handleSubmit} SVGReset={SVGReset} maxDepth={10} handleSave={handleSave} />
+				<FractalForm
+					handleSubmit={handleSubmit}
+					SVGReset={SVGReset}
+					maxDepth={LinearFractalRulesSet[params.fracID!].maxDepth}
+					handleSave={handleSave}
+				/>
 			</div>
 			<div className="aspect-square w-2/3  bg-gray-300">
 				<svg
@@ -39,4 +46,4 @@ const Linear = ({ type }: { type: string }) => {
 	);
 };
 
-export default Linear;
+export default LinearFrac;

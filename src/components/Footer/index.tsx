@@ -1,57 +1,16 @@
 import { Logo } from "@/assets";
 import { cn } from "@/lib/utils";
-import { IconType } from "react-icons";
-import { BsGithub } from "react-icons/bs";
-import { GoCrossReference, GoInfo, GoIssueOpened } from "react-icons/go";
-import { LuListTodo } from "react-icons/lu";
 import { Separator } from "@/components/ui/separator";
+import footerLinks from "@/lib/data/footerLinks";
+import { HTMLProps } from "@/@types";
 
-interface ProjectFooterLiType<T> {
-	icon: T;
-	text: string;
-	link: (repo: string) => string;
-}
-
-const projectPoints: ProjectFooterLiType<IconType>[] = [
-	{
-		link: (repo) => `${repo}/blob/main/readme.md`,
-		icon: GoInfo as IconType,
-		text: "About",
-	},
-	{
-		link: (repo) => `${repo}`,
-		icon: BsGithub as IconType,
-		text: "Github",
-	},
-	{
-		link: (repo) => `${repo}/blob/main/references.md`,
-		icon: GoCrossReference as IconType,
-		text: "References",
-	},
-	{
-		link: (repo) => `${repo}/blob/main/changelog.md`,
-		icon: GoInfo as IconType,
-		text: "Changelog",
-	},
-	{
-		link: (repo) => `${repo}/issues`,
-		icon: GoIssueOpened as IconType,
-		text: "Issues",
-	},
-	{
-		link: (repo) => `${repo}/blob/main/todo.md`,
-		icon: LuListTodo as IconType,
-		text: "Goals",
-	},
-];
-
-export interface FooterProps extends React.HTMLProps<HTMLElement> {
-	appVresion: string;
+interface FooterProps extends HTMLProps {
 	repo: string;
 	user: string;
+	appVersion: string;
 }
 
-const Footer = ({ className, repo, user, appVresion }: FooterProps) => {
+const Footer = ({ className, repo, user, appVersion }: FooterProps) => {
 	return (
 		<footer className={cn("sticky top-[100vh] w-full", className)}>
 			<div className="bg-slate-400 px-[16%] py-4">
@@ -81,13 +40,13 @@ const Footer = ({ className, repo, user, appVresion }: FooterProps) => {
 								GPL-3.0
 							</a>
 						</span>
-						<div>Currently v{appVresion}</div>
+						<div>Currently v{appVersion}</div>
 					</div>
 					<div className="flex w-1/3 flex-col items-end gap-1 text-xl">
 						<div>
 							<span className="inline-block pb-2 text-xl font-medium">Project</span>
 							<ul>
-								{projectPoints.map(({ icon: Icon, text, link }) => (
+								{footerLinks.map(({ icon: Icon, text, link }) => (
 									<li key={text}>
 										<a href={link(repo)} target="blank">
 											<Icon className="inline" />
@@ -103,7 +62,7 @@ const Footer = ({ className, repo, user, appVresion }: FooterProps) => {
 				<div className=" py-2">
 					<Separator className="h-0.5" />
 				</div>
-				<span className="text-md  block text-center">&copy; 2023 Xenitane&trade; All Rights Reserved.</span>
+				<span className="text-md  block text-center">&copy; 2023 Xenitane&trade; All Rights Reserved&reg;.</span>
 			</div>
 		</footer>
 	);
