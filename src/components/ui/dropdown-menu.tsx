@@ -3,6 +3,7 @@ import * as DropdownMenuPrimitive from "@radix-ui/react-dropdown-menu";
 import { Check, ChevronRight, Circle } from "lucide-react";
 
 import { cn } from "@/lib/utils";
+import { IncludeClassName } from "@/types";
 
 const DropdownMenu = DropdownMenuPrimitive.Root;
 
@@ -20,6 +21,7 @@ const DropdownMenuSubTrigger = React.forwardRef<
 	React.ElementRef<typeof DropdownMenuPrimitive.SubTrigger>,
 	React.ComponentPropsWithoutRef<typeof DropdownMenuPrimitive.SubTrigger> & {
 		inset?: boolean;
+		className?: string;
 	}
 >(({ className, inset, children, ...props }, ref) => (
 	<DropdownMenuPrimitive.SubTrigger
@@ -39,7 +41,7 @@ DropdownMenuSubTrigger.displayName = DropdownMenuPrimitive.SubTrigger.displayNam
 
 const DropdownMenuSubContent = React.forwardRef<
 	React.ElementRef<typeof DropdownMenuPrimitive.SubContent>,
-	React.ComponentPropsWithoutRef<typeof DropdownMenuPrimitive.SubContent>
+	IncludeClassName<React.ComponentPropsWithoutRef<typeof DropdownMenuPrimitive.SubContent>>
 >(({ className, ...props }, ref) => (
 	<DropdownMenuPrimitive.SubContent
 		ref={ref}
@@ -54,7 +56,7 @@ DropdownMenuSubContent.displayName = DropdownMenuPrimitive.SubContent.displayNam
 
 const DropdownMenuContent = React.forwardRef<
 	React.ElementRef<typeof DropdownMenuPrimitive.Content>,
-	React.ComponentPropsWithoutRef<typeof DropdownMenuPrimitive.Content>
+	IncludeClassName<React.ComponentPropsWithoutRef<typeof DropdownMenuPrimitive.Content>>
 >(({ className, sideOffset = 4, ...props }, ref) => (
 	<DropdownMenuPrimitive.Portal>
 		<DropdownMenuPrimitive.Content
@@ -74,6 +76,7 @@ const DropdownMenuItem = React.forwardRef<
 	React.ElementRef<typeof DropdownMenuPrimitive.Item>,
 	React.ComponentPropsWithoutRef<typeof DropdownMenuPrimitive.Item> & {
 		inset?: boolean;
+		className?: string;
 	}
 >(({ className, inset, ...props }, ref) => (
 	<DropdownMenuPrimitive.Item
@@ -90,7 +93,7 @@ DropdownMenuItem.displayName = DropdownMenuPrimitive.Item.displayName;
 
 const DropdownMenuCheckboxItem = React.forwardRef<
 	React.ElementRef<typeof DropdownMenuPrimitive.CheckboxItem>,
-	React.ComponentPropsWithoutRef<typeof DropdownMenuPrimitive.CheckboxItem>
+	IncludeClassName<React.ComponentPropsWithoutRef<typeof DropdownMenuPrimitive.CheckboxItem>>
 >(({ className, children, checked, ...props }, ref) => (
 	<DropdownMenuPrimitive.CheckboxItem
 		ref={ref}
@@ -113,7 +116,7 @@ DropdownMenuCheckboxItem.displayName = DropdownMenuPrimitive.CheckboxItem.displa
 
 const DropdownMenuRadioItem = React.forwardRef<
 	React.ElementRef<typeof DropdownMenuPrimitive.RadioItem>,
-	React.ComponentPropsWithoutRef<typeof DropdownMenuPrimitive.RadioItem>
+	IncludeClassName<React.ComponentPropsWithoutRef<typeof DropdownMenuPrimitive.RadioItem>>
 >(({ className, children, ...props }, ref) => (
 	<DropdownMenuPrimitive.RadioItem
 		ref={ref}
@@ -137,6 +140,7 @@ const DropdownMenuLabel = React.forwardRef<
 	React.ElementRef<typeof DropdownMenuPrimitive.Label>,
 	React.ComponentPropsWithoutRef<typeof DropdownMenuPrimitive.Label> & {
 		inset?: boolean;
+		className?: string;
 	}
 >(({ className, inset, ...props }, ref) => (
 	<DropdownMenuPrimitive.Label
@@ -149,7 +153,7 @@ DropdownMenuLabel.displayName = DropdownMenuPrimitive.Label.displayName;
 
 const DropdownMenuSeparator = React.forwardRef<
 	React.ElementRef<typeof DropdownMenuPrimitive.Separator>,
-	React.ComponentPropsWithoutRef<typeof DropdownMenuPrimitive.Separator>
+	IncludeClassName<React.ComponentPropsWithoutRef<typeof DropdownMenuPrimitive.Separator>>
 >(({ className, ...props }, ref) => (
 	<DropdownMenuPrimitive.Separator
 		ref={ref}
@@ -159,7 +163,7 @@ const DropdownMenuSeparator = React.forwardRef<
 ));
 DropdownMenuSeparator.displayName = DropdownMenuPrimitive.Separator.displayName;
 
-const DropdownMenuShortcut = ({ className, ...props }: React.HTMLAttributes<HTMLSpanElement>) => {
+const DropdownMenuShortcut = ({ className, ...props }: IncludeClassName<React.HTMLAttributes<HTMLSpanElement>>) => {
 	return <span className={cn("ml-auto text-xs tracking-widest opacity-60", className)} {...props} />;
 };
 DropdownMenuShortcut.displayName = "DropdownMenuShortcut";

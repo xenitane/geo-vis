@@ -50,3 +50,5 @@ export interface FillFractalOptions {
 export interface FillFractalInfo extends GeoObjInfo {
 	rules: Record<string, FillFractalRule>;
 }
+
+export type IncludeClassName<T> = T & { className?: string };

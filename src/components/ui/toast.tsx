@@ -4,12 +4,13 @@ import { cva, type VariantProps } from "class-variance-authority";
 import { X } from "lucide-react";
 
 import { cn } from "@/lib/utils";
+import { IncludeClassName } from "@/types";
 
 const ToastProvider = ToastPrimitives.Provider;
 
 const ToastViewport = React.forwardRef<
 	React.ElementRef<typeof ToastPrimitives.Viewport>,
-	React.ComponentPropsWithoutRef<typeof ToastPrimitives.Viewport>
+	IncludeClassName<React.ComponentPropsWithoutRef<typeof ToastPrimitives.Viewport>>
 >(({ className, ...props }, ref) => (
 	<ToastPrimitives.Viewport
 		ref={ref}
@@ -48,7 +49,7 @@ Toast.displayName = ToastPrimitives.Root.displayName;
 
 const ToastAction = React.forwardRef<
 	React.ElementRef<typeof ToastPrimitives.Action>,
-	React.ComponentPropsWithoutRef<typeof ToastPrimitives.Action>
+	IncludeClassName<React.ComponentPropsWithoutRef<typeof ToastPrimitives.Action>>
 >(({ className, ...props }, ref) => (
 	<ToastPrimitives.Action
 		ref={ref}
@@ -63,7 +64,7 @@ ToastAction.displayName = ToastPrimitives.Action.displayName;
 
 const ToastClose = React.forwardRef<
 	React.ElementRef<typeof ToastPrimitives.Close>,
-	React.ComponentPropsWithoutRef<typeof ToastPrimitives.Close>
+	IncludeClassName<React.ComponentPropsWithoutRef<typeof ToastPrimitives.Close>>
 >(({ className, ...props }, ref) => (
 	<ToastPrimitives.Close
 		ref={ref}
@@ -81,7 +82,7 @@ ToastClose.displayName = ToastPrimitives.Close.displayName;
 
 const ToastTitle = React.forwardRef<
 	React.ElementRef<typeof ToastPrimitives.Title>,
-	React.ComponentPropsWithoutRef<typeof ToastPrimitives.Title>
+	IncludeClassName<React.ComponentPropsWithoutRef<typeof ToastPrimitives.Title>>
 >(({ className, ...props }, ref) => (
 	<ToastPrimitives.Title ref={ref} className={cn("text-sm font-semibold", className)} {...props} />
 ));
@@ -89,7 +90,7 @@ ToastTitle.displayName = ToastPrimitives.Title.displayName;
 
 const ToastDescription = React.forwardRef<
 	React.ElementRef<typeof ToastPrimitives.Description>,
-	React.ComponentPropsWithoutRef<typeof ToastPrimitives.Description>
+	IncludeClassName<React.ComponentPropsWithoutRef<typeof ToastPrimitives.Description>>
 >(({ className, ...props }, ref) => (
 	<ToastPrimitives.Description ref={ref} className={cn("text-sm opacity-90", className)} {...props} />
 ));
