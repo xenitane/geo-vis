@@ -1,5 +1,5 @@
 import { LinearFractalOptions, Point } from "@/types";
-import { createSVGPathLineElement } from "./svgPathGen";
+import { createSVGPathLineElement } from "@/lib/utils/svgPathGen";
 
 export function LinearRenderer(SVGRef: SVGSVGElement, { animate, colored, depth, rules, interval }: LinearFractalOptions) {
 	let cursor: Point = [0, 0];
