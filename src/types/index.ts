@@ -36,8 +36,7 @@ export interface LinearFractalOptions {
 }
 
 export interface LinearFractalInfo extends GeoObjInfo {
-	rules: Record<string, LinearFractalRule>;
-	shift: number;
+	rules: () => { rules: Record<string, LinearFractalRule>; shift: number };
 }
 
 type FillFractalRule = [true, () => void] | [false, () => void, string];

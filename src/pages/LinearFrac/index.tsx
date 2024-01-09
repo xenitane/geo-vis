@@ -11,9 +11,9 @@ const LinearFrac = () => {
 	const SVGRef = useRef<SVGSVGElement>(null);
 	const interval: { i: NodeJS.Timeout | undefined } = { i: undefined };
 	if (!(fracID! in LinearFractalRulesSet)) return <Navigate to="/geo-vis/404" />;
-	let FractalInfo = LinearFractalRulesSet[fracID!]();
+	let FractalInfo = LinearFractalRulesSet[fracID!].rules();
 	function SVGReset() {
-		FractalInfo = LinearFractalRulesSet[fracID!]();
+		FractalInfo = LinearFractalRulesSet[fracID!].rules();
 		SVGRef.current!.innerHTML = "";
 		clearInterval(interval.i);
 	}
@@ -35,11 +35,11 @@ const LinearFrac = () => {
 	return (
 		<article className="flex w-full justify-evenly py-2">
 			<div className="flex w-1/3 flex-col">
-				<h3 className="pb-4 text-3xl underline">{FractalInfo.name}</h3>
+				<h3 className="pb-4 text-3xl underline">{LinearFractalRulesSet[fracID!].name}</h3>
 				<FractalForm
 					handleSubmit={handleSubmit}
 					SVGReset={SVGReset}
-					maxDepth={FractalInfo.maxDepth}
+					maxDepth={LinearFractalRulesSet[fracID!].maxDepth}
 					handleSave={handleSave}
 				/>
 			</div>
