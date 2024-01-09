@@ -1,0 +1,86 @@
+{
+  "_Linear-W1adkIfS.js": {
+    "file": "assets/Linear-W1adkIfS.js",
+    "imports": [
+      "index.html"
+    ]
+  },
+  "_index-v13Ikwyu.js": {
+    "file": "assets/index-v13Ikwyu.js",
+    "imports": [
+      "index.html"
+    ]
+  },
+  "components/Card/index.tsx": {
+    "file": "assets/index-S-kAwJ64.js",
+    "imports": [
+      "index.html"
+    ],
+    "isDynamicEntry": true,
+    "src": "components/Card/index.tsx"
+  },
+  "components/GeoSection/index.tsx": {
+    "dynamicImports": [
+      "components/Card/index.tsx"
+    ],
+    "file": "assets/index-VQUuyNQV.js",
+    "imports": [
+      "index.html"
+    ],
+    "isDynamicEntry": true,
+    "src": "components/GeoSection/index.tsx"
+  },
+  "index.html": {
+    "css": [
+      "assets/index-oQOWz8jY.css"
+    ],
+    "dynamicImports": [
+      "pages/Home/index.tsx",
+      "pages/Error/index.tsx",
+      "pages/LinearFrac/index.tsx",
+      "pages/FillFrac/index.tsx"
+    ],
+    "file": "assets/index-rDt5oEac.js",
+    "isEntry": true,
+    "src": "index.html"
+  },
+  "pages/Error/index.tsx": {
+    "file": "assets/index-z_fj98nH.js",
+    "imports": [
+      "index.html"
+    ],
+    "isDynamicEntry": true,
+    "src": "pages/Error/index.tsx"
+  },
+  "pages/FillFrac/index.tsx": {
+    "file": "assets/index-ycyTuZSO.js",
+    "imports": [
+      "index.html",
+      "_index-v13Ikwyu.js"
+    ],
+    "isDynamicEntry": true,
+    "src": "pages/FillFrac/index.tsx"
+  },
+  "pages/Home/index.tsx": {
+    "dynamicImports": [
+      "components/GeoSection/index.tsx"
+    ],
+    "file": "assets/index-nLb4rCJO.js",
+    "imports": [
+      "index.html",
+      "_Linear-W1adkIfS.js"
+    ],
+    "isDynamicEntry": true,
+    "src": "pages/Home/index.tsx"
+  },
+  "pages/LinearFrac/index.tsx": {
+    "file": "assets/index-5Ad3QwHx.js",
+    "imports": [
+      "index.html",
+      "_index-v13Ikwyu.js",
+      "_Linear-W1adkIfS.js"
+    ],
+    "isDynamicEntry": true,
+    "src": "pages/LinearFrac/index.tsx"
+  }
+}
