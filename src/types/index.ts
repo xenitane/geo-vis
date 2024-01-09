@@ -32,10 +32,12 @@ export interface LinearFractalOptions {
 	colored: boolean;
 	animate: boolean;
 	rules: Record<string, LinearFractalRule>;
+	interval: { i: NodeJS.Timeout | undefined };
 }
 
 export interface LinearFractalInfo extends GeoObjInfo {
 	rules: Record<string, LinearFractalRule>;
+	shift: number;
 }
 
 type FillFractalRule = [true, () => void] | [false, () => void, string];
