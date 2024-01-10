@@ -1,86 +1,87 @@
 {
-  "_Linear-I0urcg71.js": {
-    "file": "assets/Linear-I0urcg71.js",
+  "_FractalForm-w5o-5RdZ.js": {
+    "file": "assets/FractalForm-w5o-5RdZ.js",
     "imports": [
       "index.html"
     ]
   },
-  "_index-q_Sx2s8W.js": {
-    "file": "assets/index-q_Sx2s8W.js",
+  "_Linear-b5mEHpys.js": {
+    "file": "assets/Linear-b5mEHpys.js",
     "imports": [
       "index.html"
     ]
   },
-  "components/Card/index.tsx": {
-    "file": "assets/index-PRJvQxiZ.js",
+  "components/Card.tsx": {
+    "file": "assets/Card-UYWMkKRI.js",
     "imports": [
       "index.html"
     ],
     "isDynamicEntry": true,
-    "src": "components/Card/index.tsx"
+    "src": "components/Card.tsx"
   },
-  "components/GeoSection/index.tsx": {
+  "components/GeoSection.tsx": {
     "dynamicImports": [
-      "components/Card/index.tsx"
+      "components/Card.tsx"
     ],
-    "file": "assets/index-htApgi7A.js",
+    "file": "assets/GeoSection-3oiIyWlA.js",
     "imports": [
       "index.html"
     ],
     "isDynamicEntry": true,
-    "src": "components/GeoSection/index.tsx"
+    "src": "components/GeoSection.tsx"
   },
   "index.html": {
     "css": [
       "assets/index-oQOWz8jY.css"
     ],
     "dynamicImports": [
-      "pages/Home/index.tsx",
-      "pages/Error/index.tsx",
-      "pages/LinearFrac/index.tsx",
-      "pages/FillFrac/index.tsx"
+      "pages/Home.tsx",
+      "pages/LinearFrac.tsx",
+      "pages/FillFrac.tsx",
+      "pages/Error.tsx",
+      "pages/LinearFrac.tsx"
     ],
-    "file": "assets/index-3tEaDeYD.js",
+    "file": "assets/index-PKfJwdl6.js",
     "isEntry": true,
     "src": "index.html"
   },
-  "pages/Error/index.tsx": {
-    "file": "assets/index-7sH9xr6W.js",
+  "pages/Error.tsx": {
+    "file": "assets/Error-m2v5tm0V.js",
     "imports": [
       "index.html"
     ],
     "isDynamicEntry": true,
-    "src": "pages/Error/index.tsx"
+    "src": "pages/Error.tsx"
   },
-  "pages/FillFrac/index.tsx": {
-    "file": "assets/index-otG1KQa5.js",
+  "pages/FillFrac.tsx": {
+    "file": "assets/FillFrac-OrqLUK9T.js",
     "imports": [
       "index.html",
-      "_index-q_Sx2s8W.js"
+      "_FractalForm-w5o-5RdZ.js"
     ],
     "isDynamicEntry": true,
-    "src": "pages/FillFrac/index.tsx"
+    "src": "pages/FillFrac.tsx"
   },
-  "pages/Home/index.tsx": {
+  "pages/Home.tsx": {
     "dynamicImports": [
-      "components/GeoSection/index.tsx"
+      "components/GeoSection.tsx"
     ],
-    "file": "assets/index-wm53tI-2.js",
+    "file": "assets/Home-LVdY_zrI.js",
     "imports": [
       "index.html",
-      "_Linear-I0urcg71.js"
+      "_Linear-b5mEHpys.js"
     ],
     "isDynamicEntry": true,
-    "src": "pages/Home/index.tsx"
+    "src": "pages/Home.tsx"
   },
-  "pages/LinearFrac/index.tsx": {
-    "file": "assets/index-gVUwB1f4.js",
+  "pages/LinearFrac.tsx": {
+    "file": "assets/LinearFrac-72quj4Ez.js",
     "imports": [
       "index.html",
-      "_index-q_Sx2s8W.js",
-      "_Linear-I0urcg71.js"
+      "_FractalForm-w5o-5RdZ.js",
+      "_Linear-b5mEHpys.js"
     ],
     "isDynamicEntry": true,
-    "src": "pages/LinearFrac/index.tsx"
+    "src": "pages/LinearFrac.tsx"
   }
 }
