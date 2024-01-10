@@ -1,8 +1,7 @@
-import GeoSecSkeleton from "@/components/GeoSecSkeleton";
 import { lazy, Suspense } from "react";
-
-const GeoSection = lazy(() => import("@/components/GeoSection"));
 import fractalData from "@/lib/rules";
+import GeoSecSkeleton from "@/components/GeoSecSkeleton";
+const GeoSection = lazy(() => import("@/components/GeoSection"));
 
 const Home = () => {
 	return (

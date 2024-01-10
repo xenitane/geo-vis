@@ -3,7 +3,6 @@ import { LinearRenderer } from "@/lib/utils";
 import { useParams } from "react-router-dom";
 import FractalForm, { formSchema } from "@/components/FractalForm";
 import LinearFractalRulesSet from "@/lib/rules/Linear";
-
 import { Navigate } from "react-router-dom";
 
 const LinearFrac = () => {

@@ -1,5 +1,6 @@
 import { SVGProps } from "@/types";
-import { CardBack, SepLine } from "@/assets";
+import CardBack from "@/assets/CardBack";
+import SepLine from "@/assets/SepLine";
 import { NavLink } from "react-router-dom";
 import { FC } from "react";
 

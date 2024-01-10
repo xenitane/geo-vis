@@ -1,4 +1,4 @@
-import { Logo } from "@/assets";
+import Logo from "@/assets/Logo";
 import { cn } from "@/lib/utils";
 import { Separator } from "@/components/ui/separator";
 import footerLinks from "@/lib/data/footerLinks";

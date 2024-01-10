@@ -1,8 +1,8 @@
 import { toTitleCase } from "@/lib/utils";
 import { FC, Suspense, lazy } from "react";
-import { Logo } from "@/assets";
+import Logo from "@/assets/Logo";
 import { Separator } from "@/components/ui/separator";
-import CardSkeleton from "../CardSkeleton";
+import CardSkeleton from "@/components/CardSkeleton";
 import { HTMLProps, GeoObjInfo } from "@/types";
 
 const Card = lazy(() => import("@/components/Card"));

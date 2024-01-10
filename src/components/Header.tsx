@@ -1,4 +1,4 @@
-import { Logo } from "@/assets";
+import Logo from "@/assets/Logo";
 import { CgSun, CgMoon } from "react-icons/cg";
 import { theme } from "@/Signals";
 import { cn, toTitleCase } from "@/lib/utils";
