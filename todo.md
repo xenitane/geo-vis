@@ -1,13 +1,16 @@
 # TODOs
 
--   [ ] Add References
--   [ ] Build Homepage
--   [ ] Build render engines
--   [ ] Add presets
+-   [x] Add References
+-   [x] Build Homepage
+-   [ ] Build render engines with presets
+    -   [x] Linear
+    -   [ ] Fill
+    -   [ ] Attractor
+    -   [ ] CG
+    -   [ ] Sets
+    -   [ ] Sandbox
+    -   [ ] 3d
 -   [ ] Add Theme Classes and Resposiveness
 -   [ ] Add Color to Fractals
 -   [ ] Add Save as Feature
--   [ ] 3d-fractsls
--   [ ] Wavy seperators
 -   [ ] Konami code
--   [ ] Sandbox
