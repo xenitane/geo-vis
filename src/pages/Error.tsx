@@ -5,7 +5,7 @@ const Error = () => {
 	return (
 		<article className="flex flex-col gap-4 py-2">
 			<div className="flex">
-				<NavLink to="" className="flex cursor-pointer items-center gap-4 px-2 text-[24px]">
+				<NavLink to="" className="flex items-center gap-4 px-2 text-[24px]">
 					<MdArrowBack className="!text-[40px]" />
 				</NavLink>
 			</div>
@@ -15,7 +15,7 @@ const Error = () => {
 					<span>0</span>
 					<span>4</span>
 				</div>
-				<div className="text-xl font-light">The Page You Are Looking For Does Not Exist.</div>
+				<div className="font-light sm:text-xl">The Page You Are Looking For Does Not Exist.</div>
 			</section>
 		</article>
 	);

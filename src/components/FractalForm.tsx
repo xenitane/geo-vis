@@ -42,7 +42,7 @@ const FractalForm: FC<FormProps> = ({ handleSubmit, SVGReset, handleSave, maxDep
 	return (
 		<Form {...form}>
 			<form
-				className="w-4/5"
+				className="w-full"
 				onSubmit={(evt) => void form.handleSubmit(handleSubmit)(evt)}
 				onReset={() => {
 					SVGReset();
@@ -58,7 +58,11 @@ const FractalForm: FC<FormProps> = ({ handleSubmit, SVGReset, handleSave, maxDep
 								<div className="flex items-center justify-between">
 									<FormLabel className="w-1/3 text-lg">Depth</FormLabel>
 									<FormControl className="w-11">
-										<Input type="number" className="h-6" {...field} />
+										<Input
+											type="number"
+											className="h-6 focus-visible:ring-0 focus-visible:ring-offset-0"
+											{...field}
+										/>
 									</FormControl>
 								</div>
 								<FormDescription>The iterative depth for the fractal</FormDescription>
@@ -89,7 +93,7 @@ const FractalForm: FC<FormProps> = ({ handleSubmit, SVGReset, handleSave, maxDep
 								<div className="flex flex-row items-center justify-between">
 									<FormLabel className="w-1/3 text-lg">Colored</FormLabel>
 									<FormControl>
-										<Switch checked={field.value} onCheckedChange={field.onChange} />
+										<Switch disabled checked={field.value} onCheckedChange={field.onChange} />
 									</FormControl>
 								</div>
 								<FormDescription>Make it colorful</FormDescription>
@@ -98,13 +102,13 @@ const FractalForm: FC<FormProps> = ({ handleSubmit, SVGReset, handleSave, maxDep
 					/>
 				</div>
 				<div className="flex w-full justify-between gap-4 pt-4">
-					<Button type="submit" className="w-1/4 rounded-md">
+					<Button type="submit" className="w-1/4 rounded-md bg-gray-900">
 						Draw
 					</Button>
-					<Button type="reset" className="w-1/4 rounded-md">
+					<Button type="reset" className="w-1/4 rounded-md bg-gray-900">
 						Reset
 					</Button>
-					<Button type="button" onClick={handleSave} className="w-1/4 rounded-md">
+					<Button type="button" onClick={handleSave} disabled className="w-1/4 rounded-md bg-gray-900">
 						Save
 					</Button>
 				</div>

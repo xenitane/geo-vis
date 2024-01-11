@@ -46,10 +46,11 @@ export interface FillFractalOptions {
 	colored: boolean;
 	animate: boolean;
 	rules: Record<string, FillFractalRule>;
+	interval: { i: NodeJS.Timeout | undefined };
 }
 
 export interface FillFractalInfo extends GeoObjInfo {
-	rules: Record<string, FillFractalRule>;
+	rules: () => { rules: Record<string, FillFractalRule>; shift: number };
 }
 
 export type IncludeClassName<T> = T & { className?: string };

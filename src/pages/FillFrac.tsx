@@ -3,6 +3,7 @@ import { FillRenderer } from "@/lib/utils";
 import { Navigate, useParams } from "react-router-dom";
 import FractalForm, { formSchema } from "@/components/FractalForm";
 import FillFractalRuleSet from "@/lib/rules/Fill";
+import SVGCanvas from "@/components/SVGCanvas";
 
 const FillFrac = () => {
 	const { fracID } = useParams();
@@ -10,13 +11,24 @@ const FillFrac = () => {
 
 	if (!(fracID! in FillFractalRuleSet)) return <Navigate to="/geo-vis/404" />;
 
+	const interval: { i: NodeJS.Timeout | undefined } = { i: undefined };
+
+	let FractalInfo = FillFractalRuleSet[fracID!].rules();
+
 	function SVGReset() {
+		FractalInfo = FillFractalRuleSet[fracID!].rules();
 		SVGRef.current!.innerHTML = "";
+		clearInterval(interval.i);
 	}
 
 	function handleSubmit(data: formSchema) {
 		SVGReset();
-		FillRenderer(SVGRef.current!, { ...data, rules: FillFractalRuleSet[fracID!].rules });
+		FillRenderer(SVGRef.current!, {
+			...data,
+			rules: FractalInfo.rules,
+			interval,
+			depth: data.depth + FractalInfo.shift,
+		});
 	}
 
 	function handleSave() {
@@ -24,8 +36,9 @@ const FillFrac = () => {
 	}
 
 	return (
-		<article className="flex gap-3 py-2">
-			<div className="flex w-1/3 justify-center">
+		<article className="flex w-full flex-col gap-8 py-2 lg:flex-row lg:gap-0">
+			<div className="flex w-full flex-col text-gray-900 lg:w-1/3">
+				<h3 className="pb-4 text-3xl underline">{FillFractalRuleSet[fracID!].name}</h3>
 				<FractalForm
 					handleSubmit={handleSubmit}
 					SVGReset={SVGReset}
@@ -33,16 +46,10 @@ const FillFrac = () => {
 					handleSave={handleSave}
 				/>
 			</div>
-			<div className=" aspect-square w-2/3 bg-gray-300">
-				<svg
-					xmlns="http://www.w3.org/2000/svg"
-					viewBox="-800 -800 1600 1600"
-					width="100%"
-					height="100%"
-					xmlSpace="preserve"
-					xmlnsXlink="http://wwww3.org/1999/xlink"
-					ref={SVGRef}
-				></svg>
+			<div className="flex justify-center lg:w-2/3">
+				<div className="aspect-square w-full rounded-xl bg-slate-200 lg:w-[80vh]">
+					<SVGCanvas ref={SVGRef} />
+				</div>
 			</div>
 		</article>
 	);

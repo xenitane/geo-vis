@@ -13,30 +13,36 @@ const handleSelect = (selectedTheme: keyof typeof Theme) => {
 };
 const Header: FC<HTMLProps> = ({ className }) => {
 	return (
-		<header className={cn("flex h-20 items-center justify-between p-4", className)}>
-			<NavLink className="flex cursor-pointer items-center gap-4" to="">
-				<Logo fill="#000" className="inline-block h-10 w-10" />
-				<span className="  text-4xl">Geo Vis</span>
+		<header className={cn("flex h-20 items-center justify-between bg-slate-600 p-4", className)}>
+			<NavLink className="flex items-center gap-4 text-gray-900" to="">
+				<Logo fill="#111827" className={cn("inline-block h-9 w-9", "md:h-10 md:w-10")} />
+				<span className="text-3xl md:text-4xl">Geo Vis</span>
 			</NavLink>
 
 			<DropdownMenu>
 				<DropdownMenuTrigger asChild>
 					<Button
 						variant="outline"
-						className="flex aspect-square h-10 w-10 cursor-pointer items-center justify-center p-0 drop-shadow-[0_1px_2px_rgba(0,0,0,0.15)]"
+						className={cn(
+							"flex aspect-square h-9 w-9  items-center justify-center p-0 text-gray-900 drop-shadow-[0_1px_2px_rgba(0,0,0,0.15)] focus-visible:ring-0 focus-visible:ring-offset-0",
+							"md:h-10 md:w-10",
+							"dark:text-white",
+						)}
 					>
-						<CgSun className="rotate-0 scale-100 text-xl text-black transition-all dark:rotate-90 dark:scale-0" />
-						<CgMoon className="absolute rotate-90 scale-0 text-xl transition-all dark:rotate-0 dark:scale-100 dark:text-white  " />
+						<CgSun className={cn("rotate-0 scale-100 text-xl  transition-all", "dark:rotate-90 dark:scale-0")} />
+						<CgMoon
+							className={cn("absolute rotate-90 scale-0 text-xl transition-all", "dark:rotate-0 dark:scale-100")}
+						/>
 						<span className="sr-only">Toggle Theme</span>
 					</Button>
 				</DropdownMenuTrigger>
-				<DropdownMenuContent align="end" className="p-2">
+				<DropdownMenuContent align="end" className={cn("p-1", "md:p-2")}>
 					{Object.keys(Theme)
 						.filter((v) => isNaN(Number(v)))
 						.map((key) => {
 							return (
 								<DropdownMenuItem
-									className="text-md "
+									className={cn("text-sm", "md:text-md")}
 									onClick={() => handleSelect(key as keyof typeof Theme)}
 									key={key}
 								>

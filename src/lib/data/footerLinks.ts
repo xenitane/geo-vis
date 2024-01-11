@@ -3,12 +3,13 @@ import { IconType } from "react-icons";
 import { BsGithub } from "react-icons/bs";
 import { GoCrossReference, GoInfo, GoIssueOpened } from "react-icons/go";
 import { LuListTodo } from "react-icons/lu";
+import { TbClockCog } from "react-icons/tb";
 
 const footerLinks: ProjectFooterLiType[] = [
 	{
 		link: (repo) => `${repo}/blob/main/readme.md`,
 		Icon: GoInfo as IconType,
-		text: "About",
+		text: "Readme",
 	},
 	{
 		link: (repo) => `${repo}`,
@@ -22,7 +23,7 @@ const footerLinks: ProjectFooterLiType[] = [
 	},
 	{
 		link: (repo) => `${repo}/blob/main/changelog.md`,
-		Icon: GoInfo as IconType,
+		Icon: TbClockCog as IconType,
 		text: "Changelog",
 	},
 	{
