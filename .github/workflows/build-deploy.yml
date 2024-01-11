@@ -2,7 +2,7 @@ name: Build And Deploy
 
 on:
     push:
-        tags: "*"
+        branches: main
         paths-ignore:
             - "*.md"
     workflow_dispatch:
