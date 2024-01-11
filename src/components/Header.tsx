@@ -1,6 +1,6 @@
 import Logo from "@/assets/Logo";
 import { CgSun, CgMoon } from "react-icons/cg";
-import { theme } from "@/Signals";
+import { theme } from "@/Signals/theme";
 import { cn, toTitleCase } from "@/lib/utils";
 import { NavLink } from "react-router-dom";
 import { Button } from "@/components/ui/button";
@@ -14,7 +14,7 @@ const handleSelect = (selectedTheme: keyof typeof Theme) => {
 const Header: FC<HTMLProps> = ({ className }) => {
 	return (
 		<header className={cn("flex h-20 items-center justify-between p-4", className)}>
-			<NavLink className="flex cursor-pointer items-center gap-4" to="geo-vis">
+			<NavLink className="flex cursor-pointer items-center gap-4" to="">
 				<Logo fill="#000" className="inline-block h-10 w-10" />
 				<span className="  text-4xl">Geo Vis</span>
 			</NavLink>

@@ -5,7 +5,7 @@ const Error = () => {
 	return (
 		<article className="flex flex-col gap-4 py-2">
 			<div className="flex">
-				<NavLink to="/geo-vis" className="flex cursor-pointer items-center gap-4 px-2 text-[24px]">
+				<NavLink to="" className="flex cursor-pointer items-center gap-4 px-2 text-[24px]">
 					<MdArrowBack className="!text-[40px]" />
 				</NavLink>
 			</div>

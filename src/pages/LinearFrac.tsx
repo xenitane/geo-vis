@@ -1,9 +1,9 @@
 import { useRef } from "react";
 import { LinearRenderer } from "@/lib/utils";
-import { useParams } from "react-router-dom";
+import { useParams, Navigate } from "react-router-dom";
 import FractalForm, { formSchema } from "@/components/FractalForm";
 import LinearFractalRulesSet from "@/lib/rules/Linear";
-import { Navigate } from "react-router-dom";
+import SVGCanvas from "@/components/SVGCanvas";
 
 const LinearFrac = () => {
 	const { fracID } = useParams();
@@ -43,15 +43,7 @@ const LinearFrac = () => {
 				/>
 			</div>
 			<div className="aspect-square h-[90vh]  bg-gray-300">
-				<svg
-					xmlns="http://www.w3.org/2000/svg"
-					viewBox="-1000 -1000 2000 2000"
-					width="100%"
-					height="100%"
-					xmlSpace="preserve"
-					xmlnsXlink="http://wwww3.org/1999/xlink"
-					ref={SVGRef}
-				></svg>
+				<SVGCanvas ref={SVGRef} />
 			</div>
 		</article>
 	);

@@ -5,7 +5,7 @@ import { RouterProvider } from "react-router-dom";
 import router from "@/router";
 import reportWebVitals from "@/report-web-vitals";
 
-ReactDOM.createRoot(document.getElementById("root")!).render(
+ReactDOM.createRoot(document.querySelector("#root")!).render(
 	<React.StrictMode>
 		<RouterProvider router={router} />
 	</React.StrictMode>,

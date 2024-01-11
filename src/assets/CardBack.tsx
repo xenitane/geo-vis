@@ -9,14 +9,7 @@ interface CardBGProps extends SVGProps {
 // c1 = #60f c2= #0c9
 const CardBack: FC<CardBGProps> = ({ color1, color2, className }) => {
 	return (
-		<svg
-			id="visual"
-			viewBox="0 0 1000 1000"
-			xmlns="http://www.w3.org/2000/svg"
-			xmlnsXlink="http://www.w3.org/1999/xlink"
-			version="1.1"
-			className={className}
-		>
+		<svg viewBox="0 0 1000 1000" xmlns="http://www.w3.org/2000/svg" version="1.1" className={className}>
 			<defs>
 				<filter id="blur1" x="-10%" y="-10%" width="120%" height="120%">
 					<feFlood floodOpacity="0" result="BackgroundImageFix"></feFlood>
