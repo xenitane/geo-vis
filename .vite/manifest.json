@@ -1,18 +1,18 @@
 {
-  "_FractalForm-w5o-5RdZ.js": {
-    "file": "assets/FractalForm-w5o-5RdZ.js",
+  "_FractalForm-3ATgci_i.js": {
+    "file": "assets/FractalForm-3ATgci_i.js",
     "imports": [
       "index.html"
     ]
   },
-  "_Linear-b5mEHpys.js": {
-    "file": "assets/Linear-b5mEHpys.js",
+  "_Linear-B5dr8mxP.js": {
+    "file": "assets/Linear-B5dr8mxP.js",
     "imports": [
       "index.html"
     ]
   },
   "components/Card.tsx": {
-    "file": "assets/Card-UYWMkKRI.js",
+    "file": "assets/Card-aeQ5ndkA.js",
     "imports": [
       "index.html"
     ],
@@ -23,7 +23,7 @@
     "dynamicImports": [
       "components/Card.tsx"
     ],
-    "file": "assets/GeoSection-3oiIyWlA.js",
+    "file": "assets/GeoSection-WtQ4LbT2.js",
     "imports": [
       "index.html"
     ],
@@ -32,7 +32,7 @@
   },
   "index.html": {
     "css": [
-      "assets/index-oQOWz8jY.css"
+      "assets/index-wEAnLqxI.css"
     ],
     "dynamicImports": [
       "pages/Home.tsx",
@@ -41,12 +41,12 @@
       "pages/Error.tsx",
       "pages/LinearFrac.tsx"
     ],
-    "file": "assets/index-PKfJwdl6.js",
+    "file": "assets/index-pT_iBuUB.js",
     "isEntry": true,
     "src": "index.html"
   },
   "pages/Error.tsx": {
-    "file": "assets/Error-m2v5tm0V.js",
+    "file": "assets/Error-rv0yeCD8.js",
     "imports": [
       "index.html"
     ],
@@ -54,10 +54,10 @@
     "src": "pages/Error.tsx"
   },
   "pages/FillFrac.tsx": {
-    "file": "assets/FillFrac-OrqLUK9T.js",
+    "file": "assets/FillFrac-ElpUI1yQ.js",
     "imports": [
       "index.html",
-      "_FractalForm-w5o-5RdZ.js"
+      "_FractalForm-3ATgci_i.js"
     ],
     "isDynamicEntry": true,
     "src": "pages/FillFrac.tsx"
@@ -66,20 +66,20 @@
     "dynamicImports": [
       "components/GeoSection.tsx"
     ],
-    "file": "assets/Home-LVdY_zrI.js",
+    "file": "assets/Home-Bj_yIm-g.js",
     "imports": [
       "index.html",
-      "_Linear-b5mEHpys.js"
+      "_Linear-B5dr8mxP.js"
     ],
     "isDynamicEntry": true,
     "src": "pages/Home.tsx"
   },
   "pages/LinearFrac.tsx": {
-    "file": "assets/LinearFrac-72quj4Ez.js",
+    "file": "assets/LinearFrac-4RFpUjMe.js",
     "imports": [
       "index.html",
-      "_FractalForm-w5o-5RdZ.js",
-      "_Linear-b5mEHpys.js"
+      "_FractalForm-3ATgci_i.js",
+      "_Linear-B5dr8mxP.js"
     ],
     "isDynamicEntry": true,
     "src": "pages/LinearFrac.tsx"
