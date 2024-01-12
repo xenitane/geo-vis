@@ -23,21 +23,15 @@ const GeoSection: FC<GeoSectionProps> = ({ sectionType, objectList, sectionId })
 			<div className={cn("py-4", "lg:py-8")}>
 				<Separator className={cn("h-0.5 bg-neutral-950", "dark:bg-neutral-50")} />
 			</div>
-			<div className={cn("hidden gap-4", "lg:grid lg:grid-cols-3", "2xl:grid-cols-5")}>
-				{Object.entries(objectList).map(([objectId, objectInfo]) => {
-					return (
-						<Suspense fallback={<CardSkeleton />} key={objectId}>
-							<Card text={objectInfo.name} Image={objectInfo.Image ?? Logo} uri={`${sectionType}/${objectId}`} />
-						</Suspense>
-					);
-				})}
-			</div>
 			<div className="px-14">
-				<Carousel className="lg:hidden">
+				<Carousel>
 					<CarouselContent>
 						{Object.entries(objectList).map(([objectId, objectInfo]) => {
 							return (
-								<CarouselItem className="md:basis-1/2" key={objectId}>
+								<CarouselItem
+									className={cn("md:basis-1/2", "lg:basis-1/3", "xl:basis-1/4", "2xl:basis-1/5")}
+									key={objectId}
+								>
 									<Suspense fallback={<CardSkeleton />}>
 										<Card
 											text={objectInfo.name}
@@ -53,12 +47,14 @@ const GeoSection: FC<GeoSectionProps> = ({ sectionType, objectList, sectionId })
 						className={cn(
 							"transition-all duration-500 ease-in-out",
 							"hover:drop-shadow-[0_1px_2px_rgba(0,0,0,0.15)]",
+							"dark:bg-neutral-700",
 						)}
 					/>
 					<CarouselNext
 						className={cn(
 							"transition-all duration-500 ease-in-out",
 							"hover:drop-shadow-[0_1px_2px_rgba(0,0,0,0.15)]",
+							"dark:bg-neutral-700",
 						)}
 					/>
 				</Carousel>

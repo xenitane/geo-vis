@@ -22,8 +22,8 @@ const Card: FC<CardProps> = ({ Image, text, uri }) => {
 			)}
 		>
 			<CardBack
-				color1="#60f"
-				color2="#0c9"
+				color1="#FBAE3C"
+				color2="#00CC8E"
 				className="absolute inset-1 rounded-3xl transition-all duration-500 ease-in-out"
 			/>
 			<div className="absolute inset-1 flex items-center justify-center transition-all duration-500 ease-in-out">
