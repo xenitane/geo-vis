@@ -5,8 +5,8 @@ const Error = () => {
 	return (
 		<article className="flex flex-col gap-4 py-2">
 			<div className="flex">
-				<NavLink to="" className="flex items-center gap-4 px-2 text-[24px]">
-					<MdArrowBack className="!text-[40px]" />
+				<NavLink to="" className="flex items-center gap-4 px-2">
+					<MdArrowBack className="text-4xl" />
 				</NavLink>
 			</div>
 			<section className="flex flex-col items-center">

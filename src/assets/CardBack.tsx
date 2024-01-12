@@ -12,9 +12,9 @@ const CardBack: FC<CardBGProps> = ({ color1, color2, className }) => {
 		<svg viewBox="0 0 1000 1000" xmlns="http://www.w3.org/2000/svg" version="1.1" className={className}>
 			<defs>
 				<filter id="blur1" x="-10%" y="-10%" width="120%" height="120%">
-					<feFlood floodOpacity="0" result="BackgroundImageFix"></feFlood>
-					<feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"></feBlend>
-					<feGaussianBlur stdDeviation="210" result="effect1_foregroundBlur"></feGaussianBlur>
+					<feFlood floodOpacity="0" result="BackgroundImageFix" />
+					<feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape" />
+					<feGaussianBlur stdDeviation="210" result="effect1_foregroundBlur" />
 				</filter>
 			</defs>
 			<rect width="1000" height="1000" fill={color1}></rect>

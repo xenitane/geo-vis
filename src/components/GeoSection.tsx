@@ -1,4 +1,4 @@
-import { toTitleCase } from "@/lib/utils";
+import { cn, toTitleCase } from "@/lib/utils";
 import { FC, Suspense, lazy } from "react";
 import Logo from "@/assets/Logo";
 import { Separator } from "@/components/ui/separator";
@@ -17,13 +17,13 @@ interface GeoSectionProps extends HTMLProps {
 const GeoSection: FC<GeoSectionProps> = ({ sectionType, objectList, sectionId }) => {
 	return (
 		<section>
-			<h3 className="text-2xl lg:text-3xl" id={sectionId}>
+			<h3 className={cn("text-2xl", "lg:text-3xl")} id={sectionId}>
 				{toTitleCase(sectionType)}
 			</h3>
-			<div className="py-4 lg:py-8">
-				<Separator className="h-0.5" />
+			<div className={cn("py-4", "lg:py-8")}>
+				<Separator className={cn("h-0.5 bg-neutral-950", "dark:bg-neutral-50")} />
 			</div>
-			<div className="hidden gap-4 lg:grid lg:grid-cols-3 2xl:grid-cols-5">
+			<div className={cn("hidden gap-4", "lg:grid lg:grid-cols-3", "2xl:grid-cols-5")}>
 				{Object.entries(objectList).map(([objectId, objectInfo]) => {
 					return (
 						<Suspense fallback={<CardSkeleton />} key={objectId}>
@@ -34,7 +34,7 @@ const GeoSection: FC<GeoSectionProps> = ({ sectionType, objectList, sectionId })
 			</div>
 			<div className="px-14">
 				<Carousel className="lg:hidden">
-					<CarouselContent className="">
+					<CarouselContent>
 						{Object.entries(objectList).map(([objectId, objectInfo]) => {
 							return (
 								<CarouselItem className="md:basis-1/2" key={objectId}>
@@ -49,8 +49,18 @@ const GeoSection: FC<GeoSectionProps> = ({ sectionType, objectList, sectionId })
 							);
 						})}
 					</CarouselContent>
-					<CarouselPrevious className="text-gray-900 transition-all duration-500 ease-in-out hover:drop-shadow-[0_1px_2px_rgba(0,0,0,0.15)]" />
-					<CarouselNext className="text-gray-900 transition-all duration-500 ease-in-out hover:drop-shadow-[0_1px_2px_rgba(0,0,0,0.15)]" />
+					<CarouselPrevious
+						className={cn(
+							"transition-all duration-500 ease-in-out",
+							"hover:drop-shadow-[0_1px_2px_rgba(0,0,0,0.15)]",
+						)}
+					/>
+					<CarouselNext
+						className={cn(
+							"transition-all duration-500 ease-in-out",
+							"hover:drop-shadow-[0_1px_2px_rgba(0,0,0,0.15)]",
+						)}
+					/>
 				</Carousel>
 			</div>
 		</section>

@@ -10,7 +10,7 @@
     -   [ ] Sets
     -   [ ] Sandbox
     -   [ ] 3d
--   [ ] Add Theme Classes and Resposiveness
+-   [x] Add Theme Classes and Resposiveness
 -   [ ] Add Color to Fractals
 -   [ ] Add Save as Feature
 -   [ ] Konami code

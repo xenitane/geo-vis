@@ -7,6 +7,7 @@ import { Input } from "@/components/ui/input";
 import { Form, FormControl, FormDescription, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
 import { Switch } from "@/components/ui/switch";
 import { FC } from "react";
+import { cn } from "@/lib/utils";
 
 function schemaMaker(maxDepth: number) {
 	return z.object({
@@ -56,13 +57,9 @@ const FractalForm: FC<FormProps> = ({ handleSubmit, SVGReset, handleSave, maxDep
 						render={({ field }) => (
 							<FormItem>
 								<div className="flex items-center justify-between">
-									<FormLabel className="w-1/3 text-lg">Depth</FormLabel>
+									<FormLabel className={cn("w-1/3 text-base", "lg:text-lg")}>Depth</FormLabel>
 									<FormControl className="w-11">
-										<Input
-											type="number"
-											className="h-6 focus-visible:ring-0 focus-visible:ring-offset-0"
-											{...field}
-										/>
+										<Input type="number" className="h-6 p-2 text-center" {...field} />
 									</FormControl>
 								</div>
 								<FormDescription>The iterative depth for the fractal</FormDescription>
@@ -76,7 +73,7 @@ const FractalForm: FC<FormProps> = ({ handleSubmit, SVGReset, handleSave, maxDep
 						render={({ field }) => (
 							<FormItem>
 								<div className="flex items-center justify-between">
-									<FormLabel className="w-1/3 text-lg">Animate</FormLabel>
+									<FormLabel className={cn("w-1/3 text-base", "lg:text-lg")}>Animate</FormLabel>
 									<FormControl>
 										<Switch checked={field.value} onCheckedChange={field.onChange} />
 									</FormControl>
@@ -91,9 +88,9 @@ const FractalForm: FC<FormProps> = ({ handleSubmit, SVGReset, handleSave, maxDep
 						render={({ field }) => (
 							<FormItem>
 								<div className="flex flex-row items-center justify-between">
-									<FormLabel className="w-1/3 text-lg">Colored</FormLabel>
+									<FormLabel className={cn("w-1/3 text-base", "lg:text-lg")}>Colored</FormLabel>
 									<FormControl>
-										<Switch disabled checked={field.value} onCheckedChange={field.onChange} />
+										<Switch checked={field.value} onCheckedChange={field.onChange} disabled />
 									</FormControl>
 								</div>
 								<FormDescription>Make it colorful</FormDescription>
@@ -101,14 +98,14 @@ const FractalForm: FC<FormProps> = ({ handleSubmit, SVGReset, handleSave, maxDep
 						)}
 					/>
 				</div>
-				<div className="flex w-full justify-between gap-4 pt-4">
-					<Button type="submit" className="w-1/4 rounded-md bg-gray-900">
+				<div className="flex w-full justify-between pt-4">
+					<Button type="submit" className={cn("w-1/4 rounded-md")}>
 						Draw
 					</Button>
-					<Button type="reset" className="w-1/4 rounded-md bg-gray-900">
+					<Button type="reset" className={cn("w-1/4 rounded-md")}>
 						Reset
 					</Button>
-					<Button type="button" onClick={handleSave} disabled className="w-1/4 rounded-md bg-gray-900">
+					<Button type="button" className={cn("w-1/4 rounded-md")} onClick={handleSave} disabled>
 						Save
 					</Button>
 				</div>

@@ -9,7 +9,7 @@ const footerLinks: ProjectFooterLiType[] = [
 	{
 		link: (repo) => `${repo}/blob/main/readme.md`,
 		Icon: GoInfo as IconType,
-		text: "Readme",
+		text: "About",
 	},
 	{
 		link: (repo) => `${repo}`,

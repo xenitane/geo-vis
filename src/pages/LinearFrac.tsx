@@ -1,5 +1,5 @@
 import { useRef } from "react";
-import { LinearRenderer } from "@/lib/utils";
+import { LinearRenderer, cn } from "@/lib/utils";
 import { useParams, Navigate } from "react-router-dom";
 import FractalForm, { formSchema } from "@/components/FractalForm";
 import LinearFractalRulesSet from "@/lib/rules/Linear";
@@ -36,9 +36,9 @@ const LinearFrac = () => {
 	}
 
 	return (
-		<article className="flex w-full flex-col gap-8 py-2 lg:flex-row lg:gap-0">
-			<div className="flex w-full flex-col text-gray-900 lg:w-1/3">
-				<h3 className="pb-4 text-3xl underline">{LinearFractalRulesSet[fracID!].name}</h3>
+		<article className={cn("flex w-full flex-col gap-8 py-2", "lg:flex-row lg:gap-0")}>
+			<div className={cn("flex w-full flex-col", "lg:w-1/3")}>
+				<h3 className={cn("pb-4 text-2xl underline", "lg:text-3xl")}>{LinearFractalRulesSet[fracID!].name}</h3>
 				<FractalForm
 					handleSubmit={handleSubmit}
 					SVGReset={SVGReset}
@@ -46,8 +46,8 @@ const LinearFrac = () => {
 					handleSave={handleSave}
 				/>
 			</div>
-			<div className="flex justify-center lg:w-2/3">
-				<div className="aspect-square w-full rounded-xl bg-slate-200 lg:w-[80vh]">
+			<div className={cn("flex justify-center", "lg:w-2/3")}>
+				<div className={cn("aspect-square w-full rounded-xl bg-neutral-200", "lg:w-[80vh]")}>
 					<SVGCanvas ref={SVGRef} />
 				</div>
 			</div>
