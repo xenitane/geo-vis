@@ -41,7 +41,7 @@ export function LinearRenderer(SVGRef: SVGSVGElement, { animate, colored, depth,
 						color: [0, 0, 0],
 						start: points[i - 1],
 						end: points[i],
-					}),
+					})
 				);
 				i++;
 			}
@@ -54,7 +54,7 @@ export function LinearRenderer(SVGRef: SVGSVGElement, { animate, colored, depth,
 					color: [0, 0, 0],
 					start: points[i - 1],
 					end: points[i],
-				}),
+				})
 			);
 	}
 }

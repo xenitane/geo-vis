@@ -47,7 +47,7 @@ const Carousel = React.forwardRef<HTMLDivElement, IncludeClassName<React.HTMLAtt
 				...opts,
 				axis: orientation === "horizontal" ? "x" : "y",
 			},
-			plugins,
+			plugins
 		);
 		const [canScrollPrev, setCanScrollPrev] = React.useState(false);
 		const [canScrollNext, setCanScrollNext] = React.useState(false);
@@ -79,7 +79,7 @@ const Carousel = React.forwardRef<HTMLDivElement, IncludeClassName<React.HTMLAtt
 					scrollNext();
 				}
 			},
-			[scrollPrev, scrollNext],
+			[scrollPrev, scrollNext]
 		);
 
 		React.useEffect(() => {
@@ -129,7 +129,7 @@ const Carousel = React.forwardRef<HTMLDivElement, IncludeClassName<React.HTMLAtt
 				</div>
 			</CarouselContext.Provider>
 		);
-	},
+	}
 );
 Carousel.displayName = "Carousel";
 
@@ -146,7 +146,7 @@ const CarouselContent = React.forwardRef<HTMLDivElement, IncludeClassName<React.
 				/>
 			</div>
 		);
-	},
+	}
 );
 CarouselContent.displayName = "CarouselContent";
 
@@ -163,7 +163,7 @@ const CarouselItem = React.forwardRef<HTMLDivElement, IncludeClassName<React.HTM
 				{...props}
 			/>
 		);
-	},
+	}
 );
 CarouselItem.displayName = "CarouselItem";
 
@@ -181,7 +181,7 @@ const CarouselPrevious = React.forwardRef<HTMLButtonElement, ButtonProps>(
 					orientation === "horizontal"
 						? "-left-12 top-1/2 -translate-y-1/2"
 						: "-top-12 left-1/2 -translate-x-1/2 rotate-90",
-					className,
+					className
 				)}
 				disabled={!canScrollPrev}
 				onClick={scrollPrev}
@@ -191,7 +191,7 @@ const CarouselPrevious = React.forwardRef<HTMLButtonElement, ButtonProps>(
 				<span className="sr-only">Previous slide</span>
 			</Button>
 		);
-	},
+	}
 );
 CarouselPrevious.displayName = "CarouselPrevious";
 
@@ -209,7 +209,7 @@ const CarouselNext = React.forwardRef<HTMLButtonElement, ButtonProps>(
 					orientation === "horizontal"
 						? "-right-12 top-1/2 -translate-y-1/2"
 						: "-bottom-12 left-1/2 -translate-x-1/2 rotate-90",
-					className,
+					className
 				)}
 				disabled={!canScrollNext}
 				onClick={scrollNext}
@@ -219,7 +219,7 @@ const CarouselNext = React.forwardRef<HTMLButtonElement, ButtonProps>(
 				<span className="sr-only">Next slide</span>
 			</Button>
 		);
-	},
+	}
 );
 CarouselNext.displayName = "CarouselNext";
 

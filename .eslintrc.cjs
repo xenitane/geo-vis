@@ -2,7 +2,7 @@
 
 module.exports = {
 	root: true,
-	env: { browser: true, es2020: true, node: true, commonjs: true },
+	env: { browser: true, es2020: true },
 	extends: [
 		"eslint:recommended",
 		"plugin:react/jsx-runtime",
@@ -31,7 +31,7 @@ module.exports = {
 	parserOptions: {
 		ecmaVersion: "latest",
 		sourceType: "module",
-		project: ["./tsconfig.json", "./tsconfig.node.json"],
+		project: "./tsconfig.json",
 		tsconfigRootDir: __dirname,
 		ecmaFeatures: { jsx: true, impliedStrict: true },
 	},

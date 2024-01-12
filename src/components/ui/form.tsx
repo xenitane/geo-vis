@@ -67,7 +67,7 @@ const FormItem = React.forwardRef<HTMLDivElement, IncludeClassName<React.HTMLAtt
 				<div ref={ref} className={cn("space-y-2", className)} {...props} />
 			</FormItemContext.Provider>
 		);
-	},
+	}
 );
 FormItem.displayName = "FormItem";
 
@@ -96,7 +96,7 @@ const FormControl = React.forwardRef<React.ElementRef<typeof Slot>, React.Compon
 				{...props}
 			/>
 		);
-	},
+	}
 );
 FormControl.displayName = "FormControl";
 
@@ -112,7 +112,7 @@ const FormDescription = React.forwardRef<HTMLParagraphElement, IncludeClassName<
 				{...props}
 			/>
 		);
-	},
+	}
 );
 FormDescription.displayName = "FormDescription";
 
@@ -135,7 +135,7 @@ const FormMessage = React.forwardRef<HTMLParagraphElement, IncludeClassName<Reac
 				{body}
 			</p>
 		);
-	},
+	}
 );
 FormMessage.displayName = "FormMessage";
 

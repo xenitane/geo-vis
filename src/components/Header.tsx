@@ -1,15 +1,16 @@
 import Logo from "@/assets/Logo";
 import { CgSun, CgMoon } from "react-icons/cg";
 import { theme } from "@/Signals/theme";
-import { cn, toTitleCase } from "@/lib/utils";
+import { cn } from "@/lib/utils";
 import { NavLink } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "@/components/ui/dropdown-menu";
 import { HTMLProps, Theme } from "@/types";
 import { FC } from "react";
+import { GoDotFill } from "react-icons/go";
 
-const handleSelect = (selectedTheme: keyof typeof Theme) => {
-	theme.value = Theme[selectedTheme];
+const handleSelect = (selectedTheme: Theme) => {
+	theme.value = selectedTheme;
 };
 const Header: FC<HTMLProps> = ({ className }) => {
 	return (
@@ -17,12 +18,12 @@ const Header: FC<HTMLProps> = ({ className }) => {
 			className={cn(
 				"flex h-20 items-center justify-between bg-neutral-50 p-4 text-neutral-900",
 				"dark:bg-neutral-800 dark:text-neutral-100",
-				className,
+				className
 			)}
 		>
-			<NavLink className="flex items-center gap-4" to="">
+			<NavLink className={cn("flex items-center gap-4 text-3xl ", "md:text-4xl")} to="">
 				<Logo className={cn("inline-block h-9 w-9", "md:h-10 md:w-10")} />
-				<span className={cn("text-3xl ", "md:text-4xl")}>Geo Vis</span>
+				Geo Vis
 			</NavLink>
 
 			<DropdownMenu>
@@ -32,7 +33,7 @@ const Header: FC<HTMLProps> = ({ className }) => {
 						className={cn(
 							"flex aspect-square h-9 w-9  items-center justify-center p-0 drop-shadow-[0_1px_2px_rgba(0,0,0,0.15)] focus-visible:ring-0 focus-visible:ring-offset-0",
 							"md:h-10 md:w-10",
-							"dark:text-white dark:hover:bg-neutral-900",
+							"dark:text-white dark:hover:bg-neutral-900"
 						)}
 					>
 						<CgSun
@@ -45,19 +46,27 @@ const Header: FC<HTMLProps> = ({ className }) => {
 					</Button>
 				</DropdownMenuTrigger>
 				<DropdownMenuContent align="end" className={cn("p-1", "md:p-2", "dark:bg-neutral-900")}>
-					{Object.keys(Theme)
-						.filter((v) => isNaN(Number(v)))
-						.map((key) => {
-							return (
-								<DropdownMenuItem
-									className={cn("text-sm", "md:text-md")}
-									onClick={() => handleSelect(key as keyof typeof Theme)}
-									key={key}
-								>
-									{toTitleCase(key)}
-								</DropdownMenuItem>
-							);
-						})}
+					<DropdownMenuItem
+						className={cn("flex justify-between text-sm", "md:text-md")}
+						onClick={() => handleSelect("system")}
+					>
+						System
+						<GoDotFill className={cn("hidden", { block: theme.value === "system" })} />
+					</DropdownMenuItem>
+					<DropdownMenuItem
+						className={cn("flex justify-between text-sm", "md:text-md")}
+						onClick={() => handleSelect("light")}
+					>
+						Light
+						<GoDotFill className={cn("hidden", { block: theme.value === "light" })} />
+					</DropdownMenuItem>
+					<DropdownMenuItem
+						className={cn("flex justify-between text-sm", "md:text-md")}
+						onClick={() => handleSelect("dark")}
+					>
+						Dark
+						<GoDotFill className={cn("hidden", { block: theme.value === "dark" })} />
+					</DropdownMenuItem>
 				</DropdownMenuContent>
 			</DropdownMenu>
 		</header>

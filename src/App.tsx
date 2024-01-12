@@ -11,7 +11,12 @@ function App() {
 		<div className="flex min-h-screen flex-col">
 			<ScrollToTop />
 			<Header />
-			<main className={cn("flex-[1_0_auto] bg-white p-4 text-neutral-950", "dark:bg-neutral-900 dark:text-neutral-50")}>
+			<main
+				className={cn(
+					"relative flex-[1_0_auto] bg-white p-4 text-neutral-950",
+					"dark:bg-neutral-900 dark:text-neutral-50"
+				)}
+			>
 				<Suspense fallback={<PageSkeleton />}>
 					<Outlet />
 				</Suspense>

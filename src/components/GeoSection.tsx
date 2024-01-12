@@ -47,14 +47,14 @@ const GeoSection: FC<GeoSectionProps> = ({ sectionType, objectList, sectionId })
 						className={cn(
 							"transition-all duration-500 ease-in-out",
 							"hover:drop-shadow-[0_1px_2px_rgba(0,0,0,0.15)]",
-							"dark:bg-neutral-700",
+							"dark:bg-neutral-700"
 						)}
 					/>
 					<CarouselNext
 						className={cn(
 							"transition-all duration-500 ease-in-out",
 							"hover:drop-shadow-[0_1px_2px_rgba(0,0,0,0.15)]",
-							"dark:bg-neutral-700",
+							"dark:bg-neutral-700"
 						)}
 					/>
 				</Carousel>

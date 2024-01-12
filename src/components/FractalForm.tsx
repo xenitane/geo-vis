@@ -62,7 +62,11 @@ const FractalForm: FC<FormProps> = ({ handleSubmit, SVGReset, handleSave, maxDep
 										<Input type="number" className="h-6 p-2 text-center" {...field} />
 									</FormControl>
 								</div>
-								<FormDescription>The iterative depth for the fractal</FormDescription>
+								<FormDescription>
+									The iterative depth for the fractal
+									<br />
+									Must be between 0 and{` ${maxDepth}`}
+								</FormDescription>
 								<FormMessage />
 							</FormItem>
 						)}

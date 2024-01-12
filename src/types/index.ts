@@ -1,11 +1,7 @@
 import { FC } from "react";
 import { IconType } from "react-icons";
 
-export enum Theme {
-	system = -1,
-	light,
-	dark,
-}
+export type Theme = "system" | "light" | "dark";
 
 export type SVGProps = React.SVGProps<SVGSVGElement>;
 export type DIVProps = React.HTMLProps<HTMLDivElement>;
