@@ -1,6 +1,10 @@
 # Changelog
 
-## v 0.4.0
+## v0.4.1
+
+-   converted constant svg components to `.svg` files
+
+## v0.4.0
 
 -   refining reponsiveness
 -   implementing theme
