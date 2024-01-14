@@ -1,5 +1,9 @@
 # Changelog
 
+## v0.4.1-1
+
+-   removed uncessary function
+
 ## v0.4.1
 
 -   converted constant svg components to `.svg` files

@@ -1,6 +1,6 @@
 {
 	"name": "frac-gen",
-	"version": "0.4.1",
+	"version": "0.4.1-1",
 	"private": true,
 	"description": "react app to generate geometric visuals",
 	"keywords": [
@@ -98,7 +98,7 @@
 		"vite": "^5.0.11"
 	},
 	"engines": {
-		"node": ">=16"
+		"node": ">=18"
 	},
 	"browserList": {
 		"production": [
