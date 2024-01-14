@@ -43,7 +43,6 @@
 		"dev": "vite",
 		"format": "prettier --write \"**/*.{js,jsx,ts,tsx,json,css,sass,scss,less,html,md,yml,yaml}\"",
 		"lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
-		"lint-fix": "eslint . --fix",
 		"preview": "vite preview",
 		"type-check": "tsc --noEmit"
 	},
@@ -61,7 +60,6 @@
 		"class-variance-authority": "^0.7.0",
 		"embla-carousel-react": "^8.0.0-rc19",
 		"lucide-react": "^0.309.0",
-		"million": "^2.6.4",
 		"react": "^18.2.0",
 		"react-dom": "^18.2.0",
 		"react-hook-form": "^7.49.3",

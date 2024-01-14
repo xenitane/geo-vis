@@ -1,6 +1,5 @@
 import { cn, toTitleCase } from "@/lib/utils";
 import { FC, Suspense, lazy } from "react";
-import Logo from "@/assets/Logo";
 import { Separator } from "@/components/ui/separator";
 import CardSkeleton from "@/components/CardSkeleton";
 import { HTMLProps, GeoObjInfo } from "@/types";
@@ -35,7 +34,7 @@ const GeoSection: FC<GeoSectionProps> = ({ sectionType, objectList, sectionId })
 									<Suspense fallback={<CardSkeleton />}>
 										<Card
 											text={objectInfo.name}
-											Image={objectInfo.Image ?? Logo}
+											image={objectInfo.image}
 											uri={`${sectionType}/${objectId}`}
 										/>
 									</Suspense>

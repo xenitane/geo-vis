@@ -3,7 +3,6 @@
 import { Logger, createLogger, defineConfig } from "vite";
 import react from "@vitejs/plugin-react-swc";
 import { resolve } from "path";
-import million from "million/compiler";
 import { version, repository, author } from "./package.json";
 
 const rootDir = resolve(process.cwd(), "src");
@@ -40,15 +39,7 @@ export default defineConfig({
 			__USER_PROFILE__: author.url,
 		}),
 	},
-	plugins: [
-		react(),
-		million.vite({
-			auto: false,
-			hmr: true,
-			mode: "react",
-			optimize: true,
-		}),
-	],
+	plugins: [react()],
 	preview: {
 		port: 4173,
 		host: "0.0.0.0",

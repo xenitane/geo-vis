@@ -1,4 +1,3 @@
-import { FC } from "react";
 import { IconType } from "react-icons";
 
 export type Theme = "system" | "light" | "dark";
@@ -18,7 +17,7 @@ export type LinearOperator = (p: Point, f: Point) => [Point, Point];
 
 export interface GeoObjInfo {
 	name: string;
-	Image?: FC<SVGProps>;
+	image: string;
 	maxDepth: number;
 }
 type LinearFractalRule = [true, LinearOperator] | [false, LinearOperator, string];

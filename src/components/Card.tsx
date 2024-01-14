@@ -1,5 +1,5 @@
 import { SVGProps } from "@/types";
-import CardBack from "@/assets/CardBack";
+import cardBack from "@/assets/card-back.svg";
 import SepLine from "@/assets/SepLine";
 import { NavLink } from "react-router-dom";
 import { FC } from "react";
@@ -9,10 +9,10 @@ import { HiOutlineArrowsExpand } from "react-icons/hi";
 interface CardProps extends SVGProps {
 	text: string;
 	uri: string;
-	Image: FC<SVGProps>;
+	image: string;
 }
 
-const Card: FC<CardProps> = ({ Image, text, uri }) => {
+const Card: FC<CardProps> = ({ image, text, uri }) => {
 	return (
 		<div
 			className={cn(
@@ -21,13 +21,11 @@ const Card: FC<CardProps> = ({ Image, text, uri }) => {
 				"dark:bg-neutral-50 dark:hover:drop-shadow-[0_8px_4px_rgba(250,250,250,0.15)]"
 			)}
 		>
-			<CardBack
-				color1="#FBAE3C"
-				color2="#00CC8E"
-				className="absolute inset-1 rounded-3xl transition-all duration-500 ease-in-out"
-			/>
+			<img src={cardBack} className="absolute inset-1 rounded-3xl" />
 			<div className="absolute inset-1 flex items-center justify-center transition-all duration-500 ease-in-out">
-				<Image
+				<img
+					src={image}
+					alt=""
 					className={cn(
 						"h-5/6 w-5/6 translate-y-0 scale-100 transition-all duration-500 ease-in-out",
 						"group-hover:translate-y-[20%] group-hover:scale-[70%]"
@@ -47,8 +45,8 @@ const Card: FC<CardProps> = ({ Image, text, uri }) => {
 						"dark:bg-neutral-900"
 					)}
 				>
-					<NavLink to={uri} className="flex items-center">
-						{text}&nbsp;
+					<NavLink to={uri} className="flex items-center gap-1">
+						{text}
 						<HiOutlineArrowsExpand />
 					</NavLink>
 				</span>

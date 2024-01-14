@@ -1,17 +1,17 @@
 import { LinearFractalInfo, LinearOperator } from "@/types";
 import { add, rotate } from "@/lib/utils";
 import {
-	GosperCurve,
-	DragonCurve,
-	LevyCCurve,
-	KochSnowflake,
-	KochAntiSnowflake,
-	MinkowskiSausage,
-	HilbertCurve,
-	PeanoCurve,
-	TSquare,
-	AntiTSquare,
-	FibonacciWordFractal,
+	antiTSquare,
+	dragonCurve,
+	fibonacciWordFractal,
+	gosperCurve,
+	hilbertCurve,
+	kochAntiSnowFlake,
+	kochSnowFlake,
+	levyCCurve,
+	minkowskiSausage,
+	peanoCurve,
+	tSquare,
 } from "@/assets/Thumbnails";
 
 const doNothing: LinearOperator = (p, f) => [p, f];
@@ -27,7 +27,7 @@ const right90: LinearOperator = (p, f) => [p, rotate(f, -Math.PI / 2)];
 
 const LevyCCurveRules: LinearFractalInfo = {
 	name: "Levy C Curve",
-	Image: LevyCCurve,
+	image: levyCCurve,
 	maxDepth: 15,
 	rules: () => {
 		return {
@@ -48,7 +48,7 @@ const LevyCCurveRules: LinearFractalInfo = {
 const DragonCurveRules: LinearFractalInfo = {
 	name: "Dragon Curve",
 	maxDepth: 15,
-	Image: DragonCurve,
+	image: dragonCurve,
 	rules: () => ({
 		rules: {
 			I: [false, doNothing, "F"],
@@ -64,7 +64,7 @@ const DragonCurveRules: LinearFractalInfo = {
 const GosperCurveRules: LinearFractalInfo = {
 	name: "Gosper Curve",
 	maxDepth: 5,
-	Image: GosperCurve,
+	image: gosperCurve,
 	rules: () => ({
 		rules: {
 			I: [false, moveForward, "F"],
@@ -80,7 +80,7 @@ const GosperCurveRules: LinearFractalInfo = {
 const KochSnowflakeRules: LinearFractalInfo = {
 	name: "Koch Snowflake",
 	maxDepth: 5,
-	Image: KochSnowflake,
+	image: kochSnowFlake,
 	rules: () => ({
 		rules: {
 			I: [false, doNothing, "FNNFNNF"],
@@ -95,7 +95,7 @@ const KochSnowflakeRules: LinearFractalInfo = {
 const KochAntiSnowflakeRules: LinearFractalInfo = {
 	name: "Koch Anti Snowflake",
 	maxDepth: 5,
-	Image: KochAntiSnowflake,
+	image: kochAntiSnowFlake,
 	rules: () => ({
 		rules: {
 			I: [false, doNothing, "FNNFNNF"],
@@ -110,7 +110,7 @@ const KochAntiSnowflakeRules: LinearFractalInfo = {
 const MinkowskiSausageRules: LinearFractalInfo = {
 	name: "Minkowski Sausage",
 	maxDepth: 3,
-	Image: MinkowskiSausage,
+	image: minkowskiSausage,
 	rules: () => ({
 		rules: {
 			I: [false, doNothing, "FNFNFNF"],
@@ -125,7 +125,7 @@ const MinkowskiSausageRules: LinearFractalInfo = {
 const HilbertCurveRules: LinearFractalInfo = {
 	name: "Hilbert Curve",
 	maxDepth: 6,
-	Image: HilbertCurve,
+	image: hilbertCurve,
 	rules: () => ({
 		rules: {
 			I: [false, doNothing, "A"],
@@ -142,7 +142,7 @@ const HilbertCurveRules: LinearFractalInfo = {
 const PeanoCurveRules: LinearFractalInfo = {
 	name: "Peano Curve",
 	maxDepth: 5,
-	Image: PeanoCurve,
+	image: peanoCurve,
 	rules: () => ({
 		rules: {
 			I: [false, doNothing, "RF"],
@@ -167,7 +167,7 @@ const TSquareRules: LinearFractalInfo = {
 		},
 		shift: 1,
 	}),
-	Image: TSquare,
+	image: tSquare,
 };
 
 const AntiTSquareRules: LinearFractalInfo = {
@@ -182,7 +182,7 @@ const AntiTSquareRules: LinearFractalInfo = {
 		},
 		shift: 1,
 	}),
-	Image: AntiTSquare,
+	image: antiTSquare,
 };
 
 const FibonacciWordFractalRules: LinearFractalInfo = {
@@ -213,7 +213,7 @@ const FibonacciWordFractalRules: LinearFractalInfo = {
 			},
 		};
 	},
-	Image: FibonacciWordFractal,
+	image: fibonacciWordFractal,
 };
 
 const LinearFractalRulesSet: Record<string, LinearFractalInfo> = {
