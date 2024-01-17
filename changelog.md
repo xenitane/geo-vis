@@ -1,6 +1,17 @@
 # Changelog
 
-## v0.4.1-1
+## v0.5.1
+
+-   added one more fill fractal preset
+
+## v0.5.0
+
+-   ui fix for card titles
+-   some linear frcatal presets added
+-   fill renderer implemented
+-   fill fractal fractal presets added
+
+## v0.4.2
 
 -   removed uncessary function
 
