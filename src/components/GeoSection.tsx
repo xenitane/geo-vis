@@ -1,4 +1,4 @@
-import { cn, toTitleCase } from "@/lib/utils";
+import { cn } from "@/lib/utils";
 import { FC, Suspense, lazy } from "react";
 import { Separator } from "@/components/ui/separator";
 import CardSkeleton from "@/components/CardSkeleton";
@@ -9,15 +9,14 @@ const Card = lazy(() => import("@/components/Card"));
 
 interface GeoSectionProps extends HTMLProps {
 	sectionId: string;
-	sectionType: string;
 	objectList: Record<string, GeoObjInfo>;
 }
 
-const GeoSection: FC<GeoSectionProps> = ({ sectionType, objectList, sectionId }) => {
+const GeoSection: FC<GeoSectionProps> = ({ objectList, sectionId }) => {
 	return (
 		<section>
 			<h3 className={cn("text-2xl", "lg:text-3xl")} id={sectionId}>
-				{toTitleCase(sectionType)}
+				{sectionId}
 			</h3>
 			<div className={cn("py-4", "lg:py-8")}>
 				<Separator className={cn("h-0.5 bg-neutral-950", "dark:bg-neutral-50")} />
@@ -35,7 +34,7 @@ const GeoSection: FC<GeoSectionProps> = ({ sectionType, objectList, sectionId })
 										<Card
 											text={objectInfo.name}
 											image={objectInfo.image}
-											uri={`${sectionType}/${objectId}`}
+											uri={`${sectionId}/${objectId}`}
 										/>
 									</Suspense>
 								</CarouselItem>

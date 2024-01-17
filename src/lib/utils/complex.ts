@@ -1,8 +1,12 @@
 import { Point } from "@/types";
 
+export function rounder(a: number) {
+	return Math.round(a * 10000) / 10000;
+}
+
 export function multiply(a: Point, b: Point): Point {
-	const x = Math.round(1000000 * (a[0] * b[0] - a[1] * b[1])) / 1000000;
-	const y = Math.round(1000000 * (a[0] * b[1] + a[1] * b[0])) / 1000000;
+	const x = rounder(a[0] * b[0] - a[1] * b[1]);
+	const y = rounder(a[0] * b[1] + a[1] * b[0]);
 	return [x, y];
 }
 

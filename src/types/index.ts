@@ -6,6 +6,7 @@ export type SVGProps = React.SVGProps<SVGSVGElement>;
 export type DIVProps = React.HTMLProps<HTMLDivElement>;
 export type HTMLProps = React.HTMLProps<HTMLElement>;
 
+type PropType<TObj, TProp extends keyof TObj> = TObj[TProp];
 export interface ProjectFooterLiType {
 	Icon: IconType;
 	text: string;
@@ -26,26 +27,30 @@ export interface LinearFractalOptions {
 	depth: number;
 	colored: boolean;
 	animate: boolean;
-	rules: Record<string, LinearFractalRule>;
+	FractalInfo: { rules: Record<string, LinearFractalRule>; shift: number };
 	interval: { i: NodeJS.Timeout | undefined };
 }
 
 export interface LinearFractalInfo extends GeoObjInfo {
-	rules: () => { rules: Record<string, LinearFractalRule>; shift: number };
+	rules: () => PropType<LinearFractalOptions, "FractalInfo">;
 }
 
-type FillFractalRule = [true, () => void] | [false, () => void, string];
+type FillFractalRule = (centers: Point[], invCenters: Point[]) => [Point[], Point[]];
 
 export interface FillFractalOptions {
 	depth: number;
 	colored: boolean;
 	animate: boolean;
-	rules: Record<string, FillFractalRule>;
-	interval: { i: NodeJS.Timeout | undefined };
+	FractalInfo: {
+		origin: Point;
+		rules: FillFractalRule;
+		polyVGen: (n: number, flip: boolean) => (c: Point) => Point[];
+	};
+	interval: { up: NodeJS.Timeout | undefined; down: NodeJS.Timeout | undefined };
 }
 
 export interface FillFractalInfo extends GeoObjInfo {
-	rules: () => { rules: Record<string, FillFractalRule>; shift: number };
+	rules: () => PropType<FillFractalOptions, "FractalInfo">;
 }
 
 export type IncludeClassName<T> = T & { className?: string };

@@ -11,32 +11,32 @@ const FillFrac = () => {
 
 	if (!(fracID! in FillFractalRuleSet)) return <Navigate to="/geo-vis/404" />;
 
-	const interval: { i: NodeJS.Timeout | undefined } = { i: undefined };
+	const interval: { up: NodeJS.Timeout | undefined; down: NodeJS.Timeout | undefined } = { up: undefined, down: undefined };
 
 	let FractalInfo = FillFractalRuleSet[fracID!].rules();
 
 	function SVGReset() {
 		FractalInfo = FillFractalRuleSet[fracID!].rules();
 		SVGRef.current!.innerHTML = "";
-		clearInterval(interval.i);
+		clearInterval(interval.up);
+		clearInterval(interval.down);
 	}
 
 	function handleSubmit(data: formSchema) {
 		SVGReset();
 		FillRenderer(SVGRef.current!, {
 			...data,
-			rules: FractalInfo.rules,
 			interval,
-			depth: data.depth + FractalInfo.shift,
+			FractalInfo,
 		});
 	}
 
 	function handleSave() {
-		console.log(SVGRef.current);
+		// console.log(SVGRef.current);
 	}
 
 	return (
-		<article className={cn("flex w-full flex-col gap-8 py-2", "lg:flex-row lg:gap-0")}>
+		<article className={cn("flex w-full flex-col gap-8 py-2", "lg:flex-row")}>
 			<div className={cn("flex w-full flex-col", "lg:w-1/3")}>
 				<h3 className={cn("pb-4 text-2xl underline", "lg:text-3xl")}>{FillFractalRuleSet[fracID!].name}</h3>
 				<FractalForm

@@ -41,7 +41,7 @@ const Card: FC<CardProps> = ({ image, text, uri }) => {
 			>
 				<span
 					className={cn(
-						"flex h-1/2 w-full items-center rounded-t-3xl bg-white px-6 transition-all duration-500 ease-in-out",
+						"flex h-2/3 w-full items-center rounded-t-3xl bg-white px-6 transition-all duration-500 ease-in-out",
 						"dark:bg-neutral-900"
 					)}
 				>
@@ -50,7 +50,7 @@ const Card: FC<CardProps> = ({ image, text, uri }) => {
 						<HiOutlineArrowsExpand />
 					</NavLink>
 				</span>
-				<SepLine className={cn("h-1/2 text-white", "dark:text-neutral-900")} />
+				<SepLine className={cn("h-1/3 origin-left scale-x-150 text-white", "dark:text-neutral-900")} />
 			</div>
 		</div>
 	);

@@ -10,8 +10,11 @@ const SVGCanvas = forwardRef<SVGSVGElement, SVGProps>((_, ref) => {
 			height="100%"
 			xmlSpace="preserve"
 			xmlnsXlink="http://wwww3.org/1999/xlink"
-			ref={ref}
-		/>
+			strokeLinecap="round"
+			strokeLinejoin="round"
+		>
+			<g ref={ref}></g>
+		</svg>
 	);
 });
 

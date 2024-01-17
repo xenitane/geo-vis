@@ -10,7 +10,7 @@ const Home = () => {
 			{Object.entries(fractalData).map(([setId, setObj]) => {
 				return (
 					<Suspense key={setId} fallback={<GeoSecSkeleton />}>
-						<GeoSection sectionId={setId} sectionType={setId} objectList={setObj} />
+						<GeoSection sectionId={setId} objectList={setObj} />
 					</Suspense>
 				);
 			})}

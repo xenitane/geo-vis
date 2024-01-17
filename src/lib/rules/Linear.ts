@@ -216,6 +216,53 @@ const FibonacciWordFractalRules: LinearFractalInfo = {
 	image: fibonacciWordFractal,
 };
 
+const SierpinskiArrowHeadCurve: LinearFractalInfo = {
+	name: "Sierpinski Arrow Head curve",
+	maxDepth: 10,
+	image: fibonacciWordFractal,
+	rules: () => ({
+		shift: 1,
+		rules: {
+			I: [false, doNothing, "A"],
+			A: [false, moveForward, "PBNANBP"],
+			B: [false, moveForward, "NAPBPAN"],
+			N: [true, left60],
+			P: [true, right60],
+		},
+	}),
+};
+
+const QuardraticKochIsland: LinearFractalInfo = {
+	name: "Quardratic Koch Island",
+	maxDepth: 4,
+	image: fibonacciWordFractal,
+	rules: () => ({
+		shift: 1,
+		rules: {
+			I: [false, doNothing, "FNFNFNF"],
+			F: [false, moveForward, "FNFPFPFFFNFNFPF"],
+			P: [true, right90],
+			N: [true, left90],
+		},
+	}),
+};
+
+const SierpinskiTriangle: LinearFractalInfo = {
+	name: "Sierpinski Tiangle",
+	maxDepth: 7,
+	image: fibonacciWordFractal,
+	rules: () => ({
+		shift: 1,
+		rules: {
+			I: [false, doNothing, "NFFNNFXFNNFFN"],
+			F: [false, moveForward, "FF"],
+			X: [false, doNothing, "NNFXFPPFXFPPFXFNN"],
+			P: [true, right60],
+			N: [true, left60],
+		},
+	}),
+};
+
 const LinearFractalRulesSet: Record<string, LinearFractalInfo> = {
 	"levy-c-curve": LevyCCurveRules,
 	"dragon-curve": DragonCurveRules,
@@ -228,6 +275,9 @@ const LinearFractalRulesSet: Record<string, LinearFractalInfo> = {
 	"t-square": TSquareRules,
 	"anti-t-square": AntiTSquareRules,
 	"fibonacci-word-fractal": FibonacciWordFractalRules,
+	"sierpinski-arrow-head-curve": SierpinskiArrowHeadCurve,
+	"quardratic-koch-island": QuardraticKochIsland,
+	"sierpinski-triangle": SierpinskiTriangle,
 };
 
 export default LinearFractalRulesSet;

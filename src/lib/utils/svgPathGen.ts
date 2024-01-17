@@ -5,18 +5,15 @@ function rgbToHex(a: [number, number, number]) {
 }
 
 interface SVGPathLineElementProps {
-	width: number;
 	color: [number, number, number];
 	start: Point;
 	end: Point;
 }
 
-export function createSVGPathLineElement({ width, color, start, end }: SVGPathLineElementProps) {
+export function createSVGPathLineElement({ color, start, end }: SVGPathLineElementProps) {
 	const element = document.createElementNS("http://www.w3.org/2000/svg", "path");
 	element.setAttributeNS(null, "stroke", `#${rgbToHex(color)}`);
-	element.setAttributeNS(null, "stroke-width", `${width}px`);
-	element.setAttributeNS(null, "stroke-linejoin", "round");
-	element.setAttributeNS(null, "stroke-linecap", "round");
+	element.setAttributeNS(null, "stroke-width", "2px");
 	element.setAttributeNS(null, "d", `M ${start[0]} ${start[1]} L ${end[0]} ${end[1]}`);
 	return element;
 }
@@ -30,8 +27,6 @@ export function createSVGPathPolygonElement({ color, points }: SVGPathPolygonEle
 	const element = document.createElementNS("http://www.w3.org/2000/svg", "path");
 	element.setAttributeNS(null, "fill", `#${rgbToHex(color)}`);
 	element.setAttributeNS(null, "stroke-width", "0");
-	element.setAttributeNS(null, "stroke-linejoin", "round");
-	element.setAttributeNS(null, "stroke-linecap", "round");
 	element.setAttributeNS(null, "d", `M ${points.map((p) => `${p[0]} ${p[1]}`).join(" L ")} Z`);
 	return element;
 }
@@ -39,15 +34,14 @@ export function createSVGPathPolygonElement({ color, points }: SVGPathPolygonEle
 interface SVGCircleElementProps {
 	x: number;
 	y: number;
-	r: number;
 	color: [number, number, number];
 }
 
-export function createSVGCircleElement({ x, y, r, color }: SVGCircleElementProps) {
+export function createSVGCircleElement({ x, y, color }: SVGCircleElementProps) {
 	const element = document.createElementNS("http://www.w3.org/2000/svg", "circle");
 	element.setAttributeNS(null, "cx", `${x}`);
 	element.setAttributeNS(null, "cy", `${y}`);
-	element.setAttributeNS(null, "r", `${r}`);
+	element.setAttributeNS(null, "r", "1px");
 	element.setAttributeNS(null, "fill", `#${rgbToHex(color)}`);
 	element.setAttributeNS(null, "stroke-width", "0");
 

@@ -12,11 +12,11 @@ export default createBrowserRouter([
 				Component: lazy(() => import("@/pages/Home")),
 			},
 			{
-				path: "linear/:fracID",
+				path: "Linear/:fracID",
 				Component: lazy(() => import("@/pages/LinearFrac")),
 			},
 			{
-				path: "fill/:fracID",
+				path: "Fill/:fracID",
 				Component: lazy(() => import("@/pages/FillFrac")),
 			},
 			{

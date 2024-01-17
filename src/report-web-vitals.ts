@@ -1,7 +1,7 @@
 import { ReportCallback } from "web-vitals";
 import { onCLS, onFCP, onFID, onLCP, onTTFB } from "web-vitals";
 
-const reportWebVitals = (onPerfEntry?: ReportCallback): void => {
+const reportWebVitals = (onPerfEntry?: ReportCallback) => {
 	if (onPerfEntry && onPerfEntry instanceof Function) {
 		onCLS(onPerfEntry);
 		onFID(onPerfEntry);

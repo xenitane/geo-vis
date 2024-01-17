@@ -9,7 +9,7 @@ const SepLine: FC<SVGProps> = ({ className }) => {
 			xmlns="http://www.w3.org/2000/svg"
 			xmlnsXlink="http://www.w3.org/1999/xlink"
 			version="1.1"
-			className={cn("aspect-[6/1]", className)}
+			className={cn(className)}
 			fill="currentColor"
 		>
 			<path
