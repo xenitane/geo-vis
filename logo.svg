@@ -1,12 +1,6 @@
-<svg
-	xmlns="http://www.w3.org/2000/svg"
-	viewBox="0 0 100 100"
-	xml:space="preserve"
-	stroke-linecap="round"
-	stroke-linejoin="round"
-	stroke-width="0"
-	fill="#000"
->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" xml:space="preserve"
+	stroke-linecap="round" stroke-linejoin="round" stroke-width="0" fill="#000">
+<g>
 	<path d="M50 4.775 L52.65 6.7 L51.638 9.815 L48.362 9.815 L47.35 6.7 Z" />
 	<path d="M54.288 7.89 L56.938 9.815 L55.926 12.931 L52.65 12.931 L51.638 9.815 Z" />
 	<path d="M52.65 12.931 L55.3 14.856 L54.288 17.971 L51.012 17.971 L50 14.856 Z" />
@@ -223,4 +217,5 @@
 	<path d="M58.576 57.561 L55.926 55.636 L56.938 52.52 L60.213 52.52 L61.226 55.636 Z" />
 	<path d="M63.876 57.561 L61.226 55.636 L62.238 52.52 L65.514 52.52 L66.526 55.636 Z" />
 	<path d="M65.514 62.602 L62.864 60.676 L63.876 57.561 L67.151 57.561 L68.164 60.676 Z" />
+</g>
 </svg>
