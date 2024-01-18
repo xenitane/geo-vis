@@ -5,11 +5,12 @@
 -   [ ] Build render engines with presets
     -   [x] Linear
     -   [x] Fill
+    -   [ ] Branching
     -   [ ] Attractor
-    -   [ ] CG
     -   [ ] Sets
-    -   [ ] Sandbox
     -   [ ] 3d
+    -   [ ] CG
+    -   [ ] Sandbox
 -   [x] Add Theme Classes and Resposiveness
 -   [ ] Add Color to Fractals
 -   [ ] Add Save as Feature

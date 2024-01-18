@@ -12,7 +12,10 @@ import {
 	minkowskiSausage,
 	peanoCurve,
 	tSquare,
-} from "@/assets/Thumbnails";
+	sierpinskiArrowhead,
+	quardraticKochIsland,
+	sierpinskiTriangle,
+} from "@/assets/Thumbnails/linear";
 
 const doNothing: LinearOperator = (p, f) => [p, f];
 const moveForward: LinearOperator = (p, f) => [add(p, f), f];
@@ -219,7 +222,7 @@ const FibonacciWordFractalRules: LinearFractalInfo = {
 const SierpinskiArrowHeadCurve: LinearFractalInfo = {
 	name: "Sierpinski Arrow Head curve",
 	maxDepth: 10,
-	image: fibonacciWordFractal,
+	image: sierpinskiArrowhead,
 	rules: () => ({
 		shift: 1,
 		rules: {
@@ -235,7 +238,7 @@ const SierpinskiArrowHeadCurve: LinearFractalInfo = {
 const QuardraticKochIsland: LinearFractalInfo = {
 	name: "Quardratic Koch Island",
 	maxDepth: 4,
-	image: fibonacciWordFractal,
+	image: quardraticKochIsland,
 	rules: () => ({
 		shift: 1,
 		rules: {
@@ -250,7 +253,7 @@ const QuardraticKochIsland: LinearFractalInfo = {
 const SierpinskiTriangle: LinearFractalInfo = {
 	name: "Sierpinski Tiangle",
 	maxDepth: 7,
-	image: fibonacciWordFractal,
+	image: sierpinskiTriangle,
 	rules: () => ({
 		shift: 1,
 		rules: {

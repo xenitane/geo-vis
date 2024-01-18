@@ -1,5 +1,9 @@
 # Changelog
 
+## v0.5.2
+
+-   updated thumbnails
+
 ## v0.5.1
 
 -   added one more fill fractal preset
