@@ -5,7 +5,7 @@
 -   [ ] Build render engines with presets
     -   [x] Linear
     -   [x] Fill
-    -   [ ] Branching
+    -   [x] Branching
     -   [ ] Attractor
     -   [ ] Sets
     -   [ ] 3d

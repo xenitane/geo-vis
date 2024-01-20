@@ -1,5 +1,12 @@
 # Changelog
 
+## v0.6.0
+
+-   branching renderer implemented
+-   fixed preset names
+-   added branching presets
+-   added some linear presets
+
 ## v0.5.2
 
 -   updated thumbnails
