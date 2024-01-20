@@ -1,58 +1,58 @@
 {
-  "_Branching-vuD5gVCP.js": {
+  "_Branching-KWU1kAK1.js": {
     "assets": [
-      "assets/sierpinski-carpet-lT9ZLBHs.svg",
-      "assets/sierpinski-triangle-skeleton-oZLbPbHE.svg",
-      "assets/t-square-dB6WBX5s.svg"
+      "assets/sierpinski-carpet-tcUJp76B.svg",
+      "assets/sierpinski-triangle-skeleton-5RWZaem-.svg",
+      "assets/t-square-aPo7Mgmz.svg"
     ],
-    "file": "assets/Branching-vuD5gVCP.js",
+    "file": "assets/Branching-KWU1kAK1.js",
     "imports": [
       "_fracUtils-w_X18CYg.js"
     ]
   },
-  "_Fill--qhBkMYU.js": {
+  "_Fill-lci7RbSe.js": {
     "assets": [
-      "assets/sierpinski-triangle-zbTdArO7.svg",
-      "assets/sierpinski-pentagon-p2PmV0LG.svg",
-      "assets/sierpinski-hexagon-HoNvmNuf.svg",
-      "assets/pentaflake-WDtqMSqO.svg",
-      "assets/hexaflake-CZG9nkgF.svg",
-      "assets/hexnut-UOKroKwY.svg",
-      "assets/hexpool-cHTAeywQ.svg",
-      "assets/sierpinski-carpet-hmmim9aR.svg",
-      "assets/vicsek-fractal-rSd564cY.svg"
+      "assets/sierpinski-triangle-qcql2jGj.svg",
+      "assets/sierpinski-pentagon-ek7SzFrB.svg",
+      "assets/sierpinski-hexagon-zrJvIOdK.svg",
+      "assets/pentaflake-IGpoP9ia.svg",
+      "assets/hexaflake-kEtX_EYi.svg",
+      "assets/hexnut-8Ys6F9K3.svg",
+      "assets/hexpool-1qibUXJ3.svg",
+      "assets/sierpinski-carpet-Bc6Z5cF4.svg",
+      "assets/vicsek-fractal-8NbGwkrC.svg"
     ],
-    "file": "assets/Fill--qhBkMYU.js",
+    "file": "assets/Fill-lci7RbSe.js",
     "imports": [
       "_fracUtils-w_X18CYg.js"
     ]
   },
-  "_Linear-PNnGj5x3.js": {
+  "_Linear-j7WyRYay.js": {
     "assets": [
-      "assets/cross-stitch-curve-w_BHf1Jx.svg",
+      "assets/cross-stitch-curve-0lrOAkix.svg",
       "assets/dragon-curve-BmBlYx9-.svg",
       "assets/fibonacci-word-fractal-4Q3-mSHY.svg",
       "assets/gosper-curve-k5dBkxLr.svg",
-      "assets/hilbert-curve-MhtxG6BQ.svg",
-      "assets/levy-c-curve-s-uGccUd.svg",
-      "assets/koch-snow-flake-BJ1zMPTA.svg",
-      "assets/koch-anti-snow-flake-G3e4WcvT.svg",
-      "assets/minkowski-island-yzeR9pyA.svg",
-      "assets/peano-curve-wr75WCdA.svg",
-      "assets/vicsek-fractal-p4fOKOcl.svg",
-      "assets/sierpinski-arrowhead-wyaNuOTa.svg",
+      "assets/hilbert-curve-qihIUaBH.svg",
+      "assets/levy-c-curve-B4JeuH5B.svg",
+      "assets/koch-snow-flake-OAh2RyaH.svg",
+      "assets/koch-anti-snow-flake-d6n1wC94.svg",
+      "assets/minkowski-island-lAPU7o2_.svg",
+      "assets/peano-curve-_wLIr85a.svg",
+      "assets/vicsek-fractal-7P9yeZw0.svg",
+      "assets/sierpinski-arrowhead-E4KpjoT6.svg",
       "assets/quardratic-koch-island-ABe9PXE-.svg",
-      "assets/sierpinski-triangle-0xz-_F1D.svg",
-      "assets/gosper-island-FXzYf1Y9.svg",
-      "assets/quardratic-island-3JonWuJZ.svg"
+      "assets/sierpinski-triangle-wLaVrgpQ.svg",
+      "assets/gosper-island-3ZOsWttm.svg",
+      "assets/quardratic-island-NcBBHGH9.svg"
     ],
-    "file": "assets/Linear-PNnGj5x3.js",
+    "file": "assets/Linear-j7WyRYay.js",
     "imports": [
       "_fracUtils-w_X18CYg.js"
     ]
   },
-  "_SVGCanvas-FZKISPqC.js": {
-    "file": "assets/SVGCanvas-FZKISPqC.js",
+  "_SVGCanvas-VgjsRY5O.js": {
+    "file": "assets/SVGCanvas-VgjsRY5O.js",
     "imports": [
       "_fracUtils-w_X18CYg.js",
       "index.html"
@@ -62,55 +62,55 @@
     "file": "assets/fracUtils-w_X18CYg.js"
   },
   "assets/Thumbnails/branching/sierpinski-carpet.svg": {
-    "file": "assets/sierpinski-carpet-lT9ZLBHs.svg",
+    "file": "assets/sierpinski-carpet-tcUJp76B.svg",
     "src": "assets/Thumbnails/branching/sierpinski-carpet.svg"
   },
   "assets/Thumbnails/branching/sierpinski-triangle-skeleton.svg": {
-    "file": "assets/sierpinski-triangle-skeleton-oZLbPbHE.svg",
+    "file": "assets/sierpinski-triangle-skeleton-5RWZaem-.svg",
     "src": "assets/Thumbnails/branching/sierpinski-triangle-skeleton.svg"
   },
   "assets/Thumbnails/branching/t-square.svg": {
-    "file": "assets/t-square-dB6WBX5s.svg",
+    "file": "assets/t-square-aPo7Mgmz.svg",
     "src": "assets/Thumbnails/branching/t-square.svg"
   },
   "assets/Thumbnails/fill/hexaflake.svg": {
-    "file": "assets/hexaflake-CZG9nkgF.svg",
+    "file": "assets/hexaflake-kEtX_EYi.svg",
     "src": "assets/Thumbnails/fill/hexaflake.svg"
   },
   "assets/Thumbnails/fill/hexnut.svg": {
-    "file": "assets/hexnut-UOKroKwY.svg",
+    "file": "assets/hexnut-8Ys6F9K3.svg",
     "src": "assets/Thumbnails/fill/hexnut.svg"
   },
   "assets/Thumbnails/fill/hexpool.svg": {
-    "file": "assets/hexpool-cHTAeywQ.svg",
+    "file": "assets/hexpool-1qibUXJ3.svg",
     "src": "assets/Thumbnails/fill/hexpool.svg"
   },
   "assets/Thumbnails/fill/pentaflake.svg": {
-    "file": "assets/pentaflake-WDtqMSqO.svg",
+    "file": "assets/pentaflake-IGpoP9ia.svg",
     "src": "assets/Thumbnails/fill/pentaflake.svg"
   },
   "assets/Thumbnails/fill/sierpinski-carpet.svg": {
-    "file": "assets/sierpinski-carpet-hmmim9aR.svg",
+    "file": "assets/sierpinski-carpet-Bc6Z5cF4.svg",
     "src": "assets/Thumbnails/fill/sierpinski-carpet.svg"
   },
   "assets/Thumbnails/fill/sierpinski-hexagon.svg": {
-    "file": "assets/sierpinski-hexagon-HoNvmNuf.svg",
+    "file": "assets/sierpinski-hexagon-zrJvIOdK.svg",
     "src": "assets/Thumbnails/fill/sierpinski-hexagon.svg"
   },
   "assets/Thumbnails/fill/sierpinski-pentagon.svg": {
-    "file": "assets/sierpinski-pentagon-p2PmV0LG.svg",
+    "file": "assets/sierpinski-pentagon-ek7SzFrB.svg",
     "src": "assets/Thumbnails/fill/sierpinski-pentagon.svg"
   },
   "assets/Thumbnails/fill/sierpinski-triangle.svg": {
-    "file": "assets/sierpinski-triangle-zbTdArO7.svg",
+    "file": "assets/sierpinski-triangle-qcql2jGj.svg",
     "src": "assets/Thumbnails/fill/sierpinski-triangle.svg"
   },
   "assets/Thumbnails/fill/vicsek-fractal.svg": {
-    "file": "assets/vicsek-fractal-rSd564cY.svg",
+    "file": "assets/vicsek-fractal-8NbGwkrC.svg",
     "src": "assets/Thumbnails/fill/vicsek-fractal.svg"
   },
   "assets/Thumbnails/linear/cross-stitch-curve.svg": {
-    "file": "assets/cross-stitch-curve-w_BHf1Jx.svg",
+    "file": "assets/cross-stitch-curve-0lrOAkix.svg",
     "src": "assets/Thumbnails/linear/cross-stitch-curve.svg"
   },
   "assets/Thumbnails/linear/dragon-curve.svg": {
@@ -126,35 +126,35 @@
     "src": "assets/Thumbnails/linear/gosper-curve.svg"
   },
   "assets/Thumbnails/linear/gosper-island.svg": {
-    "file": "assets/gosper-island-FXzYf1Y9.svg",
+    "file": "assets/gosper-island-3ZOsWttm.svg",
     "src": "assets/Thumbnails/linear/gosper-island.svg"
   },
   "assets/Thumbnails/linear/hilbert-curve.svg": {
-    "file": "assets/hilbert-curve-MhtxG6BQ.svg",
+    "file": "assets/hilbert-curve-qihIUaBH.svg",
     "src": "assets/Thumbnails/linear/hilbert-curve.svg"
   },
   "assets/Thumbnails/linear/koch-anti-snow-flake.svg": {
-    "file": "assets/koch-anti-snow-flake-G3e4WcvT.svg",
+    "file": "assets/koch-anti-snow-flake-d6n1wC94.svg",
     "src": "assets/Thumbnails/linear/koch-anti-snow-flake.svg"
   },
   "assets/Thumbnails/linear/koch-snow-flake.svg": {
-    "file": "assets/koch-snow-flake-BJ1zMPTA.svg",
+    "file": "assets/koch-snow-flake-OAh2RyaH.svg",
     "src": "assets/Thumbnails/linear/koch-snow-flake.svg"
   },
   "assets/Thumbnails/linear/levy-c-curve.svg": {
-    "file": "assets/levy-c-curve-s-uGccUd.svg",
+    "file": "assets/levy-c-curve-B4JeuH5B.svg",
     "src": "assets/Thumbnails/linear/levy-c-curve.svg"
   },
   "assets/Thumbnails/linear/minkowski-island.svg": {
-    "file": "assets/minkowski-island-yzeR9pyA.svg",
+    "file": "assets/minkowski-island-lAPU7o2_.svg",
     "src": "assets/Thumbnails/linear/minkowski-island.svg"
   },
   "assets/Thumbnails/linear/peano-curve.svg": {
-    "file": "assets/peano-curve-wr75WCdA.svg",
+    "file": "assets/peano-curve-_wLIr85a.svg",
     "src": "assets/Thumbnails/linear/peano-curve.svg"
   },
   "assets/Thumbnails/linear/quardratic-island.svg": {
-    "file": "assets/quardratic-island-3JonWuJZ.svg",
+    "file": "assets/quardratic-island-NcBBHGH9.svg",
     "src": "assets/Thumbnails/linear/quardratic-island.svg"
   },
   "assets/Thumbnails/linear/quardratic-koch-island.svg": {
@@ -162,19 +162,19 @@
     "src": "assets/Thumbnails/linear/quardratic-koch-island.svg"
   },
   "assets/Thumbnails/linear/sierpinski-arrowhead.svg": {
-    "file": "assets/sierpinski-arrowhead-wyaNuOTa.svg",
+    "file": "assets/sierpinski-arrowhead-E4KpjoT6.svg",
     "src": "assets/Thumbnails/linear/sierpinski-arrowhead.svg"
   },
   "assets/Thumbnails/linear/sierpinski-triangle.svg": {
-    "file": "assets/sierpinski-triangle-0xz-_F1D.svg",
+    "file": "assets/sierpinski-triangle-wLaVrgpQ.svg",
     "src": "assets/Thumbnails/linear/sierpinski-triangle.svg"
   },
   "assets/Thumbnails/linear/vicsek-fractal.svg": {
-    "file": "assets/vicsek-fractal-p4fOKOcl.svg",
+    "file": "assets/vicsek-fractal-7P9yeZw0.svg",
     "src": "assets/Thumbnails/linear/vicsek-fractal.svg"
   },
   "components/Card.tsx": {
-    "file": "assets/Card-970dCRy1.js",
+    "file": "assets/Card-Trmlg5d4.js",
     "imports": [
       "index.html"
     ],
@@ -185,7 +185,7 @@
     "dynamicImports": [
       "components/Card.tsx"
     ],
-    "file": "assets/GeoSection-1NJKwJ6a.js",
+    "file": "assets/GeoSection-svOGwzMd.js",
     "imports": [
       "index.html"
     ],
@@ -204,23 +204,23 @@
       "pages/Error.tsx",
       "pages/LinearFrac.tsx"
     ],
-    "file": "assets/index-lEADkaHJ.js",
+    "file": "assets/index-eeYQKn_X.js",
     "isEntry": true,
     "src": "index.html"
   },
   "pages/BranchingFrac.tsx": {
-    "file": "assets/BranchingFrac-GbhKt1u3.js",
+    "file": "assets/BranchingFrac-rDq_E0QS.js",
     "imports": [
       "index.html",
-      "_SVGCanvas-FZKISPqC.js",
-      "_Branching-vuD5gVCP.js",
+      "_SVGCanvas-VgjsRY5O.js",
+      "_Branching-KWU1kAK1.js",
       "_fracUtils-w_X18CYg.js"
     ],
     "isDynamicEntry": true,
     "src": "pages/BranchingFrac.tsx"
   },
   "pages/Error.tsx": {
-    "file": "assets/Error-Woh9IkUa.js",
+    "file": "assets/Error--d2vNJqW.js",
     "imports": [
       "index.html"
     ],
@@ -228,11 +228,11 @@
     "src": "pages/Error.tsx"
   },
   "pages/FillFrac.tsx": {
-    "file": "assets/FillFrac-vxwHMQiX.js",
+    "file": "assets/FillFrac-G37IsJT3.js",
     "imports": [
       "index.html",
-      "_SVGCanvas-FZKISPqC.js",
-      "_Fill--qhBkMYU.js",
+      "_SVGCanvas-VgjsRY5O.js",
+      "_Fill-lci7RbSe.js",
       "_fracUtils-w_X18CYg.js"
     ],
     "isDynamicEntry": true,
@@ -242,23 +242,23 @@
     "dynamicImports": [
       "components/GeoSection.tsx"
     ],
-    "file": "assets/Home-p0zuBtXf.js",
+    "file": "assets/Home-oeDdm2vu.js",
     "imports": [
       "index.html",
-      "_Linear-PNnGj5x3.js",
-      "_Fill--qhBkMYU.js",
-      "_Branching-vuD5gVCP.js",
+      "_Linear-j7WyRYay.js",
+      "_Fill-lci7RbSe.js",
+      "_Branching-KWU1kAK1.js",
       "_fracUtils-w_X18CYg.js"
     ],
     "isDynamicEntry": true,
     "src": "pages/Home.tsx"
   },
   "pages/LinearFrac.tsx": {
-    "file": "assets/LinearFrac-aDUF9COe.js",
+    "file": "assets/LinearFrac-ZFd2uPF5.js",
     "imports": [
       "index.html",
-      "_SVGCanvas-FZKISPqC.js",
-      "_Linear-PNnGj5x3.js",
+      "_SVGCanvas-VgjsRY5O.js",
+      "_Linear-j7WyRYay.js",
       "_fracUtils-w_X18CYg.js"
     ],
     "isDynamicEntry": true,
