@@ -1,4 +1,4 @@
-import { LinearFractalOptions, FillFractalOptions, Point } from "@/types";
+import { LinearFractalOptions, FillFractalOptions, Point, BranchingFractalOptions, ArrayOfTAndSelf } from "@/types";
 import { createSVGPathLineElement, createSVGPathPolygonElement } from "@/lib/utils/svgPathGen";
 import { rounder } from "@/lib/utils";
 
@@ -40,17 +40,18 @@ export function LinearRenderer(
 	if (animate) {
 		let i = 1;
 		interval.i = setInterval(() => {
-			if (i === points.length) clearInterval(interval.i);
-			else {
-				SVGRef.appendChild(
-					createSVGPathLineElement({
-						color: [0, 0, 0],
-						start: points[i - 1],
-						end: points[i],
-					})
-				);
-				i++;
+			if (i === points.length) {
+				clearInterval(interval.i);
+				return;
 			}
+			SVGRef.appendChild(
+				createSVGPathLineElement({
+					color: [0, 0, 0],
+					start: points[i - 1],
+					end: points[i],
+				})
+			);
+			i++;
 		}, 5);
 	} else {
 		for (let i = 1; i < points.length; i++)
@@ -67,10 +68,11 @@ export function LinearRenderer(
 export function FillRenderer(SVGRef: SVGSVGElement, { animate, depth, FractalInfo, colored, interval }: FillFractalOptions) {
 	let centers: Point[] = [[FractalInfo.origin[0], FractalInfo.origin[1]]];
 	let invCenters: Point[] = [];
-	for (let _ = 0; _ < depth; _++) [centers, invCenters] = FractalInfo.rules(centers, invCenters);
 
-	const upPolyVGen = FractalInfo.polyVGen(depth, false);
 	const downPolyVGen = FractalInfo.polyVGen(depth, true);
+	const upPolyVGen = FractalInfo.polyVGen(depth, false);
+
+	while (depth--) [centers, invCenters] = FractalInfo.rules(centers, invCenters);
 
 	if (colored) {
 		// todo: fill color
@@ -79,12 +81,14 @@ export function FillRenderer(SVGRef: SVGSVGElement, { animate, depth, FractalInf
 		...centers.map((center) => upPolyVGen(center)),
 		...invCenters.map((invCenter) => downPolyVGen(invCenter)),
 	];
+
 	centers = [];
 	invCenters = [];
+
 	if (animate) {
 		let i = 0;
-		interval.up = setInterval(() => {
-			if (i === polygonVertices.length) clearInterval(interval.up);
+		interval.i = setInterval(() => {
+			if (i === polygonVertices.length) clearInterval(interval.i);
 			else {
 				SVGRef.appendChild(
 					createSVGPathPolygonElement({
@@ -103,5 +107,99 @@ export function FillRenderer(SVGRef: SVGSVGElement, { animate, depth, FractalInf
 					points: polygonVertex,
 				})
 			);
+	}
+}
+
+export function BranchingRenderer(
+	SVGRef: SVGSVGElement,
+	{ depth, animate, colored, interval, FractalInfo }: BranchingFractalOptions
+) {
+	// console.log(SVGRef, depth, animate, colored, interval, FractalInfo);
+	let cursor: Point = [0, 0];
+	let direction: Point = [1, 0];
+	const paths: [Point, Point][] = [];
+	const bounds: [Point, Point] = [
+		[0, 0],
+		[0, 0],
+	];
+
+	function handleBranchNode(crsr: Point, dirn: Point, d: number, branchInfo: ArrayOfTAndSelf<string>): [Point, Point] {
+		if (typeof branchInfo === "string") {
+			for (let ins of [...branchInfo]) {
+				[crsr, dirn] = handleInstruction(crsr, dirn, ins, d);
+			}
+			return [crsr, dirn];
+		} else {
+			for (let ins of [...branchInfo[0]]) {
+				[crsr, dirn] = handleInstruction(crsr, dirn, ins, d);
+			}
+			let tc: Point = [crsr[0], crsr[1]];
+			let td: Point = [dirn[0], dirn[1]];
+			for (let branch of branchInfo[1]) {
+				tc = [crsr[0], crsr[1]];
+				td = [dirn[0], dirn[1]];
+				[tc, td] = handleBranchNode(tc, td, d, branch);
+			}
+			return [tc, td];
+		}
+	}
+
+	function handleInstruction(crsr: Point, dirn: Point, ins: string, d: number): [Point, Point] {
+		if (d === 0 || FractalInfo.rules[ins][0]) {
+			const [newCrsr, newDir] = FractalInfo.rules[ins][1](crsr, dirn);
+			if (newCrsr[0] !== crsr[0] || newCrsr[1] !== crsr[1])
+				paths.push([
+					[crsr[0], crsr[1]],
+					[newCrsr[0], newCrsr[1]],
+				]);
+			bounds[0][0] = Math.min(bounds[0][0], newCrsr[0]);
+			bounds[0][1] = Math.min(bounds[0][1], newCrsr[1]);
+			bounds[1][0] = Math.max(bounds[1][0], newCrsr[0]);
+			bounds[1][1] = Math.max(bounds[1][1], newCrsr[1]);
+			return [newCrsr, newDir];
+		}
+		return handleBranchNode(crsr, dirn, d - 1, FractalInfo.rules[ins][2]!);
+	}
+
+	[cursor, direction] = handleInstruction(cursor, direction, "I", depth + FractalInfo.shift);
+
+	const origin: Point = [(bounds[1][0] + bounds[0][0]) / 2, (bounds[1][1] + bounds[0][1]) / 2];
+	const scale: number = 1800 / Math.max(bounds[1][0] - bounds[0][0], bounds[1][1] - bounds[0][1]);
+	for (const path of paths) {
+		path[0][0] = rounder((path[0][0] - origin[0]) * scale);
+		path[0][1] = rounder((path[0][1] - origin[1]) * scale);
+		path[1][0] = rounder((path[1][0] - origin[0]) * scale);
+		path[1][1] = rounder((path[1][1] - origin[1]) * scale);
+	}
+
+	if (colored) {
+		// todo : fill color
+	}
+	if (animate) {
+		let i = 0;
+		interval.i = setInterval(() => {
+			if (i === paths.length) {
+				clearInterval(interval.i);
+				return;
+			}
+			SVGRef.appendChild(
+				createSVGPathLineElement({
+					color: [0, 0, 0],
+					start: paths[i][0],
+					end: paths[i][1],
+				})
+			);
+			i++;
+		}, 5);
+	} else {
+		for (const path of paths) {
+			SVGRef.appendChild(
+				createSVGPathLineElement({
+					color: [0, 0, 0],
+					start: path[0],
+					end: path[1],
+				})
+			);
+		}
 	}
 }

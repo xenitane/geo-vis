@@ -1,29 +1,29 @@
 import { useRef } from "react";
-import { FillRenderer, cn } from "@/lib/utils";
+import { BranchingRenderer, cn } from "@/lib/utils";
 import { Navigate, useParams } from "react-router-dom";
 import FractalForm, { formSchema } from "@/components/FractalForm";
-import FillFractalRuleSet from "@/lib/rules/Fill";
+import BranchingFractalRuleSet from "@/lib/rules/Branching";
 import SVGCanvas from "@/components/SVGCanvas";
 
 const FillFrac = () => {
 	const { fracID } = useParams();
 	const SVGRef = useRef<SVGSVGElement>(null);
 
-	if (!(fracID! in FillFractalRuleSet)) return <Navigate to="/geo-vis/404" />;
+	if (!(fracID! in BranchingFractalRuleSet)) return <Navigate to="/geo-vis/404" />;
 
 	const interval: { i: NodeJS.Timeout | undefined } = { i: undefined };
 
-	let FractalInfo = FillFractalRuleSet[fracID!].rules();
+	let FractalInfo = BranchingFractalRuleSet[fracID!].rules();
 
 	function SVGReset() {
-		FractalInfo = FillFractalRuleSet[fracID!].rules();
+		FractalInfo = BranchingFractalRuleSet[fracID!].rules();
 		SVGRef.current!.innerHTML = "";
 		clearInterval(interval.i);
 	}
 
 	function handleSubmit(data: formSchema) {
 		SVGReset();
-		FillRenderer(SVGRef.current!, {
+		BranchingRenderer(SVGRef.current!, {
 			...data,
 			interval,
 			FractalInfo,
@@ -37,11 +37,11 @@ const FillFrac = () => {
 	return (
 		<article className={cn("flex w-full flex-col gap-8 py-2", "lg:flex-row")}>
 			<div className={cn("flex w-full flex-col", "lg:w-1/3")}>
-				<h3 className={cn("pb-4 text-2xl underline", "lg:text-3xl")}>{FillFractalRuleSet[fracID!].name}</h3>
+				<h3 className={cn("pb-4 text-2xl underline", "lg:text-3xl")}>{BranchingFractalRuleSet[fracID!].name}</h3>
 				<FractalForm
 					handleSubmit={handleSubmit}
 					SVGReset={SVGReset}
-					maxDepth={FillFractalRuleSet[fracID!].maxDepth}
+					maxDepth={BranchingFractalRuleSet[fracID!].maxDepth}
 					handleSave={handleSave}
 				/>
 			</div>

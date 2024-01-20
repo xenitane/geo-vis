@@ -1,30 +1,24 @@
-import { LinearFractalInfo, LinearOperator } from "@/types";
-import { add, rotate } from "@/lib/utils";
+import { LinearFractalInfo } from "@/types";
+import { doNothing, moveForward, right45, right60, right90, left45, left60, left90 } from "@/lib/utils";
+
 import {
-	antiTSquare,
+	crossStitchCurve,
 	dragonCurve,
 	fibonacciWordFractal,
 	gosperCurve,
+	gosperIsland,
 	hilbertCurve,
 	kochAntiSnowFlake,
 	kochSnowFlake,
 	levyCCurve,
-	minkowskiSausage,
+	minkowskiIsland,
 	peanoCurve,
-	tSquare,
-	sierpinskiArrowhead,
+	quardraticIsland,
 	quardraticKochIsland,
+	sierpinskiArrowhead,
 	sierpinskiTriangle,
+	vicsekFractal,
 } from "@/assets/Thumbnails/linear";
-
-const doNothing: LinearOperator = (p, f) => [p, f];
-const moveForward: LinearOperator = (p, f) => [add(p, f), f];
-const left45: LinearOperator = (p, f) => [p, rotate(f, Math.PI / 4)];
-const left60: LinearOperator = (p, f) => [p, rotate(f, Math.PI / 3)];
-const left90: LinearOperator = (p, f) => [p, rotate(f, Math.PI / 2)];
-const right45: LinearOperator = (p, f) => [p, rotate(f, -Math.PI / 4)];
-const right60: LinearOperator = (p, f) => [p, rotate(f, -Math.PI / 3)];
-const right90: LinearOperator = (p, f) => [p, rotate(f, -Math.PI / 2)];
 
 // todo: add fractal thumbnails
 
@@ -110,10 +104,10 @@ const KochAntiSnowflakeRules: LinearFractalInfo = {
 	}),
 };
 
-const MinkowskiSausageRules: LinearFractalInfo = {
-	name: "Minkowski Sausage",
+const MinkowskiIslandRules: LinearFractalInfo = {
+	name: "Minkowski Island",
 	maxDepth: 3,
-	image: minkowskiSausage,
+	image: minkowskiIsland,
 	rules: () => ({
 		rules: {
 			I: [false, doNothing, "FNFNFNF"],
@@ -158,8 +152,8 @@ const PeanoCurveRules: LinearFractalInfo = {
 	}),
 };
 
-const TSquareRules: LinearFractalInfo = {
-	name: "T Square",
+const VicsekFractalRules: LinearFractalInfo = {
+	name: "Vicsek Fractal",
 	maxDepth: 5,
 	rules: () => ({
 		rules: {
@@ -170,11 +164,11 @@ const TSquareRules: LinearFractalInfo = {
 		},
 		shift: 1,
 	}),
-	image: tSquare,
+	image: vicsekFractal,
 };
 
-const AntiTSquareRules: LinearFractalInfo = {
-	name: "Anti T Square",
+const CrossStitchCurveRules: LinearFractalInfo = {
+	name: "Cross Stitch Curve",
 	maxDepth: 4,
 	rules: () => ({
 		rules: {
@@ -185,7 +179,7 @@ const AntiTSquareRules: LinearFractalInfo = {
 		},
 		shift: 1,
 	}),
-	image: antiTSquare,
+	image: crossStitchCurve,
 };
 
 const FibonacciWordFractalRules: LinearFractalInfo = {
@@ -219,7 +213,7 @@ const FibonacciWordFractalRules: LinearFractalInfo = {
 	image: fibonacciWordFractal,
 };
 
-const SierpinskiArrowHeadCurve: LinearFractalInfo = {
+const SierpinskiArrowHeadCurveRules: LinearFractalInfo = {
 	name: "Sierpinski Arrow Head curve",
 	maxDepth: 10,
 	image: sierpinskiArrowhead,
@@ -235,7 +229,7 @@ const SierpinskiArrowHeadCurve: LinearFractalInfo = {
 	}),
 };
 
-const QuardraticKochIsland: LinearFractalInfo = {
+const QuardraticKochIslandRules: LinearFractalInfo = {
 	name: "Quardratic Koch Island",
 	maxDepth: 4,
 	image: quardraticKochIsland,
@@ -250,7 +244,7 @@ const QuardraticKochIsland: LinearFractalInfo = {
 	}),
 };
 
-const SierpinskiTriangle: LinearFractalInfo = {
+const SierpinskiTriangleRules: LinearFractalInfo = {
 	name: "Sierpinski Tiangle",
 	maxDepth: 7,
 	image: sierpinskiTriangle,
@@ -266,21 +260,53 @@ const SierpinskiTriangle: LinearFractalInfo = {
 	}),
 };
 
+const GosperIslandRules: LinearFractalInfo = {
+	name: "Gosper Island",
+	maxDepth: 5,
+	image: gosperIsland,
+	rules: () => ({
+		shift: 1,
+		rules: {
+			I: [false, doNothing, "FPFPFPFPFPF"],
+			F: [false, moveForward, "FNFPF"],
+			P: [true, left60],
+			N: [true, right60],
+		},
+	}),
+};
+
+const QuardraticIslandRules: LinearFractalInfo = {
+	name: "Quardratic Island",
+	maxDepth: 3,
+	image: quardraticIsland,
+	rules: () => ({
+		shift: 1,
+		rules: {
+			I: [false, doNothing, "FNFNFNF"],
+			N: [true, left90],
+			P: [true, right90],
+			F: [false, moveForward, "FPFFNFFNFNFPFPFFNFNFPFPFFPFFNF"],
+		},
+	}),
+};
+
 const LinearFractalRulesSet: Record<string, LinearFractalInfo> = {
-	"levy-c-curve": LevyCCurveRules,
+	"cross-stitch-curve": CrossStitchCurveRules,
 	"dragon-curve": DragonCurveRules,
-	"gosper-curve": GosperCurveRules,
-	"koch-snowflake": KochSnowflakeRules,
-	"koch-anti-snowflake": KochAntiSnowflakeRules,
-	"minkowski-sausage": MinkowskiSausageRules,
-	"hilbert-curve": HilbertCurveRules,
-	"peano-curve": PeanoCurveRules,
-	"t-square": TSquareRules,
-	"anti-t-square": AntiTSquareRules,
 	"fibonacci-word-fractal": FibonacciWordFractalRules,
-	"sierpinski-arrow-head-curve": SierpinskiArrowHeadCurve,
-	"quardratic-koch-island": QuardraticKochIsland,
-	"sierpinski-triangle": SierpinskiTriangle,
+	"gosper-curve": GosperCurveRules,
+	"gosper-island": GosperIslandRules,
+	"hilbert-curve": HilbertCurveRules,
+	"koch-anti-snowflake": KochAntiSnowflakeRules,
+	"koch-snowflake": KochSnowflakeRules,
+	"levy-c-curve": LevyCCurveRules,
+	"minkowski-island": MinkowskiIslandRules,
+	"peano-curve": PeanoCurveRules,
+	"quardratic-island": QuardraticIslandRules,
+	"quardratic-koch-island": QuardraticKochIslandRules,
+	"sierpinski-arrow-head-curve": SierpinskiArrowHeadCurveRules,
+	"sierpinski-triangle": SierpinskiTriangleRules,
+	"vicsek-fractal": VicsekFractalRules,
 };
 
 export default LinearFractalRulesSet;

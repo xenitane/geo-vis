@@ -2,11 +2,13 @@ import { IconType } from "react-icons";
 
 export type Theme = "system" | "light" | "dark";
 
+export type ArrayOfTAndSelf<T> = T | [T, ArrayOfTAndSelf<T>[]];
+export type IncludeClassName<T> = T & { className?: string };
 export type SVGProps = React.SVGProps<SVGSVGElement>;
 export type DIVProps = React.HTMLProps<HTMLDivElement>;
 export type HTMLProps = React.HTMLProps<HTMLElement>;
 
-type PropType<TObj, TProp extends keyof TObj> = TObj[TProp];
+export type PropType<TObj, TProp extends keyof TObj> = TObj[TProp];
 export interface ProjectFooterLiType {
 	Icon: IconType;
 	text: string;
@@ -23,12 +25,14 @@ export interface GeoObjInfo {
 }
 type LinearFractalRule = [true, LinearOperator] | [false, LinearOperator, string];
 
-export interface LinearFractalOptions {
+export interface FrcatalOptions {
 	depth: number;
 	colored: boolean;
 	animate: boolean;
-	FractalInfo: { rules: Record<string, LinearFractalRule>; shift: number };
 	interval: { i: NodeJS.Timeout | undefined };
+}
+export interface LinearFractalOptions extends FrcatalOptions {
+	FractalInfo: { rules: Record<string, LinearFractalRule>; shift: number };
 }
 
 export interface LinearFractalInfo extends GeoObjInfo {
@@ -37,20 +41,24 @@ export interface LinearFractalInfo extends GeoObjInfo {
 
 type FillFractalRule = (centers: Point[], invCenters: Point[]) => [Point[], Point[]];
 
-export interface FillFractalOptions {
-	depth: number;
-	colored: boolean;
-	animate: boolean;
+export interface FillFractalOptions extends FrcatalOptions {
 	FractalInfo: {
 		origin: Point;
 		rules: FillFractalRule;
 		polyVGen: (n: number, flip: boolean) => (c: Point) => Point[];
 	};
-	interval: { up: NodeJS.Timeout | undefined; down: NodeJS.Timeout | undefined };
 }
 
 export interface FillFractalInfo extends GeoObjInfo {
 	rules: () => PropType<FillFractalOptions, "FractalInfo">;
 }
 
-export type IncludeClassName<T> = T & { className?: string };
+export type BranchingFractalRule = [false, LinearOperator, ArrayOfTAndSelf<string>] | [true, LinearOperator];
+
+export interface BranchingFractalInfo extends GeoObjInfo {
+	rules: () => PropType<BranchingFractalOptions, "FractalInfo">;
+}
+
+export interface BranchingFractalOptions extends FrcatalOptions {
+	FractalInfo: { shift: number; rules: Record<string, BranchingFractalRule> };
+}

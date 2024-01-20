@@ -20,6 +20,10 @@ export default createBrowserRouter([
 				Component: lazy(() => import("@/pages/FillFrac")),
 			},
 			{
+				path: "Branching/:fracID",
+				Component: lazy(() => import("@/pages/BranchingFrac")),
+			},
+			{
 				path: "*",
 				Component: lazy(() => import("@/pages/Error")),
 			},

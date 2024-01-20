@@ -7,70 +7,11 @@ import {
 	sierpinskiHexagon,
 	sierpinskiPentagon,
 	sierpinskiTriangle,
-	tSquare,
+	vicsekFractal,
 } from "@/assets/Thumbnails/fill";
 import { FillFractalInfo, Point } from "@/types";
-import { add, rotate } from "../utils";
 
-function genCentersV(centers: Point[], sides: number, i_rad: number, shift = 0) {
-	const newCenters = [];
-	for (const center of centers) {
-		let dir = rotate([0, -i_rad], shift);
-		for (let j = 0; j < sides; j++) {
-			newCenters.push(add(center, dir));
-			dir = rotate(dir, (2 * Math.PI) / sides);
-		}
-	}
-	return newCenters;
-}
-
-function genCentersVC(centers: Point[], invCenters: Point[], sides: number, i_rad: number, shift = 0): [Point[], Point[]] {
-	const newCenters = [];
-	const newInvCenters = [];
-	for (const center of centers) {
-		newInvCenters.push(center);
-		let dir = rotate([0, -i_rad], shift);
-		for (let j = 0; j < sides; j++) {
-			newCenters.push(add(center, dir));
-			dir = rotate(dir, (2 * Math.PI) / sides);
-		}
-	}
-	for (const invCenter of invCenters) {
-		newCenters.push(invCenter);
-		let dir = rotate([0, i_rad], shift);
-		for (let j = 0; j < sides; j++) {
-			newInvCenters.push(add(invCenter, dir));
-			dir = rotate(dir, (2 * Math.PI) / sides);
-		}
-	}
-
-	return [newCenters, newInvCenters];
-}
-
-function genCentersVS(centers: Point[], sides: number, i_rad: [number, number]) {
-	const newCenters = [];
-	for (const center of centers) {
-		let dir_0 = rotate([0, -i_rad[0]], -Math.PI / sides);
-		let dir_1 = rotate([0, -i_rad[1]], 0);
-		for (let j = 0; j < sides; j++) {
-			newCenters.push(add(center, dir_0));
-			newCenters.push(add(center, dir_1));
-			dir_1 = rotate(dir_1, (2 * Math.PI) / sides);
-			dir_0 = rotate(dir_0, (2 * Math.PI) / sides);
-		}
-	}
-	return newCenters;
-}
-
-function polyVGen(center: Point, sides: number, o_rad: number, shift = 0) {
-	const vertices = [];
-	let dir = rotate([0, -o_rad], shift);
-	for (let i = 0; i < sides; i++) {
-		vertices.push(add(center, dir));
-		dir = rotate(dir, (2 * Math.PI) / sides);
-	}
-	return vertices;
-}
+import { genCentersV, genCentersVC, genCentersVS, polyVGen } from "@/lib/utils";
 
 const SierpinskiTriangle: FillFractalInfo = {
 	name: "Sierpinski Triangle",
@@ -236,10 +177,10 @@ const SierpinskiCarpet: FillFractalInfo = {
 	},
 };
 
-const TSquare: FillFractalInfo = {
-	name: "T Square",
+const VicsekFractal: FillFractalInfo = {
+	name: "VicSek Fractal",
 	maxDepth: 6,
-	image: tSquare,
+	image: vicsekFractal,
 	rules: () => {
 		const o_rad = 900 * Math.sqrt(2);
 		const ratio = 1 / 3;
@@ -260,13 +201,13 @@ const TSquare: FillFractalInfo = {
 const FillFractalRuleSet: Record<string, FillFractalInfo> = {
 	"sierpinski-triangle": SierpinskiTriangle,
 	"sierpinski-pentagon": SierpinskiPentagon,
-	"sierpinski-hexagon": SierpinskiHexagon,
 	"penta-flake": PentaFlake,
+	"sierpinski-hexagon": SierpinskiHexagon,
 	"hexa-flake": HexaFlake,
 	"hex-nut": HexNut,
 	"hex-pool": HexPool,
 	"sierpinski-carpet": SierpinskiCarpet,
-	"t-square": TSquare,
+	"vicsek-fractal": VicsekFractal,
 };
 
 export default FillFractalRuleSet;
