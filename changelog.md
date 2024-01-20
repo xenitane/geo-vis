@@ -1,5 +1,13 @@
 # Changelog
 
+## v0.6.2
+
+-    optimized svgs
+
+## v0.6.1
+
+-    dependency updates
+
 ## v0.6.0
 
 -   branching renderer implemented
