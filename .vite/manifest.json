@@ -51,8 +51,8 @@
       "_fracUtils-w_X18CYg.js"
     ]
   },
-  "_SVGCanvas-VgjsRY5O.js": {
-    "file": "assets/SVGCanvas-VgjsRY5O.js",
+  "_SVGCanvas-iwM5jYVJ.js": {
+    "file": "assets/SVGCanvas-iwM5jYVJ.js",
     "imports": [
       "_fracUtils-w_X18CYg.js",
       "index.html"
@@ -174,7 +174,7 @@
     "src": "assets/Thumbnails/linear/vicsek-fractal.svg"
   },
   "components/Card.tsx": {
-    "file": "assets/Card-Trmlg5d4.js",
+    "file": "assets/Card-_j2jh116.js",
     "imports": [
       "index.html"
     ],
@@ -185,7 +185,7 @@
     "dynamicImports": [
       "components/Card.tsx"
     ],
-    "file": "assets/GeoSection-svOGwzMd.js",
+    "file": "assets/GeoSection-OzTkYFXC.js",
     "imports": [
       "index.html"
     ],
@@ -204,15 +204,15 @@
       "pages/Error.tsx",
       "pages/LinearFrac.tsx"
     ],
-    "file": "assets/index-eeYQKn_X.js",
+    "file": "assets/index-x4GMq79u.js",
     "isEntry": true,
     "src": "index.html"
   },
   "pages/BranchingFrac.tsx": {
-    "file": "assets/BranchingFrac-rDq_E0QS.js",
+    "file": "assets/BranchingFrac-CSBsFGHP.js",
     "imports": [
       "index.html",
-      "_SVGCanvas-VgjsRY5O.js",
+      "_SVGCanvas-iwM5jYVJ.js",
       "_Branching-KWU1kAK1.js",
       "_fracUtils-w_X18CYg.js"
     ],
@@ -220,7 +220,7 @@
     "src": "pages/BranchingFrac.tsx"
   },
   "pages/Error.tsx": {
-    "file": "assets/Error--d2vNJqW.js",
+    "file": "assets/Error--lVu-glU.js",
     "imports": [
       "index.html"
     ],
@@ -228,10 +228,10 @@
     "src": "pages/Error.tsx"
   },
   "pages/FillFrac.tsx": {
-    "file": "assets/FillFrac-G37IsJT3.js",
+    "file": "assets/FillFrac-27OitKBA.js",
     "imports": [
       "index.html",
-      "_SVGCanvas-VgjsRY5O.js",
+      "_SVGCanvas-iwM5jYVJ.js",
       "_Fill-lci7RbSe.js",
       "_fracUtils-w_X18CYg.js"
     ],
@@ -242,7 +242,7 @@
     "dynamicImports": [
       "components/GeoSection.tsx"
     ],
-    "file": "assets/Home-oeDdm2vu.js",
+    "file": "assets/Home-NR93vWK3.js",
     "imports": [
       "index.html",
       "_Linear-j7WyRYay.js",
@@ -254,10 +254,10 @@
     "src": "pages/Home.tsx"
   },
   "pages/LinearFrac.tsx": {
-    "file": "assets/LinearFrac-ZFd2uPF5.js",
+    "file": "assets/LinearFrac-Qy9Q7kOq.js",
     "imports": [
       "index.html",
-      "_SVGCanvas-VgjsRY5O.js",
+      "_SVGCanvas-iwM5jYVJ.js",
       "_Linear-j7WyRYay.js",
       "_fracUtils-w_X18CYg.js"
     ],
