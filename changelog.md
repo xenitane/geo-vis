@@ -1,5 +1,9 @@
 # Changelog
 
+## v0.6.3
+
+- dependency updates
+
 ## v0.6.2
 
 -    optimized svgs
