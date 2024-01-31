@@ -53,12 +53,14 @@ export interface FillFractalInfo extends GeoObjInfo {
 	rules: () => PropType<FillFractalOptions, "FractalInfo">;
 }
 
-export type BranchingFractalRule = [false, LinearOperator, ArrayOfTAndSelf<string>] | [true, LinearOperator];
+type BranchOperator = (p: Point, f: Point) => [Point, Point, boolean];
+
+export type BranchingFractalRule = [false, BranchOperator, ArrayOfTAndSelf<string>] | [true, BranchOperator];
 
 export interface BranchingFractalInfo extends GeoObjInfo {
 	rules: () => PropType<BranchingFractalOptions, "FractalInfo">;
 }
 
 export interface BranchingFractalOptions extends FrcatalOptions {
-	FractalInfo: { shift: number; rules: Record<string, BranchingFractalRule> };
+	FractalInfo: { shift: number; rules: Record<string, BranchingFractalRule>; stay: boolean };
 }

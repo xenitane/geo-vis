@@ -8,12 +8,13 @@ const PeanoSierpinskiCarpetRules: BranchingFractalInfo = {
 	image: sierpinskiCarpet,
 	rules: () => ({
 		shift: 1,
+		stay: false,
 		rules: {
-			I: [false, doNothing, "RF"],
-			F: [false, moveForward, ["F", ["PFNFNF", "NFPFPFNF"]]],
-			P: [true, right90],
-			N: [true, left90],
-			R: [true, right45],
+			I: [false, (p, f) => [...doNothing(p, f), true], "RF"],
+			F: [false, (p, f) => [...moveForward(p, f), true], ["F", ["PFNFNF", "NFPFPFNF"]]],
+			P: [true, (p, f) => [...right90(p, f), true]],
+			N: [true, (p, f) => [...left90(p, f), true]],
+			R: [true, (p, f) => [...right45(p, f), true]],
 		},
 	}),
 };
@@ -24,15 +25,16 @@ const SierpinskiTriangleSkeletonRules: BranchingFractalInfo = {
 	image: sierpinskiTriangleSkeleton,
 	rules: () => ({
 		shift: 2,
+		stay: false,
 		rules: {
-			I: [false, doNothing, "KA"],
-			A: [false, doNothing, ["", ["F", "PF", "NF"]]],
-			F: [false, moveForward, ["MS", ["PF", "F", "NF"]]],
-			M: [true, moveForward],
-			P: [true, right120],
-			N: [true, left120],
-			K: [true, right90],
-			S: [true, (p, f) => [p, multiply(f, [0.5, 0])]],
+			I: [false, (p, f) => [...doNothing(p, f), true], "KA"],
+			A: [false, (p, f) => [...doNothing(p, f), true], ["", ["F", "PF", "NF"]]],
+			F: [false, (p, f) => [...moveForward(p, f), true], ["MS", ["PF", "F", "NF"]]],
+			M: [true, (p, f) => [...moveForward(p, f), true]],
+			P: [true, (p, f) => [...right120(p, f), true]],
+			N: [true, (p, f) => [...left120(p, f), true]],
+			K: [true, (p, f) => [...right90(p, f), true]],
+			S: [true, (p, f) => [p, multiply(f, [0.5, 0]), true]],
 		},
 	}),
 };
@@ -43,15 +45,37 @@ const TSquareRules: BranchingFractalInfo = {
 	image: tSquare,
 	rules: () => ({
 		shift: 2,
+		stay: false,
 		rules: {
-			I: [false, doNothing, "KA"],
-			A: [false, doNothing, ["", ["F", "PF", "PPF", "NF"]]],
-			F: [false, moveForward, ["MS", ["PF", "F", "NF"]]],
-			M: [true, moveForward],
-			P: [true, right90],
-			N: [true, left90],
-			K: [true, right45],
-			S: [true, (p, f) => [p, multiply(f, [0.5, 0])]],
+			I: [false, (p, f) => [...doNothing(p, f), true], "KA"],
+			A: [false, (p, f) => [...doNothing(p, f), true], ["", ["F", "PF", "PPF", "NF"]]],
+			F: [false, (p, f) => [...moveForward(p, f), true], ["MS", ["PF", "F", "NF"]]],
+			M: [true, (p, f) => [...moveForward(p, f), true]],
+			P: [true, (p, f) => [...right90(p, f), true]],
+			N: [true, (p, f) => [...left90(p, f), true]],
+			K: [true, (p, f) => [...right45(p, f), true]],
+			S: [true, (p, f) => [p, multiply(f, [0.5, 0]), true]],
+		},
+	}),
+};
+
+const VicsekFractalRules: BranchingFractalInfo = {
+	name: "Vicsek Fractal",
+	maxDepth: 5,
+	image: tSquare,
+	rules: () => ({
+		shift: 2,
+		stay: true,
+		rules: {
+			I: [false, (p, f) => [...doNothing(p, f), true], "KC"],
+			C: [false, (p, f) => [...doNothing(p, f), true], ["SCG", ["FSDDCG", "PFSDDCG", "PPFSDDCG", "NFSDDCG"]]],
+			S: [true, (p, f) => [p, multiply(f, [1 / 3, 0]), true]],
+			G: [true, (p, f) => [p, multiply(f, [3, 0]), true]],
+			F: [false, (p, f) => [...moveForward(p, f), true], ""],
+			D: [true, (p, f) => [...moveForward(p, f), false]],
+			P: [true, (p, f) => [...right90(p, f), true]],
+			N: [true, (p, f) => [...left90(p, f), true]],
+			K: [true, (p, f) => [...right45(p, f), true]],
 		},
 	}),
 };
@@ -60,5 +84,6 @@ const BranchingFractalRuleSet: Record<string, BranchingFractalInfo> = {
 	"peano-sierpinski-carpet": PeanoSierpinskiCarpetRules,
 	"sierpinski-triangle-skeleton": SierpinskiTriangleSkeletonRules,
 	"t-square": TSquareRules,
+	"vicsek-fractal": VicsekFractalRules,
 };
 export default BranchingFractalRuleSet;

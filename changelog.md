@@ -2,15 +2,15 @@
 
 ## v0.6.3
 
-- dependency updates
+-   dependency updates
 
 ## v0.6.2
 
--    optimized svgs
+-   optimized svgs
 
 ## v0.6.1
 
--    dependency updates
+-   dependency updates
 
 ## v0.6.0
 

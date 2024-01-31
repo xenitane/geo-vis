@@ -7,7 +7,7 @@ export default {
 	Branching: BranchingFractalRuleSet,
 	// Linear: "T Square"
 	// Fill: "T Square"
-	// Branching : "Vicsek fractal", "Fractal Tree"
+	// Branching : "Fractal Tree"
 	// Attractors : "TinkerBell Map", "Strange Attractor", "Lorenz Attractor"
 	// Sets : "Mandelbrot Set", "Multibrot Set", "Julia Sets", "Burning Ship"
 	// 3d : "Sierpinski pyramid", "meger sponge"

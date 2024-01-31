@@ -290,7 +290,43 @@ const QuardraticIslandRules: LinearFractalInfo = {
 	}),
 };
 
+const VicsekFractal2Rules: LinearFractalInfo = {
+	name: "Vicsek Fractal 2",
+	maxDepth: 5,
+	image: vicsekFractal,
+	rules: () => ({
+		shift: 1,
+		rules: {
+			I: [false, doNothing, "RFNFNFNFN"],
+			F: [true, moveForward],
+			N: [false, left90, "NFPFN"],
+			P: [false, right90, "NFPFVFPFVFPFN"],
+			V: [false, doNothing, "NFPFVFPFN"],
+			R: [true, left45],
+		},
+	}),
+};
+
+const HilbertCurve2Rules: LinearFractalInfo = {
+	name: "Hilbert Curve 2",
+	maxDepth: 3,
+	image: hilbertCurve,
+	rules: () => ({
+		shift: 2,
+		rules: {
+			I: [false, doNothing, "PA"],
+			A: [false, doNothing, "AFBFANFNBFAFBPFPAFBFA"],
+			B: [false, doNothing, "BFAFBPFPAFBFANFNBFAFB"],
+			F: [true, moveForward],
+			P: [true, right90],
+			N: [true, left90],
+		},
+	}),
+};
+
 const LinearFractalRulesSet: Record<string, LinearFractalInfo> = {
+	"hilbert-curve-2": HilbertCurve2Rules,
+	"vicsek-fractal-2": VicsekFractal2Rules,
 	"cross-stitch-curve": CrossStitchCurveRules,
 	"dragon-curve": DragonCurveRules,
 	"fibonacci-word-fractal": FibonacciWordFractalRules,

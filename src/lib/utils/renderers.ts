@@ -125,37 +125,38 @@ export function BranchingRenderer(
 
 	function handleBranchNode(crsr: Point, dirn: Point, d: number, branchInfo: ArrayOfTAndSelf<string>): [Point, Point] {
 		if (typeof branchInfo === "string") {
-			for (let ins of [...branchInfo]) {
+			for (const ins of [...branchInfo]) {
 				[crsr, dirn] = handleInstruction(crsr, dirn, ins, d);
 			}
 			return [crsr, dirn];
 		} else {
-			for (let ins of [...branchInfo[0]]) {
+			for (const ins of [...branchInfo[0]]) {
 				[crsr, dirn] = handleInstruction(crsr, dirn, ins, d);
 			}
 			let tc: Point = [crsr[0], crsr[1]];
 			let td: Point = [dirn[0], dirn[1]];
-			for (let branch of branchInfo[1]) {
+			for (const branch of branchInfo[1]) {
 				tc = [crsr[0], crsr[1]];
 				td = [dirn[0], dirn[1]];
 				[tc, td] = handleBranchNode(tc, td, d, branch);
 			}
-			return [tc, td];
+			return FractalInfo.stay ? [crsr, dirn] : [tc, td];
 		}
 	}
 
 	function handleInstruction(crsr: Point, dirn: Point, ins: string, d: number): [Point, Point] {
 		if (d === 0 || FractalInfo.rules[ins][0]) {
-			const [newCrsr, newDir] = FractalInfo.rules[ins][1](crsr, dirn);
-			if (newCrsr[0] !== crsr[0] || newCrsr[1] !== crsr[1])
+			const [newCrsr, newDir, feed] = FractalInfo.rules[ins][1](crsr, dirn);
+			if (feed && (newCrsr[0] !== crsr[0] || newCrsr[1] !== crsr[1])) {
 				paths.push([
 					[crsr[0], crsr[1]],
 					[newCrsr[0], newCrsr[1]],
 				]);
-			bounds[0][0] = Math.min(bounds[0][0], newCrsr[0]);
-			bounds[0][1] = Math.min(bounds[0][1], newCrsr[1]);
-			bounds[1][0] = Math.max(bounds[1][0], newCrsr[0]);
-			bounds[1][1] = Math.max(bounds[1][1], newCrsr[1]);
+				bounds[0][0] = Math.min(bounds[0][0], newCrsr[0]);
+				bounds[0][1] = Math.min(bounds[0][1], newCrsr[1]);
+				bounds[1][0] = Math.max(bounds[1][0], newCrsr[0]);
+				bounds[1][1] = Math.max(bounds[1][1], newCrsr[1]);
+			}
 			return [newCrsr, newDir];
 		}
 		return handleBranchNode(crsr, dirn, d - 1, FractalInfo.rules[ins][2]!);
