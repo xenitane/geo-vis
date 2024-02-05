@@ -1,5 +1,10 @@
 # Changelog
 
+## v0.6.4
+
+-   dependency updates
+-   added presets and thumbnails
+
 ## v0.6.3
 
 -   dependency updates
