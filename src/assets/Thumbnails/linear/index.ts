@@ -14,8 +14,14 @@ import quardraticKochIsland from "@/assets/Thumbnails/linear/quardratic-koch-isl
 import sierpinskiTriangle from "@/assets/Thumbnails/linear/sierpinski-triangle.svg";
 import gosperIsland from "@/assets/Thumbnails/linear/gosper-island.svg";
 import quardraticIsland from "@/assets/Thumbnails/linear/quardratic-island.svg";
+import tSquare from "@/assets/Thumbnails/linear/t-square.svg";
+import hilbertCurve2 from "@/assets/Thumbnails/linear/hilbert-curve-2.svg";
+import vicsekFractal2 from "@/assets/Thumbnails/linear/vicsek-fractal-2.svg";
 
 export {
+	vicsekFractal2,
+	hilbertCurve2,
+	tSquare,
 	gosperIsland,
 	vicsekFractal,
 	peanoCurve,

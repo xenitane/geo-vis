@@ -5,7 +5,6 @@ export default {
 	Linear: LinearFractalRulesSet,
 	Fill: FillFractalRuleSet,
 	Branching: BranchingFractalRuleSet,
-	// Linear: "T Square"
 	// Fill: "T Square"
 	// Branching : "Fractal Tree"
 	// Attractors : "TinkerBell Map", "Strange Attractor", "Lorenz Attractor"

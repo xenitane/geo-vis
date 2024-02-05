@@ -1,4 +1,4 @@
-import { sierpinskiCarpet, sierpinskiTriangleSkeleton, tSquare } from "@/assets/Thumbnails/branching";
+import { sierpinskiCarpet, sierpinskiTriangleSkeleton, tSquare, vicsekFractal } from "@/assets/Thumbnails/branching";
 import { doNothing, left120, left90, moveForward, multiply, right120, right45, right90 } from "@/lib/utils";
 import { BranchingFractalInfo } from "@/types";
 
@@ -62,7 +62,7 @@ const TSquareRules: BranchingFractalInfo = {
 const VicsekFractalRules: BranchingFractalInfo = {
 	name: "Vicsek Fractal",
 	maxDepth: 5,
-	image: tSquare,
+	image: vicsekFractal,
 	rules: () => ({
 		shift: 2,
 		stay: true,

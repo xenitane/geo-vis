@@ -7,6 +7,7 @@ import hexnut from "@/assets/Thumbnails/fill/hexnut.svg";
 import hexpool from "@/assets/Thumbnails/fill/hexpool.svg";
 import sierpinskiCarpet from "@/assets/Thumbnails/fill/sierpinski-carpet.svg";
 import vicsekFractal from "@/assets/Thumbnails/fill/vicsek-fractal.svg";
+import vicsekFractal2 from "@/assets/Thumbnails/fill/vicsek-fractal-2.svg";
 
 export {
 	sierpinskiTriangle,
@@ -18,4 +19,5 @@ export {
 	hexpool,
 	sierpinskiCarpet,
 	vicsekFractal,
+	vicsekFractal2,
 };

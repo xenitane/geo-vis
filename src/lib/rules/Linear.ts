@@ -1,5 +1,5 @@
 import { LinearFractalInfo } from "@/types";
-import { doNothing, moveForward, right45, right60, right90, left45, left60, left90 } from "@/lib/utils";
+import { doNothing, moveForward, right45, right60, right90, left45, left60, left90, multiply } from "@/lib/utils";
 
 import {
 	crossStitchCurve,
@@ -8,6 +8,7 @@ import {
 	gosperCurve,
 	gosperIsland,
 	hilbertCurve,
+	hilbertCurve2,
 	kochAntiSnowFlake,
 	kochSnowFlake,
 	levyCCurve,
@@ -17,7 +18,9 @@ import {
 	quardraticKochIsland,
 	sierpinskiArrowhead,
 	sierpinskiTriangle,
+	tSquare,
 	vicsekFractal,
+	vicsekFractal2,
 } from "@/assets/Thumbnails/linear";
 
 // todo: add fractal thumbnails
@@ -293,7 +296,7 @@ const QuardraticIslandRules: LinearFractalInfo = {
 const VicsekFractal2Rules: LinearFractalInfo = {
 	name: "Vicsek Fractal 2",
 	maxDepth: 5,
-	image: vicsekFractal,
+	image: vicsekFractal2,
 	rules: () => ({
 		shift: 1,
 		rules: {
@@ -310,7 +313,7 @@ const VicsekFractal2Rules: LinearFractalInfo = {
 const HilbertCurve2Rules: LinearFractalInfo = {
 	name: "Hilbert Curve 2",
 	maxDepth: 3,
-	image: hilbertCurve,
+	image: hilbertCurve2,
 	rules: () => ({
 		shift: 2,
 		rules: {
@@ -324,14 +327,32 @@ const HilbertCurve2Rules: LinearFractalInfo = {
 	}),
 };
 
+const TSquareRules: LinearFractalInfo = {
+	name: "T Square",
+	maxDepth: 6,
+	image: tSquare,
+	rules: () => ({
+		shift: 1,
+		rules: {
+			I: [false, doNothing, "NAFBNAFBNAFBNAFB"],
+			F: [true, moveForward],
+			N: [false, left90, "PSSAFBGNAFBNAFBNSAFBGGP"],
+			P: [true, right90],
+			A: [false, doNothing, "S"],
+			B: [false, doNothing, "G"],
+			S: [true, (p, f) => [p, multiply([1 / 2, 0], f)]],
+			G: [true, (p, f) => [p, multiply([2, 0], f)]],
+		},
+	}),
+};
+
 const LinearFractalRulesSet: Record<string, LinearFractalInfo> = {
-	"hilbert-curve-2": HilbertCurve2Rules,
-	"vicsek-fractal-2": VicsekFractal2Rules,
 	"cross-stitch-curve": CrossStitchCurveRules,
 	"dragon-curve": DragonCurveRules,
 	"fibonacci-word-fractal": FibonacciWordFractalRules,
 	"gosper-curve": GosperCurveRules,
 	"gosper-island": GosperIslandRules,
+	"hilbert-curve-2": HilbertCurve2Rules,
 	"hilbert-curve": HilbertCurveRules,
 	"koch-anti-snowflake": KochAntiSnowflakeRules,
 	"koch-snowflake": KochSnowflakeRules,
@@ -342,7 +363,9 @@ const LinearFractalRulesSet: Record<string, LinearFractalInfo> = {
 	"quardratic-koch-island": QuardraticKochIslandRules,
 	"sierpinski-arrow-head-curve": SierpinskiArrowHeadCurveRules,
 	"sierpinski-triangle": SierpinskiTriangleRules,
+	"t-square": TSquareRules,
 	"vicsek-fractal": VicsekFractalRules,
+	"vicsek-fractal-2": VicsekFractal2Rules,
 };
 
 export default LinearFractalRulesSet;

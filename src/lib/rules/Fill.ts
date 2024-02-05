@@ -8,12 +8,13 @@ import {
 	sierpinskiPentagon,
 	sierpinskiTriangle,
 	vicsekFractal,
+	vicsekFractal2,
 } from "@/assets/Thumbnails/fill";
 import { FillFractalInfo, Point } from "@/types";
 
 import { genCentersV, genCentersVC, genCentersVS, polyVGen } from "@/lib/utils";
 
-const SierpinskiTriangle: FillFractalInfo = {
+const SierpinskiTriangleRules: FillFractalInfo = {
 	name: "Sierpinski Triangle",
 	image: sierpinskiTriangle,
 	maxDepth: 7,
@@ -33,7 +34,7 @@ const SierpinskiTriangle: FillFractalInfo = {
 		};
 	},
 };
-const SierpinskiPentagon: FillFractalInfo = {
+const SierpinskiPentagonRules: FillFractalInfo = {
 	name: "Sierpinski Pentagon",
 	image: sierpinskiPentagon,
 	maxDepth: 5,
@@ -53,7 +54,7 @@ const SierpinskiPentagon: FillFractalInfo = {
 		};
 	},
 };
-const SierpinskiHexagon: FillFractalInfo = {
+const SierpinskiHexagonRules: FillFractalInfo = {
 	name: "Sierpinski Hexagon",
 	image: sierpinskiHexagon,
 	maxDepth: 5,
@@ -73,7 +74,7 @@ const SierpinskiHexagon: FillFractalInfo = {
 		};
 	},
 };
-const PentaFlake: FillFractalInfo = {
+const PentaFlakeRules: FillFractalInfo = {
 	name: "Pentaflake",
 	image: pentaflake,
 	maxDepth: 5,
@@ -93,7 +94,7 @@ const PentaFlake: FillFractalInfo = {
 		};
 	},
 };
-const HexaFlake: FillFractalInfo = {
+const HexaFlakeRules: FillFractalInfo = {
 	name: "Hexaflake",
 	image: hexaflake,
 	maxDepth: 5,
@@ -113,7 +114,7 @@ const HexaFlake: FillFractalInfo = {
 		};
 	},
 };
-const HexNut: FillFractalInfo = {
+const HexNutRules: FillFractalInfo = {
 	name: "Hex Nut",
 	maxDepth: 5,
 	image: hexnut,
@@ -134,7 +135,7 @@ const HexNut: FillFractalInfo = {
 	},
 };
 
-const HexPool: FillFractalInfo = {
+const HexPoolRules: FillFractalInfo = {
 	name: "Hex Pool",
 	maxDepth: 5,
 	image: hexpool,
@@ -155,7 +156,7 @@ const HexPool: FillFractalInfo = {
 	},
 };
 
-const SierpinskiCarpet: FillFractalInfo = {
+const SierpinskiCarpetRules: FillFractalInfo = {
 	name: "Sierpinski Carpet",
 	maxDepth: 5,
 	image: sierpinskiCarpet,
@@ -163,7 +164,7 @@ const SierpinskiCarpet: FillFractalInfo = {
 		const o_rad = 900 * Math.sqrt(2);
 		const ratio = 1 / 3;
 		const sides = 4;
-		let i_rad: [number, number] = [o_rad * (1 - ratio), (o_rad * (1 - ratio)) / Math.sqrt(2)];
+		const i_rad: [number, number] = [o_rad * (1 - ratio), (o_rad * (1 - ratio)) / Math.sqrt(2)];
 		return {
 			origin: [0, 0],
 			polyVGen: (d) => (c) => polyVGen(c, 4, o_rad * Math.pow(ratio, d), Math.PI / 4),
@@ -177,7 +178,7 @@ const SierpinskiCarpet: FillFractalInfo = {
 	},
 };
 
-const VicsekFractal: FillFractalInfo = {
+const VicsekFractalRules: FillFractalInfo = {
 	name: "VicSek Fractal",
 	maxDepth: 6,
 	image: vicsekFractal,
@@ -198,16 +199,38 @@ const VicsekFractal: FillFractalInfo = {
 	},
 };
 
+const VicsekFractal2Rules: FillFractalInfo = {
+	name: "VicSek Fractal 2",
+	maxDepth: 6,
+	image: vicsekFractal2,
+	rules: () => {
+		const o_rad = 900 * Math.sqrt(2);
+		const ratio = 1 / 3;
+		const sides = 4;
+		let i_rad = (o_rad * (1 - ratio)) / Math.sqrt(2);
+		return {
+			origin: [0, 0],
+			polyVGen: (d) => (c) => polyVGen(c, 4, o_rad * Math.pow(ratio, d), Math.PI / 4),
+			rules: (centers, invCenter) => {
+				const allCenters = genCentersVC(centers, invCenter, sides, i_rad);
+				i_rad *= ratio;
+				return allCenters;
+			},
+		};
+	},
+};
+
 const FillFractalRuleSet: Record<string, FillFractalInfo> = {
-	"sierpinski-triangle": SierpinskiTriangle,
-	"sierpinski-pentagon": SierpinskiPentagon,
-	"penta-flake": PentaFlake,
-	"sierpinski-hexagon": SierpinskiHexagon,
-	"hexa-flake": HexaFlake,
-	"hex-nut": HexNut,
-	"hex-pool": HexPool,
-	"sierpinski-carpet": SierpinskiCarpet,
-	"vicsek-fractal": VicsekFractal,
+	"hex-nut": HexNutRules,
+	"hex-pool": HexPoolRules,
+	"hexa-flake": HexaFlakeRules,
+	"penta-flake": PentaFlakeRules,
+	"sierpinski-carpet": SierpinskiCarpetRules,
+	"sierpinski-hexagon": SierpinskiHexagonRules,
+	"sierpinski-pentagon": SierpinskiPentagonRules,
+	"sierpinski-triangle": SierpinskiTriangleRules,
+	"vicsek-fractal": VicsekFractalRules,
+	"vicsek-fractal-2": VicsekFractal2Rules,
 };
 
 export default FillFractalRuleSet;
