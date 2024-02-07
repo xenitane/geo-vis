@@ -6,7 +6,7 @@
     -   [x] Linear
     -   [x] Fill
     -   [x] Branching
-    -   [ ] Attractor
+    -   [x] Attractor
     -   [ ] Sets
     -   [ ] 3d
     -   [ ] CG

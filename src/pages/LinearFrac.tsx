@@ -11,7 +11,7 @@ const LinearFrac = () => {
 
 	if (!(fracID! in LinearFractalRulesSet)) return <Navigate to="/geo-vis/404" />;
 
-	const interval: { i: NodeJS.Timeout | undefined } = { i: undefined };
+	const interval: { i?: NodeJS.Timeout } = { i: undefined };
 
 	let FractalInfo = LinearFractalRulesSet[fracID!].rules();
 
@@ -19,6 +19,7 @@ const LinearFrac = () => {
 		FractalInfo = LinearFractalRulesSet[fracID!].rules();
 		SVGRef.current!.innerHTML = "";
 		clearInterval(interval.i);
+		interval.i = undefined;
 	}
 
 	function handleSubmit(data: formSchema) {
@@ -41,7 +42,7 @@ const LinearFrac = () => {
 				<FractalForm
 					handleSubmit={handleSubmit}
 					SVGReset={SVGReset}
-					maxDepth={LinearFractalRulesSet[fracID!].maxDepth}
+					maxOrder={LinearFractalRulesSet[fracID!].maxOrder}
 					handleSave={handleSave}
 				/>
 			</div>

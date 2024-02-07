@@ -4,7 +4,7 @@ import { BranchingFractalInfo } from "@/types";
 
 const PeanoSierpinskiCarpetRules: BranchingFractalInfo = {
 	name: "Peano Sierpinski Carpet",
-	maxDepth: 5,
+	maxOrder: 5,
 	image: sierpinskiCarpet,
 	rules: () => ({
 		shift: 1,
@@ -21,7 +21,7 @@ const PeanoSierpinskiCarpetRules: BranchingFractalInfo = {
 
 const SierpinskiTriangleSkeletonRules: BranchingFractalInfo = {
 	name: "Sierpinski Triangle Skeleton",
-	maxDepth: 8,
+	maxOrder: 8,
 	image: sierpinskiTriangleSkeleton,
 	rules: () => ({
 		shift: 2,
@@ -41,7 +41,7 @@ const SierpinskiTriangleSkeletonRules: BranchingFractalInfo = {
 
 const TSquareRules: BranchingFractalInfo = {
 	name: "T Square",
-	maxDepth: 7,
+	maxOrder: 7,
 	image: tSquare,
 	rules: () => ({
 		shift: 2,
@@ -61,7 +61,7 @@ const TSquareRules: BranchingFractalInfo = {
 
 const VicsekFractalRules: BranchingFractalInfo = {
 	name: "Vicsek Fractal",
-	maxDepth: 5,
+	maxOrder: 5,
 	image: vicsekFractal,
 	rules: () => ({
 		shift: 2,

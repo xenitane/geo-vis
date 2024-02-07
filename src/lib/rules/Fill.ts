@@ -17,7 +17,7 @@ import { genCentersV, genCentersVC, genCentersVS, polyVGen } from "@/lib/utils";
 const SierpinskiTriangleRules: FillFractalInfo = {
 	name: "Sierpinski Triangle",
 	image: sierpinskiTriangle,
-	maxDepth: 7,
+	maxOrder: 7,
 	rules: () => {
 		const sides = 3;
 		const ratio = 1 / 2;
@@ -37,7 +37,7 @@ const SierpinskiTriangleRules: FillFractalInfo = {
 const SierpinskiPentagonRules: FillFractalInfo = {
 	name: "Sierpinski Pentagon",
 	image: sierpinskiPentagon,
-	maxDepth: 5,
+	maxOrder: 5,
 	rules: () => {
 		const sides = 5;
 		const ratio = 1 / (1 + 2 * Math.cos(Math.PI / sides));
@@ -57,7 +57,7 @@ const SierpinskiPentagonRules: FillFractalInfo = {
 const SierpinskiHexagonRules: FillFractalInfo = {
 	name: "Sierpinski Hexagon",
 	image: sierpinskiHexagon,
-	maxDepth: 5,
+	maxOrder: 5,
 	rules: () => {
 		const sides = 6;
 		const ratio = 1 / 3;
@@ -77,7 +77,7 @@ const SierpinskiHexagonRules: FillFractalInfo = {
 const PentaFlakeRules: FillFractalInfo = {
 	name: "Pentaflake",
 	image: pentaflake,
-	maxDepth: 5,
+	maxOrder: 5,
 	rules: () => {
 		const sides = 5;
 		const ratio = 1 / (1 + 2 * Math.cos(Math.PI / sides));
@@ -97,7 +97,7 @@ const PentaFlakeRules: FillFractalInfo = {
 const HexaFlakeRules: FillFractalInfo = {
 	name: "Hexaflake",
 	image: hexaflake,
-	maxDepth: 5,
+	maxOrder: 5,
 	rules: () => {
 		const sides = 6;
 		const ratio = 1 / 3;
@@ -116,7 +116,7 @@ const HexaFlakeRules: FillFractalInfo = {
 };
 const HexNutRules: FillFractalInfo = {
 	name: "Hex Nut",
-	maxDepth: 5,
+	maxOrder: 5,
 	image: hexnut,
 	rules: () => {
 		const sides = 6;
@@ -137,7 +137,7 @@ const HexNutRules: FillFractalInfo = {
 
 const HexPoolRules: FillFractalInfo = {
 	name: "Hex Pool",
-	maxDepth: 5,
+	maxOrder: 5,
 	image: hexpool,
 	rules: () => {
 		const sides = 6;
@@ -158,7 +158,7 @@ const HexPoolRules: FillFractalInfo = {
 
 const SierpinskiCarpetRules: FillFractalInfo = {
 	name: "Sierpinski Carpet",
-	maxDepth: 5,
+	maxOrder: 5,
 	image: sierpinskiCarpet,
 	rules: () => {
 		const o_rad = 900 * Math.sqrt(2);
@@ -180,7 +180,7 @@ const SierpinskiCarpetRules: FillFractalInfo = {
 
 const VicsekFractalRules: FillFractalInfo = {
 	name: "VicSek Fractal",
-	maxDepth: 6,
+	maxOrder: 6,
 	image: vicsekFractal,
 	rules: () => {
 		const o_rad = 900 * Math.sqrt(2);
@@ -201,7 +201,7 @@ const VicsekFractalRules: FillFractalInfo = {
 
 const VicsekFractal2Rules: FillFractalInfo = {
 	name: "VicSek Fractal 2",
-	maxDepth: 6,
+	maxOrder: 6,
 	image: vicsekFractal2,
 	rules: () => {
 		const o_rad = 900 * Math.sqrt(2);

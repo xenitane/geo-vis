@@ -41,7 +41,7 @@ export function createSVGCircleElement({ x, y, color }: SVGCircleElementProps) {
 	const element = document.createElementNS("http://www.w3.org/2000/svg", "circle");
 	element.setAttributeNS(null, "cx", `${x}`);
 	element.setAttributeNS(null, "cy", `${y}`);
-	element.setAttributeNS(null, "r", "1px");
+	element.setAttributeNS(null, "r", "1.5px");
 	element.setAttributeNS(null, "fill", `#${rgbToHex(color)}`);
 	element.setAttributeNS(null, "stroke-width", "0");
 
