@@ -1,6 +1,10 @@
 # Changelog
 
-## 0.7.9
+## v0.7.1
+
+-   minor bug fix att attractorform
+
+## v0.7.0
 
 -   dependency updates
 -   attractor renderer implemented
