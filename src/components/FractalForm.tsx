@@ -9,12 +9,13 @@ import { Switch } from "@/components/ui/switch";
 import { FC } from "react";
 import { cn } from "@/lib/utils";
 
-function schemaMaker(maxDepth: number) {
+function schemaMaker(maxOrder: number) {
 	return z.object({
-		depth: z.coerce
+		order: z.coerce
 			.number()
 			.min(0, { message: "should be greater than or equal to 0" })
-			.max(maxDepth, { message: `should be less than or equal to ${maxDepth}` }),
+			.max(maxOrder, { message: `should be less than or equal to ${maxOrder}` })
+			.int({ message: "Must be an Integer Value" }),
 		animate: z.boolean(),
 		colored: z.boolean(),
 	});
@@ -25,16 +26,16 @@ export type formSchema = z.infer<ReturnType<typeof schemaMaker>>;
 interface FormProps {
 	handleSubmit: SubmitHandler<formSchema>;
 	SVGReset: () => void;
-	maxDepth: number;
+	maxOrder: number;
 	handleSave: () => void;
 }
 
-const FractalForm: FC<FormProps> = ({ handleSubmit, SVGReset, handleSave, maxDepth }) => {
-	const schema = schemaMaker(maxDepth);
+const FractalForm: FC<FormProps> = ({ handleSubmit, SVGReset, handleSave, maxOrder }) => {
+	const schema = schemaMaker(maxOrder);
 	const form = useForm<formSchema>({
 		resolver: zodResolver(schema),
 		defaultValues: {
-			depth: 0,
+			order: 0,
 			animate: false,
 			colored: false,
 		},
@@ -53,19 +54,19 @@ const FractalForm: FC<FormProps> = ({ handleSubmit, SVGReset, handleSave, maxDep
 				<div>
 					<FormField
 						control={form.control}
-						name="depth"
+						name="order"
 						render={({ field }) => (
 							<FormItem>
 								<div className="flex items-center justify-between">
-									<FormLabel className={cn("w-1/3 text-base", "lg:text-lg")}>Depth</FormLabel>
+									<FormLabel className={cn("w-1/3 text-base", "lg:text-lg")}>Order</FormLabel>
 									<FormControl className="w-11">
 										<Input type="number" className="h-6 p-2 text-center" {...field} />
 									</FormControl>
 								</div>
 								<FormDescription>
-									The iterative depth for the fractal
+									The iterative order for the fractal
 									<br />
-									Must be between 0 and{` ${maxDepth}`}
+									Must be between 0 and{` ${maxOrder}`}
 								</FormDescription>
 								<FormMessage />
 							</FormItem>

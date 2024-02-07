@@ -11,7 +11,7 @@ const FillFrac = () => {
 
 	if (!(fracID! in FillFractalRuleSet)) return <Navigate to="/geo-vis/404" />;
 
-	const interval: { i: NodeJS.Timeout | undefined } = { i: undefined };
+	const interval: { i?: NodeJS.Timeout } = { i: undefined };
 
 	let FractalInfo = FillFractalRuleSet[fracID!].rules();
 
@@ -19,6 +19,7 @@ const FillFrac = () => {
 		FractalInfo = FillFractalRuleSet[fracID!].rules();
 		SVGRef.current!.innerHTML = "";
 		clearInterval(interval.i);
+		interval.i = undefined;
 	}
 
 	function handleSubmit(data: formSchema) {
@@ -41,7 +42,7 @@ const FillFrac = () => {
 				<FractalForm
 					handleSubmit={handleSubmit}
 					SVGReset={SVGReset}
-					maxDepth={FillFractalRuleSet[fracID!].maxDepth}
+					maxOrder={FillFractalRuleSet[fracID!].maxOrder}
 					handleSave={handleSave}
 				/>
 			</div>

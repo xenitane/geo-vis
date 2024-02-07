@@ -24,6 +24,10 @@ export default createBrowserRouter([
 				Component: lazy(() => import("@/pages/BranchingFrac")),
 			},
 			{
+				path: "Attractor/:attrID",
+				Component: lazy(() => import("@/pages/Attractor")),
+			},
+			{
 				path: "*",
 				Component: lazy(() => import("@/pages/Error")),
 			},
