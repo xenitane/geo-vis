@@ -1,5 +1,12 @@
 # Changelog
 
+## 0.7.9
+
+-   dependency updates
+-   attractor renderer implemented
+-   some attractor presets added
+-   renderers refactored to individual files
+
 ## v0.6.4
 
 -   dependency updates
