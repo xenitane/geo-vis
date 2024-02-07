@@ -1,2 +1,0 @@
-import{j as s}from"./index-3VBoUVdT.js";const t=()=>s.jsxs("article",{className:"absolute inset-0 flex flex-col items-center justify-center",children:[s.jsxs("span",{className:"flex gap-10 text-8xl font-thin",children:[s.jsx("span",{children:"4"}),s.jsx("span",{children:"0"}),s.jsx("span",{children:"4"})]}),s.jsx("span",{className:"font-light sm:text-xl",children:"The Page You Are Looking For Does Not Exist."})]});export{t as default};
-//# sourceMappingURL=Error-l2ZfdWwh.js.map
