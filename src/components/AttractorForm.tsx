@@ -40,7 +40,7 @@ interface FormProps {
 
 const AttractorForm = forwardRef<HTMLParagraphElement, FormProps>(
 	({ handleSubmit, SVGReset, handleSave, maxOrder, symbols }, ref) => {
-		const defaultValues: Required<{ [key: string]: unknown; order: number; animate: boolean; colored: boolean }> = {
+		const defaultValues: Required<{ [key: string]: unknown; order: number; animate: boolean }> = {
 			order: maxOrder - 1,
 			animate: false,
 		};
