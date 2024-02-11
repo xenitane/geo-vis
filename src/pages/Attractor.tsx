@@ -21,12 +21,12 @@ const FillFrac = () => {
 		if (formErrorRef.current) formErrorRef.current.innerHTML = "";
 	}
 
-	function handleSubmit({ order, animate, ...data }: formSchema) {
+	function handleSubmit({ order, /* animate */ ...data }: formSchema) {
 		SVGReset();
 		try {
 			AttractorRenderer(SVGRef.current!, {
 				order,
-				animate,
+				animate: false,
 				interval,
 				colored: false,
 				AttractorInfo: AttractorRuleSet[attrID!].rules(data),
