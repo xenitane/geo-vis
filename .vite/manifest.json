@@ -1,19 +1,20 @@
 {
-  "_Attractor-WVTKvxIg.js": {
+  "_Attractor-92myYh06.js": {
     "assets": [
       "assets/tinkerbell-map-mDh93n20.svg",
       "assets/gingerbread-man-pHmHgEso.svg"
     ],
-    "file": "assets/Attractor-WVTKvxIg.js"
+    "file": "assets/Attractor-92myYh06.js"
   },
-  "_Branching-l4YYxn5q.js": {
+  "_Branching-hbnJ2le7.js": {
     "assets": [
-      "assets/sierpinski-carpet-tcUJp76B.svg",
+      "assets/sierpinski-carpet-KQg5pk1E.svg",
       "assets/sierpinski-triangle-skeleton-5RWZaem-.svg",
       "assets/t-square-aPo7Mgmz.svg",
-      "assets/vicsek-fractal-Qkgd6Kpk.svg"
+      "assets/vicsek-fractal-Qkgd6Kpk.svg",
+      "assets/peano-sierpinski-carpet-tcUJp76B.svg"
     ],
-    "file": "assets/Branching-l4YYxn5q.js",
+    "file": "assets/Branching-hbnJ2le7.js",
     "imports": [
       "_complex-w3zDMYH0.js",
       "_fracUtils-EuSe4TLi.js"
@@ -37,11 +38,11 @@
       "_fracUtils-EuSe4TLi.js"
     ]
   },
-  "_FractalForm-CRxN7Nls.js": {
-    "file": "assets/FractalForm-CRxN7Nls.js",
+  "_FractalForm-JhFn1tmJ.js": {
+    "file": "assets/FractalForm-JhFn1tmJ.js",
     "imports": [
       "index.html",
-      "_SVGCanvas-LxjlG6WV.js"
+      "_SVGCanvas-fwBxKJpS.js"
     ]
   },
   "_Linear-B-RYrmYL.js": {
@@ -72,8 +73,8 @@
       "_fracUtils-EuSe4TLi.js"
     ]
   },
-  "_SVGCanvas-LxjlG6WV.js": {
-    "file": "assets/SVGCanvas-LxjlG6WV.js",
+  "_SVGCanvas-fwBxKJpS.js": {
+    "file": "assets/SVGCanvas-fwBxKJpS.js",
     "imports": [
       "index.html"
     ]
@@ -95,8 +96,12 @@
     "file": "assets/tinkerbell-map-mDh93n20.svg",
     "src": "assets/Thumbnails/attractor/tinkerbell-map.svg"
   },
+  "assets/Thumbnails/branching/peano-sierpinski-carpet.svg": {
+    "file": "assets/peano-sierpinski-carpet-tcUJp76B.svg",
+    "src": "assets/Thumbnails/branching/peano-sierpinski-carpet.svg"
+  },
   "assets/Thumbnails/branching/sierpinski-carpet.svg": {
-    "file": "assets/sierpinski-carpet-tcUJp76B.svg",
+    "file": "assets/sierpinski-carpet-KQg5pk1E.svg",
     "src": "assets/Thumbnails/branching/sierpinski-carpet.svg"
   },
   "assets/Thumbnails/branching/sierpinski-triangle-skeleton.svg": {
@@ -228,7 +233,7 @@
     "src": "assets/Thumbnails/linear/vicsek-fractal.svg"
   },
   "components/Card.tsx": {
-    "file": "assets/Card-nRvGvQJ-.js",
+    "file": "assets/Card-SxlGK8Hg.js",
     "imports": [
       "index.html"
     ],
@@ -239,7 +244,7 @@
     "dynamicImports": [
       "components/Card.tsx"
     ],
-    "file": "assets/GeoSection-FjYxosu_.js",
+    "file": "assets/GeoSection-xcZb6YM8.js",
     "imports": [
       "index.html"
     ],
@@ -259,36 +264,36 @@
       "pages/Error.tsx",
       "pages/LinearFrac.tsx"
     ],
-    "file": "assets/index-ZZnzyjVk.js",
+    "file": "assets/index-SMjkW2pv.js",
     "isEntry": true,
     "src": "index.html"
   },
   "pages/Attractor.tsx": {
-    "file": "assets/Attractor-kp_2mqZn.js",
+    "file": "assets/Attractor-Uzt8JBzY.js",
     "imports": [
       "index.html",
       "_complex-w3zDMYH0.js",
-      "_SVGCanvas-LxjlG6WV.js",
-      "_Attractor-WVTKvxIg.js"
+      "_SVGCanvas-fwBxKJpS.js",
+      "_Attractor-92myYh06.js"
     ],
     "isDynamicEntry": true,
     "src": "pages/Attractor.tsx"
   },
   "pages/BranchingFrac.tsx": {
-    "file": "assets/BranchingFrac-UQ1ikalq.js",
+    "file": "assets/BranchingFrac-CKiqrU0S.js",
     "imports": [
       "index.html",
       "_complex-w3zDMYH0.js",
-      "_SVGCanvas-LxjlG6WV.js",
-      "_FractalForm-CRxN7Nls.js",
-      "_Branching-l4YYxn5q.js",
+      "_SVGCanvas-fwBxKJpS.js",
+      "_FractalForm-JhFn1tmJ.js",
+      "_Branching-hbnJ2le7.js",
       "_fracUtils-EuSe4TLi.js"
     ],
     "isDynamicEntry": true,
     "src": "pages/BranchingFrac.tsx"
   },
   "pages/Error.tsx": {
-    "file": "assets/Error-_8l8j3hi.js",
+    "file": "assets/Error-XcXDhVAS.js",
     "imports": [
       "index.html"
     ],
@@ -296,11 +301,11 @@
     "src": "pages/Error.tsx"
   },
   "pages/FillFrac.tsx": {
-    "file": "assets/FillFrac-tJBkB9nf.js",
+    "file": "assets/FillFrac-sFoMgcvV.js",
     "imports": [
       "index.html",
-      "_SVGCanvas-LxjlG6WV.js",
-      "_FractalForm-CRxN7Nls.js",
+      "_SVGCanvas-fwBxKJpS.js",
+      "_FractalForm-JhFn1tmJ.js",
       "_Fill-5kQz1DTr.js",
       "_fracUtils-EuSe4TLi.js",
       "_complex-w3zDMYH0.js"
@@ -312,13 +317,13 @@
     "dynamicImports": [
       "components/GeoSection.tsx"
     ],
-    "file": "assets/Home-ncwSq41I.js",
+    "file": "assets/Home-k0SNwvFM.js",
     "imports": [
       "index.html",
       "_Linear-B-RYrmYL.js",
       "_Fill-5kQz1DTr.js",
-      "_Branching-l4YYxn5q.js",
-      "_Attractor-WVTKvxIg.js",
+      "_Branching-hbnJ2le7.js",
+      "_Attractor-92myYh06.js",
       "_complex-w3zDMYH0.js",
       "_fracUtils-EuSe4TLi.js"
     ],
@@ -326,12 +331,12 @@
     "src": "pages/Home.tsx"
   },
   "pages/LinearFrac.tsx": {
-    "file": "assets/LinearFrac-Vk3TCSi5.js",
+    "file": "assets/LinearFrac-4F-OFCTV.js",
     "imports": [
       "index.html",
       "_complex-w3zDMYH0.js",
-      "_SVGCanvas-LxjlG6WV.js",
-      "_FractalForm-CRxN7Nls.js",
+      "_SVGCanvas-fwBxKJpS.js",
+      "_FractalForm-JhFn1tmJ.js",
       "_Linear-B-RYrmYL.js",
       "_fracUtils-EuSe4TLi.js"
     ],
