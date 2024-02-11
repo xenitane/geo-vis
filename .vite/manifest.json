@@ -38,11 +38,11 @@
       "_fracUtils-EuSe4TLi.js"
     ]
   },
-  "_FractalForm-JhFn1tmJ.js": {
-    "file": "assets/FractalForm-JhFn1tmJ.js",
+  "_FractalForm-XT92gJT2.js": {
+    "file": "assets/FractalForm-XT92gJT2.js",
     "imports": [
       "index.html",
-      "_SVGCanvas-fwBxKJpS.js"
+      "_SVGCanvas-cjQ4KCCz.js"
     ]
   },
   "_Linear-B-RYrmYL.js": {
@@ -73,8 +73,8 @@
       "_fracUtils-EuSe4TLi.js"
     ]
   },
-  "_SVGCanvas-fwBxKJpS.js": {
-    "file": "assets/SVGCanvas-fwBxKJpS.js",
+  "_SVGCanvas-cjQ4KCCz.js": {
+    "file": "assets/SVGCanvas-cjQ4KCCz.js",
     "imports": [
       "index.html"
     ]
@@ -233,7 +233,7 @@
     "src": "assets/Thumbnails/linear/vicsek-fractal.svg"
   },
   "components/Card.tsx": {
-    "file": "assets/Card-SxlGK8Hg.js",
+    "file": "assets/Card-kXQhemdW.js",
     "imports": [
       "index.html"
     ],
@@ -244,7 +244,7 @@
     "dynamicImports": [
       "components/Card.tsx"
     ],
-    "file": "assets/GeoSection-xcZb6YM8.js",
+    "file": "assets/GeoSection-RfvadDe8.js",
     "imports": [
       "index.html"
     ],
@@ -264,28 +264,28 @@
       "pages/Error.tsx",
       "pages/LinearFrac.tsx"
     ],
-    "file": "assets/index-SMjkW2pv.js",
+    "file": "assets/index-29L34l6h.js",
     "isEntry": true,
     "src": "index.html"
   },
   "pages/Attractor.tsx": {
-    "file": "assets/Attractor-Uzt8JBzY.js",
+    "file": "assets/Attractor-17eyncCZ.js",
     "imports": [
       "index.html",
       "_complex-w3zDMYH0.js",
-      "_SVGCanvas-fwBxKJpS.js",
+      "_SVGCanvas-cjQ4KCCz.js",
       "_Attractor-92myYh06.js"
     ],
     "isDynamicEntry": true,
     "src": "pages/Attractor.tsx"
   },
   "pages/BranchingFrac.tsx": {
-    "file": "assets/BranchingFrac-CKiqrU0S.js",
+    "file": "assets/BranchingFrac-qXH4Mnep.js",
     "imports": [
       "index.html",
       "_complex-w3zDMYH0.js",
-      "_SVGCanvas-fwBxKJpS.js",
-      "_FractalForm-JhFn1tmJ.js",
+      "_SVGCanvas-cjQ4KCCz.js",
+      "_FractalForm-XT92gJT2.js",
       "_Branching-hbnJ2le7.js",
       "_fracUtils-EuSe4TLi.js"
     ],
@@ -293,7 +293,7 @@
     "src": "pages/BranchingFrac.tsx"
   },
   "pages/Error.tsx": {
-    "file": "assets/Error-XcXDhVAS.js",
+    "file": "assets/Error-nUlov9MO.js",
     "imports": [
       "index.html"
     ],
@@ -301,11 +301,11 @@
     "src": "pages/Error.tsx"
   },
   "pages/FillFrac.tsx": {
-    "file": "assets/FillFrac-sFoMgcvV.js",
+    "file": "assets/FillFrac-uG2IIlLN.js",
     "imports": [
       "index.html",
-      "_SVGCanvas-fwBxKJpS.js",
-      "_FractalForm-JhFn1tmJ.js",
+      "_SVGCanvas-cjQ4KCCz.js",
+      "_FractalForm-XT92gJT2.js",
       "_Fill-5kQz1DTr.js",
       "_fracUtils-EuSe4TLi.js",
       "_complex-w3zDMYH0.js"
@@ -317,7 +317,7 @@
     "dynamicImports": [
       "components/GeoSection.tsx"
     ],
-    "file": "assets/Home-k0SNwvFM.js",
+    "file": "assets/Home-W4Jlupe2.js",
     "imports": [
       "index.html",
       "_Linear-B-RYrmYL.js",
@@ -331,12 +331,12 @@
     "src": "pages/Home.tsx"
   },
   "pages/LinearFrac.tsx": {
-    "file": "assets/LinearFrac-4F-OFCTV.js",
+    "file": "assets/LinearFrac-AqfckYvR.js",
     "imports": [
       "index.html",
       "_complex-w3zDMYH0.js",
-      "_SVGCanvas-fwBxKJpS.js",
-      "_FractalForm-JhFn1tmJ.js",
+      "_SVGCanvas-cjQ4KCCz.js",
+      "_FractalForm-XT92gJT2.js",
       "_Linear-B-RYrmYL.js",
       "_fracUtils-EuSe4TLi.js"
     ],
