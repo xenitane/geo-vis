@@ -1,11 +1,17 @@
-import { sierpinskiCarpet, sierpinskiTriangleSkeleton, tSquare, vicsekFractal } from "@/assets/Thumbnails/branching";
+import {
+	sierpinskiCarpet,
+	peanoSierpinskiCarpet,
+	sierpinskiTriangleSkeleton,
+	tSquare,
+	vicsekFractal,
+} from "@/assets/Thumbnails/branching";
 import { doNothing, left120, left90, moveForward, multiply, right120, right45, right90 } from "@/lib/utils";
 import { BranchingFractalInfo } from "@/types";
 
 const PeanoSierpinskiCarpetRules: BranchingFractalInfo = {
 	name: "Peano Sierpinski Carpet",
 	maxOrder: 5,
-	image: sierpinskiCarpet,
+	image: peanoSierpinskiCarpet,
 	rules: () => ({
 		shift: 1,
 		stay: false,
@@ -80,8 +86,27 @@ const VicsekFractalRules: BranchingFractalInfo = {
 	}),
 };
 
+const SierpinskiCarpetRules: BranchingFractalInfo = {
+	name: "Sierpinski Carpet",
+	image: sierpinskiCarpet,
+	maxOrder: 5,
+	rules: () => ({
+		shift: 1,
+		stay: false,
+		rules: {
+			I: [false, (p, f) => [...doNothing(p, f), false], ["", ["ANF", "NBPF"]]],
+			F: [false, (p, f) => [...moveForward(p, f), true], "FFF"],
+			P: [true, (p, f) => [...right90(p, f), true]],
+			N: [true, (p, f) => [...left90(p, f), true]],
+			A: [false, (p, f) => [...moveForward(p, f), true], ["A", ["NBPF", ["A", [["NB", ["BPA", "PA"]], "A"]]]]],
+			B: [false, (p, f) => [...moveForward(p, f), true], ["B", ["PANF", ["B", [["PA", ["ANB", "NB"]], "B"]]]]],
+		},
+	}),
+};
+
 const BranchingFractalRuleSet: Record<string, BranchingFractalInfo> = {
 	"peano-sierpinski-carpet": PeanoSierpinskiCarpetRules,
+	"sierpinski-carpet": SierpinskiCarpetRules,
 	"sierpinski-triangle-skeleton": SierpinskiTriangleSkeletonRules,
 	"t-square": TSquareRules,
 	"vicsek-fractal": VicsekFractalRules,

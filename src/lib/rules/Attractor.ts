@@ -41,8 +41,8 @@ const GingerbreadManRules: AttractorInfo = {
 };
 
 const Attractors: Record<string, AttractorInfo> = {
-	"tinker-bell": TinkerBellAttractorRules,
 	"gingerbread-man": GingerbreadManRules,
+	"tinker-bell": TinkerBellAttractorRules,
 };
 
 export default Attractors;
