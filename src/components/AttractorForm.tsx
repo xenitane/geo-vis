@@ -5,7 +5,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Form, FormControl, FormDescription, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
-import { Switch } from "@/components/ui/switch";
+// import { Switch } from "@/components/ui/switch";
 import { forwardRef } from "react";
 import { cn } from "@/lib/utils";
 import { Separator } from "@/components/ui/separator";
@@ -14,14 +14,14 @@ function schemaMaker(maxOrder: number, symbols: [string, number][]) {
 	const zodOb: {
 		[key: string]: z.ZodTypeAny;
 		order: z.ZodNumber;
-		animate: z.ZodBoolean;
+		// animate: z.ZodBoolean;
 	} = {
 		order: z.coerce
 			.number()
 			.min(0, { message: "should be greater than or equal to 0" })
 			.max(maxOrder, { message: `should be less than or equal to ${maxOrder}` })
 			.int({ message: "Must be an Integer Value" }),
-		animate: z.boolean(),
+		// animate: z.boolean(),
 	};
 	for (const sym of symbols) zodOb[sym[0]] = z.coerce.number().finite();
 
@@ -40,9 +40,9 @@ interface FormProps {
 
 const AttractorForm = forwardRef<HTMLParagraphElement, FormProps>(
 	({ handleSubmit, SVGReset, handleSave, maxOrder, symbols }, ref) => {
-		const defaultValues: Required<{ [key: string]: unknown; order: number; animate: boolean }> = {
-			order: maxOrder - 1,
-			animate: false,
+		const defaultValues: Required<{ [key: string]: unknown; order: number /* ; animate: boolean */ }> = {
+			order: maxOrder,
+			// animate: false,
 		};
 		for (const sym of symbols) defaultValues[sym[0]] = sym[1];
 		const schema = schemaMaker(maxOrder, symbols);
@@ -112,7 +112,7 @@ const AttractorForm = forwardRef<HTMLParagraphElement, FormProps>(
 								<Separator className={cn("my-2 bg-neutral-950", "dark:bg-neutral-50")} />
 							</>
 						)}
-						<FormField
+						{/* <FormField
 							control={form.control}
 							name="animate"
 							render={({ field }) => (
@@ -126,7 +126,7 @@ const AttractorForm = forwardRef<HTMLParagraphElement, FormProps>(
 									<FormDescription>Animate the rendition</FormDescription>
 								</FormItem>
 							)}
-						/>
+						/> */}
 					</div>
 					<div className="flex w-full justify-between pt-4">
 						<Button type="submit" className={cn("w-1/4 rounded-md")}>
