@@ -3,7 +3,7 @@ import { LinearRenderer, cn } from "@/lib/utils";
 import { useParams, Navigate } from "react-router-dom";
 import FractalForm, { formSchema } from "@/components/FractalForm";
 import LinearFractalRulesSet from "@/lib/rules/Linear";
-import SVGCanvas from "@/components/SVGCanvas";
+import SVGCanvas from "@/components/Drawable/SVG";
 
 const LinearFrac = () => {
 	const { fracID } = useParams();

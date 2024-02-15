@@ -3,7 +3,7 @@ import { FillRenderer, cn } from "@/lib/utils";
 import { Navigate, useParams } from "react-router-dom";
 import FractalForm, { formSchema } from "@/components/FractalForm";
 import FillFractalRuleSet from "@/lib/rules/Fill";
-import SVGCanvas from "@/components/SVGCanvas";
+import SVGCanvas from "@/components/Drawable/SVG";
 
 const FillFrac = () => {
 	const { fracID } = useParams();

@@ -32,14 +32,14 @@ export type formSchema = Required<z.infer<ReturnType<typeof schemaMaker>>>;
 
 interface FormProps {
 	handleSubmit: SubmitHandler<formSchema>;
-	SVGReset: () => void;
+	DrawableReset: () => void;
 	maxOrder: number;
 	handleSave: () => void;
 	symbols: [string, number][];
 }
 
 const AttractorForm = forwardRef<HTMLParagraphElement, FormProps>(
-	({ handleSubmit, SVGReset, handleSave, maxOrder, symbols }, ref) => {
+	({ handleSubmit, DrawableReset, handleSave, maxOrder, symbols }, ref) => {
 		const defaultValues: Required<{ [key: string]: unknown; order: number /* ; animate: boolean */ }> = {
 			order: maxOrder,
 			// animate: false,
@@ -57,7 +57,7 @@ const AttractorForm = forwardRef<HTMLParagraphElement, FormProps>(
 					className="w-full"
 					onSubmit={(evt) => void form.handleSubmit(handleSubmit)(evt)}
 					onReset={() => {
-						SVGReset();
+						DrawableReset();
 						form.reset();
 					}}
 				>

@@ -5,7 +5,6 @@ export type Theme = "system" | "light" | "dark";
 export type ArrayOfTAndSelf<T> = T | [T, ArrayOfTAndSelf<T>[]];
 export type IncludeClassName<T> = T & { className?: string };
 export type SVGProps = React.SVGProps<SVGSVGElement>;
-export type DIVProps = React.HTMLProps<HTMLDivElement>;
 export type HTMLProps = React.HTMLProps<HTMLElement>;
 
 export type PropType<TObj, TProp extends keyof TObj> = TObj[TProp];
