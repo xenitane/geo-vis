@@ -10,14 +10,14 @@ import vicsekFractal from "@/assets/Thumbnails/fill/vicsek-fractal.svg";
 import vicsekFractal2 from "@/assets/Thumbnails/fill/vicsek-fractal-2.svg";
 
 export {
-	sierpinskiTriangle,
-	sierpinskiPentagon,
-	sierpinskiHexagon,
-	pentaflake,
-	hexaflake,
-	hexnut,
-	hexpool,
-	sierpinskiCarpet,
-	vicsekFractal,
-	vicsekFractal2,
+    sierpinskiTriangle,
+    sierpinskiPentagon,
+    sierpinskiHexagon,
+    pentaflake,
+    hexaflake,
+    hexnut,
+    hexpool,
+    sierpinskiCarpet,
+    vicsekFractal,
+    vicsekFractal2,
 };

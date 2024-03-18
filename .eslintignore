@@ -7,7 +7,6 @@ dist/
 dist-ssr/
 dist-csr/
 dev-dist/
-public/
 **mocks**/
 
 jest.config.js

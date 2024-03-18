@@ -1,45 +1,45 @@
 {
-	"$schema": "https://json.schemastore.org/tsconfig",
-	"compilerOptions": {
-		"target": "ESNext",
-		"useDefineForClassFields": true,
-		"lib": ["ES2020", "DOM", "DOM.Iterable", "ESNext"],
-		"module": "ESNext",
-		"skipLibCheck": true,
+    "$schema": "https://json.schemastore.org/tsconfig",
+    "compilerOptions": {
+        "target": "ESNext",
+        "useDefineForClassFields": true,
+        "lib": ["ES2020", "DOM", "DOM.Iterable", "ESNext"],
+        "module": "ESNext",
+        "skipLibCheck": true,
 
-		/* Bundler mode */
-		"moduleResolution": "bundler",
-		"allowImportingTsExtensions": true,
-		"resolveJsonModule": true,
-		"isolatedModules": true,
-		"noEmit": true,
-		"jsx": "react-jsx",
+        /* Bundler mode */
+        "moduleResolution": "bundler",
+        "allowImportingTsExtensions": true,
+        "resolveJsonModule": true,
+        "isolatedModules": true,
+        "noEmit": true,
+        "jsx": "react-jsx",
 
-		/* Linting */
-		"strict": true,
-		"noUnusedLocals": true,
-		"noUnusedParameters": true,
-		"noFallthroughCasesInSwitch": true,
+        /* Linting */
+        "strict": true,
+        "noUnusedLocals": true,
+        "noUnusedParameters": true,
+        "noFallthroughCasesInSwitch": true,
 
-		"esModuleInterop": false,
-		"types": ["vite/client", "node", "react"],
-		"allowJs": false,
-		"allowSyntheticDefaultImports": true,
-		"forceConsistentCasingInFileNames": true,
-		"baseUrl": ".",
-		"paths": {
-			"@/*": ["./src/*"]
-		}
-	},
-	"ts-node": {
-		"transpileOnly": true,
-		"esm": true,
-		"compilerOptions": {
-			"module": "ESNext",
-			"moduleResolution": "Bundler"
-		},
-		"files": true
-	},
-	"include": ["src", ".eslintrc.cjs", ".prettierrc.cjs"],
-	"references": [{ "path": "./tsconfig.node.json" }]
+        "esModuleInterop": false,
+        "types": ["vite/client", "node", "react"],
+        "allowJs": false,
+        "allowSyntheticDefaultImports": true,
+        "forceConsistentCasingInFileNames": true,
+        "baseUrl": ".",
+        "paths": {
+            "@/*": ["./src/*"]
+        }
+    },
+    "ts-node": {
+        "transpileOnly": true,
+        "esm": true,
+        "compilerOptions": {
+            "module": "ESNext",
+            "moduleResolution": "Bundler"
+        },
+        "files": true
+    },
+    "include": ["src", ".eslintrc.cjs", ".prettierrc.cjs"],
+    "references": [{ "path": "./tsconfig.node.json" }]
 }
