@@ -1,4 +1,4 @@
-import { Point } from "@/types";
+import { Point } from "?";
 
 export function rounder(a: number) {
     return Math.round(a * 10000) / 10000;

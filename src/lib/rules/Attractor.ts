@@ -1,5 +1,5 @@
-import { tinkerbellMap, gingerbreadMan } from "@/assets/Thumbnails/attractor";
-import { AttractorInfo } from "@/types";
+import { tinkerbellMap, gingerbreadMan } from "#/Thumbnails/attractor";
+import { AttractorInfo } from "?";
 
 const TinkerBellAttractorRules: AttractorInfo = {
     name: "Tinker Bell Attractor",

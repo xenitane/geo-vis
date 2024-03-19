@@ -2,12 +2,12 @@ import z from "zod";
 import { useForm, SubmitHandler } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Form, FormControl, FormDescription, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
-import { Switch } from "@/components/ui/switch";
+import { Button } from "$/button";
+import { Input } from "$/input";
+import { Form, FormControl, FormDescription, FormField, FormItem, FormLabel, FormMessage } from "$/form";
+import { Switch } from "$/switch";
 import { FC } from "react";
-import { cn } from "@/lib/utils";
+import { cn } from "%/utils";
 
 function schemaMaker(maxOrder: number) {
     return z.object({

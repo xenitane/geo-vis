@@ -1,4 +1,4 @@
-import { Point } from "@/types";
+import { Point } from "?";
 
 function rgbToHex(a: [number, number, number]) {
     return ((1 << 24) | (a[0] << 16) | (a[1] << 8) | a[2]).toString(16).slice(1);

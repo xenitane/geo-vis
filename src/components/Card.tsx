@@ -1,9 +1,9 @@
-import { SVGProps } from "@/types";
-import cardBack from "@/assets/card-back.svg";
-import SepLine from "@/assets/SepLine";
+import { SVGProps } from "?";
+import cardBack from "#/card-back.svg";
+import SepLine from "#/SepLine";
 import { NavLink } from "react-router-dom";
 import { FC } from "react";
-import { cn } from "@/lib/utils";
+import { cn } from "%/utils";
 import { HiOutlineArrowsExpand } from "react-icons/hi";
 
 interface CardProps extends SVGProps {

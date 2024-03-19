@@ -28,7 +28,13 @@
         "forceConsistentCasingInFileNames": true,
         "baseUrl": ".",
         "paths": {
-            "@/*": ["./src/*"]
+            "!/*": ["./src/*"],
+            "#/*": ["./src/assets/*"],
+            "@/*": ["./src/components/*"],
+            "$/*": ["./src/components/ui/*"],
+            "%/*": ["./src/lib/*"],
+            "&/*": ["./src/pages/*"],
+            "?": ["./src/types"]
         }
     },
     "ts-node": {
@@ -40,6 +46,6 @@
         },
         "files": true
     },
-    "include": ["src", ".eslintrc.cjs", ".prettierrc.cjs"],
+    "include": ["src", "pages", ".eslintrc.cjs", ".prettierrc.cjs"],
     "references": [{ "path": "./tsconfig.node.json" }]
 }

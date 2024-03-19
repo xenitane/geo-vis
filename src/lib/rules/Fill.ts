@@ -9,10 +9,10 @@ import {
     sierpinskiTriangle,
     vicsekFractal,
     vicsekFractal2,
-} from "@/assets/Thumbnails/fill";
-import { FillFractalInfo, Point } from "@/types";
+} from "#/Thumbnails/fill";
+import { FillFractalInfo, Point } from "?";
 
-import { genCentersV, genCentersVC, genCentersVS, polyVGen } from "@/lib/utils";
+import { genCentersV, genCentersVC, genCentersVS, polyVGen } from "%/utils";
 
 const SierpinskiTriangleRules: FillFractalInfo = {
     name: "Sierpinski Triangle",

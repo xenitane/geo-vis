@@ -1,9 +1,9 @@
 import { useRef } from "react";
-import { BranchingRenderer, cn } from "@/lib/utils";
+import { BranchingRenderer, cn } from "%/utils";
 import { Navigate, useParams } from "react-router-dom";
-import FractalForm, { formSchema } from "@/components/FractalForm";
-import BranchingFractalRuleSet from "@/lib/rules/Branching";
-import SVGCanvas from "@/components/Drawable/SVG";
+import FractalForm, { formSchema } from "@/FractalForm";
+import BranchingFractalRuleSet from "%/rules/Branching";
+import SVGCanvas from "@/Drawable/SVG";
 
 const FillFrac = () => {
     const { fracID } = useParams();

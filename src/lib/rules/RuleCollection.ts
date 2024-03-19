@@ -1,7 +1,7 @@
-import LinearFractalRulesSet from "@/lib/rules/Linear";
-import FillFractalRuleSet from "@/lib/rules/Fill";
-import BranchingFractalRuleSet from "@/lib/rules/Branching";
-import AttractorRuleSet from "@/lib/rules/Attractor";
+import LinearFractalRulesSet from "%/rules/Linear";
+import FillFractalRuleSet from "%/rules/Fill";
+import BranchingFractalRuleSet from "%/rules/Branching";
+import AttractorRuleSet from "%/rules/Attractor";
 
 export default {
     Linear: LinearFractalRulesSet,

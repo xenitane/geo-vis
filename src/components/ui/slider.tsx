@@ -1,8 +1,8 @@
 import * as React from "react";
 import * as SliderPrimitive from "@radix-ui/react-slider";
 
-import { cn } from "@/lib/utils";
-import { IncludeClassName } from "@/types";
+import { cn } from "%/utils";
+import { IncludeClassName } from "?";
 
 const Slider = React.forwardRef<
     React.ElementRef<typeof SliderPrimitive.Root>,

@@ -1,11 +1,11 @@
-import { cn } from "@/lib/utils";
+import { cn } from "%/utils";
 import { FC, Suspense, lazy } from "react";
-import { Separator } from "@/components/ui/separator";
-import CardSkeleton from "@/components/CardSkeleton";
-import { HTMLProps, GeoObjInfo } from "@/types";
-import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel";
+import { Separator } from "$/separator";
+import CardSkeleton from "@/CardSkeleton";
+import { HTMLProps, GeoObjInfo } from "?";
+import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "$/carousel";
 
-const Card = lazy(() => import("@/components/Card"));
+const Card = lazy(() => import("@/Card"));
 
 interface GeoSectionProps extends HTMLProps {
     sectionId: string;

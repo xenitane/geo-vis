@@ -1,5 +1,5 @@
 import { createBrowserRouter } from "react-router-dom";
-import App from "@/App";
+import App from "!/App";
 import { lazy } from "react";
 
 export default createBrowserRouter([
@@ -9,32 +9,32 @@ export default createBrowserRouter([
         children: [
             {
                 index: true,
-                Component: lazy(() => import("@/pages/Home")),
+                Component: lazy(() => import("&/Home")),
             },
             {
                 path: "Linear/:fracID",
-                Component: lazy(() => import("@/pages/LinearFrac")),
+                Component: lazy(() => import("&/LinearFrac")),
             },
             {
                 path: "Fill/:fracID",
-                Component: lazy(() => import("@/pages/FillFrac")),
+                Component: lazy(() => import("&/FillFrac")),
             },
             {
                 path: "Branching/:fracID",
-                Component: lazy(() => import("@/pages/BranchingFrac")),
+                Component: lazy(() => import("&/BranchingFrac")),
             },
             {
                 path: "Attractor/:attrID",
-                Component: lazy(() => import("@/pages/Attractor")),
+                Component: lazy(() => import("&/Attractor")),
             },
             {
                 path: "*",
-                Component: lazy(() => import("@/pages/Error")),
+                Component: lazy(() => import("&/Error")),
             },
         ],
     },
     {
         path: "*",
-        Component: lazy(() => import("@/pages/LinearFrac")),
+        Component: lazy(() => import("&/LinearFrac")),
     },
 ]);

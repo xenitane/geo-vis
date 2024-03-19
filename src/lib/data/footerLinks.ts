@@ -1,4 +1,4 @@
-import { ProjectFooterLiType } from "@/types";
+import { ProjectFooterLiType } from "?";
 import { BsGithub } from "react-icons/bs";
 import { GoCrossReference, GoInfo, GoIssueOpened } from "react-icons/go";
 import { LuListTodo } from "react-icons/lu";

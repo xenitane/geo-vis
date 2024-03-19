@@ -1,8 +1,8 @@
-import Logo from "@/assets/Logo";
-import { cn } from "@/lib/utils";
-import { Separator } from "@/components/ui/separator";
-import footerLinks from "@/lib/data/footerLinks";
-import { HTMLProps } from "@/types";
+import Logo from "#/Logo";
+import { cn } from "%/utils";
+import { Separator } from "$/separator";
+import footerLinks from "%/data/footerLinks";
+import { HTMLProps } from "?";
 import { FC } from "react";
 
 interface FooterProps extends HTMLProps {

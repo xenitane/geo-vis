@@ -4,9 +4,9 @@ import {
     sierpinskiTriangleSkeleton,
     tSquare,
     vicsekFractal,
-} from "@/assets/Thumbnails/branching";
-import { doNothing, left120, left90, moveForward, multiply, right120, right45, right90 } from "@/lib/utils";
-import { BranchingFractalInfo } from "@/types";
+} from "#/Thumbnails/branching";
+import { doNothing, left120, left90, moveForward, multiply, right120, right45, right90 } from "%/utils";
+import { BranchingFractalInfo } from "?";
 
 const PeanoSierpinskiCarpetRules: BranchingFractalInfo = {
     name: "Peano Sierpinski Carpet",

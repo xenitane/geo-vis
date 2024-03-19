@@ -1,5 +1,5 @@
-import { AttractorOptions, Point } from "@/types";
-import { add, multiply } from "@/lib/utils";
+import { AttractorOptions, Point } from "?";
+import { add, multiply } from "%/utils";
 
 export function AttractorRenderer(
     CanvasCtx: CanvasRenderingContext2D,

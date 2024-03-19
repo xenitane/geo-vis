@@ -3,18 +3,18 @@
 > A simple web application for rendering geometric visuals, attractors, complex sets and much more along the way
 > Live at <https://xenitane.github.io/geo-vis>
 
-### Table of Contents
+## Table of Contents
 
--   [Geo-Vis](#geo-vis) - [Table of Contents](#table-of-contents)
-    -   [Inspiration](#inspiration)
-    -   [Challanges](#challanges)
-    -   [Technology](#technology)
-    -   [Installation and Usage](#installation-and-usage)
-        -   [Requirements](#requirements)
-        -   [Usage Instructions](#usage-instructions)
-        -   [Other Instructions](#other-instructions)
-    -   [References](#references)
-    -   [TODOs](#todos)
+- [Geo-Vis](#geo-vis) - [Table of Contents](#table-of-contents)
+  - [Inspiration](#inspiration)
+  - [Challanges](#challanges)
+  - [Technology](#technology)
+  - [Installation and Usage](#installation-and-usage)
+    - [Requirements](#requirements)
+    - [Usage Instructions](#usage-instructions)
+    - [Other Instructions](#other-instructions)
+  - [References](#references)
+  - [TODOs](#todos)
 
 ## Inspiration
 
@@ -26,10 +26,10 @@ And this project is just what is helping me to realize that goal.
 
 ## Challanges
 
--   Writing the abstraction for the renderers for different purposes.
--   Implementing the three-dimensional hamilton space filling curve for color spaces to color the fractals.
--   Optimizing some L-Systems for optimal performance and desired shapes
--   And some weird Mathematics which I'm glad I gave time to.
+- Writing the abstraction for the renderers for different purposes.
+- Implementing the three-dimensional hamilton space filling curve for color spaces to color the fractals.
+- Optimizing some L-Systems for optimal performance and desired shapes
+- And some weird Mathematics which I'm glad I gave time to.
 
 ## Technology
 
@@ -39,32 +39,33 @@ And this project is just what is helping me to realize that goal.
 
 ### Requirements
 
--   NodeJS version 18 or higher
--   npm version 10
+- NodeJS version 18 or higher
+- npm version 10
 
 ### Usage Instructions
 
 1. To run the development server
 
     ```bash
-    $ git clone https://www.github.com/xenitane/geo-vis.git geo-vis
-    $ cd geo-vis
-    $ npm ci
-    $ npm run dev
+    git clone https://www.github.com/xenitane/geo-vis.git geo-vis
+    cd geo-vis
+    npm ci
+    npm run dev
     ```
 
 2. Build and Preview
 
     ```bash
-    $ npm run build
-    $ npm run preview
+    npm run build
+    npm run preview
     ```
 
 3. Linting, Formatting and Type-Checking
+
     ```bash
-    $ npm run lint
-    $ npm run format
-    $ npm run type-check
+    npm run lint
+    npm run format
+    npm run type-check
     ```
 
 ### Other Instructions

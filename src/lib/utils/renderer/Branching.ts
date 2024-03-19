@@ -1,5 +1,5 @@
-import { ArrayOfTAndSelf, BranchingFractalOptions, Point } from "@/types";
-import { createSVGPathLineElement, rounder } from "@/lib/utils";
+import { ArrayOfTAndSelf, BranchingFractalOptions, Point } from "?";
+import { createSVGPathLineElement, rounder } from "%/utils";
 export function BranchingRenderer(
     SVGRef: SVGSVGElement,
     { order, animate, colored, interval, FractalInfo }: BranchingFractalOptions

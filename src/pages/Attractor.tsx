@@ -1,9 +1,9 @@
 import { useEffect, useRef } from "react";
-import { AttractorRenderer, cn } from "@/lib/utils";
+import { AttractorRenderer, cn } from "%/utils";
 import { Navigate, useParams } from "react-router-dom";
-import AttractorForm, { formSchema } from "@/components/AttractorForm";
-import AttractorRuleSet from "@/lib/rules/Attractor";
-import HTMLCanvas from "@/components/Drawable/Canvas";
+import AttractorForm, { formSchema } from "@/AttractorForm";
+import AttractorRuleSet from "%/rules/Attractor";
+import HTMLCanvas from "@/Drawable/Canvas";
 
 const FillFrac = () => {
     const { attrID } = useParams();

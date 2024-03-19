@@ -8,3 +8,4 @@ __mocks__/
 
 
 src/theme/
+*.md

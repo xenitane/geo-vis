@@ -1,5 +1,5 @@
-import { LinearFractalInfo } from "@/types";
-import { doNothing, moveForward, right45, right60, right90, left45, left60, left90, multiply } from "@/lib/utils";
+import { LinearFractalInfo } from "?";
+import { doNothing, moveForward, right45, right60, right90, left45, left60, left90, multiply } from "%/utils";
 
 import {
     crossStitchCurve,
@@ -21,7 +21,7 @@ import {
     tSquare,
     vicsekFractal,
     vicsekFractal2,
-} from "@/assets/Thumbnails/linear";
+} from "#/Thumbnails/linear";
 
 // todo: add fractal thumbnails
 

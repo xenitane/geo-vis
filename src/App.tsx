@@ -1,9 +1,9 @@
-import Header from "@/components/Header";
+import Header from "@/Header";
 import { Suspense } from "react";
-import PageSkeleton from "@/components/PageSekleton";
+import PageSkeleton from "@/PageSekleton";
 import { Outlet } from "react-router-dom";
-import Footer from "@/components/Footer";
-import ScrollToTop from "@/components/ScrollToTop";
+import Footer from "@/Footer";
+import ScrollToTop from "@/ScrollToTop";
 import { cn } from "./lib/utils";
 
 function App() {
@@ -22,9 +22,9 @@ function App() {
                 </Suspense>
             </main>
             <Footer
-                appVersion={process.env.__APP_VERSION__!}
-                repo={process.env.__GIT_REPO__!}
-                user={process.env.__USER_PROFILE__!}
+                appVersion={__my_consts__.__APP_VERSION__}
+                repo={__my_consts__.__GIT_REPO__}
+                user={__my_consts__.__USER_PROFILE__}
             />
         </div>
     );

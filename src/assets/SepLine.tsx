@@ -1,5 +1,5 @@
-import { SVGProps } from "@/types";
-import { cn } from "@/lib/utils";
+import { SVGProps } from "?";
+import { cn } from "%/utils";
 import { FC } from "react";
 
 const SepLine: FC<SVGProps> = ({ className }) => {

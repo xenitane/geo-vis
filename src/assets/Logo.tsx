@@ -1,5 +1,5 @@
-import { cn } from "@/lib/utils";
-import { SVGProps } from "@/types";
+import { cn } from "%/utils";
+import { SVGProps } from "?";
 import { FC } from "react";
 
 const Logo: FC<SVGProps> = ({ className }) => {

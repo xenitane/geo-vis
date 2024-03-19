@@ -1,11 +1,11 @@
-import Logo from "@/assets/Logo";
+import Logo from "#/Logo";
 import { CgSun, CgMoon } from "react-icons/cg";
-import { theme } from "@/Signals/theme";
-import { cn } from "@/lib/utils";
+import { theme } from "!/Signals/theme";
+import { cn } from "%/utils";
 import { NavLink } from "react-router-dom";
-import { Button } from "@/components/ui/button";
-import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "@/components/ui/dropdown-menu";
-import { HTMLProps, Theme } from "@/types";
+import { Button } from "$/button";
+import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "$/dropdown-menu";
+import { HTMLProps, Theme } from "?";
 import { FC } from "react";
 import { GoDotFill } from "react-icons/go";
 
