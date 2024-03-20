@@ -1,8 +1,14 @@
 # Changelog
 
+## v0.8.0
+
+- dep updates
+- ditched react router for file based routing
+- fractal forms now have buttons for changing depth val
+
 ## v0.7.1
 
-- minor bug fix att attractorform
+- minor bug fix attractor form
 
 ## v0.7.0
 
