@@ -9,7 +9,14 @@ const path_resolver = (...vars: string[]) => path.join(path.resolve(), ...vars);
 
 const dirs = {
     public: path_resolver("public/"),
-    root: path_resolver("src/"),
+    root: {
+        base: path_resolver("src/"),
+        assets: path_resolver("src", "assets/"),
+        components: path_resolver("src", "components/"),
+        shad: path_resolver("src", "components", "ui/"),
+        content: path_resolver("src", "content/"),
+        lib: path_resolver("src", "lib/"),
+    },
     out: path_resolver("dist/"),
 };
 
@@ -32,9 +39,6 @@ export default defineConfig({
             },
         },
     },
-    css: {
-        devSourcemap: true,
-    },
     define: {
         __my_consts__: JSON.stringify({
             __THEME_KEY__: "gv-theme",
@@ -53,12 +57,10 @@ export default defineConfig({
         host: "0.0.0.0",
         hmr: true,
     },
-    root: dirs.root,
+    root: dirs.root.base,
     publicDir: dirs.public,
     build: {
         outDir: dirs.out,
-        sourcemap: true,
-        manifest: true,
         emptyOutDir: true,
         rollupOptions: {
             input: {
@@ -76,4 +78,14 @@ export default defineConfig({
         },
     },
     appType: "mpa",
+    resolve: {
+        alias: {
+            "?/": dirs.root.base,
+            "#/": dirs.root.assets,
+            "@/": dirs.root.content,
+            "&/": dirs.root.components,
+            "$/": dirs.root.shad,
+            "!/": dirs.root.lib,
+        },
+    },
 });

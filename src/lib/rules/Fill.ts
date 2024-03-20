@@ -1,4 +1,4 @@
-import { genCentersV, genCentersVC, genCentersVS, polyVGen } from "../utils";
+import { genCentersV, genCentersVC, genCentersVS, polyVGen } from "!/utils/fracUtils";
 
 const SierpinskiTriangleRules: FillFractalInfo = {
     name: "Sierpinski Triangle",

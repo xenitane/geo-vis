@@ -1,9 +1,10 @@
 import { useRef } from "react";
-import { BranchingRenderer, cn } from "../lib/utils";
-import FractalForm, { formSchema } from "../components/FractalForm";
-import BranchingFractalRuleSet from "../lib/rules/Branching";
-import SVGCanvas from "../components/Drawable/SVG";
-import Error from "./Error";
+import { BranchingRenderer } from "!/utils/renderer/Branching";
+import { cn } from "!/utils/cn";
+import FractalForm, { formSchema } from "&/FractalForm";
+import BranchingFractalRuleSet from "!/rules/Branching";
+import SVGCanvas from "&/Drawable/SVG";
+import Error from "@/Error";
 
 const FillFrac = () => {
     const fracID = window.location.search
@@ -18,7 +19,6 @@ const FillFrac = () => {
     const SVGRef = useRef<SVGSVGElement>(null);
 
     if (undefined === fracID || !(fracID in BranchingFractalRuleSet)) {
-        console.log("wtf");
         window.location.href = "/geo-vis/404";
         return <Error />;
     }

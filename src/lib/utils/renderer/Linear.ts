@@ -1,5 +1,5 @@
-import { rounder } from "..";
-import { createSVGPathLineElement } from "..";
+import { rounder } from "!/utils/complex";
+import { createSVGPathLineElement } from "!/utils/svgPathGen";
 
 export function LinearRenderer(
     SVGRef: SVGSVGElement,

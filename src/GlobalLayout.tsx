@@ -1,8 +1,8 @@
-import Header from "./components/Header";
+import Header from "&/Header";
 import { FC, HTMLProps, Suspense } from "react";
-import PageSkeleton from "./components/PageSekleton";
-import Footer from "./components/Footer";
-import { cn } from "./lib/utils";
+import PageSkeleton from "&/PageSekleton";
+import Footer from "&/Footer";
+import { cn } from "?/lib/utils/cn";
 
 const GlobalLayout: FC<HTMLProps<HTMLElement>> = ({ children }) => {
     return (

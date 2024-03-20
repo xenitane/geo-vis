@@ -26,6 +26,14 @@
         "allowSyntheticDefaultImports": true,
         "forceConsistentCasingInFileNames": true,
         "baseUrl": ".",
+        "paths": {
+            "?/*": ["./src/*"],
+            "#/*": ["./src/assets/*"],
+            "@/*": ["./src/content/*"],
+            "&/*": ["./src/components/*"],
+            "$/*": ["./src/components/ui/*"],
+            "!/*": ["./src/lib/*"]
+        }
     },
     "ts-node": {
         "transpileOnly": true,

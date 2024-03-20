@@ -1,9 +1,10 @@
 import { useRef } from "react";
-import { FillRenderer, cn } from "../lib/utils";
-import FractalForm, { formSchema } from "../components/FractalForm";
-import FillFractalRuleSet from "../lib/rules/Fill";
-import SVGCanvas from "../components/Drawable/SVG";
-import Error from "./Error";
+import { FillRenderer } from "!/utils/renderer/Fill";
+import FractalForm, { formSchema } from "&/FractalForm";
+import FillFractalRuleSet from "!/rules/Fill";
+import SVGCanvas from "&/Drawable/SVG";
+import Error from "@/Error";
+import { cn } from "!/utils/cn";
 
 const FillFrac = () => {
     const fracID = window.location.search
@@ -18,7 +19,6 @@ const FillFrac = () => {
     const SVGRef = useRef<SVGSVGElement>(null);
 
     if (undefined === fracID || !(fracID in FillFractalRuleSet)) {
-        console.log("wtf");
         window.location.href = "/geo-vis/404";
         return <Error />;
     }
