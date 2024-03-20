@@ -1,9 +1,9 @@
-import { createSVGPathLineElement, rounder } from "..";
+import { createSVGPathLineElement } from "!/utils/svgPathGen";
+import { rounder } from "!/utils/complex";
 export function BranchingRenderer(
     SVGRef: SVGSVGElement,
     { order, animate, colored, interval, FractalInfo }: BranchingFractalOptions
 ) {
-    // console.log(SVGRef, depth, animate, colored, interval, FractalInfo);
     let cursor: Point = [0, 0];
     let direction: Point = [1, 0];
     const paths: [Point, Point][] = [];

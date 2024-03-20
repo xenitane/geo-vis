@@ -1,7 +1,7 @@
-import cardBack from "../assets/card-back.svg";
-import SepLine from "../assets/SepLine";
+import cardBack from "#/card-back.svg";
+import SepLine from "#/SepLine";
 import { FC } from "react";
-import { cn } from "../lib/utils";
+import { cn } from "!/utils/cn";
 import { HiOutlineArrowsExpand } from "react-icons/hi";
 
 interface CardProps extends SVGProps {

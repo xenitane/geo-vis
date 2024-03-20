@@ -1,4 +1,4 @@
-import { add, rotate } from ".";
+import { add, rotate } from "!/utils/complex";
 
 export const doNothing: LinearOperator = (p, f) => [p, f];
 export const moveForward: LinearOperator = (p, f) => [add(p, f), f];

@@ -1,9 +1,10 @@
 import { useRef } from "react";
-import { LinearRenderer, cn } from "../lib/utils";
-import FractalForm, { formSchema } from "../components/FractalForm";
-import LinearFractalRulesSet from "../lib/rules/Linear";
-import SVGCanvas from "../components/Drawable/SVG";
-import Error from "./Error";
+import { LinearRenderer } from "!/utils/renderer/Linear";
+import { cn } from "?/lib/utils/cn";
+import FractalForm, { formSchema } from "&/FractalForm";
+import LinearFractalRulesSet from "!/rules/Linear";
+import SVGCanvas from "&/Drawable/SVG";
+import Error from "@/Error";
 
 const LinearFrac = () => {
     const fracID = window.location.search
@@ -18,7 +19,6 @@ const LinearFrac = () => {
     const SVGRef = useRef<SVGSVGElement>(null);
 
     if (undefined === fracID || !(fracID in LinearFractalRulesSet)) {
-        console.log("wtf");
         window.location.href = "/geo-vis/404";
         return <Error />;
     }

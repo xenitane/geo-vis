@@ -1,8 +1,8 @@
-import { cn } from "../lib/utils";
+import { cn } from "!/utils/cn";
 import { FC, Suspense, lazy } from "react";
-import { Separator } from "./ui/separator";
+import { Separator } from "$/separator";
 import CardSkeleton from "./CardSkeleton";
-import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "./ui/carousel";
+import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "$/carousel";
 
 const Card = lazy(() => import("./Card"));
 

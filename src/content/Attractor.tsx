@@ -1,9 +1,11 @@
 import { useEffect, useRef } from "react";
-import { AttractorRenderer, cn } from "../lib/utils";
+import { AttractorRenderer } from "!/utils/renderer/Attractor";
+import { cn } from "?/lib/utils/cn";
 
-import AttractorForm, { formSchema } from "../components/AttractorForm";
-import AttractorRuleSet from "../lib/rules/Attractor";
-import HTMLCanvas from "../components/Drawable/Canvas";
+import AttractorForm, { formSchema } from "&/AttractorForm";
+import AttractorRuleSet from "!/rules/Attractor";
+import HTMLCanvas from "&/Drawable/Canvas";
+import Error from "@/Error";
 
 const AttractorVis = () => {
     const attrID = window.location.search
@@ -26,11 +28,13 @@ const AttractorVis = () => {
     }, []);
 
     if (undefined === attrID || !(attrID in AttractorRuleSet)) {
-        console.log("wtf");
         window.location.href = "/geo-vis/404";
+        return <Error />;
     }
 
     const interval: { i?: NodeJS.Timeout } = { i: undefined };
+
+    const AttractorInfo = AttractorRuleSet[attrID];
 
     function DrawableReset() {
         CanvasRef.current!.innerHTML = "";
@@ -48,7 +52,7 @@ const AttractorVis = () => {
                 animate: false,
                 interval,
                 colored: false,
-                AttractorInfo: AttractorRuleSet[attrID!].rules(data),
+                AttractorInfo: AttractorInfo.rules(data),
             });
         } catch (e) {
             DrawableReset();
@@ -64,13 +68,13 @@ const AttractorVis = () => {
     return (
         <article className={cn("flex w-full flex-col gap-8 py-2", "lg:flex-row")}>
             <div className={cn("flex w-full flex-col", "lg:w-1/3")}>
-                <h3 className={cn("pb-4 text-2xl underline", "lg:text-3xl")}>{AttractorRuleSet[attrID!].name}</h3>
+                <h3 className={cn("pb-4 text-2xl underline", "lg:text-3xl")}>{AttractorInfo.name}</h3>
                 <AttractorForm
                     handleSubmit={handleSubmit}
                     DrawableReset={DrawableReset}
-                    maxOrder={AttractorRuleSet[attrID!].maxOrder}
+                    maxOrder={AttractorInfo.maxOrder}
                     handleSave={handleSave}
-                    symbols={AttractorRuleSet[attrID!].symbolNames}
+                    symbols={AttractorInfo.symbolNames}
                     ref={formErrorRef}
                 />
             </div>

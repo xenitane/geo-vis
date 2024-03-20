@@ -1,8 +1,8 @@
 import { lazy, Suspense } from "react";
-import visData from "../lib/data/VisSet";
-import GeoSecSkeleton from "../components/GeoSecSkeleton";
-import { cn } from "../lib/utils";
-const GeoSection = lazy(() => import("../components/GeoSection"));
+import visData from "!/data/VisSet";
+import GeoSecSkeleton from "&/GeoSecSkeleton";
+import { cn } from "!/utils/cn";
+const GeoSection = lazy(() => import("&/GeoSection"));
 
 const Home = () => {
     return (

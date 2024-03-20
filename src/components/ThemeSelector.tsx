@@ -1,8 +1,8 @@
-import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "./ui/dropdown-menu";
-import { Button } from "./ui/button";
+import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "$/dropdown-menu";
+import { Button } from "$/button";
 import { CgSun, CgMoon } from "react-icons/cg";
 import { GoDotFill } from "react-icons/go";
-import { cn } from "../lib/utils";
+import { cn } from "!/utils/cn";
 import { effect, useSignal } from "@preact/signals-react";
 
 const ThemeSelector = () => {

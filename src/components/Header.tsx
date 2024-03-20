@@ -1,5 +1,5 @@
-import Logo from "../assets/Logo";
-import { cn } from "../lib/utils";
+import Logo from "#/Logo";
+import { cn } from "!/utils/cn";
 import { FC } from "react";
 import ThemeSelector from "./ThemeSelector";
 

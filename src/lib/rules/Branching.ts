@@ -1,4 +1,5 @@
-import { doNothing, left120, left90, moveForward, multiply, right120, right45, right90 } from "../utils";
+import { doNothing, left120, left90, moveForward, right120, right45, right90 } from "!/utils/fracUtils";
+import { multiply } from "!/utils/complex";
 
 const PeanoSierpinskiCarpetRules: BranchingFractalInfo = {
     name: "Peano Sierpinski Carpet",

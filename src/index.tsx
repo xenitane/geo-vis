@@ -1,10 +1,10 @@
-import "./fonts.css";
-import "./index.css";
+import "?/fonts.css";
+import "?/index.css";
 import ReactDOM from "react-dom/client";
 import React from "react";
-import reportWebVitals from "./report-web-vitals";
-import GlobalLayout from "./GlobalLayout";
-import Home from "./content/Home";
+import reportWebVitals from "?/report-web-vitals";
+import GlobalLayout from "?/GlobalLayout";
+import Home from "@/Home";
 
 ReactDOM.createRoot(document.querySelector("#root")!).render(
     <React.StrictMode>
