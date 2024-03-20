@@ -9,16 +9,8 @@ const path_resolver = (...vars: string[]) => path.join(path.resolve(), ...vars);
 
 const dirs = {
     public: path_resolver("public/"),
-    root: path_resolver("views/"),
+    root: path_resolver("src/"),
     out: path_resolver("dist/"),
-    src: {
-        base: path_resolver("src/"),
-        assets: path_resolver("src", "assets/"),
-        components: path_resolver("src", "components/"),
-        shadComponents: path_resolver("src", "components", "ui/"),
-        pages: path_resolver("src", "pages/"),
-        lib: path_resolver("src", "lib/"),
-    },
 };
 
 const logger: Logger = createLogger("info", {
@@ -29,7 +21,7 @@ const logger: Logger = createLogger("info", {
 export default defineConfig({
     base: "/geo-vis",
     esbuild: {
-        include: ["src/**/*.{ts,tsx}", "pages/**/*.{ts,tsx}"],
+        include: ["src/**/*.{ts,tsx}"],
         loader: "tsx",
     },
     customLogger: logger,
@@ -62,29 +54,20 @@ export default defineConfig({
         hmr: true,
     },
     root: dirs.root,
-    resolve: {
-        alias: {
-            "?/": dirs.src.base,
-            "#/": dirs.src.assets,
-            "@/": dirs.src.components,
-            "$/": dirs.src.shadComponents,
-            "%/": dirs.src.lib,
-            "&/": dirs.src.pages,
-        },
-    },
     publicDir: dirs.public,
     build: {
         outDir: dirs.out,
         sourcemap: true,
         manifest: true,
+        emptyOutDir: true,
         rollupOptions: {
             input: {
-                main: path_resolver("views", "index.html"),
-                "404": path_resolver("views", "404.html"),
-                linear: path_resolver("views", "linear.html"),
-                // fill: path_resolver("pages", "fill", "index.html"),
-                // branching: path_resolver("pages", "branching.", "indexhtml"),
-                // attractor: path_resolver("pages", "attractor", "index.html"),
+                main: path_resolver("src", "index.html"),
+                "404": path_resolver("src", "404.html"),
+                linear: path_resolver("src", "linear.html"),
+                fill: path_resolver("src", "fill.html"),
+                branching: path_resolver("src", "branching.html"),
+                attractor: path_resolver("src", "attractor.html"),
                 // "3-d": path_resolver("pages", "3-d", "index.html"),
                 // sets: path_resolver("pages", "sets", "index.html"),
                 // misc: path_resolver("pages", "misc", "index.html"),

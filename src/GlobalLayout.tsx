@@ -1,14 +1,12 @@
-import Header from "@/Header";
+import Header from "./components/Header";
 import { FC, HTMLProps, Suspense } from "react";
-import PageSkeleton from "@/PageSekleton";
-import Footer from "@/Footer";
-import ScrollToTop from "@/ScrollToTop";
-import { cn } from "%/utils";
+import PageSkeleton from "./components/PageSekleton";
+import Footer from "./components/Footer";
+import { cn } from "./lib/utils";
 
 const GlobalLayout: FC<HTMLProps<HTMLElement>> = ({ children }) => {
     return (
         <div className="flex min-h-screen flex-col">
-            <ScrollToTop />
             <Header />
             <main
                 className={cn(

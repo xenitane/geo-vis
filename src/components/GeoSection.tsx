@@ -15,7 +15,7 @@ const GeoSection: FC<GeoSectionProps> = ({ objectList, sectionId }) => {
     return (
         <section>
             <h3 className={cn("text-2xl", "lg:text-3xl")} id={sectionId}>
-                {sectionId}
+                {`${sectionId.charAt(0).toUpperCase()}${sectionId.slice(1).toLowerCase()}`}
             </h3>
             <div className={cn("py-4", "lg:py-8")}>
                 <Separator className={cn("h-0.5 bg-neutral-950", "dark:bg-neutral-50")} />
@@ -34,7 +34,7 @@ const GeoSection: FC<GeoSectionProps> = ({ objectList, sectionId }) => {
                                             <Card
                                                 text={objectInfo.name}
                                                 image={objectInfo.image}
-                                                uri={`${sectionId}/${objectId}`}
+                                                uri={`/geo-vis/${sectionId}?id=${objectId}`}
                                             />
                                         </Suspense>
                                     </CarouselItem>

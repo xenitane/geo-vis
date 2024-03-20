@@ -1,15 +1,15 @@
-import "?/fonts.css";
-import "?/index.css";
+import "./fonts.css";
+import "./index.css";
 import ReactDOM from "react-dom/client";
 import React from "react";
-import reportWebVitals from "?/report-web-vitals";
-import GlobalLayout from "?/GlobalLayout";
-import LinearFrac from "&/LinearFrac";
+import reportWebVitals from "./report-web-vitals";
+import GlobalLayout from "./GlobalLayout";
+import Home from "./content/Home";
 
 ReactDOM.createRoot(document.querySelector("#root")!).render(
     <React.StrictMode>
         <GlobalLayout>
-            <LinearFrac />
+            <Home />
         </GlobalLayout>
     </React.StrictMode>
 );

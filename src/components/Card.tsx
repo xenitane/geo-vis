@@ -43,10 +43,10 @@ const Card: FC<CardProps> = ({ image, text, uri }) => {
                         "dark:bg-neutral-900"
                     )}
                 >
-                    <div id={uri} className="flex items-center gap-1">
+                    <a href={uri} className="flex items-center gap-1">
                         {text}
                         <HiOutlineArrowsExpand />
-                    </div>
+                    </a>
                 </span>
                 <SepLine className={cn("h-1/3 origin-left scale-x-150 text-white", "dark:text-neutral-900")} />
             </div>

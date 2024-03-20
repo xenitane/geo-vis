@@ -2,12 +2,12 @@ import z from "zod";
 import { useForm, SubmitHandler } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 
-import { Button } from "$/button";
-import { Input } from "$/input";
-import { Form, FormControl, FormDescription, FormField, FormItem, FormLabel, FormMessage } from "$/form";
-import { Switch } from "$/switch";
+import { Button } from "./ui/button";
+import { Input } from "./ui/input";
+import { Form, FormControl, FormDescription, FormField, FormItem, FormLabel, FormMessage } from "./ui/form";
+import { Switch } from "./ui/switch";
 import { FC } from "react";
-import { cn } from "%/utils";
+import { cn } from "../lib/utils";
 
 import { ArrowLeft, ArrowRight } from "lucide-react";
 import { useComputed, useSignal } from "@preact/signals-react";
@@ -62,6 +62,7 @@ const FractalForm: FC<FormProps> = ({ handleSubmit, SVGReset, handleSave, maxOrd
                 className="w-full"
                 onSubmit={(evt) => void form.handleSubmit(handleSubmit)(evt)}
                 onReset={() => {
+                    order.value = 0;
                     SVGReset();
                     form.reset();
                 }}

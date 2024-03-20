@@ -1,8 +1,9 @@
 import { useRef } from "react";
-import { FillRenderer, cn } from "../lib/utils";
+import { BranchingRenderer, cn } from "../lib/utils";
 import FractalForm, { formSchema } from "../components/FractalForm";
-import FillFractalRuleSet from "../lib/rules/Fill";
+import BranchingFractalRuleSet from "../lib/rules/Branching";
 import SVGCanvas from "../components/Drawable/SVG";
+import Error from "./Error";
 
 const FillFrac = () => {
     const fracID = window.location.search
@@ -16,17 +17,17 @@ const FillFrac = () => {
 
     const SVGRef = useRef<SVGSVGElement>(null);
 
-    if (undefined === fracID || !(fracID in FillFractalRuleSet)) {
+    if (undefined === fracID || !(fracID in BranchingFractalRuleSet)) {
         console.log("wtf");
         window.location.href = "/geo-vis/404";
+        return <Error />;
     }
 
     const interval: { i?: NodeJS.Timeout } = { i: undefined };
 
-    let FractalInfo = FillFractalRuleSet[fracID!].rules();
+    const FractalInfo = BranchingFractalRuleSet[fracID];
 
     function SVGReset() {
-        FractalInfo = FillFractalRuleSet[fracID!].rules();
         SVGRef.current!.innerHTML = "";
         clearInterval(interval.i);
         interval.i = undefined;
@@ -34,10 +35,10 @@ const FillFrac = () => {
 
     function handleSubmit(data: formSchema) {
         SVGReset();
-        FillRenderer(SVGRef.current!, {
+        BranchingRenderer(SVGRef.current!, {
             ...data,
             interval,
-            FractalInfo,
+            FractalInfo: FractalInfo.rules(),
         });
     }
 
@@ -48,11 +49,11 @@ const FillFrac = () => {
     return (
         <article className={cn("flex w-full flex-col gap-8 py-2", "lg:flex-row")}>
             <div className={cn("flex w-full flex-col", "lg:w-1/3")}>
-                <h3 className={cn("pb-4 text-2xl underline", "lg:text-3xl")}>{FillFractalRuleSet[fracID!].name}</h3>
+                <h3 className={cn("pb-4 text-2xl underline", "lg:text-3xl")}>{FractalInfo.name}</h3>
                 <FractalForm
                     handleSubmit={handleSubmit}
                     SVGReset={SVGReset}
-                    maxOrder={FillFractalRuleSet[fracID!].maxOrder}
+                    maxOrder={FractalInfo.maxOrder}
                     handleSave={handleSave}
                 />
             </div>

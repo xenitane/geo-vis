@@ -1,7 +1,7 @@
-import Logo from "#/Logo";
-import { cn } from "%/utils";
+import Logo from "../assets/Logo";
+import { cn } from "../lib/utils";
 import { FC } from "react";
-import ThemeSelector from "@/ThemeSelector";
+import ThemeSelector from "./ThemeSelector";
 
 const Header: FC<HTMLProps> = ({ className }) => {
     return (

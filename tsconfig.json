@@ -26,14 +26,6 @@
         "allowSyntheticDefaultImports": true,
         "forceConsistentCasingInFileNames": true,
         "baseUrl": ".",
-        "paths": {
-            "?/*": ["./src/*"],
-            "#/*": ["./src/assets/*"],
-            "@/*": ["./src/components/*"],
-            "$/*": ["./src/components/ui/*"],
-            "%/*": ["./src/lib/*"],
-            "&/*": ["./src/pages/*"]
-        }
     },
     "ts-node": {
         "transpileOnly": true,
@@ -44,6 +36,6 @@
         },
         "files": true
     },
-    "include": ["src", "views", ".eslintrc.cjs", ".prettierrc.cjs"],
+    "include": ["src", ".eslintrc.cjs", ".prettierrc.cjs"],
     "references": [{ "path": "./tsconfig.node.json" }]
 }

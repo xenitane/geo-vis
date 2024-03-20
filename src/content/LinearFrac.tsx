@@ -1,10 +1,11 @@
 import { useRef } from "react";
-import { BranchingRenderer, cn } from "../lib/utils";
+import { LinearRenderer, cn } from "../lib/utils";
 import FractalForm, { formSchema } from "../components/FractalForm";
-import BranchingFractalRuleSet from "../lib/rules/Branching";
+import LinearFractalRulesSet from "../lib/rules/Linear";
 import SVGCanvas from "../components/Drawable/SVG";
+import Error from "./Error";
 
-const FillFrac = () => {
+const LinearFrac = () => {
     const fracID = window.location.search
         .split("?")
         .at(1)
@@ -16,17 +17,17 @@ const FillFrac = () => {
 
     const SVGRef = useRef<SVGSVGElement>(null);
 
-    if (undefined === fracID || !(fracID in BranchingFractalRuleSet)) {
+    if (undefined === fracID || !(fracID in LinearFractalRulesSet)) {
         console.log("wtf");
         window.location.href = "/geo-vis/404";
+        return <Error />;
     }
 
     const interval: { i?: NodeJS.Timeout } = { i: undefined };
 
-    let FractalInfo = BranchingFractalRuleSet[fracID!].rules();
+    const FractalInfo = LinearFractalRulesSet[fracID];
 
     function SVGReset() {
-        FractalInfo = BranchingFractalRuleSet[fracID!].rules();
         SVGRef.current!.innerHTML = "";
         clearInterval(interval.i);
         interval.i = undefined;
@@ -34,10 +35,10 @@ const FillFrac = () => {
 
     function handleSubmit(data: formSchema) {
         SVGReset();
-        BranchingRenderer(SVGRef.current!, {
+        LinearRenderer(SVGRef.current!, {
             ...data,
             interval,
-            FractalInfo,
+            FractalInfo: FractalInfo.rules(),
         });
     }
 
@@ -48,16 +49,16 @@ const FillFrac = () => {
     return (
         <article className={cn("flex w-full flex-col gap-8 py-2", "lg:flex-row")}>
             <div className={cn("flex w-full flex-col", "lg:w-1/3")}>
-                <h3 className={cn("pb-4 text-2xl underline", "lg:text-3xl")}>{BranchingFractalRuleSet[fracID!].name}</h3>
+                <h3 className={cn("pb-4 text-2xl underline", "lg:text-3xl")}>{FractalInfo.name}</h3>
                 <FractalForm
                     handleSubmit={handleSubmit}
                     SVGReset={SVGReset}
-                    maxOrder={BranchingFractalRuleSet[fracID!].maxOrder}
+                    maxOrder={FractalInfo.maxOrder}
                     handleSave={handleSave}
                 />
             </div>
             <div className={cn("flex justify-center", "lg:w-2/3")}>
-                <div className={cn("aspect-square w-full rounded-xl bg-slate-200", "lg:w-[80vh]")}>
+                <div className={cn("aspect-square w-full rounded-xl bg-neutral-200", "lg:w-[80vh]")}>
                     <SVGCanvas ref={SVGRef} />
                 </div>
             </div>
@@ -65,4 +66,4 @@ const FillFrac = () => {
     );
 };
 
-export default FillFrac;
+export default LinearFrac;

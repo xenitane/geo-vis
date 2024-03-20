@@ -1,10 +1,11 @@
 import { useRef } from "react";
-import { LinearRenderer, cn } from "%/utils";
-import FractalForm, { formSchema } from "@/FractalForm";
-import LinearFractalRulesSet from "%/rules/Linear";
-import SVGCanvas from "@/Drawable/SVG";
+import { FillRenderer, cn } from "../lib/utils";
+import FractalForm, { formSchema } from "../components/FractalForm";
+import FillFractalRuleSet from "../lib/rules/Fill";
+import SVGCanvas from "../components/Drawable/SVG";
+import Error from "./Error";
 
-const LinearFrac = () => {
+const FillFrac = () => {
     const fracID = window.location.search
         .split("?")
         .at(1)
@@ -16,15 +17,15 @@ const LinearFrac = () => {
 
     const SVGRef = useRef<SVGSVGElement>(null);
 
-    if (undefined === fracID || !(fracID in LinearFractalRulesSet)) {
+    if (undefined === fracID || !(fracID in FillFractalRuleSet)) {
         console.log("wtf");
         window.location.href = "/geo-vis/404";
-        return "fuck off";
+        return <Error />;
     }
 
     const interval: { i?: NodeJS.Timeout } = { i: undefined };
 
-    const FractalInfo = LinearFractalRulesSet[fracID];
+    const FractalInfo = FillFractalRuleSet[fracID];
 
     function SVGReset() {
         SVGRef.current!.innerHTML = "";
@@ -34,7 +35,7 @@ const LinearFrac = () => {
 
     function handleSubmit(data: formSchema) {
         SVGReset();
-        LinearRenderer(SVGRef.current!, {
+        FillRenderer(SVGRef.current!, {
             ...data,
             interval,
             FractalInfo: FractalInfo.rules(),
@@ -57,7 +58,7 @@ const LinearFrac = () => {
                 />
             </div>
             <div className={cn("flex justify-center", "lg:w-2/3")}>
-                <div className={cn("aspect-square w-full rounded-xl bg-neutral-200", "lg:w-[80vh]")}>
+                <div className={cn("aspect-square w-full rounded-xl bg-slate-200", "lg:w-[80vh]")}>
                     <SVGCanvas ref={SVGRef} />
                 </div>
             </div>
@@ -65,4 +66,4 @@ const LinearFrac = () => {
     );
 };
 
-export default LinearFrac;
+export default FillFrac;

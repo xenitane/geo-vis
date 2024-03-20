@@ -31,8 +31,34 @@ const visualData: Record<VisTypes, Record<string, { name: string; image: string 
         "vicsek-fractal": { name: "Vicsek Fractal", image: thumbResolver("linear", "vicsek-fractal.svg") },
         "vicsek-fractal-2": { name: "Vicsek Fractal 2", image: thumbResolver("linear", "vicsek-fractal-2.svg") },
     },
-    fill: {},
-    branching: {},
-    attractor: {},
+    fill: {
+        "hex-nut": { name: "Hex Nut", image: thumbResolver("fill", "hexnut.svg") },
+        "hex-pool": { name: "Hex Pool", image: thumbResolver("fill", "hexpool.svg") },
+        "hexa-flake": { name: "Hexaflake", image: thumbResolver("fill", "hexaflake.svg") },
+        "penta-flake": { name: "Pentaflake", image: thumbResolver("fill", "pentaflake.svg") },
+        "sierpinski-carpet": { name: "Sierpinski Triangle", image: thumbResolver("fill", "sierpinski-carpet.svg") },
+        "sierpinski-hexagon": { name: "Sierpinksi Hexagon", image: thumbResolver("fill", "sierpinski-hexagon.svg") },
+        "sierpinski-pentagon": { name: "Sierpinski Pentagon", image: thumbResolver("fill", "sierpinski-pentagon.svg") },
+        "sierpinski-triangle": { name: "Sierpinski Triangle", image: thumbResolver("fill", "sierpinski-triangle.svg") },
+        "vicsek-fractal": { name: "Vicsek Fractal", image: thumbResolver("fill", "vicsek-fractal.svg") },
+        "vicsek-fractal-2": { name: "Vicsek Fractal 2", image: thumbResolver("fill", "vicsek-fractal-2.svg") },
+    },
+    branching: {
+        "peano-sierpinski-carpet": {
+            name: "Peano Sierpinski Carpet",
+            image: thumbResolver("branching", "peano-sierpinski-carpet.svg"),
+        },
+        "sierpinski-carpet": { name: "Sierpinski Carpet", image: thumbResolver("branching", "sierpinski-carpet.svg") },
+        "sierpinski-triangle-skeleton": {
+            name: "Sierpinski Triangle Skeleton",
+            image: thumbResolver("branching", "sierpinski-triangle-skeleton.svg"),
+        },
+        "t-square": { name: "T Square", image: thumbResolver("branching", "t-square.svg") },
+        "vicsek-fractal": { name: "Vicsek Fractal", image: thumbResolver("branching", "vicsek-fractal.svg") },
+    },
+    attractor: {
+        "gingerbread-man": { name: "Gingerbread Man", image: thumbResolver("attractor", "gingerbread-man.svg") },
+        "tinker-bell": { name: "Tinker Bell Attractor", image: thumbResolver("attractor", "tinkerbell-map.svg") },
+    },
 };
 export default visualData;

@@ -1,4 +1,4 @@
-import { add, multiply } from "../";
+import { add, multiply } from "..";
 
 export function AttractorRenderer(
     CanvasCtx: CanvasRenderingContext2D,

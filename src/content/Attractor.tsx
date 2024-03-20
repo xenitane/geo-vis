@@ -5,7 +5,7 @@ import AttractorForm, { formSchema } from "../components/AttractorForm";
 import AttractorRuleSet from "../lib/rules/Attractor";
 import HTMLCanvas from "../components/Drawable/Canvas";
 
-const FillFrac = () => {
+const AttractorVis = () => {
     const attrID = window.location.search
         .split("?")
         .at(1)
@@ -83,4 +83,4 @@ const FillFrac = () => {
     );
 };
 
-export default FillFrac;
+export default AttractorVis;

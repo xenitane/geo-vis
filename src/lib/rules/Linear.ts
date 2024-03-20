@@ -1,4 +1,4 @@
-import { doNothing, moveForward, right45, right60, right90, left45, left60, left90, multiply } from "%/utils";
+import { doNothing, moveForward, right45, right60, right90, left45, left60, left90, multiply } from "../utils";
 
 const LevyCCurveRules: LinearFractalInfo = {
     name: "Levy C Curve",
