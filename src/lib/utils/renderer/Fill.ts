@@ -1,5 +1,4 @@
-import { FillFractalOptions, Point } from "?";
-import { createSVGPathPolygonElement } from "%/utils";
+import { createSVGPathPolygonElement } from "../";
 
 export function FillRenderer(SVGRef: SVGSVGElement, { animate, order, FractalInfo, colored, interval }: FillFractalOptions) {
     let centers: Point[] = [[FractalInfo.origin[0], FractalInfo.origin[1]]];

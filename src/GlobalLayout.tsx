@@ -1,12 +1,11 @@
 import Header from "@/Header";
-import { Suspense } from "react";
+import { FC, HTMLProps, Suspense } from "react";
 import PageSkeleton from "@/PageSekleton";
-import { Outlet } from "react-router-dom";
 import Footer from "@/Footer";
 import ScrollToTop from "@/ScrollToTop";
-import { cn } from "./lib/utils";
+import { cn } from "%/utils";
 
-function App() {
+const GlobalLayout: FC<HTMLProps<HTMLElement>> = ({ children }) => {
     return (
         <div className="flex min-h-screen flex-col">
             <ScrollToTop />
@@ -17,9 +16,7 @@ function App() {
                     "dark:bg-neutral-900 dark:text-neutral-50"
                 )}
             >
-                <Suspense fallback={<PageSkeleton />}>
-                    <Outlet />
-                </Suspense>
+                <Suspense fallback={<PageSkeleton />}>{children}</Suspense>
             </main>
             <Footer
                 appVersion={__my_consts__.__APP_VERSION__}
@@ -28,6 +25,6 @@ function App() {
             />
         </div>
     );
-}
+};
 
-export default App;
+export default GlobalLayout;

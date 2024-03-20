@@ -1,12 +1,22 @@
 import { useEffect, useRef } from "react";
-import { AttractorRenderer, cn } from "%/utils";
-import { Navigate, useParams } from "react-router-dom";
-import AttractorForm, { formSchema } from "@/AttractorForm";
-import AttractorRuleSet from "%/rules/Attractor";
-import HTMLCanvas from "@/Drawable/Canvas";
+import { AttractorRenderer, cn } from "../lib/utils";
+
+import AttractorForm, { formSchema } from "../components/AttractorForm";
+import AttractorRuleSet from "../lib/rules/Attractor";
+import HTMLCanvas from "../components/Drawable/Canvas";
 
 const FillFrac = () => {
-    const { attrID } = useParams();
+    const attrID = window.location.search
+        .split("?")
+        .at(1)
+        ?.split("&")
+        .filter((k) => k.startsWith("id="))
+        .at(0)
+        ?.split("=")
+        .at(1);
+
+    // const SVGRef = useRef<SVGSVGElement>(null);
+
     const CanvasRef = useRef<HTMLCanvasElement>(null);
     const formErrorRef = useRef<HTMLParagraphElement>(null);
 
@@ -15,7 +25,10 @@ const FillFrac = () => {
         CanvasRef.current!.width = 2000;
     }, []);
 
-    if (!(attrID! in AttractorRuleSet)) return <Navigate to="/geo-vis/404" />;
+    if (undefined === attrID || !(attrID in AttractorRuleSet)) {
+        console.log("wtf");
+        window.location.href = "/geo-vis/404";
+    }
 
     const interval: { i?: NodeJS.Timeout } = { i: undefined };
 

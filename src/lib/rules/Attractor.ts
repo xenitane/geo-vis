@@ -1,10 +1,6 @@
-import { tinkerbellMap, gingerbreadMan } from "#/Thumbnails/attractor";
-import { AttractorInfo } from "?";
-
 const TinkerBellAttractorRules: AttractorInfo = {
     name: "Tinker Bell Attractor",
     maxOrder: 5,
-    image: tinkerbellMap,
     symbolNames: [
         ["a", 0.9],
         ["b", -0.6013],
@@ -26,7 +22,6 @@ const TinkerBellAttractorRules: AttractorInfo = {
 const GingerbreadManRules: AttractorInfo = {
     name: "Gingerbread Man",
     maxOrder: 3,
-    image: gingerbreadMan,
     symbolNames: [],
     rules: () => ({
         origins: Array.from({ length: 100 }, () => [Math.random() * 5, Math.random() * 5]),

@@ -9,6 +9,9 @@ import { Switch } from "$/switch";
 import { FC } from "react";
 import { cn } from "%/utils";
 
+import { ArrowLeft, ArrowRight } from "lucide-react";
+import { useComputed, useSignal } from "@preact/signals-react";
+
 function schemaMaker(maxOrder: number) {
     return z.object({
         order: z.coerce
@@ -41,6 +44,18 @@ const FractalForm: FC<FormProps> = ({ handleSubmit, SVGReset, handleSave, maxOrd
         },
     });
 
+    const order = useSignal<number>(0);
+
+    const canGoDown = useComputed<boolean>(() => order.value > 0);
+    function goDown(evt: React.FormEvent<HTMLButtonElement>) {
+        evt.preventDefault();
+        order.value--;
+    }
+    const canGoUp = useComputed<boolean>(() => order.value < maxOrder);
+    function goUp(evt: React.FormEvent<HTMLButtonElement>) {
+        evt.preventDefault();
+        order.value++;
+    }
     return (
         <Form {...form}>
             <form
@@ -59,8 +74,57 @@ const FractalForm: FC<FormProps> = ({ handleSubmit, SVGReset, handleSave, maxOrd
                             <FormItem>
                                 <div className="flex items-center justify-between">
                                     <FormLabel className={cn("w-1/3 text-base", "lg:text-lg")}>Order</FormLabel>
-                                    <FormControl className="w-11">
-                                        <Input type="number" className="h-6 p-2 text-center" {...field} />
+                                    <FormControl className="w-32">
+                                        <div className="relative flex min-w-max items-center justify-between">
+                                            <Button
+                                                size="icon"
+                                                variant="outline"
+                                                className={cn(
+                                                    " h-8 w-8 rounded-full",
+                                                    "transition-all duration-500 ease-in-out",
+                                                    "hover:drop-shadow-[0_1px_2px_rgba(0,0,0,0.15)]",
+                                                    "dark:bg-neutral-700"
+                                                )}
+                                                disabled={!canGoDown.value}
+                                                onClick={(evt) => {
+                                                    goDown(evt);
+                                                    form.setValue("order", order.value);
+                                                }}
+                                            >
+                                                <ArrowLeft className="h-4 w-4" />
+                                                <span className="sr-only">Previous slide</span>
+                                            </Button>
+                                            <Input
+                                                ref={field.ref}
+                                                onBlur={field.onBlur}
+                                                name={field.name}
+                                                value={field.value}
+                                                onChange={(evt) => {
+                                                    field.onChange(evt);
+                                                    order.value = field.value;
+                                                }}
+                                                type="number"
+                                                className="h-8 w-14 p-2 text-center"
+                                            />
+                                            <Button
+                                                size="icon"
+                                                variant="outline"
+                                                className={cn(
+                                                    " h-8 w-8 rounded-full",
+                                                    "transition-all duration-500 ease-in-out",
+                                                    "hover:drop-shadow-[0_1px_2px_rgba(0,0,0,0.15)]",
+                                                    "dark:bg-neutral-700"
+                                                )}
+                                                disabled={!canGoUp.value}
+                                                onClick={(evt) => {
+                                                    goUp(evt);
+                                                    form.setValue("order", order.value);
+                                                }}
+                                            >
+                                                <ArrowRight className="h-4 w-4" />
+                                                <span className="sr-only">Previous slide</span>
+                                            </Button>
+                                        </div>
                                     </FormControl>
                                 </div>
                                 <FormDescription>

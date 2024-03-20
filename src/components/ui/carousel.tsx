@@ -8,9 +8,8 @@ type CarouselPlugin = UseCarouselParameters[1];
 
 import { ArrowLeft, ArrowRight } from "lucide-react";
 
-import { cn } from "%/utils";
-import { Button, ButtonProps } from "$/button";
-import { IncludeClassName } from "?";
+import { cn } from "../../lib/utils";
+import { Button, ButtonProps } from "./button";
 
 interface CarouselProps {
     opts?: CarouselOptions;

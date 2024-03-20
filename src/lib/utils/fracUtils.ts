@@ -1,5 +1,4 @@
-import { type LinearOperator, type Point } from "?";
-import { add, rotate } from "%/utils";
+import { add, rotate } from "./";
 
 export const doNothing: LinearOperator = (p, f) => [p, f];
 export const moveForward: LinearOperator = (p, f) => [add(p, f), f];

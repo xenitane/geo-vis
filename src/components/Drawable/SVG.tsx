@@ -1,4 +1,3 @@
-import { SVGProps } from "?";
 import { forwardRef } from "react";
 
 const SVGCanvas = forwardRef<SVGSVGElement, SVGProps>((_, ref) => {

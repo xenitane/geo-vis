@@ -1,6 +1,5 @@
-import { LinearFractalOptions, Point } from "?";
-import { rounder } from "%/utils/complex";
-import { createSVGPathLineElement } from "%/utils/svgPathGen";
+import { rounder } from "../";
+import { createSVGPathLineElement } from "../";
 
 export function LinearRenderer(
     SVGRef: SVGSVGElement,

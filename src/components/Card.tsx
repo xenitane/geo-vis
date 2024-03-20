@@ -1,9 +1,7 @@
-import { SVGProps } from "?";
-import cardBack from "#/card-back.svg";
-import SepLine from "#/SepLine";
-import { NavLink } from "react-router-dom";
+import cardBack from "../assets/card-back.svg";
+import SepLine from "../assets/SepLine";
 import { FC } from "react";
-import { cn } from "%/utils";
+import { cn } from "../lib/utils";
 import { HiOutlineArrowsExpand } from "react-icons/hi";
 
 interface CardProps extends SVGProps {
@@ -45,10 +43,10 @@ const Card: FC<CardProps> = ({ image, text, uri }) => {
                         "dark:bg-neutral-900"
                     )}
                 >
-                    <NavLink to={uri} className="flex items-center gap-1">
+                    <div id={uri} className="flex items-center gap-1">
                         {text}
                         <HiOutlineArrowsExpand />
-                    </NavLink>
+                    </div>
                 </span>
                 <SepLine className={cn("h-1/3 origin-left scale-x-150 text-white", "dark:text-neutral-900")} />
             </div>

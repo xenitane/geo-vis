@@ -1,22 +1,32 @@
 import { useRef } from "react";
 import { LinearRenderer, cn } from "%/utils";
-import { useParams, Navigate } from "react-router-dom";
 import FractalForm, { formSchema } from "@/FractalForm";
 import LinearFractalRulesSet from "%/rules/Linear";
 import SVGCanvas from "@/Drawable/SVG";
 
 const LinearFrac = () => {
-    const { fracID } = useParams();
+    const fracID = window.location.search
+        .split("?")
+        .at(1)
+        ?.split("&")
+        .filter((k) => k.startsWith("id="))
+        .at(0)
+        ?.split("=")
+        .at(1);
+
     const SVGRef = useRef<SVGSVGElement>(null);
 
-    if (!(fracID! in LinearFractalRulesSet)) return <Navigate to="/geo-vis/404" />;
+    if (undefined === fracID || !(fracID in LinearFractalRulesSet)) {
+        console.log("wtf");
+        window.location.href = "/geo-vis/404";
+        return "fuck off";
+    }
 
     const interval: { i?: NodeJS.Timeout } = { i: undefined };
 
-    let FractalInfo = LinearFractalRulesSet[fracID!].rules();
+    const FractalInfo = LinearFractalRulesSet[fracID];
 
     function SVGReset() {
-        FractalInfo = LinearFractalRulesSet[fracID!].rules();
         SVGRef.current!.innerHTML = "";
         clearInterval(interval.i);
         interval.i = undefined;
@@ -27,7 +37,7 @@ const LinearFrac = () => {
         LinearRenderer(SVGRef.current!, {
             ...data,
             interval,
-            FractalInfo,
+            FractalInfo: FractalInfo.rules(),
         });
     }
 
@@ -38,11 +48,11 @@ const LinearFrac = () => {
     return (
         <article className={cn("flex w-full flex-col gap-8 py-2", "lg:flex-row")}>
             <div className={cn("flex w-full flex-col", "lg:w-1/3")}>
-                <h3 className={cn("pb-4 text-2xl underline", "lg:text-3xl")}>{LinearFractalRulesSet[fracID!].name}</h3>
+                <h3 className={cn("pb-4 text-2xl underline", "lg:text-3xl")}>{FractalInfo.name}</h3>
                 <FractalForm
                     handleSubmit={handleSubmit}
                     SVGReset={SVGReset}
-                    maxOrder={LinearFractalRulesSet[fracID!].maxOrder}
+                    maxOrder={FractalInfo.maxOrder}
                     handleSave={handleSave}
                 />
             </div>

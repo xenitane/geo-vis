@@ -1,17 +1,8 @@
-import {
-    sierpinskiCarpet,
-    peanoSierpinskiCarpet,
-    sierpinskiTriangleSkeleton,
-    tSquare,
-    vicsekFractal,
-} from "#/Thumbnails/branching";
-import { doNothing, left120, left90, moveForward, multiply, right120, right45, right90 } from "%/utils";
-import { BranchingFractalInfo } from "?";
+import { doNothing, left120, left90, moveForward, multiply, right120, right45, right90 } from "../utils";
 
 const PeanoSierpinskiCarpetRules: BranchingFractalInfo = {
     name: "Peano Sierpinski Carpet",
     maxOrder: 5,
-    image: peanoSierpinskiCarpet,
     rules: () => ({
         shift: 1,
         stay: false,
@@ -28,7 +19,6 @@ const PeanoSierpinskiCarpetRules: BranchingFractalInfo = {
 const SierpinskiTriangleSkeletonRules: BranchingFractalInfo = {
     name: "Sierpinski Triangle Skeleton",
     maxOrder: 8,
-    image: sierpinskiTriangleSkeleton,
     rules: () => ({
         shift: 2,
         stay: false,
@@ -48,7 +38,6 @@ const SierpinskiTriangleSkeletonRules: BranchingFractalInfo = {
 const TSquareRules: BranchingFractalInfo = {
     name: "T Square",
     maxOrder: 7,
-    image: tSquare,
     rules: () => ({
         shift: 2,
         stay: false,
@@ -68,7 +57,6 @@ const TSquareRules: BranchingFractalInfo = {
 const VicsekFractalRules: BranchingFractalInfo = {
     name: "Vicsek Fractal",
     maxOrder: 5,
-    image: vicsekFractal,
     rules: () => ({
         shift: 2,
         stay: true,
@@ -88,7 +76,6 @@ const VicsekFractalRules: BranchingFractalInfo = {
 
 const SierpinskiCarpetRules: BranchingFractalInfo = {
     name: "Sierpinski Carpet",
-    image: sierpinskiCarpet,
     maxOrder: 5,
     rules: () => ({
         shift: 1,

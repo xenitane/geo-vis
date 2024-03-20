@@ -1,4 +1,4 @@
-import { Skeleton } from "$/skeleton";
+import { Skeleton } from "./ui/skeleton";
 
 const CardSkeleton = () => {
     return <Skeleton className="aspect-square rounded-3xl" />;

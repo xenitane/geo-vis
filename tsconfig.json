@@ -1,5 +1,4 @@
 {
-    "$schema": "https://json.schemastore.org/tsconfig",
     "compilerOptions": {
         "target": "ESNext",
         "useDefineForClassFields": true,
@@ -28,13 +27,12 @@
         "forceConsistentCasingInFileNames": true,
         "baseUrl": ".",
         "paths": {
-            "!/*": ["./src/*"],
+            "?/*": ["./src/*"],
             "#/*": ["./src/assets/*"],
             "@/*": ["./src/components/*"],
             "$/*": ["./src/components/ui/*"],
             "%/*": ["./src/lib/*"],
-            "&/*": ["./src/pages/*"],
-            "?": ["./src/types"]
+            "&/*": ["./src/pages/*"]
         }
     },
     "ts-node": {
@@ -46,6 +44,6 @@
         },
         "files": true
     },
-    "include": ["src", "pages", ".eslintrc.cjs", ".prettierrc.cjs"],
+    "include": ["src", "views", ".eslintrc.cjs", ".prettierrc.cjs"],
     "references": [{ "path": "./tsconfig.node.json" }]
 }

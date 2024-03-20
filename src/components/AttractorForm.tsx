@@ -2,13 +2,13 @@ import z from "zod";
 import { useForm, SubmitHandler } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 
-import { Button } from "$/button";
-import { Input } from "$/input";
-import { Form, FormControl, FormDescription, FormField, FormItem, FormLabel, FormMessage } from "$/form";
+import { Button } from "./ui/button";
+import { Input } from "./ui/input";
+import { Form, FormControl, FormDescription, FormField, FormItem, FormLabel, FormMessage } from "./ui/form";
 // import { Switch } from "$/switch";
 import { forwardRef } from "react";
-import { cn } from "%/utils";
-import { Separator } from "$/separator";
+import { cn } from "../lib/utils";
+import { Separator } from "./ui/separator";
 
 function schemaMaker(maxOrder: number, symbols: [string, number][]) {
     const zodOb: {

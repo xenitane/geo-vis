@@ -2,7 +2,6 @@ import Logo from "#/Logo";
 import { cn } from "%/utils";
 import { Separator } from "$/separator";
 import footerLinks from "%/data/footerLinks";
-import { HTMLProps } from "?";
 import { FC } from "react";
 
 interface FooterProps extends HTMLProps {

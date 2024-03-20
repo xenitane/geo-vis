@@ -1,33 +1,7 @@
-import { LinearFractalInfo } from "?";
 import { doNothing, moveForward, right45, right60, right90, left45, left60, left90, multiply } from "%/utils";
-
-import {
-    crossStitchCurve,
-    dragonCurve,
-    fibonacciWordFractal,
-    gosperCurve,
-    gosperIsland,
-    hilbertCurve,
-    hilbertCurve2,
-    kochAntiSnowFlake,
-    kochSnowFlake,
-    levyCCurve,
-    minkowskiIsland,
-    peanoCurve,
-    quardraticIsland,
-    quardraticKochIsland,
-    sierpinskiArrowhead,
-    sierpinskiTriangle,
-    tSquare,
-    vicsekFractal,
-    vicsekFractal2,
-} from "#/Thumbnails/linear";
-
-// todo: add fractal thumbnails
 
 const LevyCCurveRules: LinearFractalInfo = {
     name: "Levy C Curve",
-    image: levyCCurve,
     maxOrder: 15,
     rules: () => {
         return {
@@ -48,7 +22,6 @@ const LevyCCurveRules: LinearFractalInfo = {
 const DragonCurveRules: LinearFractalInfo = {
     name: "Dragon Curve",
     maxOrder: 15,
-    image: dragonCurve,
     rules: () => ({
         rules: {
             I: [false, doNothing, "F"],
@@ -64,7 +37,6 @@ const DragonCurveRules: LinearFractalInfo = {
 const GosperCurveRules: LinearFractalInfo = {
     name: "Gosper Curve",
     maxOrder: 5,
-    image: gosperCurve,
     rules: () => ({
         rules: {
             I: [false, moveForward, "F"],
@@ -80,7 +52,6 @@ const GosperCurveRules: LinearFractalInfo = {
 const KochSnowflakeRules: LinearFractalInfo = {
     name: "Koch Snowflake",
     maxOrder: 5,
-    image: kochSnowFlake,
     rules: () => ({
         rules: {
             I: [false, doNothing, "FNNFNNF"],
@@ -95,7 +66,6 @@ const KochSnowflakeRules: LinearFractalInfo = {
 const KochAntiSnowflakeRules: LinearFractalInfo = {
     name: "Koch Anti Snowflake",
     maxOrder: 5,
-    image: kochAntiSnowFlake,
     rules: () => ({
         rules: {
             I: [false, doNothing, "FNNFNNF"],
@@ -110,7 +80,6 @@ const KochAntiSnowflakeRules: LinearFractalInfo = {
 const MinkowskiIslandRules: LinearFractalInfo = {
     name: "Minkowski Island",
     maxOrder: 3,
-    image: minkowskiIsland,
     rules: () => ({
         rules: {
             I: [false, doNothing, "FNFNFNF"],
@@ -125,7 +94,6 @@ const MinkowskiIslandRules: LinearFractalInfo = {
 const HilbertCurveRules: LinearFractalInfo = {
     name: "Hilbert Curve",
     maxOrder: 6,
-    image: hilbertCurve,
     rules: () => ({
         rules: {
             I: [false, doNothing, "A"],
@@ -142,7 +110,6 @@ const HilbertCurveRules: LinearFractalInfo = {
 const PeanoCurveRules: LinearFractalInfo = {
     name: "Peano Curve",
     maxOrder: 5,
-    image: peanoCurve,
     rules: () => ({
         rules: {
             I: [false, doNothing, "RF"],
@@ -167,7 +134,6 @@ const VicsekFractalRules: LinearFractalInfo = {
         },
         shift: 1,
     }),
-    image: vicsekFractal,
 };
 
 const CrossStitchCurveRules: LinearFractalInfo = {
@@ -182,7 +148,6 @@ const CrossStitchCurveRules: LinearFractalInfo = {
         },
         shift: 1,
     }),
-    image: crossStitchCurve,
 };
 
 const FibonacciWordFractalRules: LinearFractalInfo = {
@@ -213,13 +178,12 @@ const FibonacciWordFractalRules: LinearFractalInfo = {
             },
         };
     },
-    image: fibonacciWordFractal,
 };
 
-const SierpinskiArrowHeadCurveRules: LinearFractalInfo = {
-    name: "Sierpinski Arrow Head curve",
+const SierpinskiArrowHeadRules: LinearFractalInfo = {
+    name: "Sierpinski Arrow Head",
     maxOrder: 10,
-    image: sierpinskiArrowhead,
+
     rules: () => ({
         shift: 1,
         rules: {
@@ -235,7 +199,6 @@ const SierpinskiArrowHeadCurveRules: LinearFractalInfo = {
 const QuardraticKochIslandRules: LinearFractalInfo = {
     name: "Quardratic Koch Island",
     maxOrder: 4,
-    image: quardraticKochIsland,
     rules: () => ({
         shift: 1,
         rules: {
@@ -250,7 +213,6 @@ const QuardraticKochIslandRules: LinearFractalInfo = {
 const SierpinskiTriangleRules: LinearFractalInfo = {
     name: "Sierpinski Tiangle",
     maxOrder: 7,
-    image: sierpinskiTriangle,
     rules: () => ({
         shift: 1,
         rules: {
@@ -266,7 +228,6 @@ const SierpinskiTriangleRules: LinearFractalInfo = {
 const GosperIslandRules: LinearFractalInfo = {
     name: "Gosper Island",
     maxOrder: 5,
-    image: gosperIsland,
     rules: () => ({
         shift: 1,
         rules: {
@@ -281,7 +242,6 @@ const GosperIslandRules: LinearFractalInfo = {
 const QuardraticIslandRules: LinearFractalInfo = {
     name: "Quardratic Island",
     maxOrder: 3,
-    image: quardraticIsland,
     rules: () => ({
         shift: 1,
         rules: {
@@ -296,7 +256,6 @@ const QuardraticIslandRules: LinearFractalInfo = {
 const VicsekFractal2Rules: LinearFractalInfo = {
     name: "Vicsek Fractal 2",
     maxOrder: 5,
-    image: vicsekFractal2,
     rules: () => ({
         shift: 1,
         rules: {
@@ -313,7 +272,6 @@ const VicsekFractal2Rules: LinearFractalInfo = {
 const HilbertCurve2Rules: LinearFractalInfo = {
     name: "Hilbert Curve 2",
     maxOrder: 3,
-    image: hilbertCurve2,
     rules: () => ({
         shift: 2,
         rules: {
@@ -330,7 +288,6 @@ const HilbertCurve2Rules: LinearFractalInfo = {
 const TSquareRules: LinearFractalInfo = {
     name: "T Square",
     maxOrder: 6,
-    image: tSquare,
     rules: () => ({
         shift: 1,
         rules: {
@@ -361,7 +318,7 @@ const LinearFractalRulesSet: Record<string, LinearFractalInfo> = {
     "peano-curve": PeanoCurveRules,
     "quardratic-island": QuardraticIslandRules,
     "quardratic-koch-island": QuardraticKochIslandRules,
-    "sierpinski-arrow-head-curve": SierpinskiArrowHeadCurveRules,
+    "sierpinski-arrow-head": SierpinskiArrowHeadRules,
     "sierpinski-triangle": SierpinskiTriangleRules,
     "t-square": TSquareRules,
     "vicsek-fractal": VicsekFractalRules,

@@ -9,7 +9,7 @@ const path_resolver = (...vars: string[]) => path.join(path.resolve(), ...vars);
 
 const dirs = {
     public: path_resolver("public/"),
-    root: path_resolver("pages/"),
+    root: path_resolver("views/"),
     out: path_resolver("dist/"),
     src: {
         base: path_resolver("src/"),
@@ -18,7 +18,6 @@ const dirs = {
         shadComponents: path_resolver("src", "components", "ui/"),
         pages: path_resolver("src", "pages/"),
         lib: path_resolver("src", "lib/"),
-        types: path_resolver("src", "types/"),
     },
 };
 
@@ -30,7 +29,7 @@ const logger: Logger = createLogger("info", {
 export default defineConfig({
     base: "/geo-vis",
     esbuild: {
-        include: "src/**/*.{ts,tsx}",
+        include: ["src/**/*.{ts,tsx}", "pages/**/*.{ts,tsx}"],
         loader: "tsx",
     },
     customLogger: logger,
@@ -65,13 +64,12 @@ export default defineConfig({
     root: dirs.root,
     resolve: {
         alias: {
-            "!/": dirs.src.base,
+            "?/": dirs.src.base,
             "#/": dirs.src.assets,
             "@/": dirs.src.components,
             "$/": dirs.src.shadComponents,
             "%/": dirs.src.lib,
             "&/": dirs.src.pages,
-            "?": dirs.src.types,
         },
     },
     publicDir: dirs.public,
@@ -81,9 +79,9 @@ export default defineConfig({
         manifest: true,
         rollupOptions: {
             input: {
-                main: path_resolver("pages", "index.html"),
-                "404": path_resolver("pages", "404.html"),
-                // linear: path_resolver("pages", "linear", "index.html"),
+                main: path_resolver("views", "index.html"),
+                "404": path_resolver("views", "404.html"),
+                linear: path_resolver("views", "linear.html"),
                 // fill: path_resolver("pages", "fill", "index.html"),
                 // branching: path_resolver("pages", "branching.", "indexhtml"),
                 // attractor: path_resolver("pages", "attractor", "index.html"),

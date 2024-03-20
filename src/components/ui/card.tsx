@@ -1,6 +1,5 @@
 import React from "react";
-import { IncludeClassName } from "?";
-import { cn } from "%/utils";
+import { cn } from "../../lib/utils";
 
 const Card = React.forwardRef<HTMLDivElement, IncludeClassName<React.HTMLAttributes<HTMLDivElement>>>(
     ({ className, ...props }, ref) => (

@@ -1,15 +1,25 @@
 import { useRef } from "react";
-import { FillRenderer, cn } from "%/utils";
-import { Navigate, useParams } from "react-router-dom";
-import FractalForm, { formSchema } from "@/FractalForm";
-import FillFractalRuleSet from "%/rules/Fill";
-import SVGCanvas from "@/Drawable/SVG";
+import { FillRenderer, cn } from "../lib/utils";
+import FractalForm, { formSchema } from "../components/FractalForm";
+import FillFractalRuleSet from "../lib/rules/Fill";
+import SVGCanvas from "../components/Drawable/SVG";
 
 const FillFrac = () => {
-    const { fracID } = useParams();
+    const fracID = window.location.search
+        .split("?")
+        .at(1)
+        ?.split("&")
+        .filter((k) => k.startsWith("id="))
+        .at(0)
+        ?.split("=")
+        .at(1);
+
     const SVGRef = useRef<SVGSVGElement>(null);
 
-    if (!(fracID! in FillFractalRuleSet)) return <Navigate to="/geo-vis/404" />;
+    if (undefined === fracID || !(fracID in FillFractalRuleSet)) {
+        console.log("wtf");
+        window.location.href = "/geo-vis/404";
+    }
 
     const interval: { i?: NodeJS.Timeout } = { i: undefined };
 
