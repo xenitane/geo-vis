@@ -1,17 +1,32 @@
 # TODOs
 
--   [x] Add References
--   [x] Build Homepage
--   [ ] Build render engines with presets
-    -   [x] Linear
-    -   [x] Fill
-    -   [x] Branching
-    -   [x] Attractor
-    -   [ ] Sets
-    -   [ ] 3d
-    -   [ ] CG
-    -   [ ] Sandbox
--   [x] Add Theme Classes and Resposiveness
--   [ ] Add Color to Fractals
--   [ ] Add Save as Feature
--   [ ] Konami code
+- [x] Add References
+- [x] Build Homepage
+- [ ] Build render engines with presets
+  - [x] Linear
+    - [ ] ??
+  - [x] Fill
+    - [ ] T Square
+  - [x] Branching
+    - [ ] Fractal Tree
+  - [x] Attractor
+  - [ ] Sets
+    - [ ] Mandelbrot Set
+    - [ ] Julia Set
+    - [ ] Multibrot Set
+    - [ ] Burning Ship
+  - [ ] 3d
+    - [ ] Seirpinski Pyramid
+    - [ ] Menger Sponge
+    - [ ] Sierpinski Sponge
+  - [ ] CG
+    - [ ] Voronoi Diagrams
+    - [ ] Delauny Triangle
+  - [ ] Sandbox
+- [x] Add Theme Classes and Resposiveness
+- [ ] Change thumbnails from svg to png for compression
+- [ ] Migrate from SVG to Canvas for perf
+- [ ] Add Color to Fractals
+  - [ ] Study _Hilbert Curve in 3D_
+- [ ] Add Save as Feature
+- [ ] Konami code

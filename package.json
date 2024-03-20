@@ -1,115 +1,114 @@
 {
-	"name": "frac-gen",
-	"version": "0.7.1",
-	"private": true,
-	"description": "react app to generate geometric visuals",
-	"keywords": [
-		"react",
-		"vite",
-		"typescript",
-		"tailwindcss",
-		"frcatals",
-		"geometry",
-		"svg",
-		"node.js"
-	],
-	"homepage": "https://xenitane.github.io/geo-vis",
-	"bugs": {
-		"url": "https://www.github.com/xenitane/geo-vis/issues"
-	},
-	"repository": {
-		"type": "git",
-		"url": "https://www.github.com/xenitane/geo-vis"
-	},
-	"license": "GPL-3.0-or-later",
-	"author": {
-		"name": "xenitane",
-		"url": "https://www.github.com/xenitane"
-	},
-	"contributors": [
-		{
-			"name": "dependabot[bot]"
-		},
-		{
-			"name": "imgbot[bot]"
-		},
-		{
-			"name": "github-actions[bot]"
-		}
-	],
-	"type": "module",
-	"scripts": {
-		"build": "tsc && vite build",
-		"dev": "vite",
-		"format": "prettier --write \"**/*.{js,jsx,ts,tsx,json,css,sass,scss,less,html,md,yml,yaml}\"",
-		"lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
-		"preview": "vite preview",
-		"type-check": "tsc --noEmit"
-	},
-	"dependencies": {
-		"@hookform/resolvers": "^3.3.4",
-		"@preact/signals-react": "^1.3.8",
-		"@radix-ui/react-dropdown-menu": "^2.0.6",
-		"@radix-ui/react-label": "^2.0.2",
-		"@radix-ui/react-select": "^2.0.0",
-		"@radix-ui/react-separator": "^1.0.3",
-		"@radix-ui/react-slider": "^1.1.2",
-		"@radix-ui/react-slot": "^1.0.2",
-		"@radix-ui/react-switch": "^1.0.3",
-		"@radix-ui/react-toast": "^1.1.5",
-		"class-variance-authority": "^0.7.0",
-		"embla-carousel-react": "^8.0.0",
-		"lucide-react": "^0.359.0",
-		"react": "^18.2.0",
-		"react-dom": "^18.2.0",
-		"react-hook-form": "^7.51.1",
-		"react-icons": "^5.0.1",
-		"react-router-dom": "^6.22.3",
-		"tailwindcss-animate": "^1.0.7",
-		"web-vitals": "^3.5.2",
-		"zod": "^3.22.4"
-	},
-	"devDependencies": {
-		"@types/eslint": "^8.56.5",
-		"@types/node": "^20.11.29",
-		"@types/react": "^18.2.62",
-		"@types/react-dom": "^18.2.22",
-		"@types/react-router-dom": "^5.3.3",
-		"@typescript-eslint/eslint-plugin": "^7.3.1",
-		"@typescript-eslint/parser": "^7.2.0",
-		"@vitejs/plugin-react-swc": "^3.6.0",
-		"autoprefixer": "^10.4.18",
-		"clsx": "^2.1.0",
-		"eslint": "^8.57.0",
-		"eslint-config-prettier": "^9.1.0",
-		"eslint-plugin-jsx-a11y": "^6.8.0",
-		"eslint-plugin-prettier": "^5.1.3",
-		"eslint-plugin-react": "^7.34.1",
-		"eslint-plugin-react-hooks": "^4.6.0",
-		"eslint-plugin-react-refresh": "^0.4.5",
-		"postcss": "^8.4.35",
-		"prettier": "^3.2.5",
-		"prettier-plugin-eslint": "^1.0.2",
-		"prettier-plugin-tailwindcss": "^0.5.11",
-		"tailwind-merge": "^2.2.2",
-		"tailwindcss": "^3.4.1",
-		"ts-node": "^10.9.2",
-		"typescript": "^5.4.2",
-		"vite": "^5.1.6"
-	},
-	"engines": {
-		"node": ">=18"
-	},
-	"browserList": {
-		"production": [
-			">0.2%",
-			"not dead",
-			"not op_mini all"
-		],
-		"development": [
-			"last 1 chrome version",
-			"last 1 firefox version",
-			"last 1 safari version"
-		]
-	}
+    "name": "frac-gen",
+    "version": "0.7.1",
+    "private": true,
+    "description": "react app to generate geometric visuals",
+    "keywords": [
+        "react",
+        "vite",
+        "typescript",
+        "tailwindcss",
+        "frcatals",
+        "geometry",
+        "svg",
+        "node.js"
+    ],
+    "homepage": "https://xenitane.github.io/geo-vis",
+    "bugs": {
+        "url": "https://www.github.com/xenitane/geo-vis/issues"
+    },
+    "repository": {
+        "type": "git",
+        "url": "https://www.github.com/xenitane/geo-vis"
+    },
+    "license": "GPL-3.0-or-later",
+    "author": {
+        "name": "xenitane",
+        "url": "https://www.github.com/xenitane"
+    },
+    "contributors": [
+        {
+            "name": "dependabot[bot]"
+        },
+        {
+            "name": "imgbot[bot]"
+        },
+        {
+            "name": "github-actions[bot]"
+        }
+    ],
+    "type": "module",
+    "scripts": {
+        "build": "tsc && vite build",
+        "dev": "vite",
+        "format": "prettier --write \"**/*.{js,jsx,ts,tsx,json,css,sass,scss,less,html,md,yml,yaml}\"",
+        "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
+        "preview": "vite preview",
+        "type-check": "tsc --noEmit"
+    },
+    "dependencies": {
+        "@hookform/resolvers": "^3.3.4",
+        "@preact/signals-react": "^1.3.8",
+        "@radix-ui/react-dropdown-menu": "^2.0.6",
+        "@radix-ui/react-label": "^2.0.2",
+        "@radix-ui/react-select": "^2.0.0",
+        "@radix-ui/react-separator": "^1.0.3",
+        "@radix-ui/react-slider": "^1.1.2",
+        "@radix-ui/react-slot": "^1.0.2",
+        "@radix-ui/react-switch": "^1.0.3",
+        "@radix-ui/react-toast": "^1.1.5",
+        "class-variance-authority": "^0.7.0",
+        "embla-carousel-react": "^8.0.0",
+        "lucide-react": "^0.359.0",
+        "react": "^18.2.0",
+        "react-dom": "^18.2.0",
+        "react-hook-form": "^7.51.1",
+        "react-icons": "^5.0.1",
+        "tailwindcss-animate": "^1.0.7",
+        "web-vitals": "^3.5.2",
+        "zod": "^3.22.4"
+    },
+    "devDependencies": {
+        "@types/eslint": "^8.56.5",
+        "@types/node": "^20.11.29",
+        "@types/react": "^18.2.62",
+        "@types/react-dom": "^18.2.22",
+        "@types/react-router-dom": "^5.3.3",
+        "@typescript-eslint/eslint-plugin": "^7.3.1",
+        "@typescript-eslint/parser": "^7.2.0",
+        "@vitejs/plugin-react-swc": "^3.6.0",
+        "autoprefixer": "^10.4.18",
+        "clsx": "^2.1.0",
+        "eslint": "^8.57.0",
+        "eslint-config-prettier": "^9.1.0",
+        "eslint-plugin-jsx-a11y": "^6.8.0",
+        "eslint-plugin-prettier": "^5.1.3",
+        "eslint-plugin-react": "^7.34.1",
+        "eslint-plugin-react-hooks": "^4.6.0",
+        "eslint-plugin-react-refresh": "^0.4.5",
+        "postcss": "^8.4.35",
+        "prettier": "^3.2.5",
+        "prettier-plugin-eslint": "^1.0.2",
+        "prettier-plugin-tailwindcss": "^0.5.11",
+        "tailwind-merge": "^2.2.2",
+        "tailwindcss": "^3.4.1",
+        "ts-node": "^10.9.2",
+        "typescript": "^5.4.2",
+        "vite": "^5.1.6"
+    },
+    "engines": {
+        "node": ">=18"
+    },
+    "browserList": {
+        "production": [
+            ">0.2%",
+            "not dead",
+            "not op_mini all"
+        ],
+        "development": [
+            "last 1 chrome version",
+            "last 1 firefox version",
+            "last 1 safari version"
+        ]
+    }
 }
