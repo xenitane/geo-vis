@@ -1,0 +1,1 @@
+import{c as o,j as r,R as e,G as t,r as s}from"./GlobalLayout-gifmoruM.js";import{E as a}from"./Error-BccC0CyW.js";o.createRoot(document.querySelector("#root")).render(r.jsx(e.StrictMode,{children:r.jsx(t,{children:r.jsx(a,{})})}));s(console.log);
