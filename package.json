@@ -71,7 +71,7 @@
     "devDependencies": {
         "@types/eslint": "^8.56.6",
         "@types/node": "^20.11.29",
-        "@types/react": "^18.2.62",
+        "@types/react": "^18.2.67",
         "@types/react-dom": "^18.2.22",
         "@types/react-router-dom": "^5.3.3",
         "@typescript-eslint/eslint-plugin": "^7.3.1",
