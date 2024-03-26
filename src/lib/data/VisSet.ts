@@ -1,6 +1,6 @@
 const thumbResolver = (kind: VisTypes, image: string) => `/geo-vis/thumbs/${kind}/${image}`;
 
-const visualData: Record<VisTypes, Record<string, { name: string; image: string }>> = {
+const visualData: VisData = {
     linear: {
         "cross-stitch-curve": { name: "Cross Stitch Curve", image: thumbResolver("linear", "cross-stitch-curve.svg") },
         "dragon-curve": { name: "Dragon Curve", image: thumbResolver("linear", "dragon-curve.svg") },

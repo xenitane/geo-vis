@@ -12,60 +12,70 @@ declare global {
     type PropType<TObj, TProp extends keyof TObj> = TObj[TProp];
 
     interface ProjectFooterLiType {
-        Icon: IconType;
-        text: string;
-        link: (repo: string) => string;
+        readonly Icon: IconType;
+        readonly text: string;
+        readonly link: (repo: string) => string;
     }
 
     type Point = [number, number];
 
     interface GeoObjOptions {
-        order: number;
-        colored: boolean;
-        animate: boolean;
-        interval: { i?: NodeJS.Timeout };
+        readonly order: number;
+        readonly colored: boolean;
+        readonly animate: boolean;
+        readonly interval: { i?: NodeJS.Timeout };
     }
     interface GeoObjInfo {
-        name: string;
-        maxOrder: number;
+        readonly name: string;
+        readonly maxOrder: number;
     }
 
     type LinearOperator = (p: Point, f: Point) => [Point, Point];
     type LinearFractalRule = [true, LinearOperator] | [false, LinearOperator, string];
     interface LinearFractalOptions extends GeoObjOptions {
-        FractalInfo: { rules: Record<string, LinearFractalRule>; shift: number };
+        readonly FractalInfo: { readonly rules: Readonly<Record<string, LinearFractalRule>>; readonly shift: number };
     }
     interface LinearFractalInfo extends GeoObjInfo {
-        rules: () => PropType<LinearFractalOptions, "FractalInfo">;
+        readonly rules: () => PropType<LinearFractalOptions, "FractalInfo">;
     }
 
     type FillFractalRule = (centers: Point[], invCenters: Point[]) => [Point[], Point[]];
     interface FillFractalOptions extends GeoObjOptions {
-        FractalInfo: {
-            origin: Point;
-            rules: FillFractalRule;
-            polyVGen: (n: number, flip: boolean) => (c: Point) => Point[];
+        readonly FractalInfo: {
+            readonly origin: Point;
+            readonly rules: FillFractalRule;
+            readonly polyVGen: (n: number, flip: boolean) => (c: Point) => Point[];
         };
     }
     interface FillFractalInfo extends GeoObjInfo {
-        rules: () => PropType<FillFractalOptions, "FractalInfo">;
+        readonly rules: () => PropType<FillFractalOptions, "FractalInfo">;
     }
 
     type BranchOperator = (p: Point, f: Point) => [Point, Point, boolean];
     type BranchingFractalRule = [false, BranchOperator, ArrayOfTAndSelf<string>] | [true, BranchOperator];
     interface BranchingFractalOptions extends GeoObjOptions {
-        FractalInfo: { shift: number; rules: Record<string, BranchingFractalRule>; stay: boolean };
+        readonly FractalInfo: {
+            readonly shift: number;
+            readonly rules: Readonly<Record<string, BranchingFractalRule>>;
+            readonly stay: boolean;
+        };
     }
     interface BranchingFractalInfo extends GeoObjInfo {
-        rules: () => PropType<BranchingFractalOptions, "FractalInfo">;
+        readonly rules: () => PropType<BranchingFractalOptions, "FractalInfo">;
     }
 
     type AttractorOperator = (p: Point) => Point;
     interface AttractorInfo extends GeoObjInfo {
-        symbolNames: [string, number][];
-        rules: (symbols: Record<string, number>) => PropType<AttractorOptions, "AttractorInfo">;
+        readonly symbolNames: [string, number][];
+        readonly rules: (symbols: Record<string, number>) => PropType<AttractorOptions, "AttractorInfo">;
     }
     interface AttractorOptions extends GeoObjOptions {
-        AttractorInfo: { rules: AttractorOperator; origins: Point[]; scale: Point; shift: Point };
+        readonly AttractorInfo: {
+            readonly rules: AttractorOperator;
+            readonly origins: Point[];
+            readonly scale: Point;
+            readonly shift: Point;
+        };
     }
+    type VisData = Readonly<Record<VisTypes, Readonly<Record<string, { readonly name: string; readonly image: string }>>>>;
 }
