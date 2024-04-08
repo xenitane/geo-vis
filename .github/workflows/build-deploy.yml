@@ -12,14 +12,40 @@ jobs:
         name: Build
         runs-on: ubuntu-latest
         steps:
-            - uses: actions/checkout@v4
-            - uses: actions/setup-node@v4
+            - name: Checkout repo
+              uses: actions/checkout@v4
+
+            - name: Setup Node.js
+              uses: actions/setup-node@v4
               with:
                   node-version: 18
-                  cache: "npm"
-            - run: npm ci
-            - run: npm run build
-            - uses: actions/upload-artifact@v4
+
+            - name: Setup pnpm
+              uses: pnpm/action-setup@v3
+              with:
+                version: latest
+                run_install: false
+
+            - name: Get pnpm store directory
+              run: |
+                echo "STORE_PATH=$(pnpm store path --silent)" >>$GITHUB_ENV
+
+            - name: Setup pnpm cache
+              uses: actions/cache@v4
+              with:
+                path: ${{ env.STORE_PATH }}
+                key: ${{ runner.os }}-pnpm-store-${{ hashFiles('**/pnpm-lock.yml') }}
+                restore-keys: |
+                        ${{ runner.os }}-pnpm-store-
+
+            - name: Install Dependencies
+              run: pnpm install
+
+            - name: Build project
+              run: pnpm build
+
+            - name: Upload build
+              uses: actions/upload-artifact@v4
               with:
                   name: build-files
                   path: "./dist"
@@ -29,11 +55,14 @@ jobs:
         runs-on: ubuntu-latest
         if: github.ref == 'refs/heads/main'
         steps:
-            - uses: actions/download-artifact@v4
+            - name: Download Build
+              uses: actions/download-artifact@v4
               with:
                   name: build-files
                   path: "./dist"
-            - uses: peaceiris/actions-gh-pages@v3
+
+            - name: deploy to gh-pages
+              uses: peaceiris/actions-gh-pages@v3
               with:
                   github_token: ${{ secrets.GHT }}
                   publish_dir: "./dist"
