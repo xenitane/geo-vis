@@ -19,7 +19,6 @@ export default defineConfig({
     },
     env: {
         schema: {
-            SITE_URL: envField.string({ context: "client", access: "public", optional: false, url: true }),
             CDN_URL: envField.string({ context: "client", access: "public", optional: false, url: true }),
             DOMAIN_NAME: envField.string({ context: "client", access: "public", optional: false }),
         },

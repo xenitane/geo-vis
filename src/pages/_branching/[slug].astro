@@ -1,0 +1,164 @@
+---
+import BaseLayout, { type BaseLayoutProps } from "@/layouts/BaseLayout.astro";
+
+import linearRuleSet from "@/lib/rules/branching";
+// import type { MarkdownInstance } from "astro";
+
+export async function getStaticPaths() {
+    return Object.entries(linearRuleSet).map(function ([id, item]) {
+        return { params: { slug: id }, props: { name: item.name, maxOrder: item.maxOrder } };
+    });
+}
+
+const { name, maxOrder } = Astro.props;
+const id = Astro.params.slug;
+
+// const content = import.meta.glob(`@/content/linear/${id}.md`, { eager: true }) as MarkdownInstance<Record<string, unknown>>;
+
+const pageMetaData = {
+    title: `${name} | Branching Fractals`,
+    description: "",
+    keywords: [],
+} satisfies BaseLayoutProps;
+---
+
+<BaseLayout {...pageMetaData}>
+    <h1 class="text-3xl font-bold underline">{name}</h1>
+    <div class="flex flex-col gap-6 lg:flex-row">
+        <div
+            class="flex flex-col gap-3 lg:w-1/3"
+            x-data="{ order: 0, animate: { def: false, state: false, disable: false }, color: { def: false, state: false, disable: true} }"
+        >
+            <div class="flex w-full max-w-96 flex-col gap-2">
+                <div class="flex justify-between">
+                    <div class="text-base font-medium lg:text-lg">Iteration Order</div>
+                    <div class="flex w-30 items-center justify-between">
+                        <button
+                            class="inline-flex h-6 w-6 items-center justify-center rounded-full border border-neutral-200 bg-white text-sm font-medium ring-offset-white transition-all duration-500 ease-in-out hover:bg-neutral-100 hover:text-neutral-900 hover:drop-shadow-[0_1px_2px_rgba(0,0,0,0.15)] focus-visible:ring-2 focus-visible:ring-neutral-950 focus-visible:ring-offset-2 focus-visible:outline-none disabled:pointer-events-none disabled:opacity-50 dark:border-neutral-800 dark:bg-neutral-700 dark:ring-offset-neutral-950 dark:hover:bg-neutral-800 dark:hover:text-neutral-50 dark:focus-visible:ring-neutral-300"
+                            :disabled="order == 0"
+                            @click="order -= (order > 0) ? 1 : 0"
+                            ><svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                width="24"
+                                height="24"
+                                viewBox="0 0 24 24"
+                                fill="none"
+                                stroke="currentColor"
+                                stroke-width="2"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                                class="lucide lucide-arrow-left h-4 w-4"
+                                ><path d="m12 19-7-7 7-7"></path><path d="M19 12H5"></path></svg
+                            ><span class="sr-only">Decrease Iterative Order</span></button
+                        >
+
+                        <div
+                            x-text="order"
+                            class="flex h-6 w-14 cursor-default items-center justify-center rounded-md border border-neutral-200 bg-white p-2 text-center text-sm lg:h-7 dark:border-neutral-800 dark:bg-neutral-700"
+                        >
+                            0
+                        </div>
+                        <button
+                            class="inline-flex h-6 w-6 items-center justify-center rounded-full border border-neutral-200 bg-white text-sm font-medium whitespace-nowrap ring-offset-white transition-all duration-500 ease-in-out hover:bg-neutral-100 hover:text-neutral-900 hover:drop-shadow-[0_1px_2px_rgba(0,0,0,0.15)] focus-visible:ring-2 focus-visible:ring-neutral-950 focus-visible:ring-offset-2 focus-visible:outline-none disabled:pointer-events-none disabled:opacity-50 dark:border-neutral-800 dark:bg-neutral-700 dark:ring-offset-neutral-950 dark:hover:bg-neutral-800 dark:hover:text-neutral-50 dark:focus-visible:ring-neutral-300"
+                            :disabled={`order >= ${maxOrder}`}
+                            @click={`order += (order < ${maxOrder}) ? 1 : 0`}
+                            ><svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                width="24"
+                                height="24"
+                                viewBox="0 0 24 24"
+                                fill="none"
+                                stroke="currentColor"
+                                stroke-width="2"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                                class="lucide lucide-arrow-right h-4 w-4"
+                                ><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg
+                            ><span class="sr-only">Increase Iterative Order</span></button
+                        >
+                    </div>
+                </div>
+                <div class="flex justify-between">
+                    <div @click="animate.state = !animate.disable && !animate.state" class="text-base font-medium lg:text-lg">
+                        Animate
+                    </div>
+                    <button
+                        class="switch-body inline-flex h-6 w-11 cursor-pointer items-center rounded-full border-2 border-transparent bg-neutral-200 transition-colors focus-visible:ring-2 focus-visible:ring-neutral-950 focus-visible:ring-offset-2 focus-visible:ring-offset-white focus-visible:outline-none dark:bg-neutral-800 dark:focus-visible:ring-neutral-300 dark:focus-visible:ring-offset-neutral-950"
+                        :class="(animate.state && 'bg-neutral-900 dark:bg-neutral-100') + (animate.disable && 'cursor-not-allowed opacity-50')"
+                        @click="animate.state = !animate.disable && !animate.state"
+                    >
+                        <div
+                            class="switch-ball pointer-events-none block h-5 w-5 translate-x-0 rounded-full bg-white shadow-lg ring-0 transition-transform dark:bg-neutral-950"
+                            :class="animate.state && 'translate-x-5'"
+                        >
+                            <span class="sr-only">animate switch</span>
+                        </div>
+                    </button>
+                </div>
+                <div class="flex justify-between">
+                    <div @click="color.state = !color.disable && !color.state" class="text-base font-medium lg:text-lg">
+                        Color
+                    </div>
+                    <button
+                        class="switch-body inline-flex h-6 w-11 cursor-pointer items-center rounded-full border-2 border-transparent bg-neutral-200 transition-colors focus-visible:ring-2 focus-visible:ring-neutral-950 focus-visible:ring-offset-2 focus-visible:ring-offset-white focus-visible:outline-none dark:bg-neutral-800 dark:focus-visible:ring-neutral-300 dark:focus-visible:ring-offset-neutral-950"
+                        :class="(color.state && 'bg-neutral-900 dark:bg-neutral-100') + (color.disable && 'cursor-not-allowed opacity-50')"
+                        @click="color.state = !color.disable && !color.state"
+                    >
+                        <div
+                            class="switch-ball pointer-events-none block h-5 w-5 translate-x-0 rounded-full bg-white shadow-lg ring-0 transition-transform dark:bg-neutral-950"
+                            :class="color.state && 'translate-x-5'"
+                        >
+                            <span class="sr-only">color switch</span>
+                        </div>
+                    </button>
+                </div>
+            </div>
+            <div class="flex w-full max-w-96 justify-between">
+                <button
+                    class="inline-flex h-10 items-center justify-center rounded-md bg-neutral-900 px-4 py-2 text-sm font-medium whitespace-nowrap text-neutral-100 ring-offset-white transition-colors hover:bg-neutral-900/90 focus-visible:ring-2 focus-visible:ring-neutral-950 focus-visible:ring-offset-2 focus-visible:outline-none disabled:pointer-events-none disabled:opacity-50 dark:bg-neutral-100 dark:text-neutral-900 dark:ring-offset-neutral-950 dark:hover:bg-neutral-100/90 dark:focus-visible:ring-neutral-300"
+                    @click="__drawFractal__(order,animate.state,color.state)">Draw</button
+                >
+                <button
+                    class="inline-flex h-10 items-center justify-center rounded-md bg-neutral-900 px-4 py-2 text-sm font-medium whitespace-nowrap text-neutral-100 ring-offset-white transition-colors hover:bg-neutral-900/90 focus-visible:ring-2 focus-visible:ring-neutral-950 focus-visible:ring-offset-2 focus-visible:outline-none disabled:pointer-events-none disabled:opacity-50 dark:bg-neutral-100 dark:text-neutral-900 dark:ring-offset-neutral-950 dark:hover:bg-neutral-100/90 dark:focus-visible:ring-neutral-300"
+                    @click="(order=0);(animate.state=animate.def);(color.state=color.def);__reset__()">Reset</button
+                >
+                <button
+                    class="inline-flex h-10 items-center justify-center rounded-md bg-neutral-900 px-4 py-2 text-sm font-medium whitespace-nowrap text-neutral-100 ring-offset-white transition-colors hover:bg-neutral-900/90 focus-visible:ring-2 focus-visible:ring-neutral-950 focus-visible:ring-offset-2 focus-visible:outline-none disabled:pointer-events-none disabled:opacity-50 dark:bg-neutral-100 dark:text-neutral-900 dark:ring-offset-neutral-950 dark:hover:bg-neutral-100/90 dark:focus-visible:ring-neutral-300"
+                    @click="__saveSVGAsImage__()"
+                    :disabled="$store.isCanvasEmpty.value">Save</button
+                >
+            </div>
+        </div>
+        <div class="flex justify-center lg:w-2/3">
+            <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="-1000 -1000 2000 2000"
+                width="100%"
+                height="100%"
+                xml-space="preserve"
+                xmlns-xlink="http://wwww3.org/1999/xlink"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                class="aspect-square w-full rounded-md bg-neutral-200"
+                id="darwing-canvas"
+            >
+            </svg>
+        </div>
+    </div>
+</BaseLayout>
+<script is:inline>
+    document.addEventListener("alpine:init", () => {
+        Alpine.store("isCanvasEmpty", {
+            value: true,
+            set() {
+                this.value = true;
+            },
+            unset() {
+                this.value = false;
+            },
+        });
+    });
+</script>
+<script is:inline src="/geo-vis/lib/util.js"></script>
+<script is:inline src={`/geo-vis/lib/rules/branching/${id}.js`}></script>
+<script is:inline src="/geo-vis/lib/renderer/branching.js"></script>

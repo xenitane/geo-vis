@@ -3,6 +3,8 @@ import BaseLayout, { type BaseLayoutProps } from "@/layouts/BaseLayout.astro";
 
 import cn from "@/lib/cn";
 
+import allRules from "@/lib/rules";
+
 const pageMetaData = {
     title: "Home",
     description: "A simple javascript program to render Geometric Visuals.",
@@ -11,6 +13,30 @@ const pageMetaData = {
 ---
 
 <BaseLayout {...pageMetaData}>
-    <!-- lol -->
-    hello
+    <div class="flex flex-col gap-4">
+        {
+            Object.entries(allRules).map(([key, { vis_set }]) => {
+                return (
+                    <div class="flex flex-col gap-4">
+                        <h2 class="text-xl font-semibold">
+                            {key
+                                .split("-")
+                                .filter(function (str) {
+                                    return 0 !== str.length;
+                                })
+                                .map(function (str) {
+                                    return str.slice(0, 1).toLocaleUpperCase() + str.slice(1);
+                                })
+                                .join(" ")}
+                        </h2>
+                        <div class="grid grid-cols-3 space-y-2">
+                            {Object.entries(vis_set).map(([id, { name }]) => {
+                                return <a href={`/geo-vis/${key.toLocaleLowerCase()}/${id}`}>{name}</a>;
+                            })}
+                        </div>
+                    </div>
+                );
+            })
+        }
+    </div>
 </BaseLayout>
