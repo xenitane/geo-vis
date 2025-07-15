@@ -55,13 +55,39 @@ type FractalParams<T> = {
 
 type Extend<U, V extends object | undefined = undefined> = V extends object ? U & V : U;
 
-type FractalSet<T, E = undefined> = {
+type FractalSet<T> = {
     [key: string]: {
         name: string;
         max_order: number;
-        gen: Extend<FractalParams<T>, E>;
+        gen: T;
     };
 };
 
+Extend<FractalParams<T>, E>;
+
 type LinearInstruction = [true, Transform[]] | [false, Transform[], string];
+type LinearInstructionSet = {
+    shift: number;
+    state: { [key: string]: number | boolean };
+    transforms: RuleSet<LinearInstruction>;
+};
+
 type BranchingInstruction = [true, Transform[], boolean] | [false, Transform[], boolean, StringTree];
+
+type BranchingInstructionSet = {
+    shift: number;
+    state: { [key: string]: number | boolean };
+    stay: boolean;
+    transforms: RuleSet<BranchingInstruction>;
+};
+
+type FillInstruction = {
+    sides: number;
+    ratio: number;
+    shift: number;
+    outer_radius: number;
+    inner_radius: [number] | [number, number];
+    origin: [number, number];
+    generator: ["V", number] | ["VC", number] | ["VS"];
+    keep_outer_radius: boolean;
+};

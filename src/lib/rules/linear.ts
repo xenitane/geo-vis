@@ -1,4 +1,4 @@
-const collection: FractalSet<LinearInstruction> = {
+const collection: FractalSet<LinearInstructionSet> = {
     "levy-c-curve": {
         name: "Levy C Curve",
         max_order: 15,

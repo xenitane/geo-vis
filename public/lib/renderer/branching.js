@@ -75,28 +75,27 @@ function __render__({ order, animate, color }) {
         paths[i][1][1] = rounder((paths[i][1][1] - origin[1]) * scale);
     }
 
-    let color_generator;
-    if (color) {
-        color_generator = __newColorGenerator__(points.length - 1);
-    }
+    const color_generator = new ColorGenerator(color, paths.length);
 
     if (animate) {
         let i = 0;
-        interval = setInterval(() => {
+        interval = setInterval(function () {
             if (i === paths.length) {
                 clearInterval(interval);
+                interval = null;
+                Alpine.store("isCanvasEmpty").unset();
                 return;
             }
 
-            addSVGPathLineElement(drawing_canvas, paths[i][0], paths[i][1], color ? color_generator.next() : "#000000");
+            addSVGPathLineElement(drawing_canvas, paths[i][0], paths[i][1], color_generator.next());
             ++i;
         }, 5);
     } else {
         for (let i = 0; i < paths.length; ++i) {
-            addSVGPathLineElement(drawing_canvas, paths[i][0], paths[i][1], color ? color_generator.next() : "#000000");
+            addSVGPathLineElement(drawing_canvas, paths[i][0], paths[i][1], color_generator.next());
         }
+        Alpine.store("isCanvasEmpty").unset();
     }
-    Alpine.store("isCanvasEmpty").unset();
 }
 
 function __reset__() {

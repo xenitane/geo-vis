@@ -1,4 +1,4 @@
-const collection: FractalSet<BranchingInstruction, { stay: boolean }> = {
+const collection: FractalSet<BranchingInstructionSet> = {
     "peano-sierpinski-carpet": {
         name: "Peano Sierpinski Carpet",
         max_order: 5,

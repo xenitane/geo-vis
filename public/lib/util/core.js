@@ -4,15 +4,17 @@ function rounder(a) {
 
 class ColorGenerator {
     order;
+    active;
 
-    constructor(order) {
+    constructor(active, order) {
+        this.active = active;
         this.order = order;
     }
     clone() {
-        return new ColorGenerator(this.order);
+        return new ColorGenerator(this.active, this.order);
     }
     next() {
-        return "#000000";
+        return this.active ? "lol" : "#000000";
     }
 }
 
@@ -56,7 +58,15 @@ function addSVGPathPolygonElement(drawing_canvas, points, color_code) {
     const element = document.createElementNS("http://www.w3.org/2000/svg", "path");
     element.setAttributeNS(null, "fill", color_code);
     element.setAttributeNS(null, "stroke-width", "0");
-    element.setAttributeNS(null, "d", `M ${points.map((p) => `${p[0]} ${p[1]}`).join(" L ")} Z`);
+    element.setAttributeNS(
+        null,
+        "d",
+        `M ${points
+            .map(function (p) {
+                return `${p[0]} ${p[1]}`;
+            })
+            .join(" L ")} Z`
+    );
     drawing_canvas.appendChild(element);
 }
 

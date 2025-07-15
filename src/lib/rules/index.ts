@@ -1,4 +1,5 @@
 import branchingRuleSet from "@/lib/rules/branching";
+import fillRuleSet from "@/lib/rules/fill";
 import linearRuleSet from "@/lib/rules/linear";
 
 const all_rules: {
@@ -7,7 +8,7 @@ const all_rules: {
             [id: string]: {
                 name: string;
                 max_order: number;
-                [rest_fields: string]: unknown;
+                gen: object;
             };
         };
         canvas_kind: "SVG" | "Canvas";
@@ -15,6 +16,7 @@ const all_rules: {
 } = {
     "linear-fractals": { vis_set: linearRuleSet, canvas_kind: "SVG" },
     "branching-fractals": { vis_set: branchingRuleSet, canvas_kind: "SVG" },
+    "fill-fractals": { vis_set: fillRuleSet, canvas_kind: "SVG" },
 };
 
 export default all_rules;
