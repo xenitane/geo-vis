@@ -1,0 +1,20 @@
+---
+import cn from "@/lib/cn";
+
+type Props = {
+    link: string;
+    class?: string;
+    name: string;
+    img: string;
+};
+
+const { link, name, img, class: cc = "" } = Astro.props;
+---
+
+<a href={link} class={cn("relative aspect-square border-2 bg-neutral-300/50 dark:bg-neutral-700/50 rounded-xl ", cc)}>
+    <div class="overflow-hidden rounded-t-[10px] bg-neutral-400/60 p-2 text-ellipsis whitespace-nowrap dark:bg-neutral-600/60">
+        {name}
+    </div>
+    <img class="mx-auto w-[calc(100%-40px)] dark:hidden" src={img.replace("%VAR%", "-light")} />
+    <img class="mx-auto hidden w-[calc(100%-40px)] dark:block" src={img.replace("%VAR%", "-dark")} />
+</a>

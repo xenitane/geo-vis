@@ -5,7 +5,7 @@ import allRules from "@/lib/rules";
 export function getStaticPaths() {
     return Object.entries(allRules).flatMap(function ([kind, { vis_set }]) {
         return Object.keys(vis_set).map(function (id) {
-            return { params: { kind: kind.split("-")[0], id }, props: { kind } };
+            return { params: { kind: kind, id }, props: { kind } };
         });
     });
 }

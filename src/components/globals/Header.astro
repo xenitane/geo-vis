@@ -25,7 +25,7 @@ import Logo from "./logo.astro";
                 "md:ml-0",
                 "focus-within:ring-offset-0 focus-visible:outline-none focus-visible:ring-0"
             )}
-            @click="__theme__toggle__()"
+            x-on:click="__theme__toggle__()"
             aria-label="theme-switch-button"
         >
             <span class="sr-only">theme switch button</span>

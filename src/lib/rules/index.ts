@@ -1,6 +1,6 @@
-import branchingRuleSet from "@/lib/rules/branching";
-import fillRuleSet from "@/lib/rules/fill";
-import linearRuleSet from "@/lib/rules/linear";
+import branchingRuleSet from "@/lib/rules/branching-fractal";
+import fillRuleSet from "@/lib/rules/fill-fractal";
+import linearRuleSet from "@/lib/rules/linear-fractal";
 
 const all_rules: {
     [kind: string]: {

@@ -183,8 +183,8 @@ const collection: FractalSet<LinearInstructionSet> = {
             },
         },
     },
-    "quardratic-koch-Island": {
-        name: "Quardratic Koch Island",
+    "quadratic-koch-island": {
+        name: "Quadratic Koch Island",
         max_order: 4,
         gen: {
             shift: 1,
@@ -226,8 +226,8 @@ const collection: FractalSet<LinearInstructionSet> = {
             },
         },
     },
-    "quardratic-island": {
-        name: "Quardratic Island",
+    "quadratic-island": {
+        name: "Quadratic Island",
         max_order: 3,
         gen: {
             shift: 1,

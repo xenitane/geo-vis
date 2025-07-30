@@ -36,13 +36,13 @@ class Complex {
     }
     static rotate(v, a) {
         const a_rad = (a * Math.PI) / 180;
-        return this.multiply(v, [Math.cos(a_rad), Math.sin(a_rad)]);
+        return Complex.multiply(v, [Math.cos(a_rad), Math.sin(a_rad)]);
     }
     static add(a, b) {
         return [a[0] + b[0], a[1] + b[1]];
     }
     static scale(a, b) {
-        return this.multiply(a, [b, 0]);
+        return Complex.multiply(a, [b, 0]);
     }
 }
 

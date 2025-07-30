@@ -28,7 +28,7 @@
 
 ## v0.6.2
 
-- optimized svgs
+- optimized SVGs
 
 ## v0.6.1
 
@@ -52,13 +52,13 @@
 ## v0.5.0
 
 - ui fix for card titles
-- some linear frcatal presets added
+- some linear fractal presets added
 - fill renderer implemented
 - fill fractal fractal presets added
 
 ## v0.4.2
 
-- removed uncessary function
+- removed unnecessary function
 
 ## v0.4.1
 
@@ -66,7 +66,7 @@
 
 ## v0.4.0
 
-- refining reponsiveness
+- refining responsiveness
 - implementing theme
 
 ## v0.3.1
@@ -77,7 +77,7 @@
 
 - adding auto scroll on page change
 - thumbnails done
-- extracting some components for resuse
+- extracting some components for reuse
 
 ## v0.2.0
 

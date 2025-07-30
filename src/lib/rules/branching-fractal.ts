@@ -15,8 +15,8 @@ const collection: FractalSet<BranchingInstructionSet> = {
             },
         },
     },
-    "sierpinski-triangle-skeleton": {
-        name: "Sierpinski Triangle Skeleton",
+    "sierpinski-gasket": {
+        name: "Sierpinski Gasket",
         max_order: 8,
         gen: {
             shift: 2,

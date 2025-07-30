@@ -1,0 +1,13 @@
+---
+import BaseLayout from "@/layouts/BaseLayout.astro";
+
+import allRules from "@/lib/rules";
+
+export function getStaticPaths() {
+    return Object.entries(allRules).map(function ([kind, { canvas_kind }]) {
+        return { params: { kind }, props: { canvas_kind } };
+    });
+}
+---
+
+<BaseLayout title="playground" description="123" keywords={[]}> THIS PAGE IS WIP </BaseLayout>

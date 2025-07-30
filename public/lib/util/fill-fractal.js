@@ -1,4 +1,4 @@
-const drawing_canvas = document.querySelector("#darwing-canvas");
+const drawing_canvas = document.querySelector("#drawing-canvas");
 let interval = null;
 
 document.addEventListener("alpine:init", function () {

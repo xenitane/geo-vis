@@ -1,9 +1,9 @@
-function generatePolygon(a, b, c, d) {
+function generatePolygon(center, sides, radius, shift) {
     const vertices = [];
-    let dir = Complex.rotate([0, -c], d);
-    for (let i = 0; i < b; ++i) {
-        vertices.push(Complex.add(a, dir));
-        dir = Complex.rotate(dir, 360 / b);
+    let dir = Complex.rotate([0, -radius], shift);
+    for (let i = 0; i < sides; ++i) {
+        vertices.push(Complex.add(center, dir));
+        dir = Complex.rotate(dir, 360 / sides);
     }
     return vertices;
 }
@@ -40,11 +40,11 @@ function __render__({ order, animate, color }) {
                 const _dir = Complex.rotate([0, ir], generator[1]);
                 for (let i = 0; i < c.length; ++i) {
                     nic.push(c[i]);
-                    const tot = c[i][1];
+                    const tot = c[i][1] * ratio;
                     let dir = [_dir[0], _dir[1]];
                     for (let j = 0; j < sides; ++j) {
                         if (keep_outer_radius) {
-                            nc.push([Complex.add(c[i][0], dir), tot * ratio]);
+                            nc.push([Complex.add(c[i][0], dir), tot]);
                         } else {
                             nc.push(Complex.add(c[i], dir));
                         }
@@ -56,11 +56,11 @@ function __render__({ order, animate, color }) {
                 const o_dir = Complex.rotate([0, -ir], generator[1]);
                 for (let i = 0; i < ic.length; ++i) {
                     nc.push(ic[i]);
-                    const tot = ic[i][1];
+                    const tot = ic[i][1] * ratio;
                     let dir = [o_dir[0], o_dir[1]];
                     for (let j = 0; j < sides; ++j) {
                         if (keep_outer_radius) {
-                            nic.push([Complex.add(ic[i][0], dir), tot * ratio]);
+                            nic.push([Complex.add(ic[i][0], dir), tot]);
                         } else {
                             nic.push(Complex.add(ic[i], dir));
                         }
@@ -97,6 +97,7 @@ function __render__({ order, animate, color }) {
     }
 
     const or = outer_radius * factor;
+    const orf = (1 - ratio) / (1 - factor * ratio);
 
     const color_generator = new ColorGenerator(color, order + 1);
     if (animate) {
@@ -113,10 +114,10 @@ function __render__({ order, animate, color }) {
                 addSVGPathPolygonElement(
                     drawing_canvas,
                     generatePolygon(
-                        keep_outer_radius ? invertedCenters[j][0] : invertedCenters[j],
+                        keep_outer_radius ? Complex.scale(invertedCenters[j][0], orf) : invertedCenters[j],
                         sides,
-                        keep_outer_radius ? invertedCenters[j][1] : or,
-                        shift + 180
+                        keep_outer_radius ? invertedCenters[j][1] * orf : or,
+                        shift
                     ),
                     color_generator.next()
                 );
@@ -125,10 +126,10 @@ function __render__({ order, animate, color }) {
                 addSVGPathPolygonElement(
                     drawing_canvas,
                     generatePolygon(
-                        keep_outer_radius ? centers[i][0] : centers[i],
+                        keep_outer_radius ? Complex.scale(centers[i][0], orf) : centers[i],
                         sides,
-                        keep_outer_radius ? centers[i][1] : or,
-                        shift + 180
+                        keep_outer_radius ? centers[i][1] * orf : or,
+                        shift
                     ),
                     color_generator.next()
                 );
@@ -140,10 +141,10 @@ function __render__({ order, animate, color }) {
             addSVGPathPolygonElement(
                 drawing_canvas,
                 generatePolygon(
-                    keep_outer_radius ? centers[i][0] : centers[i],
+                    keep_outer_radius ? Complex.scale(centers[i][0], orf) : centers[i],
                     sides,
-                    keep_outer_radius ? centers[i][1] : or,
-                    shift + 180
+                    keep_outer_radius ? centers[i][1] * orf : or,
+                    shift
                 ),
                 color_generator.next()
             );
@@ -152,10 +153,10 @@ function __render__({ order, animate, color }) {
             addSVGPathPolygonElement(
                 drawing_canvas,
                 generatePolygon(
-                    keep_outer_radius ? invertedCenters[i][0] : invertedCenters[i],
+                    keep_outer_radius ? Complex.scale(invertedCenters[i][0], orf) : invertedCenters[i],
                     sides,
-                    keep_outer_radius ? invertedCenters[i][1] : or,
-                    shift + 180
+                    keep_outer_radius ? invertedCenters[i][1] * orf : or,
+                    shift
                 ),
                 color_generator.next()
             );
