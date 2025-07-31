@@ -4,6 +4,7 @@ let interval = null;
 const transformFuncs = {};
 
 function __render__({ order, animate, color }) {
+    Alpine.stopObservingMutations();
     const { shift, state, stay, transforms } = __newRules__();
     validateSchema(transforms);
     const paths = [];
@@ -13,22 +14,13 @@ function __render__({ order, animate, color }) {
     ];
 
     function handleTree(cursor, direction, n, string_tree) {
-        if (notExists(string_tree)) {
-            throw new Error("Parse Error: provide a valid expansion tree");
-        }
         if ("string" === typeof string_tree) {
             for (let i = 0; i < string_tree.length; ++i) {
                 [cursor, direction] = handleInstruction(cursor, direction, n, string_tree.charAt(i));
             }
             return [cursor, direction];
         }
-        if (Array !== string_tree.constructor) {
-            throw new Error("Parse Error: provide a valid expansion tree");
-        }
         const [expansion, children] = string_tree;
-        if ("string" !== typeof expansion || notExists(children) || Array !== children.constructor) {
-            throw new Error("Parse Error: provide a valid expansion tree");
-        }
         for (let i = 0; i < expansion.length; ++i) {
             [cursor, direction] = handleInstruction(cursor, direction, n, expansion.charAt(i));
         }
@@ -44,9 +36,6 @@ function __render__({ order, animate, color }) {
 
     function handleInstruction(cursor, direction, n, symbol) {
         const [terminal, ruleset, feed, expansion_tree] = transforms[symbol];
-        if ("boolean" !== typeof terminal || "boolean" !== typeof feed) {
-            throw new Error("Parse Error: instruction kind unclear(terminal/non-terminal)");
-        }
         if (n === 0 || terminal) {
             const old_cursor = [cursor[0], cursor[1]];
             if (notExists(transformFuncs[symbol])) {
@@ -103,6 +92,7 @@ function __render__({ order, animate, color }) {
 }
 
 function __reset__() {
+    Alpine.startObservingMutations();
     Alpine.store("isCanvasEmpty").set();
     drawing_canvas.innerHTML = "";
     if (interval) {
