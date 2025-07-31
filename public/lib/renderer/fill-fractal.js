@@ -12,6 +12,7 @@ function generatePolygon(center, sides, radius, shift) {
 }
 
 function __render__({ order, animate, color }) {
+    Alpine.stopObservingMutations();
     const { sides, ratio, shift, outer_radius, inner_radius, origin, generator, keep_outer_radius } = __newRules__();
 
     let factor = 1;
@@ -169,6 +170,7 @@ function __render__({ order, animate, color }) {
 }
 
 function __reset__() {
+    Alpine.startObservingMutations();
     Alpine.store("isCanvasEmpty").set();
     drawing_canvas.innerHTML = "";
     if (interval) {
