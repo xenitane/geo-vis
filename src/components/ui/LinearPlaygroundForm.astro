@@ -1,0 +1,103 @@
+---
+import Button from "./Button.astro";
+---
+
+<div class="flex max-h-[40dvh] flex-col gap-2 md:flex-row lg:flex-col">
+    <div class="flex max-h-[calc(20dvh-4px)] flex-col justify-between">
+        <div class="flex justify-between">
+            <div class="text-base font-medium lg:text-lg">Transforms</div>
+            <Button class="h-5">Add Transform</Button>
+        </div>
+        <div
+            class="aspect-[4/1] h-full overflow-scroll rounded border border-neutral-700 bg-neutral-200/70 p-2 md:aspect-auto dark:border-neutral-300 dark:bg-neutral-800/70"
+        >
+            <template x-if="0===Object.keys($store.__transforms__.value).length">
+                <span class="flex w-full items-center justify-center">No Transforms</span>
+            </template>
+            <template x-if="0!==Object.keys($store.__transforms__.value).length">
+                <div class="flex flex-col gap-1">
+                    <template x-for="entries in Object.entries($store.__transforms__.value)">
+                        <div class="flex justify-between">
+                            <input type="text" x-model="entries[0]" />
+                        </div>
+                    </template>
+                </div>
+            </template>
+        </div>
+    </div>
+    <div class="flex max-h-[calc(20dvh-4px)] flex-col justify-between">
+        <div class="flex justify-between">
+            <div class="text-base font-medium lg:text-lg">State</div>
+            <Button x-on:click="$store.__state__.addNew()" class="h-5">Add Variable</Button>
+        </div>
+        <div
+            class="aspect-[4/1] h-full overflow-scroll rounded border border-neutral-700 bg-neutral-200/70 p-2 md:aspect-auto dark:border-neutral-300 dark:bg-neutral-800/70"
+        >
+            <template x-if="0===Object.keys($store.__state__.value).length">
+                <span class="flex w-full items-center justify-center">Empty state</span>
+            </template>
+            <template x-if="0!==Object.keys($store.__state__.value).length">
+                <div
+                    class="flex flex-col gap-1 *:border-b *:border-b-neutral-700 *:last:border-none *:dark:border-b-neutral-300"
+                >
+                    <template x-for="entry in Object.entries($store.__state__.value)">
+                        <div class="flex w-full items-center gap-2" x-data="{edit:false,kind:(typeof entry[1])}">
+                            <svg
+                                viewBox="0 0 24 24"
+                                fill="none"
+                                class="aspect-square w-6"
+                                x-bind:class="!edit && 'hidden'"
+                                xmlns="http://www.w3.org/2000/svg"
+                                x-on:click="edit=false"
+                            >
+                                <path
+                                    d="M4 12.6111L8.92308 17.5L20 6.5"
+                                    stroke="currentColor"
+                                    stroke-width="2"
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"></path>
+                            </svg>
+                            <svg
+                                viewBox="-7.92 -7.92 39.84 39.84"
+                                fill="currentColor"
+                                xmlns="http://www.w3.org/2000/svg"
+                                stroke="currentColor"
+                                class="aspect-square w-6"
+                                x-bind:class="edit && 'hidden'"
+                                x-on:click="edit=true"
+                            >
+                                <path
+                                    fill-rule="evenodd"
+                                    clip-rule="evenodd"
+                                    d="M20.8477 1.87868C19.6761 0.707109 17.7766 0.707105 16.605 1.87868L2.44744 16.0363C2.02864 16.4551 1.74317 16.9885 1.62702 17.5692L1.03995 20.5046C0.760062 21.904 1.9939 23.1379 3.39334 22.858L6.32868 22.2709C6.90945 22.1548 7.44285 21.8693 7.86165 21.4505L22.0192 7.29289C23.1908 6.12132 23.1908 4.22183 22.0192 3.05025L20.8477 1.87868ZM18.0192 3.29289C18.4098 2.90237 19.0429 2.90237 19.4335 3.29289L20.605 4.46447C20.9956 4.85499 20.9956 5.48815 20.605 5.87868L17.9334 8.55027L15.3477 5.96448L18.0192 3.29289ZM13.9334 7.3787L3.86165 17.4505C3.72205 17.5901 3.6269 17.7679 3.58818 17.9615L3.00111 20.8968L5.93645 20.3097C6.13004 20.271 6.30784 20.1759 6.44744 20.0363L16.5192 9.96448L13.9334 7.3787Z"
+                                    fill="currentColor"></path>
+                            </svg>
+                            <div class="grid flex-[1] grid-cols-3 justify-between gap-2" x-bind:class="edit?'hidden':'grid'">
+                                <span x-text="entry[0]"></span>
+                                <span class="" x-text="kind"></span>
+                                <span class="" x-text="entry[1]"></span>
+                            </div>
+                            <div class="grid flex-[1] grid-cols-3 justify-between gap-2" x-bind:class="edit?'grid':'hidden'">
+                                <input type="text" class="rounded-sm border" x-model="entry[0]" />
+                                <span class="" x-text="kind"></span>
+                                <span class="" x-text="entry[1]"></span>
+                            </div>
+
+                            <svg
+                                x-on:click="$store.__state__.remove(entry[0])"
+                                class="aspect-square w-6 shrink-0"
+                                viewBox="0 0 24 24"
+                                fill="currentColor"
+                                xmlns="http://www.w3.org/2000/svg"
+                            >
+                                <path
+                                    d="M6.99486 7.00636C6.60433 7.39689 6.60433 8.03005 6.99486 8.42058L10.58 12.0057L6.99486 15.5909C6.60433 15.9814 6.60433 16.6146 6.99486 17.0051C7.38538 17.3956 8.01855 17.3956 8.40907 17.0051L11.9942 13.4199L15.5794 17.0051C15.9699 17.3956 16.6031 17.3956 16.9936 17.0051C17.3841 16.6146 17.3841 15.9814 16.9936 15.5909L13.4084 12.0057L16.9936 8.42059C17.3841 8.03007 17.3841 7.3969 16.9936 7.00638C16.603 6.61585 15.9699 6.61585 15.5794 7.00638L11.9942 10.5915L8.40907 7.00636C8.01855 6.61584 7.38538 6.61584 6.99486 7.00636Z"
+                                    fill="#currentColor"></path>
+                            </svg>
+                        </div>
+                    </template>
+                </div>
+            </template>
+        </div>
+    </div>
+</div>

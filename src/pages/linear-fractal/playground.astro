@@ -1,13 +1,40 @@
 ---
-import BaseLayout from "@/layouts/BaseLayout.astro";
+import SVG from "@/components/drawable/SVG.astro";
+import Button from "@/components/ui/Button.astro";
+import Form from "@/components/ui/Form.astro";
+import LinearPlaygroundForm from "@/components/ui/LinearPlaygroundForm.astro";
+import BaseLayout, { type BaseLayoutProps } from "@/layouts/BaseLayout.astro";
 
 import allRules from "@/lib/rules";
 
-export function getStaticPaths() {
-    return Object.entries(allRules).map(function ([kind, { canvas_kind }]) {
-        return { params: { kind }, props: { canvas_kind } };
-    });
-}
+const pageMetaData = {
+    title: `Playground | Linear Fractal`,
+    description: "",
+    keywords: [],
+} satisfies BaseLayoutProps;
 ---
 
-<BaseLayout title="playground" description="123" keywords={[]}> THIS PAGE IS WIP </BaseLayout>
+<BaseLayout {...pageMetaData}>
+    <h1 class="text-3xl font-bold underline">Linear Fractal Playground</h1>
+    <div class="flex flex-col gap-6 lg:flex-row" x-data={`__form_state__`}>
+        <div class="flex flex-col gap-3 lg:w-1/3">
+            <div class="flex max-h-[60dvh] flex-col gap-4">
+                <LinearPlaygroundForm />
+                <Form />
+            </div>
+            <div class="flex max-h-[30dvh] max-w-96 justify-between">
+                <Button x-on:click="__reset__();__render__(getState())">Draw</Button>
+                <Button x-on:click="resetState();__reset__();">Reset</Button>
+                <Button x-on:click={`__saveSVGAsImage__()`} x-bind:disabled="$store.isCanvasEmpty.value">Save</Button>
+            </div>
+        </div>
+        <div class="flex justify-center lg:w-2/3">
+            <SVG id="drawing-canvas" />
+        </div>
+    </div>
+</BaseLayout>
+<script is:inline src={`/geo-vis/lib/playground/linear-fractal.js`}></script>
+<script is:inline src={`/geo-vis/lib/util/core.js`}></script>
+<script type="module" is:inline src={`/geo-vis/lib/util/linear-fractal-validator.js`}></script>
+<script is:inline src={`/geo-vis/lib/util/lines.js`}></script>
+<script is:inline src={`/geo-vis/lib/renderer/linear-fractal.js`}></script>
