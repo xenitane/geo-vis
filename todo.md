@@ -6,9 +6,9 @@
   - [x] Linear
     - [ ] ??
   - [x] Fill
-    - [ ] T Square
+    - [x] T Square
   - [x] Branching
-    - [ ] Fractal Tree
+    - [x] Fractal Tree
   - [x] Attractor
   - [ ] Sets
     - [ ] Mandelbrot Set

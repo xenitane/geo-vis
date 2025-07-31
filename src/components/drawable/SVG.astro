@@ -1,0 +1,18 @@
+---
+type Props = { id: string };
+const { id } = Astro.props;
+---
+
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    viewBox="-1000 -1000 2000 2000"
+    width="100%"
+    height="100%"
+    xml-space="preserve"
+    xmlns-xlink="http://wwww3.org/1999/xlink"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+    class="aspect-square w-full rounded-md bg-neutral-200"
+>
+    <g id={id}></g>
+</svg>
