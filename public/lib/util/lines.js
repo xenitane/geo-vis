@@ -150,15 +150,3 @@ function makeTransformFunc(transforms, state) {
     const function_body = parseTransformsToFunctionBody(transforms, state, scope);
     return new Function("state", "cursor", "direction", function_body);
 }
-
-document.addEventListener("alpine:init", function () {
-    Alpine.store("isCanvasEmpty", {
-        value: true,
-        set() {
-            this.value = true;
-        },
-        unset() {
-            this.value = false;
-        },
-    });
-});
