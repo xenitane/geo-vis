@@ -1,0 +1,1 @@
+{"name":"Geometric Visualizer","short_name":"Geo Vis","description":"web app for geometric visuals","start_url":"/geo-vis/","display":"standalone","background_color":"#ffffff","theme_color":"#42b883","lang":"en","scope":"/geo-vis/","icons":[{"src":"https://cdn.xenitane.xyz/geo-vis/logo.png","type":"image/png","sizes":"512x512"}]}
