@@ -1,4 +1,6 @@
 ---
+import { pwaInfo } from "virtual:pwa-info";
+
 type Props = {
     title: string;
     description: string;
@@ -59,6 +61,10 @@ import cn from "@/lib/cn";
         <meta name="twitter:title" content={title} />
         <meta name="twitter:description" content={description} />
         <meta name="twitter:image" content={image} />
+
+        {pwaInfo && <Fragment set:html={pwaInfo.webManifest.linkTag} />}
+
+        <script src="@/pwa.ts"></script>
     </head>
     <body class="flex h-dvh flex-col">
         <Header />
