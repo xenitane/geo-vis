@@ -121,7 +121,7 @@ function __render__({ order, animate, color }) {
                         keep_outer_radius ? Complex.scale(invertedCenters[j][0], orf) : invertedCenters[j],
                         sides,
                         keep_outer_radius ? invertedCenters[j][1] * orf : or,
-                        shift
+                        shift + 180
                     ),
                     color_generator.next()
                 );
@@ -160,7 +160,7 @@ function __render__({ order, animate, color }) {
                     keep_outer_radius ? Complex.scale(invertedCenters[i][0], orf) : invertedCenters[i],
                     sides,
                     keep_outer_radius ? invertedCenters[i][1] * orf : or,
-                    shift
+                    shift + 180
                 ),
                 color_generator.next()
             );
