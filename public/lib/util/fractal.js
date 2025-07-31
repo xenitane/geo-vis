@@ -1,4 +1,13 @@
 document.addEventListener("alpine:init", function () {
+    Alpine.store("isCanvasEmpty", {
+        value: true,
+        set() {
+            this.value = true;
+        },
+        unset() {
+            this.value = false;
+        },
+    });
     Alpine.data("__form_state__", function (max_order) {
         return {
             max_order: max_order,
