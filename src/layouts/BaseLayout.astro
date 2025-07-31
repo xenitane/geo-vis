@@ -8,7 +8,7 @@ type Props = {
 
 export type BaseLayoutProps = Props;
 
-const { title, description, keywords, image = cdnify([false, "/logo.png"]) } = Astro.props;
+const { title, description, keywords, image = cdnify([false, "/logo-light.png"]) } = Astro.props;
 import { SITE_TITLE } from "@/constants";
 
 import "@fontsource/geist-sans/100.css";
@@ -37,7 +37,7 @@ import cn from "@/lib/cn";
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
         <meta http-equiv="content-language" content="en-us" />
         <meta name="robots" content="index, follow" />
-        <link rel="icon" type="image/png" href={cdnify([false, "/logo.png"])} />
+        <link rel="icon" type="image/png" href={cdnify([false, "/logo-light.png"])} />
         <meta name="generator" content={Astro.generator} />
 
         <!-- Primary Meta Tags -->
