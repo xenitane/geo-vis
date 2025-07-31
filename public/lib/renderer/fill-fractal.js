@@ -1,3 +1,6 @@
+const drawing_canvas = document.querySelector("#drawing-canvas");
+let interval = null;
+
 function generatePolygon(center, sides, radius, shift) {
     const vertices = [];
     let dir = Complex.rotate([0, -radius], shift);

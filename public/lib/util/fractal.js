@@ -1,6 +1,3 @@
-const drawing_canvas = document.querySelector("#drawing-canvas");
-let interval = null;
-
 document.addEventListener("alpine:init", function () {
     Alpine.data("__form_state__", function (max_order) {
         return {

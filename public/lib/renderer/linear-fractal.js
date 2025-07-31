@@ -1,7 +1,10 @@
+const drawing_canvas = document.querySelector("#drawing-canvas");
+let interval = null;
 const transformFuncs = {};
 
 function __render__({ order, animate, color }) {
     const { shift, state, transforms } = __newRules__();
+    validateSchema(transforms);
     const cursor = [0, 0];
     const direction = [1, 0];
     const points = [[0, 0]];

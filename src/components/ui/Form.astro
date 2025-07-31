@@ -7,8 +7,8 @@
         <div class="text-base font-medium lg:text-lg">Iteration Order</div>
         <div class="flex w-30 items-center justify-between">
             <button
-                class="inline-flex h-6 w-6 items-center justify-center rounded-full border border-neutral-200 bg-white text-sm font-medium ring-offset-white transition-all duration-500 ease-in-out hover:bg-neutral-100 hover:text-neutral-900 hover:drop-shadow-[0_1px_2px_rgba(0,0,0,0.15)] focus-visible:ring-2 focus-visible:ring-neutral-950 focus-visible:ring-offset-2 focus-visible:outline-none disabled:pointer-events-none disabled:opacity-50 dark:border-neutral-800 dark:bg-neutral-700 dark:ring-offset-neutral-950 dark:hover:bg-neutral-800 dark:hover:text-neutral-50 dark:focus-visible:ring-neutral-300"
-                :disabled="0 === order"
+                class="inline-flex h-6 w-6 items-center justify-center rounded-full border border-neutral-200 bg-white text-sm font-medium ring-offset-white hover:bg-neutral-100 hover:text-neutral-900 hover:drop-shadow-[0_1px_2px_rgba(0,0,0,0.15)] focus-visible:ring-2 focus-visible:ring-neutral-950 focus-visible:ring-offset-2 focus-visible:outline-none disabled:pointer-events-none disabled:opacity-50 dark:border-neutral-800 dark:bg-neutral-700 dark:ring-offset-neutral-950 dark:hover:bg-neutral-800 dark:hover:text-neutral-50 dark:focus-visible:ring-neutral-300"
+                x-bind:disabled="0 === order"
                 x-on:click="decreaseOrder()"
                 ><svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -31,8 +31,8 @@
                 0
             </div>
             <button
-                class="inline-flex h-6 w-6 items-center justify-center rounded-full border border-neutral-200 bg-white text-sm font-medium whitespace-nowrap ring-offset-white transition-all duration-500 ease-in-out hover:bg-neutral-100 hover:text-neutral-900 hover:drop-shadow-[0_1px_2px_rgba(0,0,0,0.15)] focus-visible:ring-2 focus-visible:ring-neutral-950 focus-visible:ring-offset-2 focus-visible:outline-none disabled:pointer-events-none disabled:opacity-50 dark:border-neutral-800 dark:bg-neutral-700 dark:ring-offset-neutral-950 dark:hover:bg-neutral-800 dark:hover:text-neutral-50 dark:focus-visible:ring-neutral-300"
-                :disabled="order >= max_order"
+                class="inline-flex h-6 w-6 items-center justify-center rounded-full border border-neutral-200 bg-white text-sm font-medium whitespace-nowrap ring-offset-white hover:bg-neutral-100 hover:text-neutral-900 hover:drop-shadow-[0_1px_2px_rgba(0,0,0,0.15)] focus-visible:ring-2 focus-visible:ring-neutral-950 focus-visible:ring-offset-2 focus-visible:outline-none disabled:pointer-events-none disabled:opacity-50 dark:border-neutral-800 dark:bg-neutral-700 dark:ring-offset-neutral-950 dark:hover:bg-neutral-800 dark:hover:text-neutral-50 dark:focus-visible:ring-neutral-300"
+                x-bind:disabled="order >= max_order"
                 x-on:click="increaseOrder()"
                 ><svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -54,8 +54,8 @@
             Animate
         </div>
         <button
-            class="switch-body inline-flex h-6 w-11 cursor-pointer items-center rounded-full border-2 border-transparent bg-neutral-200 transition-colors focus-visible:ring-2 focus-visible:ring-neutral-950 focus-visible:ring-offset-2 focus-visible:ring-offset-white focus-visible:outline-none dark:bg-neutral-800 dark:focus-visible:ring-neutral-300 dark:focus-visible:ring-offset-neutral-950"
-            x-bind:class="(animate.state && 'bg-neutral-900 dark:bg-neutral-100') + (animate.disable && 'cursor-not-allowed opacity-50')"
+            class="switch-body inline-flex h-6 w-11 cursor-pointer items-center rounded-full border-2 border-transparent focus-visible:ring-2 focus-visible:ring-neutral-950 focus-visible:ring-offset-2 focus-visible:ring-offset-white focus-visible:outline-none dark:focus-visible:ring-neutral-300 dark:focus-visible:ring-offset-neutral-950"
+            x-bind:class="(animate.state ? 'dark:bg-neutral-100 bg-neutral-900' : 'bg-neutral-200 dark:bg-neutral-800') + (animate.disable ? 'cursor-not-allowed opacity-50' : '')"
             x-on:click="animate.state = !animate.disable && !animate.state"
         >
             <div
@@ -69,8 +69,8 @@
     <div class="flex justify-between">
         <div x-on:click="color.state = !color.disable && !color.state" class="text-base font-medium lg:text-lg">Color</div>
         <button
-            class="switch-body inline-flex h-6 w-11 cursor-pointer items-center rounded-full border-2 border-transparent bg-neutral-200 transition-colors focus-visible:ring-2 focus-visible:ring-neutral-950 focus-visible:ring-offset-2 focus-visible:ring-offset-white focus-visible:outline-none dark:bg-neutral-800 dark:focus-visible:ring-neutral-300 dark:focus-visible:ring-offset-neutral-950"
-            x-bind:class="(color.state && 'bg-neutral-900 dark:bg-neutral-100') + (color.disable && 'cursor-not-allowed opacity-50')"
+            class="switch-body inline-flex h-6 w-11 cursor-pointer items-center rounded-full border-2 border-transparent focus-visible:ring-2 focus-visible:ring-neutral-950 focus-visible:ring-offset-2 focus-visible:ring-offset-white focus-visible:outline-none dark:focus-visible:ring-neutral-300 dark:focus-visible:ring-offset-neutral-950"
+            x-bind:class="(color.state ? 'dark:bg-neutral-100 bg-neutral-900' : 'bg-neutral-200 dark:bg-neutral-800') + (color.disable ? 'cursor-not-allowed opacity-50' : '')"
             x-on:click="color.state = !color.disable && !color.state"
         >
             <div

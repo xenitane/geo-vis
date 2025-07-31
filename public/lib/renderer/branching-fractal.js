@@ -1,22 +1,26 @@
+const drawing_canvas = document.querySelector("#drawing-canvas");
+let interval = null;
+
 const transformFuncs = {};
 
 function __render__({ order, animate, color }) {
     const { shift, state, stay, transforms } = __newRules__();
+    validateSchema(transforms);
     const paths = [];
     const bounds = [
         [0, 0],
         [0, 0],
     ];
 
-    function handleTree(crsr, dirn, n, string_tree) {
+    function handleTree(cursor, direction, n, string_tree) {
         if (notExists(string_tree)) {
             throw new Error("Parse Error: provide a valid expansion tree");
         }
         if ("string" === typeof string_tree) {
             for (let i = 0; i < string_tree.length; ++i) {
-                [crsr, dirn] = handleInstruction(crsr, dirn, n, string_tree.charAt(i));
+                [cursor, direction] = handleInstruction(cursor, direction, n, string_tree.charAt(i));
             }
-            return [crsr, dirn];
+            return [cursor, direction];
         }
         if (Array !== string_tree.constructor) {
             throw new Error("Parse Error: provide a valid expansion tree");
@@ -26,42 +30,42 @@ function __render__({ order, animate, color }) {
             throw new Error("Parse Error: provide a valid expansion tree");
         }
         for (let i = 0; i < expansion.length; ++i) {
-            [crsr, dirn] = handleInstruction(crsr, dirn, n, expansion.charAt(i));
+            [cursor, direction] = handleInstruction(cursor, direction, n, expansion.charAt(i));
         }
-        let tc = [crsr[0], crsr[1]];
-        let td = [dirn[0], dirn[1]];
+        let tc = [cursor[0], cursor[1]];
+        let td = [direction[0], direction[1]];
         for (let i = 0; i < children.length; ++i) {
-            tc = [crsr[0], crsr[1]];
-            td = [dirn[0], dirn[1]];
+            tc = [cursor[0], cursor[1]];
+            td = [direction[0], direction[1]];
             [tc, td] = handleTree(tc, td, n, children[i]);
         }
-        return stay ? [crsr, dirn] : [tc, td];
+        return stay ? [cursor, direction] : [tc, td];
     }
 
-    function handleInstruction(crsr, dirn, n, symbol) {
+    function handleInstruction(cursor, direction, n, symbol) {
         const [terminal, ruleset, feed, expansion_tree] = transforms[symbol];
         if ("boolean" !== typeof terminal || "boolean" !== typeof feed) {
             throw new Error("Parse Error: instruction kind unclear(terminal/non-terminal)");
         }
         if (n === 0 || terminal) {
-            const old_crsr = [crsr[0], crsr[1]];
+            const old_cursor = [cursor[0], cursor[1]];
             if (notExists(transformFuncs[symbol])) {
                 transformFuncs[symbol] = makeTransformFunc(ruleset, state);
             }
-            transformFuncs[symbol](state, crsr, dirn);
-            if (feed && (old_crsr[0] !== crsr[0] || old_crsr[1] !== crsr[1])) {
+            transformFuncs[symbol](state, cursor, direction);
+            if (feed && (old_cursor[0] !== cursor[0] || old_cursor[1] !== cursor[1])) {
                 paths.push([
-                    [old_crsr[0], old_crsr[1]],
-                    [crsr[0], crsr[1]],
+                    [old_cursor[0], old_cursor[1]],
+                    [cursor[0], cursor[1]],
                 ]);
-                bounds[0][0] = Math.min(bounds[0][0], crsr[0]);
-                bounds[0][1] = Math.min(bounds[0][1], crsr[1]);
-                bounds[1][0] = Math.max(bounds[1][0], crsr[0]);
-                bounds[1][1] = Math.max(bounds[1][1], crsr[1]);
+                bounds[0][0] = Math.min(bounds[0][0], cursor[0]);
+                bounds[0][1] = Math.min(bounds[0][1], cursor[1]);
+                bounds[1][0] = Math.max(bounds[1][0], cursor[0]);
+                bounds[1][1] = Math.max(bounds[1][1], cursor[1]);
             }
-            return [crsr, dirn];
+            return [cursor, direction];
         }
-        return handleTree(crsr, dirn, n - 1, expansion_tree);
+        return handleTree(cursor, direction, n - 1, expansion_tree);
     }
 
     handleInstruction([0, 0], [1, 0], order + shift, "I");
