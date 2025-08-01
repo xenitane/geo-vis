@@ -94,58 +94,58 @@ define(['./workbox-8b214665'], (function (workbox) { 'use strict';
     "revision": null
   }, {
     "url": "branching-fractal/barnsley-fern",
-    "revision": "d0e88f90bc934cc4842c4eaed588eabe"
+    "revision": "d14d9e8397aedf7e6d3d659e79260d7d"
   }, {
     "url": "branching-fractal/fractal-tree",
-    "revision": "c1eab6987f480954fec7d8e5fbf71e40"
+    "revision": "18fef433a8f1808e10de200f9cca632e"
   }, {
     "url": "branching-fractal/peano-sierpinski-carpet",
-    "revision": "d3175fc049e30c1e0d9e09991e4fc025"
+    "revision": "68513164276e4b0918a24ed6d45920c4"
   }, {
     "url": "branching-fractal/sierpinski-carpet",
-    "revision": "554315b0fb37ff8d31920589b697b1e2"
+    "revision": "e9e04cb645720468738613096699cb03"
   }, {
     "url": "branching-fractal/sierpinski-gasket",
-    "revision": "6ed6992a45419bbbc4f7fd6e2e80d17d"
+    "revision": "ad3833d5684f4ae40dfaf5dd32de4824"
   }, {
     "url": "branching-fractal/t-square",
-    "revision": "6ef98887128a83bb0797e00620f1c319"
+    "revision": "dd8d1ab6c8e1e75aeae45b79591ed1e8"
   }, {
     "url": "branching-fractal/vicsek-fractal",
-    "revision": "9165dc6b57551017ec61516240fc79a2"
+    "revision": "15cdda8f31507bbc9c395a18b33f34e4"
   }, {
     "url": "fill-fractal/hex-nut",
-    "revision": "72d95c76f1313c86e3bca7a8ce86902c"
+    "revision": "41d7f6db07a840916a3a6f4737a68398"
   }, {
     "url": "fill-fractal/hex-pool",
-    "revision": "86adc5c7917b87d1da63217b02fe7089"
+    "revision": "4dca188e7b6ec83eed8cca02b793fc60"
   }, {
     "url": "fill-fractal/hexaflake",
-    "revision": "c2511fce3ee5ab0c10e1934f1b459845"
+    "revision": "014c2cf52bf49493f02965e3424235a2"
   }, {
     "url": "fill-fractal/pentaflake",
-    "revision": "8ff165590a85cb06e0996b01278e06fb"
+    "revision": "8e2b1781baf1791d14dc3d81dccd5878"
   }, {
     "url": "fill-fractal/sierpinski-carpet",
-    "revision": "6c1644dad563f863cb58fc7f227c9847"
+    "revision": "067706cd4b85c50665389b396d5076c9"
   }, {
     "url": "fill-fractal/sierpinski-hexagon",
-    "revision": "96d7f74c0039449622d3c7957f7bc29d"
+    "revision": "c22546cec761287f86b72c310cf7a5ee"
   }, {
     "url": "fill-fractal/sierpinski-pentagon",
-    "revision": "3180f68e9ba8a464361f5a8a2e0cce49"
+    "revision": "0904d3a13876eb6975eb097bb81797ac"
   }, {
     "url": "fill-fractal/sierpinski-triangle",
-    "revision": "87b25ac310e224f0df8addcaa65de794"
+    "revision": "d2bea095b3857d22d6f868243147e029"
   }, {
     "url": "fill-fractal/t-square",
-    "revision": "9be592f562337dd4e511c158dc43c971"
+    "revision": "29438a41eda5b3ffe7cb7117e1d1c246"
   }, {
     "url": "fill-fractal/vicsek-fractal-2",
-    "revision": "e017ff370a4b156fa2a6c76a0de45471"
+    "revision": "bf58381f9e150b8808a6bb2f41de9e84"
   }, {
     "url": "fill-fractal/vicsek-fractal",
-    "revision": "b9d41ca26f13e8afe5b1d01ed252a210"
+    "revision": "3c34786833322b54025ad591ab3a6143"
   }, {
     "url": "/geo-vis",
     "revision": "935b6fe149ddcd584631ea1d5ab86970"
@@ -274,7 +274,7 @@ define(['./workbox-8b214665'], (function (workbox) { 'use strict';
     "revision": "84dbc21a01e5772f1ea238eeb7bce84f"
   }, {
     "url": "lib/util/core.js",
-    "revision": "51d4d3eb3947deb76f2c6a72b85b818a"
+    "revision": "e0208bedc83e697f096746191e0f1d2e"
   }, {
     "url": "lib/util/fractal.js",
     "revision": "cd26f4c8c2f11521365de41616c54843"
@@ -286,61 +286,61 @@ define(['./workbox-8b214665'], (function (workbox) { 'use strict';
     "revision": "f5c7949af5c84328174c52d7adf236b7"
   }, {
     "url": "linear-fractal/cross-stitch-curve",
-    "revision": "84855cd8c1c22974f2a9cacc6b16846f"
+    "revision": "9b0f07b7e5480622033260ee52c6c34f"
   }, {
     "url": "linear-fractal/dragon-curve",
-    "revision": "59ee40aa2d459410227f38b941d06595"
+    "revision": "89d975dff2f74009d14bc74576dd4577"
   }, {
     "url": "linear-fractal/fibonacci-word-fractal",
-    "revision": "550e621d5ac2f8f7038fdff41a366ce7"
+    "revision": "28500e453abfbeb861eeb0a8581e19d7"
   }, {
     "url": "linear-fractal/gosper-curve",
-    "revision": "c9afb5b788d28f5ee8276b16f5b956df"
+    "revision": "29d36ffc6851c50909212953fcd019e6"
   }, {
     "url": "linear-fractal/gosper-island",
-    "revision": "6abb16476621c99c34841a038ac3d1a2"
+    "revision": "68023c281ca7e458699e7f8259afcc89"
   }, {
     "url": "linear-fractal/hilbert-curve-2",
-    "revision": "c0c05904c91a0e28cba11e9a08f49889"
+    "revision": "a79276b5b961832abac4c4e05ca10d3f"
   }, {
     "url": "linear-fractal/hilbert-curve",
-    "revision": "bd7df1e3f06516a25ce8e046d31ab74a"
+    "revision": "7abee77b2ec3b0efa5711b748354c5d0"
   }, {
     "url": "linear-fractal/koch-anti-snowflake",
-    "revision": "4a30a4f1bd4f5b3f615ef95f824a624a"
+    "revision": "70ae570d8469ea4bf8f04b853c08b9f3"
   }, {
     "url": "linear-fractal/koch-snowflake",
-    "revision": "938bf299205b1ff07cc9a35818dcb29f"
+    "revision": "45be1b9d3086b4d4207b075d120fc65c"
   }, {
     "url": "linear-fractal/levy-c-curve",
-    "revision": "b7a34d413f1ecbe7bb82871612cf51ab"
+    "revision": "5c7cc359a5c08a02d197518c43005b8f"
   }, {
     "url": "linear-fractal/minkowski-island",
-    "revision": "782a77f2db9b8f8d65607d8630ddec13"
+    "revision": "b5ef7b074fb428a4fd11b143d9954703"
   }, {
     "url": "linear-fractal/peano-curve",
-    "revision": "1eb53254bb775c1d54df796464c39467"
+    "revision": "1d09be6cb0f742d8a46f6ea3a794e8ff"
   }, {
     "url": "linear-fractal/quadratic-island",
-    "revision": "956aced3a26a603e024ae4cabbce988f"
+    "revision": "80056f49151a225e15abf1e91c317f4d"
   }, {
     "url": "linear-fractal/quadratic-koch-island",
-    "revision": "2112b90105552b7a01c994beeef6c5da"
+    "revision": "6bcc3409eeb02b8cc1ed9f937a10297d"
   }, {
     "url": "linear-fractal/sierpinski-arrow-head",
-    "revision": "55cb8149ba3026342ac504c83523e115"
+    "revision": "d34a45f615a0187d0483a67fdb701212"
   }, {
     "url": "linear-fractal/sierpinski-triangle",
-    "revision": "3e2c5f17ecb21d948f3dc7fe99ad8b4b"
+    "revision": "a1c914b939188be7d88c01f329a7d205"
   }, {
     "url": "linear-fractal/t-square",
-    "revision": "f0760181a00016c432a7d0705ce29277"
+    "revision": "4f6226b2f39661833a08c5c6f6830d8e"
   }, {
     "url": "linear-fractal/vicsek-fractal-2",
-    "revision": "1dfad98c61e08fe38cb4baf8a2ec4a0f"
+    "revision": "5a9b13f05ab7307639ee1b50dd0cb297"
   }, {
     "url": "linear-fractal/vicsek-fractal",
-    "revision": "057ad240cf8bacee13f3e2e7bda69c57"
+    "revision": "2139cfd7e8badcde43d235351ae451e7"
   }, {
     "url": "robots.txt",
     "revision": "9152d7f1724ed8fbcd2e0c87029f193c"
