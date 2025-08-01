@@ -31,7 +31,6 @@ export default defineConfig({
         alpinejs({ entrypoint: "/src/entrypoint.ts" }),
         AstroPWA({
             registerType: "autoUpdate",
-            mode: "development",
             manifest: {
                 name: "Geometric Visualizer",
                 short_name: "Geo Vis",

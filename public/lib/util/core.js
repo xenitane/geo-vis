@@ -27,6 +27,9 @@ function __saveSVGAsImage__(id, order) {
 
     const img = new Image();
     img.onload = function () {
+        ctx.rect(0, 0, 2000, 2000);
+        ctx.fillStyle = "#ffffff";
+        ctx.fill();
         ctx.drawImage(img, 0, 0);
         (function () {
             const dataURL = canvas.toDataURL("image/png");
