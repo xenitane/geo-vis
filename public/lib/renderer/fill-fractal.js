@@ -103,7 +103,7 @@ function __render__({ order, animate, color }) {
     const or = outer_radius * factor;
     const orf = (1 - ratio) / (1 - factor * ratio);
 
-    const color_generator = new ColorGenerator(color, order + 1);
+    const color_generator = new ColorGenerator(color, Math.ceil(Math.log2(centers.length + invertedCenters.length) / 3));
     if (animate) {
         let i = 0;
         let j = 0;

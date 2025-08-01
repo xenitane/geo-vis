@@ -48,7 +48,7 @@ function __render__({ order, animate, color }) {
         points[i][1] = rounder((points[i][1] - origin[1]) * scale);
     }
 
-    const color_generator = new ColorGenerator(color, points.length - 1);
+    const color_generator = new ColorGenerator(color, Math.ceil(Math.log2(points.length - 1) / 3));
 
     if (animate) {
         let i = 1;
