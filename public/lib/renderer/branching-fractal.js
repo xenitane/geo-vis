@@ -68,7 +68,7 @@ function __render__({ order, animate, color }) {
         paths[i][1][1] = rounder((paths[i][1][1] - origin[1]) * scale);
     }
 
-    const color_generator = new ColorGenerator(color, paths.length);
+    const color_generator = new ColorGenerator(color, Math.ceil(Math.log2(paths.length) / 3));
 
     if (animate) {
         let i = 0;

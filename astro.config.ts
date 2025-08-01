@@ -1,6 +1,6 @@
 /** @type {import("astro").AstroUserConfig} */
 
-import alpinejs from "@astrojs/alpinejs";
+import alpine_js from "@astrojs/alpinejs";
 import tailwindcss from "@tailwindcss/vite";
 import AstroPWA from "@vite-pwa/astro";
 import { defineConfig, envField } from "astro/config";
@@ -28,7 +28,7 @@ export default defineConfig({
         plugins: [tailwindcss()],
     },
     integrations: [
-        alpinejs({ entrypoint: "/src/entrypoint.ts" }),
+        alpine_js({ entrypoint: "/src/entrypoint.ts" }),
         AstroPWA({
             registerType: "autoUpdate",
             manifest: {

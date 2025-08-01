@@ -1,20 +1,49 @@
-function rounder(a) {
-    return Math.round(a * 10000) / 10000;
+function rounder(num) {
+    return Math.round(num * 10000) / 10000;
 }
 
 class ColorGenerator {
-    order;
-    active;
+    #active;
+    #step;
+    #numbers = [0];
+    #idx = 0;
+    #u;
 
-    constructor(active, order) {
-        this.active = active;
-        this.order = order;
-    }
-    clone() {
-        return new ColorGenerator(this.active, this.order);
+    constructor(a, u) {
+        this.#active = a;
+        this.#u = u;
+        if (!a) {
+            return;
+        }
+        this.#step = 255 / Math.pow(2, u + 1);
+        let diff = 1;
+        for (let i = 0; i < u * 3; ++i) {
+            this.#numbers.push(...[...this.#numbers].reverse().map((val) => val + diff));
+            diff *= 2;
+        }
     }
     next() {
-        return this.active ? "lol" : "#000000";
+        if (!this.#active) {
+            return "#000000";
+        }
+        return ColorGenerator.#color(this.#numbers[this.#idx++], this.#step, this.#u);
+    }
+
+    static #color(num, s, u) {
+        const r = (num >> (2 * u)) & ((1 << u) - 1);
+        const g = (num >> u) & ((1 << u) - 1);
+        const b = num & ((1 << u) - 1);
+
+        return (
+            "#" +
+            [r, g, b]
+                .map((v) =>
+                    Math.ceil((v + 1) * s)
+                        .toString(16)
+                        .padStart(2, 0)
+                )
+                .join("")
+        );
     }
 }
 
