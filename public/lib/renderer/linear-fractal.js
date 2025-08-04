@@ -16,9 +16,6 @@ function __render__({ order, animate, color }) {
 
     (function build(n, symbol) {
         const [terminal, ruleset, expansion] = transforms[symbol];
-        if ("boolean" !== typeof terminal) {
-            throw new Error("Parse Error: instruction kind unclear(terminal/non-terminal)");
-        }
         if (0 === n || terminal) {
             if (notExists(transformFuncs[symbol])) {
                 transformFuncs[symbol] = makeTransformFunc(ruleset, state);
@@ -32,9 +29,6 @@ function __render__({ order, animate, color }) {
             bounds[1][0] = Math.max(bounds[1][0], cursor[0]);
             bounds[1][1] = Math.max(bounds[1][1], cursor[1]);
             return;
-        }
-        if ("string" !== typeof expansion) {
-            throw new Error("Parse Error: provide a valid expansion string");
         }
         for (let i = 0; i < expansion.length; ++i) {
             build(n - 1, expansion.charAt(i));
@@ -72,11 +66,11 @@ function __render__({ order, animate, color }) {
 }
 
 function __reset__() {
-    Alpine.startObservingMutations();
     Alpine.store("isCanvasEmpty").set();
     drawing_canvas.innerHTML = "";
     if (interval) {
         clearInterval(interval);
     }
     interval = null;
+    Alpine.startObservingMutations();
 }

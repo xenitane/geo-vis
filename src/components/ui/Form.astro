@@ -59,8 +59,8 @@
             x-on:click="animate.state = !animate.disable && !animate.state"
         >
             <div
-                class="switch-ball pointer-events-none block h-5 w-5 translate-x-0 rounded-full bg-white shadow-lg ring-0 transition-transform dark:bg-neutral-950"
-                x-bind:class="animate.state && 'translate-x-5'"
+                class="switch-ball pointer-events-none block h-5 w-5 rounded-full bg-white shadow-lg ring-0 transition-transform dark:bg-neutral-950"
+                x-bind:class="animate.state ? 'translate-x-5' : 'translate-x-0'"
             >
                 <span class="sr-only">animate switch</span>
             </div>
@@ -74,8 +74,8 @@
             x-on:click="color.state = !color.disable && !color.state"
         >
             <div
-                class="switch-ball pointer-events-none block h-5 w-5 translate-x-0 rounded-full bg-white shadow-lg ring-0 transition-transform dark:bg-neutral-950"
-                x-bind:class="color.state && 'translate-x-5'"
+                class="switch-ball pointer-events-none block h-5 w-5 rounded-full bg-white shadow-lg ring-0 transition-transform dark:bg-neutral-950"
+                x-bind:class="color.state ? 'translate-x-5' : 'translate-x-0'"
             >
                 <span class="sr-only">color switch</span>
             </div>

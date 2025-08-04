@@ -170,11 +170,11 @@ function __render__({ order, animate, color }) {
 }
 
 function __reset__() {
-    Alpine.startObservingMutations();
     Alpine.store("isCanvasEmpty").set();
     drawing_canvas.innerHTML = "";
     if (interval) {
         clearInterval(interval);
     }
     interval = null;
+    Alpine.startObservingMutations();
 }

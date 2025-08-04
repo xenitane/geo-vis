@@ -1,4 +1,14 @@
 document.addEventListener("alpine:init", function () {
+    Alpine.store("isCanvasEmpty", {
+        value: true,
+        set() {
+            this.value = true;
+        },
+        unset() {
+            this.value = false;
+        },
+    });
+
     Alpine.data("__form_state__", function () {
         return {
             max_order: 20,
@@ -11,7 +21,7 @@ document.addEventListener("alpine:init", function () {
             color: {
                 def: false,
                 state: false,
-                disable: true,
+                disable: false,
             },
 
             decreaseOrder() {
@@ -37,14 +47,16 @@ document.addEventListener("alpine:init", function () {
         };
     });
     Alpine.store("__state__", {
-        value: { k: true },
+        value: {
+            a: true,
+        },
 
         async addNew() {
             while (true) {
                 const key = [...new Uint8Array(await crypto.subtle.digest("sha-1", new TextEncoder().encode(`${Date.now()}`)))]
+                    .slice(0, 4)
                     .map((x) => x.toString(16).padStart(2, 0))
-                    .join("")
-                    .slice(0, 8);
+                    .join("");
                 if (undefined === this.value[key]) {
                     this.value[key] = false;
                     break;
@@ -57,11 +69,12 @@ document.addEventListener("alpine:init", function () {
 
         changeKey(old_key, new_key) {
             if (undefined !== this.value[new_key]) {
-                throw new Error("this key already exists");
+                return false;
             }
             const val = this.value[old_key];
-            delete this.val[old_key];
+            this.remove(old_key);
             this.value[new_key] = val;
+            return true;
         },
 
         updateValue(key, newValue) {
@@ -70,7 +83,7 @@ document.addEventListener("alpine:init", function () {
     });
     Alpine.store("__transforms__", {
         value: {
-            I: [true, [["ret"]]],
+            I: [false, [["move"]], "II"],
         },
     });
 });
@@ -81,4 +94,16 @@ function __newRules__() {
         state: Alpine.store("__state__").value,
         transforms: Alpine.store("__transforms__").value,
     };
+}
+
+function updateState(id, [new_id, value]) {
+    if (typeof value !== "number" && typeof value !== "boolean") {
+        console.log(value, typeof value);
+        return false;
+    }
+    if (new_id === "" || (new_id !== id && !Alpine.store("__state__").changeKey(id, new_id))) {
+        return false;
+    }
+    Alpine.store("__state__").updateValue(new_id, value);
+    return true;
 }

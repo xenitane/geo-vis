@@ -1,9 +1,10 @@
 ---
+import cn from "@/lib/cn";
 import Button from "./Button.astro";
 ---
 
-<div class="flex max-h-[40dvh] flex-col gap-2 md:flex-row lg:flex-col">
-    <div class="flex max-h-[calc(20dvh-4px)] flex-col justify-between">
+<div class="grid max-h-[40dvh] grid-cols-1 grid-rows-2 gap-2 md:grid-cols-2 md:grid-rows-1 lg:grid-cols-1 lg:grid-rows-2">
+    <div class="flex h-[calc(20dvh-4px)] flex-col justify-between gap-1 md:h-[40dvh] lg:h-[calc(20dvh-4px)]">
         <div class="flex justify-between">
             <div class="text-base font-medium lg:text-lg">Transforms</div>
             <Button class="h-5">Add Transform</Button>
@@ -11,93 +12,240 @@ import Button from "./Button.astro";
         <div
             class="aspect-[4/1] h-full overflow-scroll rounded border border-neutral-700 bg-neutral-200/70 p-2 md:aspect-auto dark:border-neutral-300 dark:bg-neutral-800/70"
         >
-            <template x-if="0===Object.keys($store.__transforms__.value).length">
-                <span class="flex w-full items-center justify-center">No Transforms</span>
-            </template>
-            <template x-if="0!==Object.keys($store.__transforms__.value).length">
-                <div class="flex flex-col gap-1">
-                    <template x-for="entries in Object.entries($store.__transforms__.value)">
-                        <div class="flex justify-between">
-                            <input type="text" x-model="entries[0]" />
-                        </div>
-                    </template>
-                </div>
-            </template>
+            <div class="flex flex-col gap-1">
+                <template x-for="entries in Object.entries($store.__transforms__.value)">
+                    <div class="flex justify-between">
+                        <input type="text" x-model="entries[0]" />
+                    </div>
+                </template>
+            </div>
         </div>
     </div>
-    <div class="flex max-h-[calc(20dvh-4px)] flex-col justify-between">
+    <div
+        class="flex h-[calc(20dvh-4px)] flex-col justify-between gap-1 md:h-[40dvh] lg:h-[calc(20dvh-4px)]"
+        x-data="{error:null,setError(msg){this.error=msg;setTimeout(()=>{this.error=null},5000)}}"
+    >
         <div class="flex justify-between">
             <div class="text-base font-medium lg:text-lg">State</div>
-            <Button x-on:click="$store.__state__.addNew()" class="h-5">Add Variable</Button>
+            <Button x-on:mousedown="await $store.__state__.addNew()" class="h-5">Add Variable</Button>
         </div>
         <div
-            class="aspect-[4/1] h-full overflow-scroll rounded border border-neutral-700 bg-neutral-200/70 p-2 md:aspect-auto dark:border-neutral-300 dark:bg-neutral-800/70"
+            class={cn(
+                "aspect-[4/1] h-full overflow-y-scroll rounded border border-neutral-700 bg-neutral-200/70 p-2 md:aspect-auto dark:border-neutral-300 dark:bg-neutral-800/70",
+                "scrollbar-thumb-rounded-full scrollbar-track-rounded-full scrollbar-thin! scrollbar-thumb-neutral-700 scrollbar-track-neutral-300 dark:scrollbar-thumb-neutral-300 dark:scrollbar-track-neutral-700"
+            )}
         >
             <template x-if="0===Object.keys($store.__state__.value).length">
                 <span class="flex w-full items-center justify-center">Empty state</span>
             </template>
             <template x-if="0!==Object.keys($store.__state__.value).length">
                 <div
-                    class="flex flex-col gap-1 *:border-b *:border-b-neutral-700 *:last:border-none *:dark:border-b-neutral-300"
+                    class="flex flex-col font-['Geist_Mono'] *:border-b *:border-b-neutral-700 *:last:border-none *:dark:border-b-neutral-300"
                 >
                     <template x-for="entry in Object.entries($store.__state__.value)">
-                        <div class="flex w-full items-center gap-2" x-data="{edit:false,kind:(typeof entry[1])}">
-                            <svg
-                                viewBox="0 0 24 24"
-                                fill="none"
-                                class="aspect-square w-6"
-                                x-bind:class="!edit && 'hidden'"
-                                xmlns="http://www.w3.org/2000/svg"
-                                x-on:click="edit=false"
-                            >
-                                <path
-                                    d="M4 12.6111L8.92308 17.5L20 6.5"
-                                    stroke="currentColor"
-                                    stroke-width="2"
-                                    stroke-linecap="round"
-                                    stroke-linejoin="round"></path>
-                            </svg>
-                            <svg
-                                viewBox="-7.92 -7.92 39.84 39.84"
-                                fill="currentColor"
-                                xmlns="http://www.w3.org/2000/svg"
-                                stroke="currentColor"
-                                class="aspect-square w-6"
-                                x-bind:class="edit && 'hidden'"
-                                x-on:click="edit=true"
-                            >
-                                <path
-                                    fill-rule="evenodd"
-                                    clip-rule="evenodd"
-                                    d="M20.8477 1.87868C19.6761 0.707109 17.7766 0.707105 16.605 1.87868L2.44744 16.0363C2.02864 16.4551 1.74317 16.9885 1.62702 17.5692L1.03995 20.5046C0.760062 21.904 1.9939 23.1379 3.39334 22.858L6.32868 22.2709C6.90945 22.1548 7.44285 21.8693 7.86165 21.4505L22.0192 7.29289C23.1908 6.12132 23.1908 4.22183 22.0192 3.05025L20.8477 1.87868ZM18.0192 3.29289C18.4098 2.90237 19.0429 2.90237 19.4335 3.29289L20.605 4.46447C20.9956 4.85499 20.9956 5.48815 20.605 5.87868L17.9334 8.55027L15.3477 5.96448L18.0192 3.29289ZM13.9334 7.3787L3.86165 17.4505C3.72205 17.5901 3.6269 17.7679 3.58818 17.9615L3.00111 20.8968L5.93645 20.3097C6.13004 20.271 6.30784 20.1759 6.44744 20.0363L16.5192 9.96448L13.9334 7.3787Z"
-                                    fill="currentColor"></path>
-                            </svg>
-                            <div class="grid flex-[1] grid-cols-3 justify-between gap-2" x-bind:class="edit?'hidden':'grid'">
-                                <span x-text="entry[0]"></span>
-                                <span class="" x-text="kind"></span>
-                                <span class="" x-text="entry[1]"></span>
+                        <div
+                            class="flex w-full items-center justify-between gap-2 py-1"
+                            x-data="{edit:false,kind:(typeof entry[1]),id:entry[0],value:entry[1]}"
+                        >
+                            <div class="flex-1">
+                                <div
+                                    class="grid grid-cols-[1fr_2fr_2fr] justify-between gap-2"
+                                    x-bind:class="edit?'hidden':'grid'"
+                                >
+                                    <span class="flex items-center justify-center" x-text="id"></span>
+                                    <span class="flex items-center justify-center" x-text="kind"></span>
+                                    <span class="flex items-center justify-center" x-text="value"></span>
+                                </div>
+                                <div
+                                    class="grid grid-cols-[1fr_2fr_2fr] justify-between gap-2"
+                                    x-bind:class="edit?'grid':'hidden'"
+                                >
+                                    <input class="rounded-sm border text-center outline-1" type="text" x-model="id" />
+                                    <div class="flex justify-center">
+                                        <div
+                                            class="relative"
+                                            x-data="{open:false,toggle(){if(this.open){this.close();return;}this.$refs.button.focus();this.open=true;},close(fa){if(!this.open)return;this.open=false;fa&&fa.focus()}}"
+                                            x-on:keydown.escape.prevent.stop="close($refs.button)"
+                                            x-on:focusin.window="! $refs.panel.contains($event.target) && close()"
+                                            x-id="['dropdown-btn']"
+                                        >
+                                            <button
+                                                x-ref="button"
+                                                x-on:click="toggle()"
+                                                class="relative flex items-center justify-center rounded-sm border-2 px-1 whitespace-nowrap"
+                                            >
+                                                <span x-text="kind"></span>
+                                                <svg
+                                                    xmlns="http://www.w3.org/2000/svg"
+                                                    viewBox="0 0 16 16"
+                                                    fill="currentColor"
+                                                    class="size-4"
+                                                >
+                                                    <path
+                                                        fill-rule="evenodd"
+                                                        d="M4.22 6.22a.75.75 0 0 1 1.06 0L8 8.94l2.72-2.72a.75.75 0 1 1 1.06 1.06l-3.25 3.25a.75.75 0 0 1-1.06 0L4.22 7.28a.75.75 0 0 1 0-1.06Z"
+                                                        clip-rule="evenodd"></path>
+                                                </svg>
+                                            </button>
+                                            <div
+                                                x-ref="panel"
+                                                x-show="open"
+                                                x-transition.origin.top.left
+                                                x-on:click.outside="close($refs.button)"
+                                                x-bind:id="$id('dropdown-button')"
+                                                x-cloak
+                                                class="absolute left-0 z-10 mt-2 max-w-48 origin-top-left rounded-lg border border-neutral-300 p-1.5 shadow-sm outline-none dark:border-neutral-700"
+                                            >
+                                                <span
+                                                    x-on:click="if(kind!=='boolean'){kind='boolean';value=false}close($refs.button)"
+                                                    class="flex w-full items-center rounded-md px-2 py-2 text-left transition-colors hover:bg-neutral-50 focus-visible:bg-neutral-50 disabled:cursor-not-allowed disabled:opacity-50 lg:py-1.5 dark:hover:bg-neutral-950 dark:focus-visible:bg-neutral-950"
+                                                >
+                                                    boolean
+                                                </span>
+                                                <span
+                                                    x-on:click="if(kind!=='number'){kind='number';value=0}close($refs.button)"
+                                                    class="flex w-full items-center rounded-md px-2 py-2 text-left transition-colors hover:bg-neutral-50 focus-visible:bg-neutral-50 disabled:cursor-not-allowed disabled:opacity-50 lg:py-1.5 dark:hover:bg-neutral-950 dark:focus-visible:bg-neutral-950"
+                                                >
+                                                    number
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="flex justify-center" x-bind:class="kind==='boolean'?'':'hidden'">
+                                        <div
+                                            class="relative"
+                                            x-data="{open:false,toggle(){if(this.open){this.close();return;}this.$refs.button.focus();this.open=true;},close(fa){if(!this.open)return;this.open=false;fa&&fa.focus()}}"
+                                            x-on:keydown.escape.prevent.stop="close($refs.button)"
+                                            x-on:focusin.window="! $refs.panel.contains($event.target) && close()"
+                                            x-id="['dropdown-btn']"
+                                        >
+                                            <button
+                                                x-ref="button"
+                                                x-on:click="toggle()"
+                                                class="relative flex items-center justify-center rounded-sm border-2 px-1 whitespace-nowrap"
+                                            >
+                                                <span x-text="value"></span>
+                                                <svg
+                                                    xmlns="http://www.w3.org/2000/svg"
+                                                    viewBox="0 0 16 16"
+                                                    fill="currentColor"
+                                                    class="size-4"
+                                                >
+                                                    <path
+                                                        fill-rule="evenodd"
+                                                        d="M4.22 6.22a.75.75 0 0 1 1.06 0L8 8.94l2.72-2.72a.75.75 0 1 1 1.06 1.06l-3.25 3.25a.75.75 0 0 1-1.06 0L4.22 7.28a.75.75 0 0 1 0-1.06Z"
+                                                        clip-rule="evenodd"></path>
+                                                </svg>
+                                            </button>
+                                            <div
+                                                x-ref="panel"
+                                                x-show="open"
+                                                x-transition.origin.top.left
+                                                x-on:click.outside="close($refs.button)"
+                                                x-bind:id="$id('dropdown-button')"
+                                                x-cloak
+                                                class="absolute left-0 z-10 mt-2 max-w-48 origin-top-left rounded-lg border border-neutral-300 p-1.5 shadow-sm outline-none dark:border-neutral-700"
+                                            >
+                                                <span
+                                                    x-on:click="value=true;close($refs.button)"
+                                                    class="flex w-full items-center rounded-md px-2 py-2 text-left transition-colors hover:bg-neutral-50 focus-visible:bg-neutral-50 disabled:cursor-not-allowed disabled:opacity-50 lg:py-1.5 dark:hover:bg-neutral-950 dark:focus-visible:bg-neutral-950"
+                                                >
+                                                    true
+                                                </span>
+                                                <span
+                                                    x-on:click="value=false;close($refs.button)"
+                                                    class="flex w-full items-center rounded-md px-2 py-2 text-left transition-colors hover:bg-neutral-50 focus-visible:bg-neutral-50 disabled:cursor-not-allowed disabled:opacity-50 lg:py-1.5 dark:hover:bg-neutral-950 dark:focus-visible:bg-neutral-950"
+                                                >
+                                                    false
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <input
+                                        type="number"
+                                        x-model.number="value"
+                                        x-bind:class="kind==='number'?'':'hidden'"
+                                        class="rounded-sm border text-center outline-1"
+                                    />
+                                </div>
                             </div>
-                            <div class="grid flex-[1] grid-cols-3 justify-between gap-2" x-bind:class="edit?'grid':'hidden'">
-                                <input type="text" class="rounded-sm border" x-model="entry[0]" />
-                                <span class="" x-text="kind"></span>
-                                <span class="" x-text="entry[1]"></span>
+                            <div class="flex gap-2">
+                                <div>
+                                    <div class="aspect-square w-5" x-bind:class="edit && 'hidden'" x-on:click="edit=true">
+                                        <svg viewBox="0 0 24 24" class="w-full" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <path
+                                                id="Vector"
+                                                d="M4 16.0001V20.0001L8 20.0001L18.8686 9.13146L18.8695 9.13061C19.265 8.73516 19.4628 8.53736 19.5369 8.3092C19.6021 8.10835 19.6022 7.89201 19.5369 7.69117C19.4627 7.46284 19.2646 7.26474 18.8686 6.86872L17.1288 5.12892C16.7345 4.7346 16.5369 4.53704 16.3091 4.46301C16.1082 4.39775 15.8919 4.39775 15.691 4.46301C15.463 4.53709 15.2652 4.73488 14.8704 5.12976L14.8686 5.13146L4 16.0001Z"
+                                                stroke="currentColor"
+                                                stroke-width="2"
+                                                stroke-linecap="round"
+                                                stroke-linejoin="round"
+                                            >
+                                            </path>
+                                        </svg>
+                                    </div>
+                                    <div class="flex gap-2" x-bind:class="!edit && 'hidden'">
+                                        <span
+                                            class="aspect-square w-5"
+                                            x-on:mousedown="if(updateState(entry[0],[id,value])){edit=false}else{setError('invalid key/value')}"
+                                        >
+                                            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <path
+                                                    d="M4.89163 13.2687L9.16582 17.5427L18.7085 8"
+                                                    stroke="currentColor"
+                                                    stroke-width="2.5"
+                                                    stroke-linecap="round"
+                                                    stroke-linejoin="round"></path>
+                                            </svg>
+                                        </span>
+                                        <span
+                                            class="aspect-square w-5"
+                                            x-on:mousedown="id=entry[0];kind=typeof entry[1];value=entry[1];edit=false"
+                                        >
+                                            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <path
+                                                    d="M6.99486 7.00636C6.60433 7.39689 6.60433 8.03005 6.99486 8.42058L10.58 12.0057L6.99486 15.5909C6.60433 15.9814 6.60433 16.6146 6.99486 17.0051C7.38538 17.3956 8.01855 17.3956 8.40907 17.0051L11.9942 13.4199L15.5794 17.0051C15.9699 17.3956 16.6031 17.3956 16.9936 17.0051C17.3841 16.6146 17.3841 15.9814 16.9936 15.5909L13.4084 12.0057L16.9936 8.42059C17.3841 8.03007 17.3841 7.3969 16.9936 7.00638C16.603 6.61585 15.9699 6.61585 15.5794 7.00638L11.9942 10.5915L8.40907 7.00636C8.01855 6.61584 7.38538 6.61584 6.99486 7.00636Z"
+                                                    fill="currentColor"></path>
+                                            </svg>
+                                        </span>
+                                    </div>
+                                </div>
+                                <div class="aspect-square w-5" x-on:mousedown="$store.__state__.remove(entry[0])">
+                                    <svg
+                                        viewBox="0 0 24 24"
+                                        class="w-full"
+                                        stroke="currentColor"
+                                        fill="none"
+                                        xmlns="http://www.w3.org/2000/svg"
+                                    >
+                                        <path d="M10 12V17" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        </path>
+                                        <path d="M14 12V17" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        </path>
+                                        <path d="M4 7H20" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        </path>
+                                        <path
+                                            d="M6 10V18C6 19.6569 7.34315 21 9 21H15C16.6569 21 18 19.6569 18 18V10"
+                                            stroke-width="2"
+                                            stroke-linecap="round"
+                                            stroke-linejoin="round"
+                                        >
+                                        </path>
+                                        <path
+                                            d="M9 5C9 3.89543 9.89543 3 11 3H13C14.1046 3 15 3.89543 15 5V7H9V5Z"
+                                            stroke-width="2"
+                                            stroke-linecap="round"
+                                            stroke-linejoin="round"
+                                        >
+                                        </path>
+                                    </svg>
+                                </div>
                             </div>
-
-                            <svg
-                                x-on:click="$store.__state__.remove(entry[0])"
-                                class="aspect-square w-6 shrink-0"
-                                viewBox="0 0 24 24"
-                                fill="currentColor"
-                                xmlns="http://www.w3.org/2000/svg"
-                            >
-                                <path
-                                    d="M6.99486 7.00636C6.60433 7.39689 6.60433 8.03005 6.99486 8.42058L10.58 12.0057L6.99486 15.5909C6.60433 15.9814 6.60433 16.6146 6.99486 17.0051C7.38538 17.3956 8.01855 17.3956 8.40907 17.0051L11.9942 13.4199L15.5794 17.0051C15.9699 17.3956 16.6031 17.3956 16.9936 17.0051C17.3841 16.6146 17.3841 15.9814 16.9936 15.5909L13.4084 12.0057L16.9936 8.42059C17.3841 8.03007 17.3841 7.3969 16.9936 7.00638C16.603 6.61585 15.9699 6.61585 15.5794 7.00638L11.9942 10.5915L8.40907 7.00636C8.01855 6.61584 7.38538 6.61584 6.99486 7.00636Z"
-                                    fill="#currentColor"></path>
-                            </svg>
                         </div>
                     </template>
                 </div>
             </template>
         </div>
+        <span class="text-red-500" x-bind:class="(error===null) && 'hidden'" x-text="error"></span>
     </div>
 </div>

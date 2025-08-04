@@ -15,7 +15,7 @@ class ColorGenerator {
         if (!a) {
             return;
         }
-        this.#step = 255 / Math.pow(2, u + 1);
+        this.#step = 128 / Math.pow(2, u);
         let diff = 1;
         for (let i = 0; i < u * 3; ++i) {
             this.#numbers.push(...[...this.#numbers].reverse().map((val) => val + diff));
@@ -38,7 +38,7 @@ class ColorGenerator {
             "#" +
             [r, g, b]
                 .map((v) =>
-                    Math.ceil((v + 1) * s)
+                    Math.ceil((v + 1) * s - 1)
                         .toString(16)
                         .padStart(2, 0)
                 )
