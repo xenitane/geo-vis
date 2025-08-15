@@ -42,7 +42,7 @@
     "dependencies": {
         "@fontsource/geist-sans": "^5.2.5",
         "alpinejs": "^3.14.9",
-        "tailwindcss": "^4.1.11"
+        "tailwindcss": "^4.1.12"
     },
     "devDependencies": {
         "@astrojs/alpinejs": "^0.4.8",
